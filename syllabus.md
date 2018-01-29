@@ -1,22 +1,27 @@
 ---
 layout: page
 title: Syllabus
-catalog: WIS 6934
-credits: 3
-semester: Fall 2017
-professor: Dr. Ethan White and Kristina Riemer
-office: Room 1 in Building 150 (just north of Newins-Zeigler)
-email: ethanwhite@ufl.edu
-phone: 352-294-2081
-schedule: ['Tuesdays, 4:05-4:55, 222 Newins-Ziegler Hall',
-           'Fridays, 11:45-1:40, 219 Newins-Ziegler Hall']
-office_hours: Monday 2-3:15 and Wednesday 11-12
-office_hours_location: Newins-Zeigler 203
-TA: Andrew Marx
-TA_email: andrewjmarx@ufl.edu
+catalog: BIOL 328
+semester: Fall 2018
+
+
+professor: Prof. Andrew J. Kerkhoff and Dr. Susy Echeverría-Londoño
+office: Higley Hall 301
+email: kerkhoffa@kenyon.edu
+office_hours:
+
+professor2: Dr. Susy Echeverría-Londoño
+office2: Higley Hall 203
+email2: echeverrialondono1@kenyon.edu
+office_hours1:
+
+schedule: ['Fridays, 1:15-4:00, Higley']
+
+
+
 ---
 
-## {{ site.title }} 
+## {{ site.title }}
 
 {{ page.catalog }}, {{ page.credits }} Credits, {{ page.semester }}
 
@@ -27,9 +32,14 @@ TA_email: andrewjmarx@ufl.edu
 Office: {{ page.office }}
 
 Email (best way to contact us):
-[{{ page.email }}](mailto:{{ page.email }}), [kristina.riemer@ufl.edu](mailto:kristina.riemer@ufl.edu)
+[{{ page.email }}](mailto:{{ page.email }})
 
-Phone: {{ page.phone }}
+{{ page.professor2}}
+
+Office: {{ page.office2 }}
+
+Email (best way to contact us):
+[{{ page.email2 }}](mailto:{{ page.email2 }})
 
 
 ### Times & Location
@@ -78,7 +88,7 @@ There is no required text book for this class.
 
 
 ### Course Description
- 
+
 Computers are increasingly essential to the study of all aspects of
 biology. Data management skills are needed for entering data without errors,
 storing it in a usable way, and extracting key aspects of the data for
@@ -244,9 +254,9 @@ courtesy in all email messages, threaded discussions and chats.
 
 For issues with technical difficulties for E-learning in Canvas, please contact the UF Help Desk at:
 
-* Learning-support@ufl.edu 
+* Learning-support@ufl.edu
 * (352) 392-HELP - select option 2
-* https://lss.at.ufl.edu/help.shtml 
+* https://lss.at.ufl.edu/help.shtml
 
 Any requests for make-ups due to technical issues MUST be accompanied by the
 ticket number received from LSS when the problem was reported to them. The
