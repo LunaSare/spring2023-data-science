@@ -23,7 +23,7 @@ schedule: ['Fridays, 1:15-4:00pm, Higley Hall, Kerkhoff Lab']
 
 ## {{ site.title }}
 
-{{ page.catalog }}, {{ page.credits }} Credits, {{ page.semester }}
+{{ page.catalog }}, {{ page.semester }}
 
 ### Professor
 
@@ -76,8 +76,8 @@ Email: [{{ page.email }}](mailto:{{ page.email }}), [{{ page.email2 }}](mailto:{
 
 ## Web resources
 
-* RStudio CheatSheets https://www.rstudio.com/resources/cheatsheets/
-* Coding club tutorials https://ourcodingclub.github.io/tutorials/
+* [RStudio CheatSheets](https://www.rstudio.com/resources/cheatsheets/)
+* [Coding club tutorials](https://ourcodingclub.github.io/tutorials/)
 * R tips by Dolph Schluter https://www.zoology.ubc.ca/~schluter/R/
 * Exploratory Data Analysis with R by Dylan Childs http://dzchilds.github.io/aps-data-analysis-L1/
 
