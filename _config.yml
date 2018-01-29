@@ -9,16 +9,15 @@ kramdown:
 permalink:        pretty
 
 # Setup
-title:            Data Carpentry for Biologists
-description:      'Teaching the tools to get computers to do cool science'
+title:            Ecoinformatics
+description:      'A course for undergraduates covering computational approaches in macroecology'
 url:              http://www.datacarpentry.org/semester-biology
-baseurl:          /semester-biology
-email:            datacarpentrysemester@weecology.org
-feedbackurl:      https://docs.google.com/forms/d/e/1FAIpQLSdV_polFmoukgjcs1IC0Dd4iO1rdgwFnOds28xC_ma_z4tNIw
+baseurl:          /Ecoinformatics
+email:            susyelo@gmail.com
 author:
-  name:           'Ethan White'
-  url:            https://twitter.com/ethanwhite
+  name:           'Susy Echeverría and Drew Kerkhoff'
+  url:            https://kerkhofflab.org/
 
 github:
-  repo:           https://github.com/datacarpentry/semester-biology
+  repo:           https://github.com/GlobalEcologyBiogeography/Ecoinformatics.git
   #               Be sure the 'Issues' feature is activated in 'Settings'
