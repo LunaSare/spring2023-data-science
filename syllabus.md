@@ -27,7 +27,7 @@ schedule: ['Fridays, 1:15-4:00pm, Higley Hall, Kerkhoff Lab']
 
 ### Professor
 
-{{ page.professor }}
+#### {{ page.professor }}
 
 Office: {{ page.office }}
 
@@ -37,7 +37,7 @@ Email:
 Times: {{ page.office_hours }}
 
 
-{{ page.professor2}}
+#### {{ page.professor2}}
 
 Office: {{ page.office2 }}
 
