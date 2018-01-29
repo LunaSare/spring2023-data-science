@@ -6,7 +6,7 @@ and/or taxonomy) of biodiversity and the mechanisms that underlie them. This cou
 to provide integrated training for analyses on large environmental and ecological datasets to build
 a skillset of analytical techniques such as data wrangling, visualisation, and interpretation.
 
-The course website was adapted from Data Carpentry for Biologists website (http://www.datacarpentry.org/semester-biology/). As for their course material, instructors are welcome to modify and use this material for your own courses. I encourage collaborative development and contributions by other instructors, with the hopes that this will lead to better training and resources for everyone.
+_The course website was adapted from Data Carpentry for Biologists website (http://www.datacarpentry.org/semester-biology/). As for their course material, instructors are welcome to modify and use this material for your own courses. I encourage collaborative development and contributions by other instructors, with the hopes that this will lead to better training and resources for everyone_.
 
 For students:
 : <a href="{{ site.baseurl}}/syllabus">
