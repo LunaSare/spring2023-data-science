@@ -3,12 +3,9 @@ layout: page
 title: Computer Setup
 ---
 
-***WIS 6934 students will need their own laptops set up with SQL by the start of
-classes, R by week 3, and Git by week 8.***
-
 ### R
 
-Download and install the [R base system](http://cran.rstudio.com/). I recommend you use the [R studio](http://www.rstudio.com/products/rstudio/download/) to work with the base system.
+Download and install the [R base system](http://cran.rstudio.com/). We recommend you use the [R studio](http://www.rstudio.com/products/rstudio/download/) to work with the base system.
 
 ### Git
 
@@ -54,9 +51,29 @@ Git is a command line program. For older versions of **OS X (10.5-10.8)**
 use the most recent available installer labelled "snow-leopard" [available
 here](http://sourceforge.net/projects/git-osx-installer/files/.)
 
+##### Installing Xcode
+1. Open up the Terminal, type "xcode-select --install" and press Enter
+2. Click "Install" on the pop-up window
+3. Click Agree when the License Agreement appears
+
+
+
 #### Linux
 
 Git is probably already installed. If it is not already available on your
 machine you can try to install it via your distro's package manager. For
 Debian/Ubuntu run `sudo apt-get install git` and for Fedora run `sudo yum
 install git`.
+
+### Configure Git
+
+Once Git is installed, you should configure your email and user name to track your version history.
+
+1. Open up the Terminal or command line window
+2. Type and replace "Your name" and  your.email@domain.com from the following lines:
+
+```
+git config --global user.name "Your Name"
+git config --global user.email your.email@domain.com
+
+```
