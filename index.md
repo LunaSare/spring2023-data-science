@@ -1,15 +1,12 @@
 ---
 layout: default
 ---
+This course provides a thorough introduction to the study of broad-scale patterns (in time, space,
+and/or taxonomy) of biodiversity and the mechanisms that underlie them. This course also aims
+to provide integrated training for analyses on large environmental and ecological datasets to build
+a skillset of analytical techniques such as data wrangling, visualisation, and interpretation.
 
-This website hosts introductory material for teaching biologists how to interact
-with data including: data structure, database management systems, and
-programming for data manipulation, analysis, and visualization. It is designed
-to be used as a flipped university course and also to be useful for self-guided
-students. Instructors are welcome to modify and use the material for your own 
-courses. We encourage collaborative development and contributions by 
-instructors, with the hopes that this will lead to better training and resources 
-for everyone. 
+The course website was adapted from Data Carpentry for Biologists website (http://www.datacarpentry.org/semester-biology/). As for their course material, instructors are welcome to modify and use this material for your own courses. I encourage collaborative development and contributions by other instructors, with the hopes that this will lead to better training and resources for everyone.
 
 For Students
 : <a href="{{ site.baseurl}}/syllabus">
