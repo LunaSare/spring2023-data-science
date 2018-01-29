@@ -57,7 +57,7 @@ Times: {{ page.office_hours }}
 ### Website
 
 The syllabus and other relevant class information and resources will be posted
-at [{{ site.url}}]({{ site.baseurl }}/).
+at [https://globalecologybiogeography.github.io/Ecoinformatics/](https://globalecologybiogeography.github.io/Ecoinformatics/).
 Changes to the schedule will be posted to this site so please try to check it
 periodically for updates.
 
