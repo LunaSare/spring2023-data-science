@@ -78,8 +78,9 @@ Email: [{{ page.email }}](mailto:{{ page.email }}), [{{ page.email2 }}](mailto:{
 
 * [RStudio CheatSheets](https://www.rstudio.com/resources/cheatsheets/)
 * [Coding club tutorials](https://ourcodingclub.github.io/tutorials/)
-* R tips by Dolph Schluter https://www.zoology.ubc.ca/~schluter/R/
-* Exploratory Data Analysis with R by Dylan Childs http://dzchilds.github.io/aps-data-analysis-L1/
+* [R tips by Dolph Schluter](https://www.zoology.ubc.ca/~schluter/R/)
+* [Exploratory Data Analysis with R by Dylan Childs](http://dzchilds.github.io/aps-data-analysis-L1/)
+* [Data Carpentry for Biologists](http://www.datacarpentry.org/semester-biology/)
 
 
 ### Course Description
