@@ -51,7 +51,7 @@ Git is a command line program. For older versions of **OS X (10.5-10.8)**
 use the most recent available installer labelled "snow-leopard" [available
 here](http://sourceforge.net/projects/git-osx-installer/files/.)
 
-##### Installing Xcode
+**Installing Xcode**
 1. Open up the Terminal, type "xcode-select --install" and press Enter
 2. Click "Install" on the pop-up window
 3. Click Agree when the License Agreement appears
