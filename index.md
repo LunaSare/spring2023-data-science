@@ -8,6 +8,7 @@ a skillset of analytical techniques such as data wrangling, visualisation, and i
 
 The course website was adapted from Data Carpentry for Biologists website (http://www.datacarpentry.org/semester-biology/). As for their course material, instructors are welcome to modify and use this material for your own courses. I encourage collaborative development and contributions by other instructors, with the hopes that this will lead to better training and resources for everyone.
 
+For students:
 : <a href="{{ site.baseurl}}/syllabus">
   <i class="fa fa-file-text-o fa-fw"></i> Syllabus</a>
 : <a href="{{ site.baseurl}}/schedule">
