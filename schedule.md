@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Assignment Schedule
-assignments: ['Macroecology <br> *Computer setup*', 'Dimensions of biodiversity I <br> Intro to R and Version Control',
+assignments: ['Macroecology <br>  <span style="color:blue">Computer setup</span>', 'Dimensions of biodiversity I <br> Intro to R and Version Control',
 'Dimensions of biodiversity II <br> Project Structure']
 ---
 
