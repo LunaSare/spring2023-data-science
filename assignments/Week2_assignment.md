@@ -8,9 +8,9 @@ title: 'Dimensions of biodiversity I <br> <span style="color:gray">Intro to R an
 
 > Following this assignment students should be able to:
 >
-> - Insert objective 1
-> - Insert objective 2
-> - Insert objective 3
+> - Properly structure and R project
+> - create a new repository in git from Github
+> - clone a repository from Github using Rstudio
 
 {% include reading.html %}
 
@@ -20,11 +20,7 @@ title: 'Dimensions of biodiversity I <br> <span style="color:gray">Intro to R an
 
 ****
 
-Assignment Management
-
-1. Determine the `title` and `language` of your new or modified assignment.
-2. Add learning objectives.
-3. Name the file with the format: `language-short-description.md`in the
-   `assignments/` directory. The file must start with a `lower` case letter.
-4. Generate an `exercises:` list of `exercises/` `title:`.
-5. Add assignment `title:` to `schedule.md` `assignments:` list.
+1. Go to the Ecoinformatics classroom in [Github Classroom](https://classroom.github.com/classrooms)
+2. Click on the ``Projects Structure`` assignment
+3. Clone your repository in a local directory using Rstudio
+  - Check [Introduction to R and Version Control]({{ site.baseurl }}/materials/01_RIntro_VersionControl/01_RIntro_VersionControl.html)
