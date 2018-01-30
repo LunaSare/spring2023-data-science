@@ -1,7 +1,7 @@
 ---
 layout: page
 element: lecture
-title: 'Dimensions of biodiversity I'
+title: 'Dimensions of biodiversity I <br> <span style="color:gray">Intro to R and version control</span>'
 ---
 [Measuring biodiversity]({{ site.baseurl }}/materials/01_BiodiversityMeasures/01_BiodiversityMeasures.html)
 
