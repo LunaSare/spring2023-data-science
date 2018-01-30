@@ -1,0 +1,134 @@
+---
+title: "Reproducible project workflow"
+author: "Susy Echeverría Londoño and Drew Kerkhoff"
+output:
+  ioslides_presentation: default
+  beamer_presentation: default
+  slidy_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Project workflow
+
+```{r, out.width = "300px",fig.align="center"}
+knitr::include_graphics("./Figs/BES.png")
+```
+
+
+## Outline
+
+1. Set up R and R studio
+2. Install and set up a version control software
+3. Set up an online version control account
+4. Project folder structure
+5. File naming system 
+
+
+## 1. Set up R and R studio
+
+```{r, out.width = "80px"}
+knitr::include_graphics("../../Figs/Rlogo.png")
+```
+
+https://r.project.org is the official R webpage
+
+To download R, go to the Comprehensive R Archive Network. https://cran.r-project.org/ and simply click on the link for your operating system. 
+
+```{r, out.width = "80px"}
+knitr::include_graphics("../../Figs/RStudioLogo.png")
+```
+
+To download RStudio, go to https://www.rstudio.com/products/rstudio/download/
+
+
+## 1. Set up R and R studio
+
+```{r, out.width = "500px",fig.cap=paste("From Wickham and Grolemund, 2017"),fig.align="center"}
+knitr::include_graphics("../../Figs/rstudio-workspace.png")
+```
+
+
+## 2. Install and set up a version control software
+
+GitHub provides unlimited private repositories for educational users:
+https://education.github.com/discount_requests/new
+
+Your account needs to be associated with your Kenyon email address (@kenyon.edu)
+
+## 3. Set up an online version control account
+
+```{r, out.width = "400px",fig.align="center"}
+knitr::include_graphics("../../Figs/Github.png")
+```
+
+## 3. Join our classroom github repository
+
+https://classroom.github.com/classrooms/34753325-ecoinformatics
+
+## 3. Download and configure git on your machines
+
+- Download git https://git-scm.com/downloads
+- If you have windows also download gitbash
+
+## 3. Download and configure git on your machines
+
+- Open shell from Rstudio. Tools > Shell
+- Configure git with your name and email address
+
+```{bash,eval=FALSE,echo=TRUE}
+git config --global user.name "Your Name"
+git config --global user.email your.email@domain.com
+```
+
+## 4. Project folder structure
+
+1. Open the practical folder: https://github.com/GlobalEcologyBiogeography/Ecoinformatics
+
+2. Select a working directory and extract the practical files
+
+3. Open the R file (file1.R) in Rstudio
+
+4. Run the code in the file
+
+
+## Let's discuss!
+
+1. Is the code reproducible?
+2. How would you improve the code?
+3. Are the files names informative?
+
+## Working directory and portable code
+
+### **Absolute path**
+"C:/project_root_folder/data/species_dat.csv"
+
+### **Relative path**
+"data/species_dat.csv"
+
+## RStudio projects
+
+```{r,echo=FALSE, out.width = "500px",fig.align="center"}
+knitr::include_graphics("../Figs/projects_new.png")
+```
+
+
+## Project folder structure (some tips)
+
+* Separate your code into pipeline chunks
+
+```{r, out.width = "800px",fig.cap=paste("From Joseph V. Casillas, 2015"),fig.align="center"}
+knitr::include_graphics("./Figs/pipeline1.png")
+```
+
+ 
+* Comment your data and code
+* Separate temporal working data from raw data
+
+## 5. File naming system
+
+```{r, out.width = "600px",fig.align="center"}
+knitr::include_graphics("./Figs/Folder_structure.png")
+```
