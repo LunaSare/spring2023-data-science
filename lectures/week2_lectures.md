@@ -1,7 +1,7 @@
 ---
 layout: page
 element: lecture
-title: 'Macroecology <br> <span style="color:gray">Computer setup</span>'
+title: 'Dimensions of biodiversity I <br> <span style="color:gray">Intro to R and Version Control</span>'
 ---
 
 # Slides
