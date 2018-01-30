@@ -35,10 +35,9 @@ dat1<-read.csv("file2.csv")
 ```
 
 6. Using ``help(function)`` or ``?function`` describe what is being done in each section of the code
+  -
 7. Commit your changes
 8. Relabel and, if it is necessary, create new folders to organise your project for reproducibility
   - Check [here](http://www.datacarpentry.org/semester-biology/materials/project-structure/) for further information and examples
 9. Commit your final changes
 10. Check your commits history on your Github repository
-
-```
