@@ -2,18 +2,13 @@
 layout: page
 title: Assignment Schedule
 assignments: ['Macroecology <br> Computer setup', 'Dimensions of biodiversity I <br> Intro to R and Version Control',
-'Dimensions of biodiversity I <br> Projects Structure']
+'Dimensions of biodiversity II <br> Project Structure']
 ---
 
 [Assignment submission & checklist]({{ site.baseurl }}/materials/turn-in-checklist)
 
-## Lectures
-
 {% include assignments.html %}
 
-## Practicals
-
-{% include assignments_practicals.html %}
 
 
 <!-- Schedule Management
