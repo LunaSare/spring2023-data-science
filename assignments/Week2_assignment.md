@@ -1,7 +1,7 @@
 ---
 layout: page
 element: assignment
-title: 'Macroecology <br> <span style="color:gray">Computer setup</span>'              
+title: 'Dimensions of biodiversity I'              
 ---
 
 #### Learning Objectives
