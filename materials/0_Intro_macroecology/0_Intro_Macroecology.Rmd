@@ -1,0 +1,314 @@
+---
+title: "Global ecology and Biogeography"
+author: "Susy Echeverría-Londoño and Drew Kerkhoff"
+output:
+  rmdshower::shower_presentation:
+    self_contained: false
+    katex: false
+    ratio: 16x10
+    fig_caption: false
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Macroecology
+<div style="float: left; width: 50%;">
+
+```{r, out.width = "400px",fig.align="center",fig.cap=paste("Frontiers in Ecology and Evolution blog, 2015")}
+knitr::include_graphics("./figs/biogeography.jpg")
+```
+
+</div>
+<div style="float: right; width: 50%;">
+
+```{r, out.width = "500px",fig.align="left"}
+knitr::include_graphics("./figs/Ecology.jpg")
+```
+
+</div>
+
+<style>
+p.caption {
+  font-size: 0.6em;
+}
+</style>
+
+
+## Macroecology
+
+```{r, out.width = "550px",fig.align="center"}
+knitr::include_graphics("./figs/Brown_Maurer_paper.png")
+```
+<p class="note">Science,1989</p>
+
+- Patterns of biodiversity not explained by small scale experiments
+- "Study of ecological patterns and processes that characterize the assembly of continental biotas"
+- North American mammals and birds
+
+## Macroecology
+
+```{r, out.width = "350px",fig.align="center",fig.cap=paste("Brown & Maurer, 1989. Science")}
+knitr::include_graphics("./figs/Brown_Maurer_fig1.png")
+```
+<p class="note">Brown & Maurer, 1989. Science</p>
+
+## Macroecology
+How multiple samples can help us to understand large scale patterns.
+
+- Patterns (mainly descriptive)
+- Processes and mechanisms
+
+
+## Macroecology
+
+```{r, out.width = "550px",fig.align="center",fig.cap=paste("Humboldt, 1807. The Geography of Plants")}
+knitr::include_graphics("./figs/humboldt1.jpg")
+```
+<p class="note">Humboldt, 1807. The Geography of Plants</p>
+
+## Macroecology
+
+```{r, out.width = "400px",fig.align="center",fig.cap=paste("Morueta-Holme et al., 2015. PNAS")}
+knitr::include_graphics("./figs/humboldt_chimborazo.jpg")
+```
+<p class="note">Morueta-Holme et al., 2015. PNAS</p>
+
+
+## Broad scale patterns of biodiversity
+
+```{r, out.width = "350px",fig.align="center",fig.cap=paste("Taken from Maura 2017")}
+knitr::include_graphics("./figs/Maura_fig1Temporal.png")
+```
+<p class="note">Taken from Maura 2017</p>
+
+
+## Broad scale patterns of biodiversity
+
+<div style="float: left; width: 50%;">
+
+```{r, out.width = "350px", fig.cap=paste("Taken from Maura 2017"),fig.align='left'}
+knitr::include_graphics("./figs/Maura_fig1Spatial.png")
+```
+<p class="note">Taken from Maura 2017</p>
+
+</div>
+<div style="float: right; width: 50%;">
+
+- <span style="color:red">Plot</span> 
+- <span style="color:red">Transect</span>
+- <span style="color:red">Region</span> 
+- <span style="color:red">Continent</span>
+- <span style="color:red">Globe</span> 
+
+
+</div>
+
+
+## Broad scale patterns of biodiversity
+<div style="float: left; width: 50%;">
+
+```{r, out.width = "350px",fig.cap=paste("Taken from Maura 2017"),fig.align='left'}
+knitr::include_graphics("./figs/Maura_fig1Taxon.png")
+```
+<p class="note">Taken from Maura 2017</p>
+
+</div>
+<div style="float: right; width: 50%;">
+
+- <span style="color:green">Individual</span> 
+- <span style="color:green">Species</span>
+- <span style="color:green">Population</span> 
+- <span style="color:green">Assemblage</span>
+- <span style="color:green">Community</span> 
+
+</div>
+
+## Broad scale patterns of biodiversity
+<div style="float: left; width: 50%;">
+
+```{r, out.width = "350px",fig.cap=paste("Taken from Maura 2017"),fig.align='left'}
+knitr::include_graphics("./figs/Maura_fig1Temporal.png")
+```
+
+<p class="note">Taken from Maura 2017</p>
+
+</div>
+
+<div style="float: right; width: 50%;">
+
+- <span style="color:blue">Day</span> 
+- <span style="color:blue">Month</span>
+- <span style="color:blue">Year</span> 
+- <span style="color:blue">Century</span>
+- <span style="color:blue">Geological time</span> 
+
+</div>
+
+
+
+## Questions in macroecology
+
+```{r, out.width = "450px",fig.align="center",fig.cap=paste("Taken from Maura 2017")}
+knitr::include_graphics("./figs/Maura_cube.png")
+```
+<p class="note">Taken from Maura 2017</p>
+
+## Traditional Ecology
+
+```{r, out.width = "450px",fig.cap=paste("Taken from Maura 2017"),fig.align='center'}
+knitr::include_graphics("./figs/Maura_tradEcology.png")
+```
+
+<p class="note">Taken from Maura 2017</p>
+
+## Questions in macroecology
+<div style="float: left; width: 40%;">
+
+```{r, out.width = "350px",fig.align='left'}
+knitr::include_graphics("./figs/Maura_CommonMacro.png")
+```
+<p class="note">Taken from Maura 2017</p>
+
+</div>
+
+<div style="float: center; width: 20%;">
+
+</div>
+
+<div style="float: right; width: 40%;">
+
+```{r, out.width = "300px",fig.cap=paste("Orme et al., 2005"),fig.align='left'}
+knitr::include_graphics("./figs/Orme_etal_2005.png")
+```
+
+</div>
+
+
+## Questions in macroevolution
+<div style="float: left; width: 50%;">
+
+```{r, out.width = "400px",fig.cap=paste("Taken from Maura 2017"),fig.align='left'}
+knitr::include_graphics("./figs/Maura_DivStudies.png")
+```
+</div>
+
+<div style="float: right; width: 50%;">
+```{r, out.width = "370px",fig.cap=paste("Sansom et al., 2014"),fig.align='left'}
+knitr::include_graphics("./figs/F1.large.jpg")
+```
+<p class="note">Sansom et al., 2014. Proc. R. Soc. B</p>
+
+</div>
+
+
+
+## Macroevolution
+Large scale approach at any level (taxonomic, spatial, temporal), not **all** levels
+
+```{r, out.width = "200px",fig.align='center'}
+knitr::include_graphics("./figs/GlobalEcoBio.png")
+```
+
+
+## Macroecology
+### **As a result of increasing availability of information**
+
+- High-resolution datasets (geographic records)
+- List of species
+- Molecular information (large molecular phylogenies)
+- Computational power
+- New analytical approaches
+
+
+## Data-intensive science
+
+```{r, out.width = "500px",fig.cap=paste("Page, 2013"), fig.align='center'}
+knitr::include_graphics("./figs/rodpagefig.png")
+```
+<p class="note">Page, 2013</p>
+
+
+## Ecoinformatics challenges: the big data era
+```{r, out.width = "600px", fig.align='center'}
+knitr::include_graphics("./figs/nmnhcollections_02.jpg")
+```
+
+
+## Taxonomic names
+
+```{r, out.width = "850px",fig.cap=paste("Page, 2013"), fig.align='center'}
+knitr::include_graphics("./figs/rodpagetaxonfig.png")
+```
+<p class="note">Page, 2013</p>
+
+## Geographic records
+
+```{r, out.width = "600px", fig.align='center'}
+knitr::include_graphics("./figs/Gbif_fig.png")
+```
+
+## Ecoinformatics challenges
+```{r, out.width = "600px", fig.align='center'}
+knitr::include_graphics("./figs/predicts_fig1.png")
+```
+
+## Global Ecology and Biogeography
+
+### Broad-scale patterns of biodiversity
+- Diversity gradients
+- Range size
+- Body size
+- Biogeography
+- Anthropocene
+
+## Global Ecology and Biogeography
+
+### Ecoinformatics: Reproducibility!
+
+- Data wrangling
+- Data analysis and statistics
+- Visualizations
+- Spatial analysis
+
+## Ecoinformatics: Reproducibility!
+
+```{r, out.width = "600px", fig.align='center'}
+knitr::include_graphics("./figs/R_for_data_science.png")
+```
+<p class="note">Wickham & Grolemund, 2017. </p>
+
+## Ecoinformatics skills 
+
+<div style="float: left; width: 50%;">
+
+### **The big data era**
+- Data scientists
+- Civil services
+- Banking, agriculture, food production, utilities, medicine, transport, architecture, car industry... 
+
+</div>
+
+<div style="float: left; width: 50%;">
+```{r, out.width = "450px", fig.align='center'}
+knitr::include_graphics("./figs/data_science.jpg")
+```
+</div>
+
+## Ecoinformatics skills 
+
+- Forecasting numbers of cancer patients in the future
+- Monitoring sewer network performance
+- Predicting car sales
+- Analysing amounts of green space in cities
+
+## Ecoinformatics skills
+- R community examples:
+https://www.r-bloggers.com/pwfslsmoke-1-0-visualizing-wildfire-smoke-data/
+
+## Ecoinformatics skills
+- https://www.drivendata.org/
+- https://www.kaggle.com/
