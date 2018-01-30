@@ -17,7 +17,7 @@ title: 'Dimensions of biodiversity I <br> <span style="color:gray">Intro to R an
 {% include assignment.html %}
 
 1. Go to the Ecoinformatics classroom in [Github Classroom](https://classroom.github.com/classrooms)
-2. Click on the ``Projects Structure`` assignment
+2. Click on the ``02_Project_Structure`` assignment or access directly [here](https://classroom.github.com/a/8fd7EBJj)
 3. Clone your repository in a local directory using Rstudio
   - You can find last lecture slides [here]({{ site.baseurl }}/materials/01_RIntro_VersionControl/01_RIntro_VersionControl.html)
 4. Open the .R file and check its general structure
