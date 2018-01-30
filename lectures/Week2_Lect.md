@@ -1,6 +1,6 @@
 ---
 layout: page
-element: lecture
+element: Lecture
 title: 'Dimensions of biodiversity I'              
 ---
 
