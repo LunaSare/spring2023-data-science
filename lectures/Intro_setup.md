@@ -1,7 +1,7 @@
 ---
 layout: page
 element: lecture
-title: 'Macroecology'
+title: 'Macroecology <br> <span style="color:gray">Computer setup</span>'
 ---
 
 [Macroecology slides]({{ site.baseurl }}/materials/0_Intro_macroecology/0_Intro_Macroecology.html)
