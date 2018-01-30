@@ -6,4 +6,4 @@ title: 'Macroecology <br> <span style="color:gray">Computer setup</span>'
 [Macroecology slides]({{ site.baseurl }}/materials/0_Intro_macroecology/0_Intro_Macroecology.html)
 
 
-[Intro to reproducibility slides]({{ site.baseurl }}/materials/0_Intro_reproducibility/0_Intro_reproducibility.html)
+[Introduction to reproducibility slides]({{ site.baseurl }}/materials/0_Intro_reproducibility/0_Intro_reproducibility.html)
