@@ -1,7 +1,7 @@
 ---
 layout: page
 element: assignment
-title: 'Dimensions of biodiversity I'              
+title: 'Dimensions of biodiversity II <br> <span style="color:gray">Project Structure</span>'             
 ---
 
 #### Learning Objectives
