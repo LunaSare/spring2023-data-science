@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Assignment Schedule
-assignments: ['Computer setup', 'Intro to R and Version Control',
+assignments: ['Macroecology | _Computer setup_', 'Intro to R and Version Control',
 'Projects Structure', 'Working with Data', 'Data exploration', 'Data Visualization',
 '', '', '', '',
 '', '', '',
