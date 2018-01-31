@@ -11,3 +11,4 @@ Lectures slides
 Practical slides
 * [Introduction to reproducibility](Intro_setup)
 * [Introduction to R and version control](Week2_lectures)
+* [Manipulating data](Week3_lectures)
