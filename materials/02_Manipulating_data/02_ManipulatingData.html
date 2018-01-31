@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manipulating data in R</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Susy Echeverría-Londoño and Drew Kerkhoff" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Manipulating data in R
+### Susy Echeverría-Londoño and Drew Kerkhoff
+
+---
+
+
+
+
+class: inverse, center, middle
+
+# Data format
+
+---
+class: middle
+# Entering data in a spreadsheet program
+
+Common formats: 
+- `*.txt`
+- `*.csv(comma separated text)`
+
+
+---
+# From Data carpentry
+
+1. Download the data [here](https://ndownloader.figshare.com/files/2252083)
+
+--
+
+2. Open up in a spreadsheet program
+  - Two surveys from different field assistants (2013, 2014)
+
+--
+
+3. Discuss with the person next to you what is wrong with this spreadsheet
+
+--
+
+4. Write down the steps you would need to clean up the data
+
+.footnote[
+Bahlai and Pawlik, 2017
+]
+
+---
+# Common Spreadsheet Errors
+
+* Using multiple tables
+
+--
+
+* Using multiple tabs
+
+--
+* Not filling zeros (blanks, NA, na, N/A)
+
+
+--
+* Formatting: highlighting cells
+
+
+--
+* Formatting: "pretty cells"
+
+
+--
+* Comments or more than one information in a cell
+
+
+--
+* Problematic field names
+  * Avoid spaces "variable name"
+  * Use always underscores "variable_name"
+  
+
+.footnote[
+Bahlai and Pawlik, 2017
+]
+
+---
+# Variables names
+
+![](./figs/Var_names_examples.png)
+
+.footnote[
+Bahlai and Pawlik, 2017
+]
+
+---
+# Exercise: Structuring data in spreadsheets
+
+1. Put all your variables in columns (e.g., "weight" or "temperature")
+
+2. Put each observation in its own row
+
+3. Don't combine multiple pieces of information in one cell. 
+  * bad: Species-Sex
+  * better: Species, Sex
+
+4. Leave the raw data raw - don't change it!
+
+5. Keep track of the steps you took in your clean up or analysis.
+
+6. Export the cleaned data to a text-based format like csv (comma-separated values) or txt format.
+
+---
+
+class: inverse, center, middle
+
+# Manipulating data
+
+---
+
+# Importing data in R
+
+
+```r
+mydata &lt;- read.csv("/directoryname/filename.csv")
+
+mydata &lt;- read.table("/directoryname/filename.csv",
+                     sep = ",",
+                     header = TRUE)
+
+mydata &lt;- read.csv(file.choose()) ## No recommended!      
+```
+
+---
+
+# Importing data in R
+
+
+```r
+# data ----
+mydata &lt;- read.csv("Exercise/data/Survey_data_clean.csv")
+
+str(mydata)
+```
+
+```
+## 'data.frame':	37 obs. of  8 variables:
+##  $ Species     : Factor w/ 4 levels "DM","DM ","DO",..: 2 1 1 1 1 1 1 1 1 1 ...
+##  $ Plot        : int  2 7 3 1 3 7 4 4 7 7 ...
+##  $ Sex         : Factor w/ 5 levels " M","F","F ",..: 2 4 4 5 4 4 2 2 1 2 ...
+##  $ Weight      : int  NA 33 NA NA 40 48 29 46 36 35 ...
+##  $ Year        : int  2013 2013 2013 2013 2013 2013 2013 2013 2013 2013 ...
+##  $ Month       : int  7 7 7 7 7 7 7 7 7 7 ...
+##  $ Day         : int  16 16 16 16 18 18 18 18 18 18 ...
+##  $ Weight_Notes: Factor w/ 3 levels "","scale not calibrated",..: 1 1 1 1 1 1 1 1 1 1 ...
+```
+
+```r
+levels(mydata$Sex)
+```
+
+```
+## [1] " M" "F"  "F " "M"  "M "
+```
+
+---
+
+# Exploring your data
+
+
+```r
+# data ----
+mydata &lt;- read.csv("Exercise/data/Survey_data_clean.csv", 
+                   stringsAsFactors = FALSE,
+                   strip.white = TRUE,
+                   na.strings = c("NA",""))
+str(mydata)
+```
+
+```
+## 'data.frame':	37 obs. of  8 variables:
+##  $ Species     : chr  "DM" "DM" "DM" "DM" ...
+##  $ Plot        : int  2 7 3 1 3 7 4 4 7 7 ...
+##  $ Sex         : chr  "F" "M" "M" "M" ...
+##  $ Weight      : int  NA 33 NA NA 40 48 29 46 36 35 ...
+##  $ Year        : int  2013 2013 2013 2013 2013 2013 2013 2013 2013 2013 ...
+##  $ Month       : int  7 7 7 7 7 7 7 7 7 7 ...
+##  $ Day         : int  16 16 16 16 18 18 18 18 18 18 ...
+##  $ Weight_Notes: chr  NA NA NA NA ...
+```
+
+```r
+unique(mydata$Sex)
+```
+
+```
+## [1] "F" "M"
+```
+
+---
+# Exploring your data
+
+
+```r
+# libs ----
+library(tidyverse)
+
+# data ----
+mydata &lt;- read_csv("Exercise/data/Survey_data_clean.csv")
+
+mydata
+```
+
+```
+## # A tibble: 37 x 8
+##    Species  Plot   Sex Weight  Year Month   Day Weight_Notes
+##      &lt;chr&gt; &lt;int&gt; &lt;chr&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;        &lt;chr&gt;
+##  1      DM     2     F     NA  2013     7    16         &lt;NA&gt;
+##  2      DM     7     M     33  2013     7    16         &lt;NA&gt;
+##  3      DM     3     M     NA  2013     7    16         &lt;NA&gt;
+##  4      DM     1     M     NA  2013     7    16         &lt;NA&gt;
+##  5      DM     3     M     40  2013     7    18         &lt;NA&gt;
+##  6      DM     7     M     48  2013     7    18         &lt;NA&gt;
+##  7      DM     4     F     29  2013     7    18         &lt;NA&gt;
+##  8      DM     4     F     46  2013     7    18         &lt;NA&gt;
+##  9      DM     7     M     36  2013     7    18         &lt;NA&gt;
+## 10      DM     7     F     35  2013     7    18         &lt;NA&gt;
+## # ... with 27 more rows
+```
+
+---
+
+# Exploring your data
+
+
+```r
+class(mydata$Sex)
+```
+
+```
+## [1] "character"
+```
+
+```r
+levels(mydata$Sex)
+```
+
+```
+## NULL
+```
+
+```r
+unique(mydata$Sex)
+```
+
+```
+## [1] "F" "M"
+```
+
+---
+
+# Exploring your data
+
+
+```r
+mydata$Sex&lt;-factor(mydata$Sex, levels=c("F","M"))
+
+class(mydata$Sex)
+```
+
+```
+## [1] "factor"
+```
+
+```r
+levels(mydata$Sex)
+```
+
+```
+## [1] "F" "M"
+```
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

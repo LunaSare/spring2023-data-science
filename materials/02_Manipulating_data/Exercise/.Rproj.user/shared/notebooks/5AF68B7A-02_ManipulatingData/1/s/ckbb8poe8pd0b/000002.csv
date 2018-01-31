@@ -1,0 +1,8 @@
+"0","# lib ----"
+"0","library(tidyverse)"
+"0","# data ----"
+"0","mydata <- read.csv(""Exercise/data/Survey_data_clean.csv"", "
+"0","                   stringsAsFactors = FALSE,"
+"0","                   strip.white = TRUE,"
+"0","                   na.strings = c(""NA"",""""))"
+"0","mydata<-read_csv(""Exercise/data/Survey_data_clean.csv"")"

@@ -1,0 +1,214 @@
+---
+title: "Manipulating data in R"
+author: "Susy Echeverría-Londoño and Drew Kerkhoff"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+class: inverse, center, middle
+
+# Data format
+
+---
+class: middle
+# Entering data in a spreadsheet program
+
+Common formats: 
+- `*.txt`
+- `*.csv(comma separated text)`
+
+
+---
+# From Data carpentry
+
+1. Download the data [here](https://ndownloader.figshare.com/files/2252083)
+
+--
+
+2. Open up in a spreadsheet program
+  - Two surveys from different field assistants (2013, 2014)
+
+--
+
+3. Discuss with the person next to you what is wrong with this spreadsheet
+
+--
+
+4. Write down the steps you would need to clean up the data
+
+.footnote[
+Bahlai and Pawlik, 2017
+]
+
+---
+# Common Spreadsheet Errors
+
+* Using multiple tables
+
+--
+
+* Using multiple tabs
+
+--
+* Not filling zeros (blanks, NA, na, N/A)
+
+
+--
+* Formatting: highlighting cells
+
+
+--
+* Formatting: "pretty cells"
+
+
+--
+* Comments or more than one information in a cell
+
+
+--
+* Problematic field names
+  * Avoid spaces "variable name"
+  * Use always underscores "variable_name"
+  
+
+.footnote[
+Bahlai and Pawlik, 2017
+]
+
+---
+# Variables names
+
+![](./figs/Var_names_examples.png)
+
+.footnote[
+Bahlai and Pawlik, 2017
+]
+
+---
+# Exercise: Structuring data in spreadsheets
+
+1. Put all your variables in columns (e.g., "weight" or "temperature")
+
+2. Put each observation in its own row
+
+3. Don't combine multiple pieces of information in one cell. 
+  * bad: Species-Sex
+  * better: Species, Sex
+
+4. Leave the raw data raw - don't change it!
+
+5. Keep track of the steps you took in your clean up or analysis.
+
+6. Export the cleaned data to a text-based format like csv (comma-separated values) or txt format.
+
+---
+
+class: inverse, center, middle
+
+# Importing and exploring data
+
+---
+
+# Importing data in R
+
+```{r eval=FALSE, tidy=FALSE}
+mydata <- read.csv("/directoryname/filename.csv")
+
+mydata <- read.table("/directoryname/filename.csv",
+                     sep = ",",
+                     header = TRUE)
+
+mydata <- read.csv(file.choose()) ## No recommended!      
+```
+
+---
+
+# Importing data in R
+
+```{r tidy=FALSE, message=FALSE, warning=FALSE}
+
+# data ----
+mydata <- read.csv("Exercise/data/Survey_data_clean.csv")
+
+str(mydata)
+
+levels(mydata$Sex)
+
+```
+
+---
+
+# Exploring your data
+
+```{r tidy=FALSE, message=FALSE, warning=FALSE}
+
+# data ----
+mydata <- read.csv("Exercise/data/Survey_data_clean.csv", 
+                   stringsAsFactors = FALSE,
+                   strip.white = TRUE,
+                   na.strings = c("NA",""))
+str(mydata)
+
+unique(mydata$Sex)
+
+```
+
+---
+# Exploring your data
+
+```{r tidy=FALSE, message=FALSE, warning=FALSE}
+
+# libs ----
+library(tidyverse)
+
+# data ----
+mydata <- read_csv("Exercise/data/Survey_data_clean.csv")
+
+mydata
+```
+
+---
+
+# Exploring your data
+
+```{r tidy=FALSE, message=FALSE, warning=FALSE}
+class(mydata$Sex)
+
+levels(mydata$Sex)
+
+unique(mydata$Sex)
+```
+
+---
+
+# Exploring your data
+
+```{r tidy=FALSE, message=FALSE, warning=FALSE}
+mydata$Sex<-factor(mydata$Sex, levels=c("F","M"))
+
+class(mydata$Sex)
+
+levels(mydata$Sex)
+```
+
+---
+
+class: inverse, center, middle
+
+# Manipulating data
+
+
+---
+
+# Data carpentry 
+
+

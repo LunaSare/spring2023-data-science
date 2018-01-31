@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# libraries ---------------------------------------------------------------\nlibrary(tidyverse)\n\n\n# Download data -----------------------------------------------------------\ndownload.file(\"https://ndownloader.figshare.com/files/2292169\",\n              \"data/portal_data_joined.csv\")\n\n# Read data -----------------------------------------------------------\ndat_mammals<-read.csv(\"./data/portal_data_joined.csv\")\nhead(dat_mammals)\nplot(dat_mammals$sex)\n\ndat_mammals<-read_csv(\"./data/portal_data_joined.csv\")\nplot(dat_mammals$sex)\n\ndat_mammals$sex<-as.factor(dat_mammals$sex)\nplot(dat_mammals$sex)\n\n\n# Inspecting data ------------------------------------------------------------\n# 1. summary\n\n\n# Manipulating data ------------------------------------------------------------\nsummary(dat_mammals)\n\n# 1. Selecting columns and filtering rows\n# 2. Create new columns or variables\n# 3. Split-apply-combine data analysis\n# 4. summarize() function\n# 5. Tallying\n# 6. Reshaping data (gather and spread)\n# 7. Export data\n# 8. Pipes\n\n\n",
+    "created" : 1517438224602.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3139833953",
+    "id" : "8BC8EF61",
+    "lastKnownWriteTime" : 1517440565,
+    "last_content_update" : 1517440565010,
+    "path" : "~/Desktop/02_Manipulating_data/Exercise/Manipulating_Data.R",
+    "project_path" : "Manipulating_Data.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

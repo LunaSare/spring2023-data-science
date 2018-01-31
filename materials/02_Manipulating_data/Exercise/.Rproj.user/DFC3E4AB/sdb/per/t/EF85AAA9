@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"Manipulating data in R\"\nauthor: \"Susy Echeverría-Londoño and Drew Kerkhoff\"\noutput:\n  xaringan::moon_reader:\n    lib_dir: libs\n    nature:\n      highlightStyle: github\n      highlightLines: true\n      countIncrementalSlides: false\n---\n\n```{r setup, include=FALSE}\noptions(htmltools.dir.version = FALSE)\n```\n\nclass: inverse, center, middle\n\n# Data format\n\n---\nclass: middle\n# Entering data in a spreadsheet program\n\nCommon formats: \n- `*.txt`\n- `*.csv(comma separated text)`\n\n\n---\n# From Data carpentry\n\n1. Download the data [here](https://ndownloader.figshare.com/files/2252083)\n\n--\n\n2. Open up in a spreadsheet program\n  - Two surveys from different field assistants (2013, 2014)\n\n--\n\n3. Discuss with the person next to you what is wrong with this spreadsheet\n\n--\n\n4. Write down the steps you would need to clean up the data\n\n.footnote[\nBahlai and Pawlik, 2017\n]\n\n---\n# Common Spreadsheet Errors\n\n* Using multiple tables\n\n--\n\n* Using multiple tabs\n\n--\n* Not filling zeros (blanks, NA, na, N/A)\n\n\n--\n* Formatting: highlighting cells\n\n\n--\n* Formatting: \"pretty cells\"\n\n\n--\n* Comments or more than one information in a cell\n\n\n--\n* Problematic field names\n  * Avoid spaces \"variable name\"\n  * Use always underscores \"variable_name\"\n  \n\n.footnote[\nBahlai and Pawlik, 2017\n]\n\n---\n# Variables names\n\n![](./figs/Var_names_examples.png)\n\n.footnote[\nBahlai and Pawlik, 2017\n]\n\n---\n# Exercise: Structuring data in spreadsheets\n\n1. Put all your variables in columns (e.g., \"weight\" or \"temperature\")\n\n2. Put each observation in its own row\n\n3. Don't combine multiple pieces of information in one cell. \n  * bad: Species-Sex\n  * better: Species, Sex\n\n4. Leave the raw data raw - don't change it!\n\n5. Keep track of the steps you took in your clean up or analysis.\n\n6. Export the cleaned data to a text-based format like csv (comma-separated values) or txt format.\n\n---\n\nclass: inverse, center, middle\n\n# Importing and exploring data\n\n---\n\n# Importing data in R\n\n```{r eval=FALSE, tidy=FALSE}\nmydata <- read.csv(\"/directoryname/filename.csv\")\n\nmydata <- read.table(\"/directoryname/filename.csv\",\n                     sep = \",\",\n                     header = TRUE)\n\nmydata <- read.csv(file.choose()) ## No recommended!      \n```\n\n---\n\n# Importing data in R\n\n```{r tidy=FALSE, message=FALSE, warning=FALSE}\n\n# data ----\nmydata <- read.csv(\"Exercise/data/Survey_data_clean.csv\")\n\nstr(mydata)\n\nlevels(mydata$Sex)\n\n```\n\n---\n\n# Exploring your data\n\n```{r tidy=FALSE, message=FALSE, warning=FALSE}\n\n# data ----\nmydata <- read.csv(\"Exercise/data/Survey_data_clean.csv\", \n                   stringsAsFactors = FALSE,\n                   strip.white = TRUE,\n                   na.strings = c(\"NA\",\"\"))\nstr(mydata)\n\nunique(mydata$Sex)\n\n```\n\n---\n# Exploring your data\n\n```{r tidy=FALSE, message=FALSE, warning=FALSE}\n\n# libs ----\nlibrary(tidyverse)\n\n# data ----\nmydata <- read_csv(\"Exercise/data/Survey_data_clean.csv\")\n\nmydata\n```\n\n---\n\n# Exploring your data\n\n```{r tidy=FALSE, message=FALSE, warning=FALSE}\nclass(mydata$Sex)\n\nlevels(mydata$Sex)\n\nunique(mydata$Sex)\n```\n\n---\n\n# Exploring your data\n\n```{r tidy=FALSE, message=FALSE, warning=FALSE}\nmydata$Sex<-factor(mydata$Sex, levels=c(\"F\",\"M\"))\n\nclass(mydata$Sex)\n\nlevels(mydata$Sex)\n```\n\n---\n\nclass: inverse, center, middle\n\n# Manipulating data\n\n\n---\n\n# Data carpentry \n\n\n",
+    "created" : 1517437386644.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4090102019",
+    "id" : "EF85AAA9",
+    "lastKnownWriteTime" : 1517438140,
+    "last_content_update" : 1517438140810,
+    "path" : "~/Desktop/02_Manipulating_data/02_ManipulatingData.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "last_setup_crc32" : "DDB010Ce907aa8d"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
