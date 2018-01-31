@@ -16,12 +16,11 @@ title: 'Dimensions of biodiversity I <br> <span style="color:gray">Intro to R an
 
 {% include assignment.html %}
 
-1. Go to the Ecoinformatics classroom in [Github Classroom](https://classroom.github.com/classrooms)
-2. Click on the ``02_Project_Structure`` assignment or access directly [here](https://classroom.github.com/a/8fd7EBJj)
-3. Clone your repository in a local directory using Rstudio
+1. Accept the Projects Structure assignment [here](https://classroom.github.com/a/8fd7EBJj)
+2. Clone your repository in a local directory using Rstudio
   - You can find last lecture slides [here]({{ site.baseurl }}/materials/01_RIntro_VersionControl/01_RIntro_VersionControl.html)
-4. Open the .R file and check its general structure
-5. Comment and create sections within the R code file (e.g., libraries, data, plots, etc)
+3. Open the .R file and check its general structure
+4. Comment and create sections within the R code file (e.g., libraries, data, plots, etc)
 
 ```r
 # LIBS -----------------------------
@@ -34,10 +33,11 @@ library(lubridate)
 dat1<-read.csv("file2.csv")
 ```
 
-6. Using ``help(function)`` or ``?function`` describe what is being done in each section of the code
-  -
-7. Commit your changes
-8. Relabel and, if it is necessary, create new folders to organise your project for reproducibility
-  - Check [here](http://www.datacarpentry.org/semester-biology/materials/project-structure/) for further information and examples
-9. Commit your final changes
-10. Check your commits history on your Github repository
+5. Using ``help(function)`` or ``?function`` describe what is being done in each section of the code
+
+6. Commit your changes
+
+9. Relabel and, if it is necessary, create new folders to organise your project for reproducibility
+  * Check [here](http://www.datacarpentry.org/semester-biology/materials/project-structure/) for further information and examples
+10. Commit your final changes
+11. Check your commits history on your Github repository
