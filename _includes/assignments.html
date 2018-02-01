@@ -3,7 +3,7 @@
   <tr>
     <th width="50">Week</th>
     <th width="300">Lesson</th>
-    <th width="50">Reading</th>
+    <th width="100">Readings</th>
     <th width="50">Lecture</th>
     <th width="50">Assignment</th>
   </tr>
@@ -12,9 +12,11 @@
 
     {% for otherpage in site.pages %}
       {% if otherpage.title == assignment and otherpage.element == 'assignment' %}
+        {% capture language %}{{ otherpage.language }}{% endcapture %}
         {% capture assignment_link %}{{ otherpage.url | prepend: site.baseurl }}{% endcapture %}
         {% break %}
       {% endif %}
+      {% assign language = nil %}
       {% assign assignment_link = nil %}
     {% endfor %}
 
