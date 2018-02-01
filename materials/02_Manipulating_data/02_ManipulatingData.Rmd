@@ -193,7 +193,7 @@ unique(mydata$Sex)
 # Exploring your data
 
 ```{r tidy=FALSE, message=FALSE, warning=FALSE}
-mydata$Sex<-factor(mydata$Sex, levels=c("F","M"))
+mydata$Sex<-as.factor(mydata$Sex)
 
 class(mydata$Sex)
 

@@ -268,7 +268,7 @@ unique(mydata$Sex)
 
 
 ```r
-mydata$Sex&lt;-factor(mydata$Sex, levels=c("F","M"))
+mydata$Sex&lt;-as.factor(mydata$Sex)
 
 class(mydata$Sex)
 ```
