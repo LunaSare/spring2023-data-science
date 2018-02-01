@@ -13,7 +13,7 @@
 # 2.1. What is the class of the data, and the variables of the data?
 # 2.2. What are the main dimensions of the data? (i.e., number of columns and rows)
 # 2.3. Check the first and last 6 rows of the data
-# 2.4. What are the main variables of the data? 
+# 2.4. What are the main variables of the data?
 # 2.5. Check the summary statistics for each column
 
 # 3. Factors in R ------------------------------------------------------------
