@@ -35,7 +35,7 @@ Common formats:
 ---
 # From Data carpentry
 
-1. Download the data [here](https://ndownloader.figshare.com/files/2252083)
+1. Download the data [here](https://ndownloader.figshare.com/files/2252083) (Ernest et al., 2017. FigShare)
 
 --
 
@@ -119,7 +119,7 @@ Bahlai and Pawlik, 2017
 
 class: inverse, center, middle
 
-# Manipulating data
+# Importing and exploring data
 
 ---
 
@@ -283,6 +283,286 @@ levels(mydata$Sex)
 
 ```
 ## [1] "F" "M"
+```
+
+---
+
+class: inverse, center, middle
+
+# Manipulating data
+
+---
+
+# Exercise 
+
+* Download the code handout from [here]()
+
+
+
+```r
+# Download data
+
+download.file("url", "./data/portal_data_joined.csv")
+
+# Read data
+mydata&lt;-read_csv("./data/portal_data_joined.csv")
+
+mydata&lt;-read.csv("./data/portal_data_joined.csv")
+```
+---
+
+# Inspecting your data
+
+
+```r
+# Dimensions
+dim(mydata)
+ncol(mydata)
+nrow(mydata)
+
+# Content
+head(mydata)
+tail(mydata)
+
+# Variables and observation names
+names(mydata)
+rownames(mydata)
+
+# Summary
+str(mydata)
+summary(mydata)
+```
+
+---
+
+# Factors in R
+
+* Represent categorical data
+
+* Ordered vs unordered (Statistics and plots)
+
+* Stored as integers and not characters
+
+&lt;img src="http://r4ds.had.co.nz/visualize_files/figure-html/unnamed-chunk-30-1.png" style="width: 70%"/&gt;
+
+
+
+---
+
+# Factors in R
+
+
+```r
+habitat&lt;-c("Crops","Crops","Urban","Forest","Forest")
+unique(habitat)
+```
+
+```
+## [1] "Crops"  "Urban"  "Forest"
+```
+
+```r
+habitat&lt;-as.factor(habitat)
+levels(habitat)
+```
+
+```
+## [1] "Crops"  "Forest" "Urban"
+```
+
+---
+
+# Factors in R
+
+
+```r
+habitat&lt;-relevel(habitat, ref = "Forest")
+levels(habitat)
+```
+
+```
+## [1] "Forest" "Crops"  "Urban"
+```
+
+```r
+habitat&lt;-factor(habitat,levels=c("Forest","Urban","Crops"))
+levels(habitat)
+```
+
+```
+## [1] "Forest" "Urban"  "Crops"
+```
+
+
+---
+
+# Selecting columns
+
+
+```r
+mycols&lt;-mydata[,c("plot_id","genus")]
+
+mycols&lt;-mydata[,c(5,10)]
+
+# tidyverse
+mycols&lt;-select(mydata, plot_id, genus)
+```
+
+---
+
+# Filtering rows
+
+Rows based on a specific criteria
+
+
+```r
+ref&lt;-which(mydata$year==2000)
+myrows&lt;-mydata[ref,]
+
+# tidyverse
+myrows&lt;-filter(mydata, year==2000)
+```
+
+---
+
+# Create new cols or variables
+
+
+```r
+mydata$weight_kg&lt;-mydata$weight/1000
+
+
+
+mydata["weight_kg"]&lt;-mydata["weight"]/1000
+
+
+# tidyverse
+mutate(mydata, 
+       weight_kg = weight / 1000,
+       weight_kg2 = weight_kg * 2)
+```
+---
+
+# Summarise dataframes
+
+
+```r
+# Mean weight
+mean(mydata$weight)
+
+
+#tidyverse
+summarize(mydata,mean_weight = mean(weight, na.rm = TRUE))
+
+summarize(mydata,
+          mean_weight = mean(weight, na.rm = TRUE),
+          duration = max(year) - min(year),
+          N_Genus=length(unique(genus)))
+```
+
+---
+
+# Summarise dataframes by groups
+
+
+```r
+# Mean weight per sex 
+tapply(mydata$weight,mydata$sex,mean,na.rm=TRUE)
+
+
+#tidyverse
+ob1&lt;-group_by(mydata, sex)
+
+summarise(ob1,mean_weight = mean(weight, na.rm = TRUE))
+
+summarise(
+  group_by(mydata, sex),
+  mean_weight = mean(weight, na.rm = TRUE))
+```
+
+---
+
+# Number records for each category
+
+
+```r
+# Number of records per sex 
+tapply(mydata$weight,mydata$sex,length)
+
+
+#tidyverse
+ob1&lt;-group_by(mydata, sex)
+
+tally(ob1)
+```
+
+---
+
+# Export data
+
+
+```r
+newdata&lt;-filter(mydata, 
+                year&gt;=2000 &amp; !is.na(weight))
+
+
+write.csv(newdata, file="./outputs/mynewdata.csv")
+```
+
+---
+
+# Pipes in R
+
+
+```r
+#1. Remove rows with NAs in weight
+#2. Summarise the mean and min weight per sex
+
+obj1&lt;-mydata[!is.na(mydata$weight),]
+
+obj2&lt;-tapply(obj1$weight,
+             list(obj1$genus,obj1$sex),
+             mean)
+```
+
+---
+
+# Pipes in R
+
+
+```r
+#1. Remove rows with NAs in weight
+#2. Summarise the mean and min weight per genus per sex
+
+obj1&lt;-filter(mydata, !is.na(weight))
+
+obj2&lt;-group_by(obj1, genus,sex)
+
+summarise(obj2, 
+          mean_weight = mean(weight),
+          min_weight = min(weight))
+```
+
+---
+
+# Pipes in R
+
+
+```r
+#1. Remove rows with NAs in weight
+#2. Summarise the mean and min weight per sex
+
+# Really bad
+summarize(group_by(filter(mydata,!is.na(weight)),genus,sex),mean_weight = mean(weight),min_weight = min(weight))
+
+
+# Better
+obj1&lt;-
+  mydata %&gt;%
+  filter(!is.na(weight)) %&gt;%
+  group_by(genus,sex) %&gt;%
+  summarize(mean_weight = mean(weight),
+            min_weight = min(weight))
 ```
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
