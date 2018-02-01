@@ -19,7 +19,7 @@ class: inverse, center, middle
 # Data format
 
 ---
-class: middle
+
 # Entering data in a spreadsheet program
 
 Common formats: 
@@ -210,9 +210,9 @@ class: inverse, center, middle
 
 # Exercise 
 
-* Download the code handout from [here]()
+1. Download the code handout from [here](https://globalecologybiogeography.github.io/Ecoinformatics/code/Week3_CodeHandout.R)
 
-* Read data
+2. Read data
 
 ```{r eval=FALSE, tidy=FALSE}
 # Download data
