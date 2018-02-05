@@ -1,7 +1,7 @@
 ---
 layout: page
 element: lecture
-title: 'Dimensions of biodiversity II <br> <span style="color:gray">Project Structure</span>'
+title: 'Project Structure & manipulating data'
 language: R
 ---
 

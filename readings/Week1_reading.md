@@ -1,7 +1,7 @@
 ---
 layout: page
 element: reading
-title: 'Macroecology <br> <span style="color:gray">Computer setup</span>'
+title: 'Computer setup'
 language: R
 ---
 

@@ -1,7 +1,8 @@
 ---
 layout: page
 element: assignment
-title: 'Dimensions of biodiversity I <br> <span style="color:gray">Intro to R and version control</span>'            
+title: 'Intro to R and version control'
+language: R
 ---
 
 #### Learning Objectives

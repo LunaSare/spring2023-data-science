@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Assignment Schedule
-assignments: ['Macroecology <br> <span style="color:gray">Computer setup</span>', 'Dimensions of biodiversity I <br> <span style="color:gray">Intro to R and version control</span>',
-'Dimensions of biodiversity II <br> <span style="color:gray">Project Structure</span>']
+assignments: ['Computer setup', 'Intro to R and version control',
+'Project Structure & manipulating data']
 ---
 
 [Assignment submission & checklist]({{ site.baseurl }}/materials/turn-in-checklist)

@@ -1,7 +1,8 @@
 ---
 layout: page
 element: assignment
-title: 'Dimensions of biodiversity II <br> <span style="color:gray">Project Structure</span>'            
+title: 'Project Structure & manipulating data'
+language: R           
 ---
 
 #### Learning Objectives
