@@ -3,4 +3,7 @@ layout: page
 title: Lecture Materials
 ---
 
-<img src="materials/figs/giphy.gif" width="40" height="40" />
+
+
+
+![Work in progress](https://media.giphy.com/media/3o7btQ0NH6Kl8CxCfK/giphy.gif)
