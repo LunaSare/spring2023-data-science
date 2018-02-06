@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# libraries ---------------------------------------------------------------\nlibrary(tidyverse)\n\n\n# data --------------------------------------------------------------------\ndat_graz<-read.csv(\"./data/30_Jan_18_Raw_graz.csv\")\n\n\n# Subset data  --------------------------------------------------------\ndat_graz_sub<-filter(dat_graz, Fruit  > 80 | Root < 6)\n\n\n# Transform variable ---------------------------------------------------------\ndat_graz_sub<-mutate(dat_graz_sub, logvar=log(Fruit))\n\n\n# Write subset data -------------------------------------------------------\nwrite.csv(dat_graz_sub,file=\"./outputs/graz_sub1.csv\")\n\n",
+    "created" : 1517523949265.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3818388517",
+    "id" : "D634CA95",
+    "lastKnownWriteTime" : 1517844524,
+    "last_content_update" : 1517844524051,
+    "path" : "~/Git_Repos/Ecoinformatics_practicals/02_practical_test/01_Transform_data.R",
+    "project_path" : "01_Transform_data.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -42,3 +42,9 @@ dat1<-read.csv("file2.csv")
   * Check [here](http://www.datacarpentry.org/semester-biology/materials/project-structure/){:target="_blank"} for further information and examples
 10. Commit your final changes
 11. Check your commits history on your Github repository
+
+
+## Assignment potential solution
+
+* [Here](https://github.com/GlobalEcologyBiogeography/projects-structure-susyelo.git) you can see an example of how to solve the assignment.
+* You can also access the files directly [here](../../solutions/Week2_solution/)

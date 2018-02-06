@@ -13,7 +13,7 @@ office_hours:
 professor2: Dr. Susy Echeverría-Londoño
 office2: Higley Hall 203
 email2: echeverrialondono1@kenyon.edu
-office_hours1:
+office_hours1: Tuesdays, 2:00-3:00 pm
 
 schedule: ['Fridays, 1:15-4:00pm, Higley Hall, Kerkhoff Lab']
 

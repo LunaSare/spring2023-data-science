@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# Read data ---------------------------------------------------------------\ndata_graz_sub<-read.csv(\"./outputs/graz_sub1.csv\")\n\n\n# Summary data ------------------------------------------------------------\n# Mean and sd fruit size per grazing treatment\nsummarise(\n  group_by(data_graz_sub, Grazing), \n  meanFruit=mean(Fruit),\n  sdFruit=sd(Fruit)\n)\n\n# plots -------------------------------------------------------------------\npdf(\"./figs/Graz_Fruit_Root.pdf\")\nggplot(data_graz_sub)+\n  geom_point(aes(x=Root,y=Fruit, colour=Grazing))+\n  theme_bw()\ndev.off()\n\npdf(\"./figs/FruitSize_perGrazing.pdf\")\nggplot(data_graz_sub,aes(x=Grazing,y=Fruit))+\n  geom_boxplot()+\n  geom_point(size=4,colour=\"lightgray\")+\n  theme_bw()\ndev.off()\n\n\n",
+    "created" : 1517525615965.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2268047496",
+    "id" : "700BCB63",
+    "lastKnownWriteTime" : 1517525812,
+    "last_content_update" : 1517525812548,
+    "path" : "~/Git_Repos/Ecoinformatics_practicals/02_practical_test/02_Exploratory_analysis.R",
+    "project_path" : "02_Exploratory_analysis.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
