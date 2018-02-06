@@ -7,7 +7,8 @@ language: R
 
 
 ## Macroecology
-### Diversity gradients
+
+**Diversity gradients**
 
 [Brown, James H.](http://onlinelibrary.wiley.com/doi/10.1111/jbi.12228/full) "Why are there so many species in the tropics?." Journal of Biogeography 41.1 (2014): 8-22.
 
