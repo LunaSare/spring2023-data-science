@@ -2,7 +2,7 @@
 layout: page
 element: assignment
 title: 'Project Structure & manipulating data'
-language: R           
+language: R
 ---
 
 #### Learning Objectives
@@ -17,8 +17,46 @@ language: R
 > - Create basic plots
 
 ****
-
 {% include assignment.html %}
+
+### Assignment 1 (Homework)
+
+1. Download the R code handout [here](https://globalecologybiogeography.github.io/Ecoinformatics/code/Week3_CodeHandout.R)
+2. Download the data from [here](https://ndownloader.figshare.com/files/2292169)
+  * You can also download the data directly using the following R function:
+```r
+download.file("https://ndownloader.figshare.com/files/2292169", "./dataFolder/mydata.csv")
+```
+3. Import the data file you just downloaded and complete the task listed on the R code handout
+  * You can read the data file (.csv) in R using either the `read.csv` function or the `read_csv` function from the tidyverse package
+
+```r
+mydata<-read.csv("./dataFolder/mydata.csv")
+
+library(tidyverse)
+mydata<-read_csv("./dataFolder/mydata.csv")
+```
+
+  * You can use the lecture slides [here](../../materials/02_Manipulating_data/02_ManipulatingData.html){:target="_blank"} as reference, but you can also use other sources like [cheat sheets](https://www.rstudio.com/resources/cheatsheets/){:target="_blank"} and google.
+
+#### Expected assignment outputs
+
+* As as reference, the following are the outputs expected for each of the tasks listed in the handout.
+
+| Task | Expected output |
+|------|------------------------------------------|
+|  2   |[output, .txt](../../solutions/week3_Exercise01_2.txt)|
+|  3   |[output, .txt](../../solutions/week3_Exercise01_3.txt)|
+|  4.1   |[output, .txt](../../solutions/week3_Exercise01_4.1.txt)|
+|  4.2   |[output,  .txt](../../solutions/week3_Exercise01_4.2.txt)|
+|  4.3   |[output, .txt](../../solutions/week3_Exercise01_4.3.txt)|
+|  4.4   |[output, .txt](../../solutions/week3_Exercise01_4.4.txt)|
+|  4.5   |[output, .txt](../../solutions/week3_Exercise01_4.5.txt)|
+|  4.6   |[output, .txt](../../solutions/week3_Exercise01_4.6.txt)|
+|  4.7   |[output, csv](../../solutions/week3_Exercise01_4.7.csv)|
+
+
+### Assignment 2 (in class)
 
 1. Accept the "Manipulating data" assignment [here](https://classroom.github.com/a/QQkHNkhV){:target="_blank"}
 2. Clone your repository in a local directory using Rstudio

@@ -1,0 +1,20 @@
+levels(mydata$species_id)
+
+[1] "AB" "AH" "AS" "BA" "CB" "CM" "CQ" "CS" "CT" "CU" "CV" "DM" "DO" "DS" "DX" "NL" "OL"
+[18] "OT" "OX" "PB" "PC" "PE" "PF" "PG" "PH" "PI" "PL" "PM" "PP" "PU" "PX" "RF" "RM" "RO"
+[35] "RX" "SA" "SC" "SF" "SH" "SO" "SS" "ST" "SU" "UL" "UP" "UR" "US" "ZL"
+
+levels(mydata$sex)
+
+[1] "F" "M"
+
+
+levels(mydata$genus)
+
+[1] "Ammodramus"       "Ammospermophilus" "Amphispiza"       "Baiomys"
+[5] "Calamospiza"      "Callipepla"       "Campylorhynchus"  "Chaetodipus"
+[9] "Cnemidophorus"    "Crotalus"         "Dipodomys"        "Lizard"
+[13] "Neotoma"          "Onychomys"        "Perognathus"      "Peromyscus"
+[17] "Pipilo"           "Pooecetes"        "Reithrodontomys"  "Rodent"
+[21] "Sceloporus"       "Sigmodon"         "Sparrow"          "Spermophilus"
+[25] "Sylvilagus"       "Zonotrichia"

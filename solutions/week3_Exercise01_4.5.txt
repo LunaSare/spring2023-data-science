@@ -1,0 +1,30 @@
+Ammodramus Ammospermophilus       Amphispiza          Baiomys      Calamospiza
+             NaN              NaN              NaN      0.008600000              NaN
+      Callipepla  Campylorhynchus      Chaetodipus    Cnemidophorus         Crotalus
+             NaN              NaN      0.024179329              NaN              NaN
+       Dipodomys           Lizard          Neotoma        Onychomys      Perognathus
+     0.055860219              NaN      0.159245660      0.026496173      0.008377454
+      Peromyscus           Pipilo        Pooecetes  Reithrodontomys           Rodent
+     0.021456262              NaN              NaN      0.010667939              NaN
+      Sceloporus         Sigmodon          Sparrow     Spermophilus       Sylvilagus
+             NaN      0.067264574              NaN      0.093500000              NaN
+     Zonotrichia
+             NaN
+
+
+# With the group_by and summarize function from tidyverse
+
+# A tibble: 26 x 2
+              genus mean_weight
+             <fctr>       <dbl>
+ 1       Ammodramus         NaN
+ 2 Ammospermophilus         NaN
+ 3       Amphispiza         NaN
+ 4          Baiomys  0.00860000
+ 5      Calamospiza         NaN
+ 6       Callipepla         NaN
+ 7  Campylorhynchus         NaN
+ 8      Chaetodipus  0.02417933
+ 9    Cnemidophorus         NaN
+10         Crotalus         NaN
+# ... with 16 more rows

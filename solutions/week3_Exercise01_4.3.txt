@@ -1,0 +1,10 @@
+names(mydata)
+
+ [1] "record_id"       "month"           "day"             "year"
+ [5] "plot_id"         "species_id"      "sex"             "hindfoot_length"
+ [9] "weight"          "genus"           "species"         "taxa"
+[13] "plot_type"       "weight_log"
+
+summary(mydata$weight_log)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's
+  1.386   2.996   3.611   3.474   3.871   5.635    2503
