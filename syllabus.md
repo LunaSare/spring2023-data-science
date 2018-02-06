@@ -8,12 +8,12 @@ semester: Fall 2018
 professor: Prof. Andrew J. Kerkhoff
 office: Higley Hall 301
 email: kerkhoffa@kenyon.edu
-office_hours:
+office_hours: Monday, 10-12:00; Wednesday, 1:00-3:00 pm; Thursdays, 10-11 am.  
 
 professor2: Dr. Susy Echeverría-Londoño
 office2: Higley Hall 203
 email2: echeverrialondono1@kenyon.edu
-office_hours1: Tuesdays, 2:00-3:00 pm
+office_hours1: Tuesdays, 2:00-4:00 pm
 
 schedule: ['Fridays, 1:15-4:00pm, Higley Hall, Kerkhoff Lab']
 
