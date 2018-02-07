@@ -247,3 +247,21 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
 }
+
+/* Wes anderson blue */
+.theme-base-wes .sidebar {
+  background-color: #3B9AB2;
+}
+.theme-base-wes .content a,
+.theme-base-wes .related-posts li a:hover {
+  color: #78B7C5;
+}
+
+/* Forest green */
+.theme-base-ForGre .sidebar {
+  background-color:#1E392A;
+}
+.theme-base-ForGre  .content a,
+.theme-base-ForGre  .related-posts li a:hover {
+  color: #2B7A78;
+}
