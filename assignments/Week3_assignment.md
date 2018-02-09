@@ -71,7 +71,7 @@ mydata<-read_csv("./dataFolder/mydata.csv")
   * Show the number of species in each family
   * Calculate the average fruit width in cm per dispersal mode
   * Create a csv file with all the species that are dispersed by lemurs and have a fruit length > 8 mm
-  * Plot the number of species in each seed size category using (A) all the data, and (B) the lemur subset data
+  * Plot the average fruit length per seed size category using (A) all the data, and (B) the lemur subset data
 
 
 
