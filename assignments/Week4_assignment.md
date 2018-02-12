@@ -76,18 +76,18 @@ ggplot(Total_comun, aes(y = Total_sp, x = treatment, fill=year)) +
   * Print the number of species and the abundance plots in a pdf using the function `pdf()` and save the files into the `figs` folder
   * Contrast the total abundance figure with the figure 2D of the original paper (see paper [here](http://onlinelibrary.wiley.com/doi/10.1002/eap.1426/full){:target="_blank"})
 
-  #### Expected assignment outputs
+**Expected assignment outputs**
 
-  * As as reference, the following are the outputs expected for some of the tasks.
+As as reference, the following are the outputs expected for some of the tasks.
 
   | Task | Expected output |
   |------|------------------------------------------|
   |  6   |[output, .txt](../../solutions/week4_Exercise06.txt)|
-  |  7   |[output, .txt](../../solutions/week4_Exercise07.txt))|
-  |  10   |[output, .txt](../../solutions/week4_Exercise10.txt))|
-  |  11   |[output,  .txt](../../solutions/week4_Exercise11.txt))|
-  |  12   |[output, .txt](../../solutions/week4_Exercise12.txt))|
-  |  13   |[output, .pdf](../../solutions/week4_Exercise13.pdf))|
+  |  7   |[output, .txt](../../solutions/week4_Exercise07.txt)|
+  |  10   |[output, .txt](../../solutions/week4_Exercise10.txt)|
+  |  11   |[output,  .txt](../../solutions/week4_Exercise11.txt)|
+  |  12   |[output, .txt](../../solutions/week4_Exercise12.txt)|
+  |  13   |[output, .pdf](../../solutions/week4_Exercise13.png)|
 
 
 ### *Want a challenge?*
