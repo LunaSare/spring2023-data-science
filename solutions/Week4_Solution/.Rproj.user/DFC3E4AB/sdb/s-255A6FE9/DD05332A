@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# libraries ---------------------------------------------------------------\nlibrary(tidyverse)\n\n# data --------------------------------------------------------------------\n# Moth communities\ncomu_2012<-read.csv(\"./data/MothCommunities2012.csv\")\ncomu_2013<-read.csv(\"./data/MothCommunities2013.csv\")\n\n\n# Reshaping data --------------------------------------------------------------------\ncomu_2012_sp<-comu_2012 %>% \n  gather(key=\"Species\",value=\"Abundance\", 18:ncol(comu_2012)) %>% \n  select(block,stand,treatment,point,Species,Abundance) %>% \n  mutate(year=2012)\n  \ncomu_2013_sp<-comu_2013 %>% \n  gather(key=\"Species\",value=\"Abundance\", 18:ncol(comu_2013)) %>% \n  select(block,stand,treatment,point,Species,Abundance) %>% \n  mutate(year=2013)\n\ncomun_total_sp<-rbind(comu_2012_sp,comu_2013_sp)\n\nwrite.csv(comun_total_sp, \"./outputs/Moth_species_values.csv\")",
+    "created" : 1518456358298.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1737715686",
+    "id" : "DD05332A",
+    "lastKnownWriteTime" : 1518456763,
+    "last_content_update" : 1518456763298,
+    "path" : "~/Downloads/Assignment4/Rscripts/0_reshaping_community_data.R",
+    "project_path" : "Rscripts/0_reshaping_community_data.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
