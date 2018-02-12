@@ -87,7 +87,7 @@ As as reference, the following are the outputs expected for some of the tasks.
   |  10   |[output, .txt](../../solutions/week4_Exercise10.txt)|
   |  11   |[output,  .txt](../../solutions/week4_Exercise11.txt)|
   |  12   |[output, .txt](../../solutions/week4_Exercise12.txt)|
-  |  13   |[output, .pdf](../../solutions/week4_Exercise13.png)|
+  |  13   |[output, .png](../../solutions/week4_Exercise13.png)|
 
 
 ### *Want a challenge?*
