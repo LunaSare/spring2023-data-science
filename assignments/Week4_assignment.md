@@ -33,7 +33,7 @@ how a gradient in intensive forest management (from light to intensive) affects 
 
 4. Open the file `0_cleaning_data.R` and import both Moth communities files using the functions `read_csv()` or `read.csv()`. Name the objects `comu_2012` and `comu_2013`
 
-5. Use `str()` to show the structure of the data frame and its individual columns. Print out the first few rows of the data using the function `head()`.
+5. Use `str()` to show the structure of the data frame and its individual columns.
 
 6. The following code calculates the total moth richness and abundance for the gradient in intensive forest management in each study block.  
 ```r
@@ -75,6 +75,19 @@ ggplot(Total_comun, aes(y = Total_sp, x = treatment, fill=year)) +
   * Using this code, create a plot for the total abundance in the four forest management
   * Print the number of species and the abundance plots in a pdf using the function `pdf()` and save the files into the `figs` folder
   * Contrast the total abundance figure with the figure 2D of the original paper (see paper [here](http://onlinelibrary.wiley.com/doi/10.1002/eap.1426/full){:target="_blank"})
+
+  #### Expected assignment outputs
+
+  * As as reference, the following are the outputs expected for some of the tasks.
+
+  | Task | Expected output |
+  |------|------------------------------------------|
+  |  6   |[output, .txt](../../solutions/week4_Exercise06.txt)|
+  |  7   |[output, .txt](../../solutions/week4_Exercise07.txt))|
+  |  10   |[output, .txt](../../solutions/week4_Exercise10.txt))|
+  |  11   |[output,  .txt](../../solutions/week4_Exercise11.txt))|
+  |  12   |[output, .txt](../../solutions/week4_Exercise12.txt))|
+  |  13   |[output, .pdf](../../solutions/week4_Exercise13.pdf))|
 
 
 ### *Want a challenge?*
