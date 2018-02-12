@@ -1,0 +1,26 @@
+head(comu_2012_dt)
+
+'# A tibble: 6 x 5
+# Groups:   block [2]
+         block   treatment Total_sp Total_abundance  year
+        <fctr>      <fctr>    <int>           <int> <dbl>
+1   Black Rock   1 Control       88             124  2012
+2   Black Rock    2 Light       113             191  2012
+3   Black Rock 3 Moderate        69             115  2012
+4   Black Rock 4 Intensive       98             175  2012
+5 Forest Grove   1 Control       37              54  2012
+6 Forest Grove    2 Light        83             142  2012
+
+
+head(comu_2013_dt)
+
+# A tibble: 6 x 5
+# Groups:   block [2]
+         block   treatment Total_sp Total_abundance  year
+        <fctr>      <fctr>    <int>           <int> <dbl>
+1   Black Rock   1 Control       72             114  2013
+2   Black Rock    2 Light       107             190  2013
+3   Black Rock 3 Moderate        34              50  2013
+4   Black Rock 4 Intensive       51              86  2013
+5 Forest Grove   1 Control      109             256  2013
+6 Forest Grove    2 Light        86             226  2013

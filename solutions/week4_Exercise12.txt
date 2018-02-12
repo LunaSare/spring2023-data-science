@@ -1,0 +1,3 @@
+class(Total_comun$year)
+
+[1] "factor"

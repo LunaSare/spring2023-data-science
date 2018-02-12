@@ -1,0 +1,3 @@
+dim(Comunitity_total)
+
+[1] 64  5

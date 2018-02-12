@@ -1,0 +1,13 @@
+head(Sp_Abun_table)
+
+
+# A tibble: 6 x 3
+# Groups:   Species [2]
+             Species   treatment Total_abundance
+              <fctr>      <fctr>           <int>
+1 Abagrotis.apposita   1 Control               1
+2 Abagrotis.apposita    2 Light                5
+3 Abagrotis.apposita 3 Moderate                2
+4 Abagrotis.apposita 4 Intensive               1
+5  Abagrotis.placida   1 Control               1
+6  Abagrotis.placida    2 Light                0

@@ -1,0 +1,11 @@
+Sp_Abun_table %>%
+  filter(Species=="Agrotis.vancouverensis")
+
+# A tibble: 4 x 3
+# Groups:   Species [1]
+                 Species   treatment Total_abundance
+                  <fctr>      <fctr>           <int>
+1 Agrotis.vancouverensis   1 Control               9
+2 Agrotis.vancouverensis    2 Light               12
+3 Agrotis.vancouverensis 3 Moderate               13
+4 Agrotis.vancouverensis 4 Intensive              19
