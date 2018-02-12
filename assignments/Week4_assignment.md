@@ -18,8 +18,6 @@ language: R
 ****
 {% include assignment.html %}
 
-## Data basics
-
 Using a two-year manipulative experiment, Root et al. 2017 were interested in studying
 how a gradient in intensive forest management (from light to intensive) affects both moth species richness and abundances. They have placed the data file on the Dryad repository:
 
