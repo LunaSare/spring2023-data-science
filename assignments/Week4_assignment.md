@@ -44,6 +44,7 @@ comu_2012_dt<-
 ```
   * Add comments to each line of the code explaining what it does
   * Using the same code, create a new object called `comu_2013_dt` with the 2013 treatment data
+  * Do not forget to commit your changes on your git console (select files -> commit -> write commit)
 
 7. Comment in the code how the object `Comunitity_total` was obtained, and check the dimensions of the object or data frame using the function `dim()`
 
@@ -73,6 +74,8 @@ ggplot(Total_comun, aes(y = Total_sp, x = treatment, fill=year)) +
   * Using this code, create a plot for the total abundance in the four forest management
   * Print the number of species and the abundance plots in a pdf using the function `pdf()` and save the files into the `figs` folder
   * Contrast the total abundance figure with the figure 2D of the original paper (see paper [here](http://onlinelibrary.wiley.com/doi/10.1002/eap.1426/full){:target="_blank"})
+
+  * Do not forget to commit your changes on your git console and push your changes to github (select files -> commit -> write commit -> push)
 
 **Expected assignment outputs**
 
