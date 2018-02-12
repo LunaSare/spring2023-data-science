@@ -25,7 +25,7 @@ how a gradient in intensive forest management (from light to intensive) affects 
 
 *Root HT, Verschuyl J, Stokely T, Hammond P, Scherr MA, Betts MG (2016) Data from: Plant diversity enhances moth diversity in an intensive forest management experiment. Dryad Digital Repository. https://doi.org/10.5061/dryad.47200*
 
-1. Accept the assignment here and clone the repository in a local directory using Rstudio
+1. Accept the assignment [here](https://classroom.github.com/a/BYCz7DV4) and clone the repository in a local directory using Rstudio
 
 3. Download the data [here](https://doi.org/10.5061/dryad.47200) and copy the files `MothCommunities2012.csv` and `MothCommunities2013.csv` into the `data` folder.
 
