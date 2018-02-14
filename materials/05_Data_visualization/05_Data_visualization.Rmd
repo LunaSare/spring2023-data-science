@@ -1,0 +1,234 @@
+---
+title: "Plots and intro to spatial analysis"
+author: "Susy Echeverría-Londoño and Drew Kerkhoff"
+output: 
+  html_document: 
+    theme: cosmo
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Data visualizations in R
+
+## 0. Data 
+
+In this module, we will use the `iris` data object from the R datasets package, which gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from 3 species of iris (_I. setosa, I. versicolor, and I. virginica_)
+
+```{r data}
+data(iris)
+str(iris)
+```
+
+## 1. Base graphics
+
+R has a group of basic graphics functions to create scatterplots, line plots, histograms, boxplots, etc. 
+
+### Histograms
+
+Histograms are visual representations of the distribution of a continuous variable. These plots are an excellent way to explore your data, specially for identifying outliers. The first step to construct a histogram is to "bin" your data into equal size range values (i.e., divide the entire range values into a series of intervals); the second step is to count the number of values that falls into each interval (i.e., the frequency of the values in each bin)
+
+```{r hist}
+# Using the hist() function
+hist(iris$Sepal.Width)
+
+# you can define the number of bins in your histogram with the "breaks=" argument"
+sw_his<-hist(iris$Sepal.Width,breaks=10)
+sw_his[c("breaks","counts")]
+
+
+# Without the hist() function
+bin_data<-cut(iris$Sepal.Width, breaks = 10)
+count_data<-table(bin_data)
+
+barplot(count_data,
+        ylab="Frequency",
+        xlab="Sepal Width")
+```
+
+### Boxplots 
+
+Boxplots or box-and-whisker plot are useful for comparing distributions between several groups or sets of data
+
+```{r boxplot}
+
+plot(x=iris$Species,y=iris$Petal.Length,
+     ylab="Petal length (cm)",
+     xlab="Iris species",
+     col="grey")
+
+```
+
+
+### Scatter plots
+
+Scatter plots show the relationship between sets of continuous variables using cartesians coordinates
+
+```{r plot1}
+
+plot(x=iris$Sepal.Length,y=iris$Petal.Length)
+
+# common formula annotation
+plot(Petal.Length~Sepal.Length, data=iris)
+```
+
+You can customise the plot with the following arguments
+
+  * Axes labels: `xlab=` & `ylab=`
+  * Plot title: `main=`
+  * Shape and colour of data points:`pch=` & `col=`
+  * Use `?plot` or `help(plot)` to see the additional arguments of the function
+
+```{r plot2}
+
+plot(x=iris$Sepal.Length,y=iris$Petal.Length,
+     ylab="Petal length (cm)",
+     xlab="Sepal length (cm)",
+     main="Petal vs Sepal length", 
+     pch=17,
+     col="blue")
+
+```
+
+You can also add colours to your points according to different treatments. In this case we can see the relationships between Sepal and Petal length among the species
+
+```{r color by}
+#select the colors that will be used
+library(RColorBrewer)
+
+#all palette available from RColorBrewer
+#display.brewer.all() 
+
+#cols contain the names of 3 different colors
+cols<-brewer.pal(n=3,name="Set1")
+
+#create a color vector corresponding to levels in the species variable in the iris dataset
+cols_sp<-cols[iris$Species]
+
+plot(Petal.Length~Sepal.Length, 
+     data=iris, 
+     col=cols_sp,
+     pch=20)
+
+# Include legend
+legend("bottomright",legend=levels(iris$Species),col=cols,pch=20)
+```
+
+
+## 2. ggplot2
+
+ggplot2 is a plotting system for R, that provides a powerful model of graphics based on the "grammar of graphics" (i.e., series of fundamental rules to describe the components of a graphic). 
+
+Plots in ggplot2 are built using a multidimensional conditioning and a step-by-step framework.
+
+![](./figs/ggplot_intro1.png)
+
+
+### Histograms
+
+```{r hist ggplot}
+library(ggplot2)
+
+# ggplot2 is also included in the tidyverse library
+# library(tidyverse)
+
+ggplot(data=iris, aes(Sepal.Width)) + 
+  geom_histogram(bins=10)
+
+```
+
+### Boxplots
+
+```{r}
+
+ggplot(data=iris, aes(x=iris$Species,y=iris$Petal.Length)) +
+  geom_boxplot() +
+  xlab("Species") +
+  ylab("Petal length") +
+  ggtitle("Box plot") +
+  theme(plot.title = element_text(hjust=0.5))
+
+```
+
+Include date points into the boxplot
+
+```{r}
+ggplot(data=iris, aes(x=iris$Species,y=iris$Petal.Length)) +
+  geom_boxplot() +
+  geom_jitter(alpha = 0.5, color = "green")+
+  xlab("Species") +
+  ylab("Petal length") +
+  ggtitle("Box plot") +
+  theme(plot.title = element_text(hjust=0.5))
+
+```
+
+
+### Scatter plots
+
+```{r ggplot2 scatterplot}
+
+
+ggplot(data = iris, aes(x = Sepal.Length, y = Petal.Length)) +
+  geom_point()
+
+
+```
+
+Aesthetic map: color by # of species
+
+```{r}
+ggplot(data = iris, aes(x = Sepal.Length, y = Petal.Length)) +
+  geom_point(aes(colour = Species))
+```
+
+Adjust colour by species and size by Sepal width
+
+```{r}
+ggplot(data = iris, aes(x = Sepal.Length, y = Petal.Length)) +
+  geom_point(aes(size = Petal.Width, colour=Species))
+```
+
+Adjust transparency of points to alpha 0.6 to see overlapping sections
+
+```{r}
+ggplot(data = iris, aes(x = Sepal.Length, y = Petal.Length)) +
+  geom_point(aes(size = Petal.Width, colour=Species),alpha = 0.6)
+```
+
+Adjust colour by species and shape by Petal length (categorical variable)
+
+```{r}
+## Create categorical variable for Petal Width (wide vs thin)
+
+iris$Petal_Width_factor<-ifelse(iris$Petal.Width>mean(iris$Petal.Width), "Wide","Thin")
+
+ggplot(data = iris, aes(x = Sepal.Length, y = Petal.Length)) +
+  geom_point(aes(shape = Petal_Width_factor, colour=Species),alpha = 0.6, size=4)
+```
+
+## 3. Challenges
+
+In this module, we are going to try to reproduce some of the plots of the following paper: 
+
+*Böhm M, Kemp R, Williams R, et al. Rapoport's rule and determinants of species range size in snakes. Divers Distrib. 2017; 23:1472–1481*
+
+1. Download the dataset called "ddi12632-sup-0002-AppendixS4.xlsx" provided in the supporting information [here](https://doi.org/10.1111/ddi.12632)
+
+2. Open the file in a spreadsheet program and save it as a csv file into a `data` folder
+
+3. Import the csv file. Do not forget to create a new R project to avoid setting a working directory!
+
+4. Reproduce the Figure 1 a and b from the Böhm et al., 2017 paper. 
+
+5. Reproduce Figure 1d. hint: you can use either the `cut` or `findInterval()` functions
+
+6. Reproduce Figures 2a-c using the basic graphic functions in R and ggplot
+
+7. Divide the number of ecoregions into two categorical levels "Specialists" and "Generalists"
+
+8. Reproduce Figure 4 adjusting the colour by the new categorical variable of the number of ecoregions.
+
+
