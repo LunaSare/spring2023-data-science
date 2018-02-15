@@ -3,7 +3,7 @@ title: "Plots and intro to spatial analysis"
 author: "Susy Echeverría-Londoño and Drew Kerkhoff"
 output: 
   html_document: 
-    theme: cosmo
+    theme: readable
     toc: yes
 ---
 
@@ -40,6 +40,8 @@ sw_his[c("breaks","counts")]
 
 
 # Without the hist() function
+
+# Divides the range of Sepal.Width into 10 intervals. 
 bin_data<-cut(iris$Sepal.Width, breaks = 10)
 count_data<-table(bin_data)
 
@@ -221,14 +223,12 @@ In this module, we are going to try to reproduce some of the plots of the follow
 
 3. Import the csv file. Do not forget to create a new R project to avoid setting a working directory!
 
-4. Reproduce the Figure 1 a and b from the Böhm et al., 2017 paper. 
+4. Reproduce the Figure 1a and 1b from the Böhm et al., 2017 paper 
 
-5. Reproduce Figure 1d. hint: you can use either the `cut` or `findInterval()` functions
+5. Reproduce Figure 1d. *Hint: you can use the function `cut()` to divide the mid-latitudinal range into bins or intervals*
 
 6. Reproduce Figures 2a-c using the basic graphic functions in R and ggplot
 
-7. Divide the number of ecoregions into two categorical levels "Specialists" and "Generalists"
+7. Divide the number of ecoregions into two categorical levels, "Generalist" when the number of ecoregions is greater than the mean of the number of ecoregions across all snakes; and "Specialist" otherwise. 
 
-8. Reproduce Figure 4 adjusting the colour by the new categorical variable of the number of ecoregions.
-
-
+8. Reproduce Figure 4 adjusting the colour by Generalist vs Specialist
