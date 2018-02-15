@@ -2,7 +2,7 @@
 layout: page
 title: Assignment Schedule
 assignments: ['Computer setup', 'Intro to R and version control',
-'Project Structure & manipulating data', 'Manipulating data II']
+'Project Structure & manipulating data', 'Manipulating data II', 'Visualising Data']
 ---
 
 [Assignment submission & checklist]({{ site.baseurl }}/materials/turn-in-checklist)

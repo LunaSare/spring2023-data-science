@@ -8,17 +8,25 @@ output:
     toc: yes
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
 
 ## 0. Data 
 
 In this module, we will use the `iris` data object from the R datasets package, which gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from 3 species of iris (_I. setosa, I. versicolor, and I. virginica_)
 
-```{r data}
+
+```r
 data(iris)
 str(iris)
+```
+
+```
+## 'data.frame':	150 obs. of  5 variables:
+##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+##  $ Species     : Factor w/ 3 levels "setosa","versicolor",..: 1 1 1 1 1 1 1 1 1 1 ...
 ```
 
 ## 1. Base graphics
@@ -29,15 +37,30 @@ R has a group of basic graphics functions to create scatterplots, line plots, hi
 
 Histograms are visual representations of the distribution of a continuous variable. These plots are an excellent way to explore your data, specially for identifying outliers. The first step to construct a histogram is to "bin" your data into equal size range values (i.e., divide the entire range values into a series of intervals); the second step is to count the number of values that falls into each interval (i.e., the frequency of the values in each bin)
 
-```{r hist}
+
+```r
 # Using the hist() function
 hist(iris$Sepal.Width)
 
 # you can define the number of bins in your histogram with the "breaks=" argument"
 sw_his<-hist(iris$Sepal.Width,breaks=10)
+```
+
+![](05_Data_visualization_files/figure-html/hist-1.png)<!-- -->
+
+```r
 sw_his[c("breaks","counts")]
+```
 
+```
+## $breaks
+##  [1] 2.0 2.2 2.4 2.6 2.8 3.0 3.2 3.4 3.6 3.8 4.0 4.2 4.4
+## 
+## $counts
+##  [1]  4  7 13 23 36 24 18 10  9  3  2  1
+```
 
+```r
 # Without the hist() function
 
 # Divides the range of Sepal.Width into 10 intervals. 
@@ -49,31 +72,40 @@ barplot(count_data,
         xlab="Sepal Width")
 ```
 
+![](05_Data_visualization_files/figure-html/hist-2.png)<!-- -->
+
 ### Boxplots 
 
 Boxplots or box-and-whisker plot are useful for comparing distributions between several groups or sets of data
 
-```{r boxplot}
 
+```r
 plot(x=iris$Species,y=iris$Petal.Length,
      ylab="Petal length (cm)",
      xlab="Iris species",
      col="grey")
-
 ```
+
+![](05_Data_visualization_files/figure-html/boxplot-1.png)<!-- -->
 
 
 ### Scatter plots
 
 Scatter plots show the relationship between sets of continuous variables using cartesians coordinates
 
-```{r plot1}
 
+```r
 plot(x=iris$Sepal.Length,y=iris$Petal.Length)
+```
 
+![](05_Data_visualization_files/figure-html/plot1-1.png)<!-- -->
+
+```r
 # common formula annotation
 plot(Petal.Length~Sepal.Length, data=iris)
 ```
+
+![](05_Data_visualization_files/figure-html/plot1-2.png)<!-- -->
 
 You can customise the plot with the following arguments
 
@@ -82,20 +114,22 @@ You can customise the plot with the following arguments
   * Shape and colour of data points:`pch=` & `col=`
   * Use `?plot` or `help(plot)` to see the additional arguments of the function
 
-```{r plot2}
 
+```r
 plot(x=iris$Sepal.Length,y=iris$Petal.Length,
      ylab="Petal length (cm)",
      xlab="Sepal length (cm)",
      main="Petal vs Sepal length", 
      pch=17,
      col="blue")
-
 ```
+
+![](05_Data_visualization_files/figure-html/plot2-1.png)<!-- -->
 
 You can also add colours to your points according to different treatments. In this case we can see the relationships between Sepal and Petal length among the species
 
-```{r color by}
+
+```r
 #select the colors that will be used
 library(RColorBrewer)
 
@@ -117,6 +151,8 @@ plot(Petal.Length~Sepal.Length,
 legend("bottomright",legend=levels(iris$Species),col=cols,pch=20)
 ```
 
+![](05_Data_visualization_files/figure-html/color by-1.png)<!-- -->
+
 
 ## 2. ggplot2
 
@@ -129,7 +165,8 @@ Plots in ggplot2 are built using a multidimensional conditioning and a step-by-s
 
 ### Histograms
 
-```{r hist ggplot}
+
+```r
 library(ggplot2)
 
 # ggplot2 is also included in the tidyverse library
@@ -137,25 +174,28 @@ library(ggplot2)
 
 ggplot(data=iris, aes(Sepal.Width)) + 
   geom_histogram(bins=10)
-
 ```
+
+![](05_Data_visualization_files/figure-html/hist ggplot-1.png)<!-- -->
 
 ### Boxplots
 
-```{r}
 
+```r
 ggplot(data=iris, aes(x=iris$Species,y=iris$Petal.Length)) +
   geom_boxplot() +
   xlab("Species") +
   ylab("Petal length") +
   ggtitle("Box plot") +
   theme(plot.title = element_text(hjust=0.5))
-
 ```
+
+![](05_Data_visualization_files/figure-html/unnamed-chunk-1-1.png)<!-- -->
 
 Include date points into the boxplot
 
-```{r}
+
+```r
 ggplot(data=iris, aes(x=iris$Species,y=iris$Petal.Length)) +
   geom_boxplot() +
   geom_jitter(alpha = 0.5, color = "green")+
@@ -163,45 +203,55 @@ ggplot(data=iris, aes(x=iris$Species,y=iris$Petal.Length)) +
   ylab("Petal length") +
   ggtitle("Box plot") +
   theme(plot.title = element_text(hjust=0.5))
-
 ```
+
+![](05_Data_visualization_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
 
 
 ### Scatter plots
 
-```{r ggplot2 scatterplot}
 
-
+```r
 ggplot(data = iris, aes(x = Sepal.Length, y = Petal.Length)) +
   geom_point()
-
-
 ```
+
+![](05_Data_visualization_files/figure-html/ggplot2 scatterplot-1.png)<!-- -->
 
 Aesthetic map: color by # of species
 
-```{r}
+
+```r
 ggplot(data = iris, aes(x = Sepal.Length, y = Petal.Length)) +
   geom_point(aes(colour = Species))
 ```
 
+![](05_Data_visualization_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+
 Adjust colour by species and size by Sepal width
 
-```{r}
+
+```r
 ggplot(data = iris, aes(x = Sepal.Length, y = Petal.Length)) +
   geom_point(aes(size = Petal.Width, colour=Species))
 ```
 
+![](05_Data_visualization_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+
 Adjust transparency of points to alpha 0.6 to see overlapping sections
 
-```{r}
+
+```r
 ggplot(data = iris, aes(x = Sepal.Length, y = Petal.Length)) +
   geom_point(aes(size = Petal.Width, colour=Species),alpha = 0.6)
 ```
 
+![](05_Data_visualization_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+
 Adjust colour by species and shape by Petal length (categorical variable)
 
-```{r}
+
+```r
 ## Create categorical variable for Petal Width (wide vs thin)
 
 iris$Petal_Width_factor<-ifelse(iris$Petal.Width>mean(iris$Petal.Width), "Wide","Thin")
@@ -209,6 +259,8 @@ iris$Petal_Width_factor<-ifelse(iris$Petal.Width>mean(iris$Petal.Width), "Wide",
 ggplot(data = iris, aes(x = Sepal.Length, y = Petal.Length)) +
   geom_point(aes(shape = Petal_Width_factor, colour=Species),alpha = 0.6, size=4)
 ```
+
+![](05_Data_visualization_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
 
 ## 3. Challenges
 

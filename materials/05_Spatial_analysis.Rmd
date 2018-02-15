@@ -1,0 +1,73 @@
+---
+title: "Plots and intro to spatial analysis"
+author: "Susy Echeverría-Londoño and Drew Kerkhoff"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Data visualizations in R
+
+## 0. Data 
+
+In this module, we will use the `` data object
+
+```{r cars}
+
+```
+
+## Base graphics
+
+
+```{r cars}
+library(dismo)
+```
+
+# Intro to spatial analysis
+
+## Download and clean geographical data
+## Plot occurrences
+## Create rasters 
+## Calculate range size (squarekilometers)
+## Calculate midpoint (lat and lon)
+## Plot rasters (richness maps with letsR)
+
+
+```{r pressure, echo=FALSE}
+snake_sp<-gbif(genus="Acanthophis", species="rugosus", geo=TRUE)
+
+## Cleaning data
+snake_sp=subset(snake_sp, !is.na(lon) & !is.na(lat))
+
+snakeDup=duplicated(snake_sp[, c("lon", "lat")])
+snake_sp <-snake_sp[!snakeDup, ]
+
+
+## Ploting 
+library(maptools)
+data(wrld_simpl)
+
+plot(wrld_simpl, xlim=c(min(snake_sp$lon)-1,max(snake_sp$lon)+1), ylim=c(min(snake_sp$lat)-1,max(snake_sp$lat)+1), axes=TRUE, col="light yellow")
+points(snake_sp$lon, snake_sp$lat, col="orange", pch=20, cex=0.75)
+
+## Create presence absence matrix
+xy<-data.frame(x=snake_sp$lon, y=snake_sp$lat)
+
+# Presence/abscence raster of Solanum ----
+snake_grids<-lets.presab.points(xy, snake_sp$species, resol=1)
+snake_grids$Richness_Raster[snake_grids$Richness_Raster==0]<-NA
+
+rangesize <- lets.rangesize(snake_grids,
+                            coordinates = "geographic",units="squaremeter")
+
+centroids <- lets.midpoint(snake_grids)
+
+data_plot <- data.frame(centroids[, 2:3], "Range size" = rangesize)
+g <- ggplot(data_plot, aes(x, Range_size))
+g + geom_smooth() + geom_point() + labs(x = "Latitude(x)", y = "Range size")
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
