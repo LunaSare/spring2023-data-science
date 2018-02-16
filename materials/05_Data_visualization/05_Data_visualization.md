@@ -10,6 +10,9 @@ output:
 
 
 
+
+![](./figs/Abela_chart_suggestion.png)
+
 ## 0. Data 
 
 In this module, we will use the `iris` data object from the R datasets package, which gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from 3 species of iris (_I. setosa, I. versicolor, and I. virginica_)
