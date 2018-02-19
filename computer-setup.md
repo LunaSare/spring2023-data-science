@@ -57,7 +57,6 @@ here](http://sourceforge.net/projects/git-osx-installer/files/.)
 3. Click Agree when the License Agreement appears
 
 
-
 #### Linux
 
 Git is probably already installed. If it is not already available on your
@@ -69,11 +68,10 @@ install git`.
 
 Once Git is installed, you should configure your email and user name to track your version history.
 
-1. Open up the Terminal or command line window
+1. Open up the Terminal or command line window (in Windows you can use Git bash)
 2. Type and replace "Your name" and  your.email@domain.com from the following lines:
 
 ```
 git config --global user.name "Your Name"
 git config --global user.email your.email@domain.com
-
 ```
