@@ -5,7 +5,7 @@ assignments: ['Computer setup', 'Intro to R and version control',
 'Project Structure & manipulating data', 'Manipulating data II', 'Visualising Data']
 ---
 
-[Assignment submission & checklist]({{ site.baseurl }}/materials/turn-in-checklist)
+[Assignment submission & checklist]({{ site.baseurl }}/materials/turn_in_checklist)
 
 {% include assignments.html %}
 
