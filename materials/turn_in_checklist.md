@@ -3,8 +3,6 @@ layout: page
 title: Assignment Submission & Checklist
 ---
 
-# Assignment Checklist
-
 ### Assignment submission (25%)
 
 - All assignments should be submitted through Github or Github classroom.
