@@ -19,6 +19,8 @@ library(sp)
 library(RColorBrewer)
 ```
 
+In this tutorial
+
 # Rasters
 
 
