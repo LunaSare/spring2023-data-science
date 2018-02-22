@@ -1,0 +1,164 @@
+---
+title: "Introduction to Spatial Analysis"
+output: 
+  html_document: 
+    highlight: tango
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(raster)
+library(sp)
+library(RColorBrewer)
+```
+
+# Rasters
+
+
+## Downloading raster climate data
+
+Worldclim database
+http://worldclim.org/version2
+
+```{r}
+# using the raster package
+bio10 <- getData("worldclim",var="bio",res=10, path="./data/")
+
+## Group of raster layers
+class(bio10)
+
+tempRast <- bio10$bio1/10
+precipRast <- bio10$bio12
+
+tempRast
+
+plot(tempRast)
+```
+
+![Source: National Ecological Observatory Network (NEON)](./figs/single_multiband.png)
+
+
+
+## What is a raster?
+
+"Gridded" data that represents areas on the Earth's surface as pixels. 
+
+![Source: National Ecological Observatory Network (NEON)](http://www.neonscience.org/sites/default/files/images/dc-spatial-raster/raster_concept.png)
+
+## Exploring a raster
+
+### Spatial resolution
+
+The size of each cell in meters
+
+![Source: National Ecological Observatory Network (NEON)](./figs/raster_resolution.png)
+
+
+### Spatial extent
+
+X, Y coordinates of the corners of the raster in the geographic space
+
+![Source: National Ecological Observatory Network (NEON)](./figs/spatial_extent.png)
+
+
+### Coordinate Reference System & Projection Information
+
+The **projection** of a dataset refers to the way the data are “flattened” in into a 2D space. The **coordinate system** references the x and y coordinate space that is associated with the projection.
+
+"If you have the same dataset saved in two different projections, these two files won’t line up correctly"
+
+
+![Source: M. Corey, opennews.org](./figs/USMapDifferentProjections.jpg)
+
+
+## Plotting raster
+
+### Changing breaks and colours
+
+```{r}
+## Changing breaks
+temphist<-hist(tempRast, breaks=4)
+temphist
+
+# Using the raster object with different breaks
+plot(tempRast, 
+     breaks = c(-40,-20,0,20,40),
+     col = brewer.pal(4, "Spectral"))
+
+# Reverting colours
+plot(tempRast, 
+     breaks = c(-40,-20,0,20,40),
+     col = rev(brewer.pal(4, "Spectral")))
+
+```
+
+### Challenge!
+
+Using the annual mean precipitation raster, create a plot that customises the color map with 5 breaks.
+
+### Cropping Rasters 
+
+```{r}
+## Croping rasters based on extent
+usa_box<-c(-124.7258, -66.94989, 24.49813, 49.38436)
+
+plot(tempRast)
+
+#plot temperature raster
+plot(tempRast)
+
+#Define the extent of the crop by clicking on the plot
+# cropbox1 <- drawExtent()
+
+cropbox1<-c(-124.7258, -66.94989, 24.49813, 49.38436)
+
+#crop the raster, then plot the new cropped raster
+Tempcrop1 <- crop(tempRast, cropbox1)
+Precicrop1 <- crop(precipRast, cropbox1)
+
+#Plot the cropped extent
+plot(Tempcrop1)
+
+
+## Layering rasters
+plot(Tempcrop1,
+    col=grey(1:100/100),  #create a color ramp of grey colors
+    legend=F)
+
+plot(Precicrop1,
+     breaks = c(0,1000,2000,3000,4000),
+     col = rev(brewer.pal(4, "Spectral")),
+     alpha=0.4,
+     add=T)
+
+
+## Raster calculations
+
+
+## Other functions to apply with rasters
+```
+
+## Challenge!
+
+Create a precipitation and temperature plot of Australia
+
+
+## Raster calculations
+
+```{r}
+#Calculate NPP using the Miami model.
+npp.mia.t <- 3000/(1+exp(1.315-0.119*tempRast))
+npp.mia.p <- 3000*(1-exp(-0.000664*precipRast))
+
+nppRast<-min(stack(npp.mia.t,npp.mia.p))
+
+plot(nppRast, main="NPP")
+```
+
