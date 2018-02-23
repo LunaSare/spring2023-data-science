@@ -136,9 +136,13 @@ plot(Tempcrop1)
 ## Layering rasters
 
 ```{r}
-## Layering rasters
+# create a color ramp of grey colors
 plot(Tempcrop1,
-    col=grey(1:100/100),  #create a color ramp of grey colors
+    col=grey(1:100/100))
+
+## Including both temperature and precipitation
+plot(Tempcrop1,
+    col=grey(1:100/100), 
     legend=F)
 
 plot(Precicrop1,
