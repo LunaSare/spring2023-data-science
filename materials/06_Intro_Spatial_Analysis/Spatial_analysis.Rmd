@@ -13,10 +13,12 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r libraries, echo=FALSE, message=FALSE, warning=FALSE}
 library(raster)
 library(sp)
 library(RColorBrewer)
+library(tidyverse)
+library(maptools)
 ```
 
 In this tutorial
@@ -72,9 +74,9 @@ X, Y coordinates of the corners of the raster in the geographic space
 
 ### Coordinate Reference System & Projection Information
 
-The **projection** of a dataset refers to the way the data are “flattened” in into a 2D space. The **coordinate system** references the x and y coordinate space that is associated with the projection.
+The **projection** of a dataset refers to the way the data are "flattened"" in into a 2D space. The **coordinate system** references the x and y coordinate space that is associated with the projection.
 
-"If you have the same dataset saved in two different projections, these two files won’t line up correctly"
+"If you have the same dataset saved in two different projections, these two files won't line up correctly"
 
 
 ![Source: M. Corey, opennews.org](./figs/USMapDifferentProjections.jpg)
@@ -163,4 +165,67 @@ nppRast<-min(stack(npp.mia.t,npp.mia.p))
 
 plot(nppRast, main="NPP")
 ```
+
+## Extract values from a raster
+
+### From x,y locations
+
+#### Getting records of species occurrences
+
+With the climatic raster previously downloaded, we can determine the main climatic conditions that a particular species is adapted for. 
+
+In this exercise, we are going to use occurrence data from the Global Biodiversity Information Facility (GBIF, http://gbif.org), which have been compiled for million of species worldwide. We can access the data directly using the function ``gbif()`` from the R package ``dismo`` using the scientific name of the species of interest. 
+
+```{r}
+cuteSleepy<-gbif("Bradypus","variegatus")
+
+```
+
+Before we extract the climatic values from our coordinates, we need to do some cleaning
+ 
+```{r}
+cuteSleepy<-
+  cuteSleepy %>% 
+  filter(!is.na(lon)&!is.na(lat))
+
+## Get rid of duplicate occurrences
+
+dups=duplicated(cuteSleepy[, c("lon", "lat")])
+cuteSleepy <-cuteSleepy[!dups, ]
+
+```
+ 
+
+### From polygons
+
+Now let's look at how the occurrences are distributed. We are going to make the map extent 1 degree around our observations. 
+
+```{r}
+data(wrld_simpl)
+
+plot(wrld_simpl, xlim=c(min(cuteSleepy$lon)-1,max(cuteSleepy$lon)+1), ylim=c(min(cuteSleepy$lat)-1,max(cuteSleepy$lat)+1), axes=TRUE, col="light yellow")
+
+points(cuteSleepy$lon, cuteSleepy$lat, col="orange", pch=21, cex=0.75)
+```
+
+### Extract climatic variables
+
+```{r}
+##Spatial points 
+cuteSleepy_geo<-cuteSleepy
+
+coordinates(cuteSleepy_geo)<-~lon + lat
+
+
+proj4string(cuteSleepy_geo)<-proj4string(tempRast)
+
+cuteSleepy_geo$temp<-raster::extract(tempRast,cuteSleepy_geo)
+hist(cuteSleepy_geo$temp)
+
+
+plot(crop(log(precipRast),extent(cuteSleepy_geo)))
+points(cuteSleepy_geo,pch=20,col="blue")
+
+```
+
 
