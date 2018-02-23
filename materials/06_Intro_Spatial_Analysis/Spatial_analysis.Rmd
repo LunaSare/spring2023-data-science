@@ -1,5 +1,6 @@
 ---
 title: "Introduction to Spatial Analysis"
+author: "Susy Echeverría-Londoño and Drew Kerkhoff"
 output: 
   html_document: 
     highlight: tango
@@ -9,8 +10,27 @@ output:
     toc_float: yes
 ---
 
+``This document is a work in progress – give us feedback``
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Before we start
+
+## Install R Packages
+
+* raster ``install.packages("raster")``
+* sp ``install.packages("sp")``
+* RColorBrewer ``install.packages("RColorBrewer")``
+* tidyverse ``install.packages("tidyverse")``
+* maptools ``install.packages("maptools")``
+* dismo ``install.packages("dismo")``
+
+Check if the package is installed first.
+
+```{r}
+"raster" %in% installed.packages()[, "Package"]
 ```
 
 ```{r libraries, echo=FALSE, message=FALSE, warning=FALSE}
@@ -19,70 +39,64 @@ library(sp)
 library(RColorBrewer)
 library(tidyverse)
 library(maptools)
+library(dismo)
 ```
 
-In this tutorial
 
 # Rasters
 
+In this exercise, we are going to use raster data that represent 'bioclimatic variables' from the WorldClim database (http://www.worldclim.org, Hijmans et al., 2004)
 
 ## Downloading raster climate data
 
 Worldclim database
-http://worldclim.org/version2
+http://worldclim.org/bioclim
+
+* BIO1 = Annual Mean Temperature
+* BIO5 = Max Temperature of Warmest Month
+* BIO6 = Min Temperature of Coldest Month
+* BIO7 = Temperature Annual Range (BIO5-BIO6)
+* BIO8 = Mean Temperature of Wettest Quarter
+* BIO9 = Mean Temperature of Driest Quarter
+* BIO12 = Annual Precipitation
+* BIO16 = Precipitation of Wettest Quarter
+* BIO17 = Precipitation of Driest Quarter
+* BIO18 = Precipitation of Warmest Quarter
+* BIO19 = Precipitation of Coldest Quarter
 
 ```{r}
 # using the raster package
-bio10 <- getData("worldclim",var="bio",res=10, path="./data/")
+bio_ly <- getData("worldclim",var="bio",res=10, path="./data/")
 
 ## Group of raster layers
-class(bio10)
+class(bio_ly)
 
-tempRast <- bio10$bio1/10
-precipRast <- bio10$bio12
+names(bio_ly)
+
+tempRast <- bio_ly$bio1/10
+precipRast <- bio_ly$bio12
 
 tempRast
-
-plot(tempRast)
 ```
-
-![Source: National Ecological Observatory Network (NEON)](./figs/single_multiband.png)
-
-
-
-## What is a raster?
-
-"Gridded" data that represents areas on the Earth's surface as pixels. 
-
-![Source: National Ecological Observatory Network (NEON)](http://www.neonscience.org/sites/default/files/images/dc-spatial-raster/raster_concept.png)
 
 ## Exploring a raster
 
-### Spatial resolution
+* Spatial resolution = The size of each cell (usually meters)
+* Spatial extent = X, Y coordinates of the corners of the raster in the geographic space
+* Projection = Spatial reference system describing how the data are "flattened" in into a 2D space
+* Coordinate Reference System = X,Y coordinate space associated with the projection.
 
-The size of each cell in meters
-
-![Source: National Ecological Observatory Network (NEON)](./figs/raster_resolution.png)
-
-
-### Spatial extent
-
-X, Y coordinates of the corners of the raster in the geographic space
-
-![Source: National Ecological Observatory Network (NEON)](./figs/spatial_extent.png)
-
-
-### Coordinate Reference System & Projection Information
-
-The **projection** of a dataset refers to the way the data are "flattened"" in into a 2D space. The **coordinate system** references the x and y coordinate space that is associated with the projection.
-
-"If you have the same dataset saved in two different projections, these two files won't line up correctly"
-
-
-![Source: M. Corey, opennews.org](./figs/USMapDifferentProjections.jpg)
-
+**"If you have the same dataset saved in two different projections, these two files won't line up correctly"**
 
 ## Plotting raster
+
+```{r}
+plot(tempRast)
+
+## using the ssplot function from the raster package
+spplot(tempRast)
+```
+
 
 ### Changing breaks and colours
 
@@ -93,31 +107,19 @@ temphist
 
 # Using the raster object with different breaks
 plot(tempRast, 
-     breaks = c(-40,-20,0,20,40),
+     breaks = temphist$breaks,
      col = brewer.pal(4, "Spectral"))
-
-# Reverting colours
-plot(tempRast, 
-     breaks = c(-40,-20,0,20,40),
-     col = rev(brewer.pal(4, "Spectral")))
 
 ```
 
-### Challenge!
+## Challenge!
 
 Using the annual mean precipitation raster, create a plot that customises the color map with 5 breaks.
 
-### Cropping Rasters 
+## Cropping Rasters 
 
 ```{r}
 ## Croping rasters based on extent
-usa_box<-c(-124.7258, -66.94989, 24.49813, 49.38436)
-
-plot(tempRast)
-
-#plot temperature raster
-plot(tempRast)
-
 #Define the extent of the crop by clicking on the plot
 # cropbox1 <- drawExtent()
 
@@ -129,8 +131,11 @@ Precicrop1 <- crop(precipRast, cropbox1)
 
 #Plot the cropped extent
 plot(Tempcrop1)
+```
 
+## Layering rasters
 
+```{r}
 ## Layering rasters
 plot(Tempcrop1,
     col=grey(1:100/100),  #create a color ramp of grey colors
@@ -143,15 +148,15 @@ plot(Precicrop1,
      add=T)
 
 
-## Raster calculations
-
-
-## Other functions to apply with rasters
+# include state polygons borders
+# This can take a while
+# USA<-getData('GADM', country='USA', level=1, path="./data/")
+# plot(USA,add=TRUE)
 ```
 
 ## Challenge!
-
-Create a precipitation and temperature plot of Australia
+* Crop both the temperature and precipitation rasters for Australia
+* Create a plot using both cropped climatic layers 
 
 
 ## Raster calculations
@@ -192,12 +197,8 @@ cuteSleepy<-
 
 dups=duplicated(cuteSleepy[, c("lon", "lat")])
 cuteSleepy <-cuteSleepy[!dups, ]
-
 ```
  
-
-### From polygons
-
 Now let's look at how the occurrences are distributed. We are going to make the map extent 1 degree around our observations. 
 
 ```{r}
@@ -205,27 +206,49 @@ data(wrld_simpl)
 
 plot(wrld_simpl, xlim=c(min(cuteSleepy$lon)-1,max(cuteSleepy$lon)+1), ylim=c(min(cuteSleepy$lat)-1,max(cuteSleepy$lat)+1), axes=TRUE, col="light yellow")
 
-points(cuteSleepy$lon, cuteSleepy$lat, col="orange", pch=21, cex=0.75)
+points(cuteSleepy$lon, cuteSleepy$lat, col="orange", pch=16, cex=0.75)
 ```
 
-### Extract climatic variables
+#### Extract climatic variables
+
+To extract the climatic values where our points occurr, we need first to convert the 
+x,y point locations to SpatialPointsDataFrames. To do this, we are going to use the ``coordinates()`` function from the R package ``sp``
+
+This will allow us to work with the data frame as spatial data along with other spatial data -- like rasters.
+
 
 ```{r}
-##Spatial points 
+##Convert ocurrence data to spatial points 
 cuteSleepy_geo<-cuteSleepy
-
 coordinates(cuteSleepy_geo)<-~lon + lat
+```
 
+We also need to make sure that our spatial point data and the raster have the same projection and coordinate reference system. We are going to use the function ``proj4string()`` functions from the ``raster`` package. This function retrieves the projection attributes of a spatial object. In this case, we are assigning the projection system from the raster ``tempRast`` to the spatial point data.
 
+```{r}
 proj4string(cuteSleepy_geo)<-proj4string(tempRast)
+```
 
+Now that we have a spatial object, we can display our spatial points directly to the map. We can also crop the map directly using the extent of our spatial pooints as a reference. 
+ 
+```{r}
+## Plotting climatic variable and coordinates
+new_map<-crop(tempRast,extent(cuteSleepy_geo))
+
+plot(new_map)
+points(cuteSleepy_geo,pch=20,col=alpha("blue",0.5))
+```
+
+
+```{r}
+## Extracting data
 cuteSleepy_geo$temp<-raster::extract(tempRast,cuteSleepy_geo)
 hist(cuteSleepy_geo$temp)
-
-
-plot(crop(log(precipRast),extent(cuteSleepy_geo)))
-points(cuteSleepy_geo,pch=20,col="blue")
-
 ```
+
+## Challenge! 
+
+* Extract the values of precipitation and productivity using the ``cuteSleepy_geo`` spatial point object. 
+* Plot the distribution of these values using histograms
 
 
