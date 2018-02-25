@@ -3,7 +3,7 @@ title: "Introduction to Spatial Analysis"
 author: "Susy Echeverría-Londoño and Drew Kerkhoff"
 output: 
   html_document: 
-    highlight: tango
+    highlight: kate
     number_sections: yes
     theme: cerulean
     toc: yes
