@@ -30,7 +30,7 @@ Using the Intro to [Spatial Analysis tutorial]({{ site.baseurl }}/materials/06_I
 
 1. Download the global climatic data from the Worldclim database using a resolution of 10m.
 2. Download the geographic occurrence data from the two species of lizards from GBIF.
-3. Using the mean annual temperature (bio1) and mean annual precipitation (bio12) rasters, calculate the Global Net Primary Production (NPP) using the Miami model (http://wergosum.com/miami-npp/){:target="_blank"}
+3. Using the mean annual temperature (bio1) and mean annual precipitation (bio12) rasters, calculate the Global Net Primary Production (NPP) using the [Miami model] (http://wergosum.com/miami-npp/){:target="_blank"}
 4. Extract the mean annual temperature, precipitation and net primary productivity values for each occurrence location in each lizard species. Before extracting the values, make sure to filter any NAs, zeros and duplicates from your lat and lon coordinates.
 5. Plot a map of NPP in Australia displaying the occurrences of both lizards species in different colours (hint! use the argument `add=TRUE` to add a new layer to your plot). You can use the function `drawExtent()` to extract the extent of Australia. However, you will need to write the values in a separate object, and then comment the line once you used the function. Using only the `drawExtent()` will affect the reproducibility of your code`
 6. Plot the distribution of the temperature and precipitation for each of the species of lizards.
