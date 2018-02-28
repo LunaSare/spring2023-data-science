@@ -80,27 +80,72 @@ output:
 
 ## Code Chunks
 
-To run data inside an R Markdown
+```{r setup2, include = FALSE}
+chunk <- "```"
+inline <- function(x = "") paste0("`` `r ", x, "` ``")
+library(tidyverse)
+```
+
+To run R code inside an R Markdown
 
 * The keyboard shortcut Cmd/Ctrl + Alt + I
 * Or "Insert" button icon in the toolbar
 
-```
-```{r setup, include = FALSE}
-library(tidyverse)
+<pre><code>```{r}
+msg<-"Hello world"
+msg
+```</code></pre>
 
-data("diamonds")
-
-smaller <- diamonds %>% 
-  filter(carat <= 2.5)
-```
-
+```{r}
+msg<-"Hello world"
+msg
 ```
 
+### Chunks options
 
+To modify how they run and how they appear in the document
 
+**Show only the output**
 
+<pre><code>```{r echo=FALSE}
+msg<-"Hello world"
+msg
+```</code></pre>
 
+```{r echo=FALSE}
+msg<-"Hello world"
+msg
+```
 
+**Run code but does not display code or ouput**
 
+<pre><code>```{r include=FALSE}
+msg<-"Hello world"
+msg
+```</code></pre>
+
+```{r include=FALSE}
+msg<-"Hello world"
+msg
+```
+
+**Print code but does not run it**
+
+<pre><code>```{r eval=FALSE}
+msg<-"Hello world"
+msg
+```</code></pre>
+
+```{r eval=FALSE}
+msg<-"Hello world"
+msg
+```
+
+### Inline Code
+
+To incorporate R outputs into the text
+
+The class of the object msg is `r inline("class(msg)")` and it has `r inline("length(msg)")` elements
+
+The class of the object msg is `r class(msg)` and it has `r length(msg)` elements
 
