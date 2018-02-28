@@ -1,0 +1,106 @@
+---
+title: "Introduction to Spatial Analysis"
+author: "Susy Echeverría-Londoño and Drew Kerkhoff"
+output:
+  html_document:
+    highlight: tango
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+---
+
+``This document is a work in progress – give us feedback``
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Before we start
+
+1. Install the rmarkdown package ``install.packages("raster")``
+2. Open a new R markdown file `*.Rmd`, `File` -> `New file` -> `R markdown`
+  * Enter a title and author(s).
+  * Choose 'Default Output Format' as HTML (for now)
+3. Save the Rmd file
+4. knit the document (Windows and Linux, Ctrl+Shift+K; Mac, Command+Shift+K)
+
+![](https://info201.github.io/img/r-markdown/knit-button.png)
+  
+# Main parts of an R Markdown file
+
+## The YAML Header
+
+Included at the top of the R Markdown script, the YAML header enclosed by `----` defines the title, author, date of the document and most importantly the file type you want to output (html, pdf, md, word). 
+
+```
+---
+title: "Example"
+author: "YOUR NAME HERE"
+date: "01/30/2017"
+output: html_document
+---
+```
+You can also alter the appearance and style of your document with different arguments. For example, `toc: true` will include a table of content. Click [Here](https://rmarkdown.rstudio.com/html_document_format.html) to see other arguments. 
+
+```
+---
+title: "Example"
+author: "YOUR NAME HERE"
+date: "01/30/2017"
+output: 
+  html_document:
+  toc: true
+---
+```
+
+## Markdown Basic syntax
+
+[R Markdown Cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+
+```
+# Header 1
+## Header 2
+### Header 3
+
+*Italics*
+**Bold**
+`inline code`
+[link](https://rmarkdown.rstudio.com/)
+
+* Bullet Lists
+  + Subitems
+
+
+```
+* Markdown Quick Reference `Help`-> `Markdown Quick Reference`
+* R Markdown reference guide `Help`->`Cheatsheets`-> `R Markdown Cheat Sheet` or `R Markdown Reference Guide`
+
+## Code Chunks
+
+To run data inside an R Markdown
+
+* The keyboard shortcut Cmd/Ctrl + Alt + I
+* Or "Insert" button icon in the toolbar
+
+```
+```{r setup, include = FALSE}
+library(tidyverse)
+
+data("diamonds")
+
+smaller <- diamonds %>% 
+  filter(carat <= 2.5)
+```
+
+```
+
+
+
+
+
+
+
+
