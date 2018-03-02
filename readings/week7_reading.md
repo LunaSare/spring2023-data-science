@@ -1,7 +1,7 @@
 ---
 layout: page
 element: reading
-title: 'Reproducible reports with Rmarkdown'
+title: 'Reproducible documents with Rmarkdown'
 language: R
 ---
 
