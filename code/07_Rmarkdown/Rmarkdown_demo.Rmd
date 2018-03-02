@@ -1,0 +1,102 @@
+---
+title: "Assignment"
+author: "My name"
+output:
+  pdf_document: default
+  html_document: default
+data: Today
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries, warning=FALSE, message=FALSE}
+library(knitr)
+library(tidyverse)
+```
+
+## Download data
+
+```{r data, cache=TRUE}
+download.file("http://www.esapubs.org/archive/ecol/E096/269/Data_Files/Amniote_Database_Aug_2015.csv", "./data/Amniote_Database_Aug_2015.csv")
+
+# Read data
+Amniote<-read.csv("./data/Amniote_Database_Aug_2015.csv")
+```
+
+## Explore data
+
+```{r explore,warning=FALSE, message=FALSE}
+names(Amniote)
+
+## Species per class
+
+Amniote %>% 
+  group_by(class) %>% 
+  summarise(N_order=n_distinct(order),
+            N_families=n_distinct(family),
+            N_species=n_distinct(species)) %>% 
+  kable
+
+```
+
+```{r replace_null}
+# Replace -999 for NAs
+Amniote[Amniote==-999]<-NA
+```
+
+
+```{r,warning=FALSE, message=FALSE}
+ggplot(Amniote, aes(x=maximum_longevity_y, y=log(adult_body_mass_g))) + 
+  geom_point()+
+  stat_smooth()
+
+  
+
+```
+
+
+```{r,warning=FALSE, message=FALSE}
+Amniote %>% 
+  filter(maximum_longevity_y<100) %>% 
+  ggplot(aes(x=maximum_longevity_y, y=log(adult_body_mass_g))) + 
+  geom_point()+
+  stat_smooth()
+  
+```
+
+```{r,warning=FALSE, message=FALSE}
+Amniote %>% 
+  filter(class=="Mammalia" & maximum_longevity_y < 100) %>% 
+  ggplot(aes(x=maximum_longevity_y, y=log(adult_body_mass_g))) + 
+  geom_point()+
+  stat_smooth(model="lm")
+  
+```
+
+
+```{r}
+Amniote %>% 
+  filter(class=="Mammalia") %>% 
+  select(order) %>% 
+  unique
+```
+
+```{r,warning=FALSE, message=FALSE}
+
+Amniote %>% 
+  filter(order=="Primates" | order=="Cetacea") %>% 
+  ggplot(aes(x=maximum_longevity_y, y=log(adult_body_mass_g))) + 
+  geom_point(aes(colour=order))
+
+# Which one?
+Amniote %>%
+  filter(order=="Cetacea" & maximum_longevity_y > 200) %>%
+  select(genus, species)
+
+# Which one?
+Amniote %>%
+  filter(order=="Primates" & maximum_longevity_y > 70) %>%
+  select(genus, species)
+```

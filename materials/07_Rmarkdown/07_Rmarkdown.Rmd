@@ -37,6 +37,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 The `rmarkdown` R package uses and interacts with other packages and programs to create a final document. For example, `knitr` converts the Rmd file into a markdown (.md) file, which is a common format for several websites (including the lectures and guides in this course). `knitr` runs chunks and inline R code and includes the output to a markdown document. `rmarkdown` then calls the `pandoc` program to convert the markdown into different formats. Note that to create a PDF, you need to install [Latex](https://www.latex-project.org/get/). The `bookdown` R package is necessary to number figures, tables and also it can be used to generate books, such as [R for Data Science](http://r4ds.had.co.nz/)
 
+*Source: [A guide to reproducible code in Ecology and Evolution by the BES](https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf)*
 
 ![](./figs/Rmarkdown_process.png)
 
@@ -155,6 +156,18 @@ msg<-"Hello world"
 msg
 ```
 
+**Do not display messages or warnings**
+
+<pre><code>```{r message=FALSE,warning=FALSE}
+library(tidyverse)
+library(knitr)
+```</code></pre>
+
+```{r message=FALSE,warning=FALSE}
+library(tidyverse)
+library(knitr)
+```
+
 **Naming chunks**
 
 <pre><code>```{r hello_world, eval=FALSE}
@@ -236,15 +249,15 @@ head(iris)
 A bit messy right?  For a more pleasing table, we can use the function `kable` from the R package `knitr`
 
 
-<pre><code>```{r}
+<pre><code>```{r table1}
 
 head(iris)
 
 ```</code></pre>
 
 
-```{r }
-require(knitr)
+```{r table1}
+
 kable(head(iris))
 
 ```
@@ -310,9 +323,6 @@ By default the argument `echo=FALSE`. Check the setup at the beginning of the do
 <pre><code>```{r}
 
 knitr::opts_chunk$set(echo = FALSE)
-
-library(tidyverse)
-library(knitr)
 
 ```</code></pre>
 
