@@ -62,3 +62,7 @@ Amniote %>%
 Amniote %>%
   filter(order=="Primates" & maximum_longevity_y > 70) %>%
   select(genus, species)
+
+Amniote %>%
+  filter(class=="Aves" & maximum_longevity_y > 90) %>%
+  select(genus, species)
