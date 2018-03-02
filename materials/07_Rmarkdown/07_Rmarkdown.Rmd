@@ -1,6 +1,6 @@
 ---
 title: "Reproducible reports with Rmarkdown "
-author: "Susy Echeverría-Londoño and Drew Kerkhoff"
+author: "Susy EcheverrÃ­a-LondoÃ±o and Drew Kerkhoff"
 output:
   html_document:
     highlight: tango
