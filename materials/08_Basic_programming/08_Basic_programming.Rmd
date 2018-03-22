@@ -35,13 +35,6 @@ df$Rescale_c<-(df$c-min(df$c,na.rm=TRUE))/(max(df$c,na.rm=TRUE)-min(df$c,na.rm=T
 df$Rescale_a
 ```
 
-# Writing a function
-
-Functions need to be written to be reusable. For that we need: 
-- Clear variable names
-- Consistent indentation and line spacing
-- Good commenting
-
 ## Basic structure
 
 ```{r}
