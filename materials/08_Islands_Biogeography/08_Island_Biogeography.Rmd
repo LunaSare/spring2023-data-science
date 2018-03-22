@@ -1,0 +1,31 @@
+---
+title: "Biogeography"
+author: "Susy Echeverría-Londoño and Drew Kerkhoff"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+class: inverse, center, middle
+
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/8/80/NASA_Hawaiian_Islands_main_islands.png)
+
+# Island Biogeography
+
+---
+
+
+![](http://www.biodiverseperspectives.com/wp-content/uploads/2014/04/Slide1.jpg)
+
+Source: http://www.biodiverseperspectives.com/
+---
+
+
