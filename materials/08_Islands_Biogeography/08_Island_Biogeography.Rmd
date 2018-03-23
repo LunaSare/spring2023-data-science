@@ -99,3 +99,12 @@ Source: http://www.biodiverseperspectives.com/
 
 ---
 ![](http://www.tiredearth.com/sites/default/files/ForestFragments.jpg)
+---
+
+---
+class: center
+
+*Paper discussion*
+
+<img src="./figs/Div_analyses.png" style="width: 40%"/>
+---
