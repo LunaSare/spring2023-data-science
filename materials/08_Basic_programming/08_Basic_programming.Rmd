@@ -236,7 +236,7 @@ Size_tree(2)
 ```{r}
 
 in_to_cm<-function(x){
-  x/2.54
+  x*2.54
 }
 
 PlantVolume_in_m<-function(l, w, h, units="cm"){
@@ -269,10 +269,10 @@ PlantVolume_in_m<-function(l, w, h, units="cm"){
   
 }
 
-PlantVolume_in_m(0.10,0.11,0.12,units="m")
-PlantVolume_in_m(25.4,27.94,30.48,units="in")
-PlantVolume_in_m(10,11,12,units="cm")
-PlantVolume_in_m(10,11,12,units="km")
+PlantVolume_in_m(0.254,0.2794,0.3048,units="m")
+PlantVolume_in_m(10,11,12,units="in")
+PlantVolume_in_m(25.4,27.94,30.48,units="cm")
+PlantVolume_in_m(25.4,27.94,30.48,units="km")
 ```
   
 ## Challenge
