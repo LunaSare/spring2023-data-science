@@ -21,11 +21,81 @@ background-image: url(https://upload.wikimedia.org/wikipedia/commons/8/80/NASA_H
 # Island Biogeography
 
 ---
+class: center, middle
+![](https://press.princeton.edu/sites/default/files/styles/large/public/covers/9780691088365_0.png?itok=wjdA6m9X)
 
+---
+### Number of species as function of the rate of migration/colonization and extinction
+
+---
+class: center, middle
+![](http://chegg-html-solutions.s3.amazonaws.com/9780321507433/5456-21-11RQP-i1.png)
+---
+## Empirical studies
+
+- Jared Diamond, 1969. Number of birds that breed in the California channel Islands
+
+![](https://www.motherjones.com/wp-content/uploads/diamond_cropped_lightened.jpg?w=990)
+
+---
+class: center, middle
+
+![](http://3.bp.blogspot.com/-wQ2qjEYUWyY/T3k8BtconwI/AAAAAAAAAm4/YVB7EoZigIY/s1600/Diamond+data+on+map.jpg)
+
+---
+
+## Archipelago
+
+![](https://www.worldatlas.com/r/w728-h425-c728x425/upload/86/de/b2/shutterstock-340754708.jpg)
+
+---
+## Distance to mainland
+
+![](https://upload.wikimedia.org/wikipedia/commons/a/a9/Insular_Biogeography_%28Distance%29.png)
+
+---
+class: center, middle
+![](http://chegg-html-solutions.s3.amazonaws.com/9780321507433/5456-21-11RQP-i1.png)
+
+---
+class: center
+
+## Empirical studies
+
+- Simberloff and Wilson, 1969. Arthropods in the Florida Keys. 
+
+<img src="./figs/Simb_Wilson.png" style="width: 80%"/>
+
+---
+class: center
+
+![](http://images.slideplayer.com/16/5035245/slides/slide_3.jpg)
+
+
+---
+
+![](http://www.macmillanhighered.com/BrainHoney/Resource/6716/digital_first_content/trunk/test/hillis2e/asset/img_ch44/c44_fig12.jpg)
+
+---
+## Area
+
+![](https://upload.wikimedia.org/wikipedia/commons/6/6b/Insular_Biogeography_%28Size%29.png)
+
+---
+
+![](http://images.slideplayer.com/32/9963310/slides/slide_7.jpg)
+
+---
+class: center, middle
 
 ![](http://www.biodiverseperspectives.com/wp-content/uploads/2014/04/Slide1.jpg)
 
 Source: http://www.biodiverseperspectives.com/
+
 ---
+# Why is this important? 
 
+![](http://hosho.ees.hokudai.ac.jp/~tsuyu/top/dct/stt/isl_01.png)
 
+---
+![](http://www.tiredearth.com/sites/default/files/ForestFragments.jpg)
