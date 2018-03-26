@@ -1,0 +1,2 @@
+Avg_adult_body_mass_g    class   order      family
+1              77818.35 Mammalia Cetacea Delphinidae
