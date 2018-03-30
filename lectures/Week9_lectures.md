@@ -10,4 +10,4 @@ language: R
 
 [Basic programming II]({{ site.baseurl }}/materials/09__Basic_programming_II/09_Basic_programming.html)
 
-[Code]
+[Code](/code/Sample_code_functions.zip)
