@@ -1,7 +1,7 @@
 ---
 layout: page
 element: lecture
-title: 'Basic programming I'
+title: 'Basic programming II'
 language: R
 ---
 # Project guidelines
