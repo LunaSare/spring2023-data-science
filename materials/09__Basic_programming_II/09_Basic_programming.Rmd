@@ -1,0 +1,175 @@
+---
+title: "Basic programming II"
+author: "Susy Echeverría-Londoño and Drew Kerkhoff"
+output:
+  html_document:
+    highlight: tango
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+---
+``This document is a work in progress, please give us feedback``
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(kableExtra)
+```
+
+# Merging data frames
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+## Data frames
+```{r }
+# 1. Traits data frame
+sp_traits<-read.csv("./Data/species_traits.csv")
+
+# 2. Biome distribution data frame
+sp_biomes<-read.csv("./Data/species_biomes_distri.csv")
+
+# 3. Growth form information
+Growth_form<-read.csv("./Data/GrowthForm.csv")
+```
+
+## Exploring data
+
+```{r}
+# Exploring the dataframe
+dim(sp_traits)
+dim(sp_biomes)
+
+# Alternative you can use View()
+head(sp_traits)
+head(sp_biomes)
+
+# How many species are match between the two dataframes
+table(sp_traits$species%in%unique(sp_biomes$species))
+
+# We first need to make sure the species vector names have the same format
+head(sp_traits$species)
+head(sp_biomes$species)
+```
+
+
+## Matching variables and formats
+```{r}
+# Replacing spaces in species names
+sp_traits$species<-gsub(" ","_",sp_traits$species)
+head(sp_traits$species)
+
+table(sp_traits$species%in%unique(sp_biomes$species))
+table(unique(sp_biomes$species)%in%sp_traits$species)
+```
+
+
+## Merging data frames
+
+```{r}
+# ?merge
+# When species columns have the same name
+Trait_biomes_df<-merge(x=sp_traits,y=sp_biomes) 
+
+head(Trait_biomes_df)
+
+DF1<-merge(x=sp_traits,y=sp_biomes,
+                       by.x="species",by.y="species")
+
+DF2<-merge(x=sp_biomes,y=sp_traits,
+                        by.x="species",by.y="species")
+
+```
+
+Is there a difference between data frame `DF1` and `DF2`?
+
+## Challenge
+
+Include the Growth form information into the `Trait_biomes_df` data frame. Remember to check first the format and names of the variables you want to match between the two data frames. 
+
+```{r include=FALSE}
+Growth_form$SPECIES_STD<-gsub(" ","_",Growth_form$SPECIES_STD)
+
+tmp1<-merge(Trait_biomes_df,Growth_form,
+            by.x="species",by.y="SPECIES_STD")
+
+tmp2<-merge(Growth_form,Trait_biomes_df,
+            by.x="SPECIES_STD",by.y="species")
+
+
+Trait_biomes_df<-merge(Trait_biomes_df,Growth_form,
+            by.x="species",by.y="SPECIES_STD")
+```
+
+
+# Functions practice
+
+Let's recap the main structure of a function in R! 
+
+
+
+```{r}
+add<-function(x, y = 1){
+  x + y
+}
+
+format(add)
+body(add)
+environment(add)
+
+add(x=2)
+
+add(x=4,y=6)
+```
+
+## Let's practice
+
+Extracting the mean values of seed mass per family in Moist forest
+```{r}
+Trait_biomes_df %>% 
+  filter(Biome=="Moist_Forest") %>% 
+  group_by(FAMILY_STD) %>% 
+  summarise(Mean_Trait=mean(Seed_mass, na.rm=TRUE))
+```
+
+### Challenge
+1. Create a function that takes any biome name as input and display the average value of seed mass per family
+
+2. Modify the function to calculate the average value of any trait
+
+3. Complete the `----` in the following code to create a function that:
+
+a. Takes as input the name of a biome
+b. Evaluate if this biome has species that belong to the family of true grasses (i.e., Poaceae)
+c. Return the list of true grass species
+d. If there are no grass species, returns a message "No grasses found in this biome"
+
+```{r eval=FALSE, include=TRUE}
+
+Biome_grasses<-function(biome){
+
+  Biome_df<-
+  Trait_biome_GF %>% 
+    filter(Biome==____)
+  
+  if("Poaceae"%in%___){
+   
+    Biome_df %>% 
+      filter(FAMILY_STD=="Poaceae") %>% 
+      pull(species)
+    
+  }else{
+    
+    print(___)
+    
+  }  
+
+}
+
+```
+
+
+
+

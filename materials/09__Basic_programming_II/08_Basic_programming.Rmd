@@ -1,0 +1,290 @@
+---
+title: "Basic programming I"
+author: "Susy Echeverría-Londoño and Drew Kerkhoff"
+output:
+  html_document:
+    highlight: tango
+    number_sections: yes
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+---
+``This document is a work in progress, please give us feedback``
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Functions
+
+Functions allows you to perform a specific task in a more powerful and general way. When you need to run the same thing repeatedly, the most efficient and reproducible way is to write a function. Functions will avoid incidental mistakes when you copy and paste code in different parts of your script. 
+
+Let's look at the following example of code which rescales each column of a data frame to a range from 0 to 1
+
+```{r}
+ df<-data.frame(
+   a=rnorm(10),
+   b=rnorm(10),
+   c=rnorm(10)
+ )
+
+df$Rescale_a<-(df$a-min(df$a,na.rm=TRUE))/(max(df$a,na.rm=TRUE)-min(df$a,na.rm=TRUE))
+df$Rescale_b<-(df$b-min(df$b,na.rm=TRUE))/(max(df$b,na.rm=TRUE)-min(df$b,na.rm=TRUE))
+df$Rescale_c<-(df$c-min(df$c,na.rm=TRUE))/(max(df$c,na.rm=TRUE)-min(df$c,na.rm=TRUE))
+
+df$Rescale_a
+```
+
+## Basic structure
+
+```{r}
+function_name <- function(inputs) {
+  output_value <- do_something(inputs)
+  return(output_value)
+}
+```
+
+Let's try our first function called rescale01
+
+```{r}
+rescale01<-function(x){
+  
+  rescale_value<-(x-min(x, na.rm=TRUE))/(max(x,na.rm=TRUE)-min(x,na.rm=TRUE))
+  return(rescale_value)
+  
+}
+
+rescale01(x=df$a)
+
+rescale01(df$a)
+
+df$Rescale_a<-rescale01(df$a)
+
+```
+
+We can combine functions to do larger tasks in two ways. In this case, we can use the function `range()` which gives us the minimum and maximum values directly
+
+```{r}
+
+rescale01<-function(x){
+  
+  ran<-range(x, na.rm=TRUE)
+  rescale_value<-(x-ran[1])/(ran[2]-ran[1])
+  
+  return(rescale_value)
+  
+}
+
+rescale01(df$a)
+
+df$Rescale_a<-rescale01(df$a)
+```
+
+## Walk through function execution
+
+- Call function `rescale01`
+- Assign the vector `df$a` to the `x` argument (or input)
+- Calculate the range of the vector
+- Using the min and max values rescale the vector and store the new values in the `rescale_value` object
+- Send the `rescale_value` object back as output
+- Store it in `df$Rescale_a`
+
+You can also write the function in a simpler way. 
+
+```{r}
+rescale01<-function(x){
+  
+  (x-min(x, na.rm=TRUE))/(max(x,na.rm=TRUE)-min(x,na.rm=TRUE))
+
+}
+```
+
+## Challenge
+
+1. Write a function that calculates the volume of a plant using lenght, width, height as input arguments. `volume=length * width * height`
+2. Calculate the volume for the following plants
+
+
+| Plants | length (in) | width (in) | height (in) |
+|--------|-------------|------------|-------------|
+| A      | 20.32       | 40.64      | 50.80       |
+| B      | 25.40       | 38.10      | 60.96       |
+| C      | 25.4        | 50.8       | 127         |
+
+3. Calculate a function that converts inches in centimeters (_there are 2.54 cm in one in_). Use that function to transform the lenght, width, height plant values. 
+
+4. Create a new function that calculates the volume of a plant in `cm^3` using a combination between the functions in 1 and 3.  
+
+
+# Conditionals
+
+Conditionals evaluate whether a logical statement is either `TRUE` or `FALSE`. Conditional statements use operators such as `==`, `!=`, `<`,`>`, `<=`, `>=`. You can combine these with `&` (and) or `|` (or). You can also use some predefine functions such as `identical()`
+
+```{r}
+20>7
+
+"A"=="B"
+
+"A"!="B"
+
+identical("C","D")
+```
+
+## Challenge
+
+_Taken from data carpentry[http://www.datacarpentry.org/semester-biology/exercises/Making-choices-choice-operators-R/]_
+ 
+1. Create the following variable
+
+```{r}
+w <- 10.2
+x <- 1.3
+y <- 2.8
+z <- 17.5
+dna1 <- "attattaggaccaca"
+dna2 <- "attattaggaacaca"
+```
+
+2. Use them to print whether or not the following statements are `TRUE` or `FALSE`
+
+- w is greater than 10
+- w + x is less than 15
+- x is greater than y
+- 2 * x + 0.2 is equal to y
+- dna1 is the same as dna2
+- dna1 is not the same as dna2
+- w is greater than x, and y is greater than z
+- x times w is between 13.2 and 13.5
+- dna1 is longer than 5 bases (use nchar() to figure out how long a string is), or z is less than w * x
+
+## Floating point
+
+```{r}
+x<-sqrt(2)^2
+x
+
+x==2
+```
+
+Floating points are unexpected results from computer arithmetics in numbers that contain very small trailing digits. 
+
+```{r}
+# Shows the number in a C-style format
+formatC( x, format='f', digits=20)
+```
+
+To avoid floating-point issues, use the function `dplyr::near()` or round the values of the variable
+
+```{r message=FALSE, warning=FALSE}
+require(dplyr)
+
+near(x, 2)
+
+round(x)==2
+```
+
+## if statements
+
+`if` statements allows you to conditionally execute code
+
+```{r eval=FALSE}
+if(condition){
+  # code executed when condition is TRUE
+}else{
+  # code executed when condition is TRUE
+}
+
+```
+
+### One condition example
+
+```{r}
+Size_tree<-function(x){
+  
+  if(x>5){
+    print("Large tree")
+  }else{
+    print("Small tree")
+  }
+
+}
+
+Size_tree(100)
+Size_tree(3)
+```
+
+### Multiple conditions
+
+```{r}
+Size_tree<-function(x){
+  
+  if(x>5){
+    print("Large tree")
+  }else if(x<=5 & x>3 ){
+    print("Medium tree")
+  }else{
+    print("Small tree")
+  }
+
+}
+
+Size_tree(100)
+Size_tree(5)
+Size_tree(2)
+```
+
+```{r}
+
+in_to_cm<-function(x){
+  x*2.54
+}
+
+PlantVolume_in_m<-function(l, w, h, units="cm"){
+  
+  if(units=="in") {
+    
+    new_l<-in_to_cm(l)/100
+    new_h<-in_to_cm(h)/100
+    new_w<-in_to_cm(w)/100
+    volume <- new_l*new_h*new_w
+    
+  }else if (units=="cm"){
+    
+    new_l<-l/100
+    new_h<-h/100
+    new_w<-w/100
+    volume <- new_l*new_h*new_w
+    
+  }else if (units=="m"){
+    
+    volume <- l*h*w
+    
+  }else{
+    
+    message("Use either m, cm or in")
+    volume<-NULL
+  }
+  
+  return(volume)
+  
+}
+
+PlantVolume_in_m(0.254,0.2794,0.3048,units="m")
+PlantVolume_in_m(10,11,12,units="in")
+PlantVolume_in_m(25.4,27.94,30.48,units="cm")
+PlantVolume_in_m(25.4,27.94,30.48,units="km")
+```
+  
+## Challenge
+
+Go to this [link](http://www.datacarpentry.org/semester-biology/exercises/Making-choices-complete-the-code-R/) and complete the assignment from Data carpentry for Biologist website
+
+# Sources
+- Hadley Wickham and Garrett Grolemund. 2017. [R for Data Science](http://r4ds.had.co.nz/functions.html): Import, Tidy, Transform, Visualize, and Model Data (1st ed.). O'Reilly Media, Inc.
+
+- Data carpentry for Biologist. [Functions in R](http://www.datacarpentry.org/semester-biology/materials/functions-R/)
+
+
+
+
+
