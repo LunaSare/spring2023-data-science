@@ -1,9 +1,10 @@
 ---
 layout: page
-element: lecture
+element: assignment
 title: 'Basic programming II'
 language: R
 ---
+
 # Project guidelines
 
 The course project is the perfect opportunity to practice skills that you have built and learn new ones specifically for your project. During the following weeks, you will be able to work on your projects at home and in-class where we will be able to guide you.
