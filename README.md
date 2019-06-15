@@ -1,38 +1,21 @@
-# Data Carpentry for Biologists - Semester Course
-
-[![DOI](https://zenodo.org/badge/31911336.svg)](https://zenodo.org/badge/latestdoi/31911336)
+# Ecoinformatics - Semester Course
 
 This is a [forkable](https://help.github.com/articles/fork-a-repo/) set of teaching materials for teaching biologists how to work
-with data through programming, database management and computing more generally.
+with biodiversity data through programming, database management and computing more generally.
 
-This repository contains the complete teaching materials (excluding exams and
-answers to assignments) and [website](http://datacarpentry.org/semester-biology) for a university style and self-guided 
-course teaching computational data skills to biologists. The course is designed
-to work primarily as a flipped classroom, with students reading and viewing
-videos before coming to class and then spending the bulk of class time working
-on exercises with the teacher answering questions and demoing the concepts.
+This repository contains teaching materials (excluding exams and
+answers to assignments) for a university style and self-guided
+course teaching computational data skills to biologists.
 
-[Helpful information](http://www.datacarpentry.org/semester-biology/docs/) 
+The basic design of this website is based on the Programming for Biologists course developed by Ethan White (@ethanwhite) at the University of Florida. His course materials can be found and forked [here](http://datacarpentry.org/semester-biology)
+
+[Helpful information](http://www.datacarpentry.org/semester-biology/docs/)
 is available regarding the structure and function of the course and website
 materials for customized development and delivery of the course.
 
-We encourage collaborative development. This repository was used by 
-@ethanwhite to teach a version of this course (Fall 2016) at the University of
-Florida. The course remains under active development. We welcome contributions
-to all aspects of the course/site and are especially seeking exercises and
-assignments for a range of disciplines. Key site and course materials are
-available as templates for contributions of new materials and other materials
-that are specific to the course (e.g., the syllabus) are developed in a way to
-facilitate easy customization. 
-
-- Here are some examples of customized courses:
-  - [Introduction to Ecology](https://atredennick.github.io/ecology_class/) by [Andrew Tredennick](https://atredennick.github.io/)
-  - [Data Science for Agriculture](https://palderman.github.io/DataSciAg/) by [Phillip Alderman](http://pss.okstate.edu/pass-drctry/faculty/alderman)
-
-
 ## Where is everything
 
-Core teaching materials are stored in `exercises/`, `lectures/`, and 
+Core teaching materials are stored in `exercises/`, `lectures/`, and
 `materials/`.
 
 Class specific materials are stored in the `syllabus`, `schedule` and `assignments/`.
@@ -71,11 +54,11 @@ elsewhere it can certainly be added here.
 The website is setup to be easy to run automatically through GitHub:
 
 1. [Fork](https://github.com/datacarpentry/semester-biology#fork-destination-box)
-   or [import](https://import.github.com/) the repository to 
+   or [import](https://import.github.com/) the repository to
    `https://github.com/yourusername/semester-biology`.
 2. Update `# Setup` information in `_config.yml` in the main directory for
    proper site rendering.
-   * You must `push` this change to your repository to build and browse your 
+   * You must `push` this change to your repository to build and browse your
      forked version.
    * In a few minutes you should be able to see the site at:
      `https://yourusername.github.io/semester-biology/`
@@ -136,9 +119,4 @@ After pushing to GitHub:
 
 ## Acknowledgements
 
-Development of this material is funded by [the Gordon and Betty Moore
-Foundation's Data-Driven Discovery
-Initiative](http://www.moore.org/programs/science/data-driven-discovery) through
-[Grant GBMF4563](http://www.moore.org/grants/list/GBMF4563) to Ethan White and
-the [National Science Foundation](http://nsf.gov/) as part of a [CAREER award to
-Ethan White](http://nsf.gov/awardsearch/showAward.do?AwardNumber=0953694).
+Development of this material is funded by the [National Science Foundation](http://nsf.gov/) as part of a [RUI Collaborative Research grant](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1556651).
