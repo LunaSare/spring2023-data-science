@@ -9,7 +9,7 @@ kramdown:
 permalink:        pretty
 
 # Setup
-title:            Course: Data Science Research in Biology
+title:            Course - Data Science Research in Biology
 description:      'A course for undergraduates covering computational approaches to data science in biology'
 url:              http://www.datacarpentry.org/semester-biology
 baseurl:          /data-science-research-biology
