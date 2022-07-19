@@ -9,15 +9,15 @@ kramdown:
 permalink:        pretty
 
 # Setup
-title:            Ecoinformatics
-description:      'A course for undergraduates covering computational approaches in macroecology'
+title:            Course: Data Science Research in Biology
+description:      'A course for undergraduates covering computational approaches to data science in biology'
 url:              http://www.datacarpentry.org/semester-biology
-baseurl:          /Ecoinformatics
-email:            susyelo@gmail.com
+baseurl:          /data-science-research-biology
+email:            sanchez.reyes.luna@gmail.com
 author:
-  name:           'Susy Echeverría and Drew Kerkhoff'
-  url:            https://kerkhofflab.org/
+  name:           'Luna Luisa Sanchez Reyes and Emily Jane McTavish'
+  url:            https://mctavishlab.github.io/
 
 github:
-  repo:           https://github.com/GlobalEcologyBiogeography/Ecoinformatics.git
+  repo:           https://github.com/LunaSare/data-science-research-biology.git
   #               Be sure the 'Issues' feature is activated in 'Settings'
