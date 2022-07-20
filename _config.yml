@@ -9,11 +9,12 @@ kramdown:
 permalink:        pretty
 
 # Setup
-title:            Course - Data Science Research in Biology
+title:            Data Science Research in Biology
 description:      'A course for undergraduates covering computational approaches to data science in biology'
 url:              http://www.datacarpentry.org/semester-biology
 baseurl:          /data-science-research-biology
 email:            sanchez.reyes.luna@gmail.com
+feedbackurl:      docs.google.com/forms/d/1y35uJukuZ9MPKQWWqw0Y8R4VOiaOtFJezDY_t_kJfTs/
 author:
   name:           'Luna Luisa Sanchez Reyes and Emily Jane McTavish'
   url:            https://mctavishlab.github.io/

@@ -72,12 +72,12 @@ html {
 
 /* Sidebar links */
 .sidebar a {
-  color: #fff;
+  color: #002856;
 }
 
 /* About section */
 .sidebar-about h1 {
-  color: #fff;
+  color: #002856;
   margin-top: 0;
   font-family: "Abril Fatface", serif;
   font-size: 2.25rem;
@@ -264,4 +264,22 @@ a.sidebar-nav-item:focus {
 .theme-base-ForGre  .content a,
 .theme-base-ForGre  .related-posts li a:hover {
   color: #2B7A78;
+}
+
+/* Lake Yosemite */
+.theme-base-lake .sidebar {
+  background-color:#002856;
+}
+.theme-base-lake  .content a,
+.theme-base-lake  .related-posts li a:hover {
+  color: #00285690;
+}
+
+/* Poppy Gold */
+.theme-base-poppy .sidebar {
+  background-color:#DAA900;
+}
+.theme-base-poppy  .content a,
+.theme-base-poppy  .related-posts li a:hover {
+  color: #002856;
 }

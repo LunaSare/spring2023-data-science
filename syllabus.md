@@ -1,21 +1,21 @@
 ---
 layout: page
 title: Syllabus
-catalog: BIOL 328
-semester: Fall 2018
+catalog: BIO XXX
+semester: Fall 2022
 
 
-professor: Prof. Andrew J. Kerkhoff
-office: Higley Hall 301
-email: kerkhoffa@kenyon.edu
-office_hours: Monday, 10-12:00; Wednesday, 1:00-3:00 pm; Thursdays, 10-11 am.  
+professor: Dr. Luna L Sanchez Reyes
+office: Science and Engineering Building 1
+email: sanchez.reyes.luna@gmail.com
+office_hours: By appointment and Monday, Wednesday, Friday, 10-noon.
 
 professor2: Dr. Susy Echeverría-Londoño
-office2: Higley Hall 203
-email2: echeverrialondono1@kenyon.edu
-office_hours2: Tuesdays, 1:00-3:00 pm
+office2: Science and Engineering Building 1
+email2: ejmctavish@ucmerced.edu
+office_hours2: By appointment
 
-schedule: ['Fridays, 1:15-4:00pm, Higley Hall, Kerkhoff Lab']
+schedule: ['Tuesday & Thursday, 10:30-11:45pm, Online']
 
 
 
@@ -34,7 +34,7 @@ Office: {{ page.office }}
 Email:
 [{{ page.email }}](mailto:{{ page.email }})
 
-Times: {{ page.office_hours }}
+Office hours: {{ page.office_hours }}
 
 
 #### {{ page.professor2}}
@@ -44,10 +44,10 @@ Office: {{ page.office2 }}
 Email:
 [{{ page.email2 }}](mailto:{{ page.email2 }})
 
-Times: {{ page.office_hours2}}
+Office hours: {{ page.office_hours2}}
 
 
-### Times & Location
+### In-class Times & Location
 
 {% for class in page.schedule %}
   {{ class }}
@@ -57,7 +57,7 @@ Times: {{ page.office_hours2}}
 ### Website
 
 The syllabus and other relevant class information and resources will be posted
-at [https://globalecologybiogeography.github.io/Ecoinformatics/](https://globalecologybiogeography.github.io/Ecoinformatics/).
+at [https://lunasare.github.io/data-science-research-biology/](https://lunasare.github.io/data-science-research-biology/).
 Changes to the schedule will be posted to this site so please try to check it
 periodically for updates.
 
@@ -85,12 +85,15 @@ Email: [{{ page.email }}](mailto:{{ page.email }}), [{{ page.email2 }}](mailto:{
 
 ### Course Description
 
-This is a comprehensive course in the large-scale history and dynamics of the biosphere. The course will focus on ecoinformatics and macroecology, using computational approaches to describe and explain general patterns in the distribution, abundance and functioning of organisms. Special attention will be given to geographical patterns of biodiversity and their basis in both ecological (dispersal, competition) and evolutionary (speciation, extinction) processes. The course will also examine the large-scale interactions between humans and the rest of the biosphere. The course will be conducted seminar style, with most of the reading will be drawn from recent primary literature. The development of research methods using published data, computational tools and model output to address new ecological questions at continental to global scales will be an integral part of this course. This counts as an upper-level lecture in environmental biology.
+This is a course-based undergraduate research experience (CURE) in using data science to address research questions of biological significance in ecology and evolution. The course will focus on bioinformatic and phylogenetic methods, using state-of-the-art computational tools and statistical skills to design appropriate analyses to describe and explain general patterns in the species distribution and evolutionary history of organisms. Special attention will be given to phylogenetic patterns of biodiversity and their basis in both ecological (dispersal, competition) and evolutionary (speciation, extinction) processes.
+The course will be conducted seminar style and student-centered. Most of the reading will be drawn from recent primary literature.
+The application of research methods using published data, computational tools, and best practices in reproducibility to address questions in ecology and evolution, will be an integral part of this course.
+Students will communicate their results in written, oral and visual formats.
 
 
 ### Prerequisite Knowledge and Skills
 
-BIOL 228, 241, 251, 253, or 261 or permission of instructor
+Evolution
 
 
 ### Course Goals and Objectives
@@ -104,7 +107,7 @@ Students completing this course will be able to:
 * Write simple computer programs in R
 * Understand how to organise, explore and visualise environmental data
 * Reproduce analyses in ecology
-* Organise and keep track of ecological projects using version control.  
+* Organise and keep track of ecological projects using version control.
 
 
 ### Course Project
