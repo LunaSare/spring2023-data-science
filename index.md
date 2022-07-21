@@ -2,11 +2,11 @@
 layout: default
 ---
 
-This course provides a thorough introduction to computing tools and statistical analysis for using data science in biological research.
-Te course aims to provide students with an integrative training for analysing large datasets used in ecological and evolutionay research, to build a a skillset of analytical techniques such as data structure, database management systems, programming for data manipulation, analysis, and visualization, and interpretation.
-It is designed to be used as a flipped university course and also to be useful for self-guided students. Instructors are welcome to modify and use the material for your own courses. We encourage collaborative development and contributions by instructors, with the hopes that this will lead to better training and resources for everyone.
+This course is an introduction to computing tools and statistical analyses used for data science in biological research.
+The course aims to provide students with an integrative training for analysing large datasets used in ecological and evolutionay research. Students will learn best practices for data science, open science principles and reproducibility, while building a skillset of analytical techniques such as structuring datasets, data management systems, programming for data wrangling and visualization, and interpretation of results.
 
-_The course website was adapted from Data Carpentry for Biologists website (http://www.datacarpentry.org/semester-biology/). As for their course material, instructors are welcome to modify and use this material for your own courses. We encourage collaborative development and contributions by other instructors, with the hopes that this will lead to better training and resources for everyone_.
+
+_The course website was adapted from the Data Carpentry for Biologists website (http://www.datacarpentry.org/semester-biology/). It is designed to be used as a flipped university course and also to be useful for self-guided students. Instructors are welcome to modify and use the material for your own courses. We encourage collaborative development and contributions by instructors, with the hopes that this will lead to better training and resources for everyone._.
 
 For students:
 : <a href="{{ site.baseurl}}/syllabus">
