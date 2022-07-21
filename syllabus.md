@@ -21,11 +21,10 @@ schedule: ['Tuesday & Thursday, 10:30-11:45pm, Online']
 
 ---
 
-## {{ site.title }}
 
 {{ page.catalog }}, {{ page.semester }}
 
-### Professor
+### Instructors
 
 #### {{ page.professor }}
 
