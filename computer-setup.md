@@ -1,5 +1,6 @@
 ---
 layout: page
+element: homework
 title: Computer Setup
 ---
 

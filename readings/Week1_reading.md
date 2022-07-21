@@ -1,8 +1,24 @@
 ---
 layout: page
 element: reading
-title: 'Computer setup'
-language: R
+title: 'The Data Life Cycle'
+language: Excel
+pagetype: Assignment
+symbol: <i class="fa fa-book fa-lg"></i>
 ---
 
-[Purvis, A. and Hector, A., 2000.](https://www.nature.com/articles/35012221) Getting the measure of biodiversity. Nature, 405(6783), p.212.
+Read the first 3 papers for in-class discussion:
+
+1. [The Data Life Cycle](https://www.dataone.org/data-life-cycle)
+1. [Big data and the future of ecology](http://onlinelibrary.wiley.com/doi/10.1890/120103/full)
+1. [Scientists losing data at a rapid rate](http://www.nature.com/news/scientists-losing-data-at-a-rapid-rate-1.14416)
+1. [Quality Assurance and Control](http://www.datacarpentry.org/spreadsheet-ecology-lesson/04-quality-control)
+*
+
+> **Learning Objectives**
+>
+> Following this readings students will be able to:
+>
+> - recognize the elements of the data life cycle
+> - articulate the relevance of data for scientific research
+> - identify the differences between good and bad data

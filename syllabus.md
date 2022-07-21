@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Syllabus
-catalog: BIO XXX
+catalog: BIO 197
 semester: Fall 2022
 
 
