@@ -10,7 +10,7 @@ office: Science and Engineering Building 1
 email: sanchez.reyes.luna@gmail.com
 office_hours: By appointment and Monday, Wednesday, Friday, 10-noon.
 
-professor2: Dr. Susy Echeverría-Londoño
+professor2: Prof. Emily Jane McTavish
 office2: Science and Engineering Building 1
 email2: ejmctavish@ucmerced.edu
 office_hours2: By appointment
