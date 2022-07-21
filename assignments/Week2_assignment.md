@@ -1,50 +1,39 @@
 ---
 layout: page
 element: assignment
-title: 'Intro to R and version control'
+title: 'Intro to R and RStudio'
 language: R
+pagetype: activities
+symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 ---
 
-#### Learning Objectives
-
-> Following this assignment students should be able to:
+> Day 1: Learning Objectives
 >
-> - Properly structure and R project
-> - create a new repository in git from Github
-> - clone a repository from Github using Rstudio
+> Following these in-class activities students will be able to:
+>
+> - explain why coding is advantageous for data management
+> - format R code for readability and clarity
+> - add comments and breaks to R code
+
+### Activity 1
+
+{% include_relative exercises/week2-install-packages-r.md %}
+
+### Activity 2
+
+{% include_relative exercises/week2-read-data-tables-r.md %}
 
 ****
 
-{% include assignment.html %}
+****
 
-1. Accept the Projects Structure assignment [here](https://classroom.github.com/a/8fd7EBJj){:target="_blank"}
-2. Clone your repository in a local directory using Rstudio
-  - You can find last lecture slides [here]({{ site.baseurl }}/materials/01_RIntro_VersionControl/01_RIntro_VersionControl.html){:target="_blank"}
-3. Open the .R file and check its general structure
-4. Comment and create sections within the R code file (e.g., libraries, data, plots, etc)
+****
 
-```r
-# LIBS -----------------------------
-# Some notes
-library(tidyverse)
-library(lubridate)
-
-# DATA -----------------------------
-# Some notes
-dat1<-read.csv("file2.csv")
-```
-
-5. Using ``help(function)`` or ``?function`` describe what is being done in each section of the code
-
-6. Commit your changes
-
-9. Relabel and, if it is necessary, create new folders to organise your project for reproducibility
-  * Check [here](http://www.datacarpentry.org/semester-biology/materials/project-structure/){:target="_blank"} for further information and examples
-10. Commit your final changes
-11. Check your commits history on your Github repository
-
-
-## Assignment potential solution
-
-* [Here](https://github.com/GlobalEcologyBiogeography/projects-structure-susyelo.git) you can see an example of how to solve the assignment.
-* You can also access the files directly [here](../../solutions/Week2_solution/)
+> Day 2: Learning Objectives
+>
+> Following these in-class activities students will be able to:
+>
+> - call R scripts from within R scripts (sourcing)
+> - write simple custom R functions
+> - properly organize an R project and workspace
+>

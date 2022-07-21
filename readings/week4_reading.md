@@ -1,17 +1,13 @@
 ---
 layout: page
 element: reading
-title: 'Manipulating data II'
+title: 'Intro to rmarkdown'
 language: R
+pagetype: homework
+symbol: <i class="fa fa-book fa-lg"></i>
 ---
 
+Day 1
+<!-- from https://globalecologybiogeography.github.io/Ecoinformatics/readings/week7_reading/-->
 
-## Macroecology
-
-**Diversity gradients**
-
-[Brown, James H.](http://onlinelibrary.wiley.com/doi/10.1111/jbi.12228/full) "Why are there so many species in the tropics?." Journal of Biogeography 41.1 (2014): 8-22.
-
-
-## Ecoinformatics
-### [Manipulating data (R for Data Science)](http://r4ds.had.co.nz/transform.html)
+* Read ["Getting Started with rmarkdown by Coding club"](https://ourcodingclub.github.io/2016/11/24/rmarkdown-1.html#identify)
