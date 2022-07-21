@@ -10,7 +10,7 @@ permalink:        pretty
 
 # Setup
 title:            Data Science Research in Biology
-description:      'A course for undergraduates covering computational approaches to data science in biology'
+description:      'A course for undergraduates in data science applications for research in ecology and evolution'
 url:              http://www.datacarpentry.org/semester-biology
 baseurl:          /data-science-research-biology
 email:            sanchez.reyes.luna@gmail.com
