@@ -12,7 +12,21 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 
 [Manipulating data]({{ site.baseurl }}/materials/02_Manipulating_data/02_ManipulatingData.html)
 -->
+<!--
 
-Live coding:
+Slides:
+
+[Introduction to R and Version Control]({{ site.baseurl }}/materials/01_RIntro_VersionControl/01_RIntro_VersionControl.html)
+
+-->
+Day 1
+
+Live coding
 
 * [Git basics in RStudio](http://nicercode.github.io/git/rstudio.html)
+
+Day 2
+
+Live coding
+
+* Basics of GitHub

@@ -11,3 +11,7 @@ Day 1: Introduction to version control
 <!-- from https://github.com/ericlind/data-mgmt-4-biologists/blob/gh-pages/readings/R-intro.md-->
 
 * Read for in-class discussion [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
+
+Day 2: Public version control with GitHub
+
+* Create an account on GitHub

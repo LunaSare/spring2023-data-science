@@ -35,5 +35,5 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 >
 > - call R scripts from within R scripts (sourcing)
 > - write simple custom R functions
-> - properly organize an R project and workspace
+> - properly organize an R project and workspace with RStudio
 >
