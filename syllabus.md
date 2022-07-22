@@ -141,4 +141,4 @@ Students completing this course will be able to:
 
 ## Course Policies
 
-Code of conduct
+We follow the [Carpentries code of conduct](https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html).
