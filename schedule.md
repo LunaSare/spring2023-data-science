@@ -2,12 +2,13 @@
 layout: page
 title: Course Schedule
 assignments: ['The Data Life Cycle',
-'Intro to R and version control',
+'Intro to R and RStudio',
+'Intro to version control',
+'Intro to rmarkdown',
 'Project Structure & manipulating data',
 'Manipulating data II',
 'Visualising Data',
 'Intro to Spatial Analysis',
-'Reproducible documents with Rmarkdown',
 'Basic programming I',
 'Basic programming II',
 'Projects week I',
