@@ -14,7 +14,7 @@ assignments: ['The Data Life Cycle',
 'Projects week II']
 ---
 
-[Assignment submission & checklist]({{ site.baseurl }}/materials/turn_in_checklist)
+[Grading checklist]({{ site.baseurl }}{% link syllabus.md %}#project)
 
 {% include assignments.html %}
 
