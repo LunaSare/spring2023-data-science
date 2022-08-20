@@ -5,25 +5,30 @@ catalog: BIO 197
 semester: Fall 2022
 
 
-professor: Dr. Luna L Sanchez Reyes
-office: Science and Engineering Building 1
-email: sanchez.reyes.luna@gmail.com
-office_hours: By appointment and Monday, Wednesday, Friday, 10-noon.
+professor: Dr.  Luna L. Sanchez Reyes
+office: SE1 280
+email: lsanchezreyes2@ucmerced.edu
+office_hours: By appointment and/or Monday 3pm-5pm, Tuesday & Thursday after class (4pm-6pm).
 
 professor2: Prof. Emily Jane McTavish
-office2: Science and Engineering Building 1
+office2: SE1 281
 email2: ejmctavish@ucmerced.edu
 office_hours2: By appointment
 
-schedule: ['Tuesday & Thursday, 2:30-4pm, Online']
+time: ['Tuesday & Thursday, 2:30-4pm']
+zoom: https://ucmerced.zoom.us/j/82767962714?pwd=T2RtZEZscGVJSVpkcjR0WHU5NHh1dz09
+zoom_tiny: https://ucmerced.zoom.us/j/82767962714
+location: SE1 271
+location_map: https://www.google.com.mx/maps/place/Science+and+Engineering+Building+I,+Merced,+CA+95340,+EE.+UU./@37.3664436,-120.4243582,17z/data=!3m1!4b1!4m5!3m4!1s0x809146a5db7ea5e1:0x6c8c7244d1f78c15!8m2!3d37.3664394!4d-120.4221695
 ---
-
 
 ## {{ page.catalog }}, {{ page.semester }}
 
+---
+
 ## Instructors
 
-<i>{{ page.professor }}</i>
+**_{{ page.professor }}_**
 
 **Office**: {{ page.office }}
 
@@ -32,8 +37,7 @@ schedule: ['Tuesday & Thursday, 2:30-4pm, Online']
 
 **Office hours**: {{ page.office_hours }}
 
-
-<i>{{ page.professor2}}</i>
+**_{{ page.professor2 }}_**
 
 **Office**: {{ page.office2 }}
 
@@ -42,28 +46,37 @@ schedule: ['Tuesday & Thursday, 2:30-4pm, Online']
 
 **Office hours**: {{ page.office_hours2}}
 
+---
 
-## In-class Times & Location
+## Class times & location
 
-{% for class in page.schedule %}
-  {{ class }}
-{% endfor %}
+**Time**: {{ page.time }}
+
+**Zoom link**:  [{{ page.zoom_tiny }}]({{ page.zoom }})
+
+**In-person location**: [{{ page.location }}]({{ page.location_map }})
+
+---
 
 ## Prerequisite Knowledge and Skills
 
 Evolution
 
-## Schedule
+---
 
-The schedule and all relevant class information and resources will be posted
-on the [course website](https://lunasare.github.io/data-science-research-biology/schedule).
+## Semester schedule
+
+The schedule, including class information, homeworks materials, lectures and in-class activities is available
+ [here](https://lunasare.github.io/data-science-research-biology/schedule).
 Check the website periodically for updates.
 
+---
 
 ## Course Communications
 
 Email: [{{ page.email }}](mailto:{{ page.email }}), [{{ page.email2 }}](mailto:{{ page.email2 }})
 
+---
 
 ## Suggested Texts
 
@@ -71,6 +84,7 @@ Email: [{{ page.email }}](mailto:{{ page.email }}), [{{ page.email2 }}](mailto:{
 * Wickham, H., & Grolemund, G., 2017. R for data science. O'Reilly. http://r4ds.had.co.nz/
 * Cooper et al., 2017. A guide to Reproducible Code in Ecology and Evolution. https://goo.gl/iVkDb8
 
+---
 
 ## Web resources
 
@@ -80,6 +94,7 @@ Email: [{{ page.email }}](mailto:{{ page.email }}), [{{ page.email2 }}](mailto:{
 * [Exploratory Data Analysis with R by Dylan Childs](http://dzchilds.github.io/aps-data-analysis-L1/)
 * [Data Carpentry for Biologists](http://www.datacarpentry.org/semester-biology/)
 
+---
 
 ## Course Description
 
@@ -88,28 +103,28 @@ The course will be conducted seminar style and student-centered. Most of the rea
 The application of research methods using published data, computational tools, and best practices in reproducibility to address questions in ecology and evolution, will be an integral part of this course.
 Students will communicate their results in written, oral and visual formats.
 
+---
 
 ## Course Goals and Learning Objectives
 
-Goals
+**Goals**
 
-* Data and how to do science with it
+* Data and how to do scientific research with it
 * Data entry -> Data storage -> Data manipulation -> Data visualization
 * Not statistics
 
-Learning Objectives
+**Learning Objectives**
 
 Students completing this course will be able to:
 
-* Have an overview of the main concepts in macroecology
-* Understand how ecological systems and assemblages have been shaped
-* Infer and forecast how current environmental changes affect global biodiversity
-* Apply fundamental data science skills to answer broad macroecology questions
-* Write simple computer programs in R
-* Understand how to organise, explore and visualise environmental data
-* Reproduce analyses in ecology
-* Organise and keep track of ecological projects using version control.
+* Apply fundamental data science skills to answer broad research questions in ecology and/or evolution.
+* Write simple computer programs in R.
+* Understand how to organise, explore and visualise biological data.
+* Reproduce analyses in ecology and evolution.
+* Organise and keep track of research projects using version control.
+* Have an overview of the main concepts in phylogenetics.
 
+---
 
 ## Teaching methods
 
@@ -119,7 +134,9 @@ Students completing this course will be able to:
   - Interact with each other during in-class activities and (if possible) when doing homework
   - You are at least as likely to learn from your peers as from the instructor
 
-## A flipped course structure
+---
+
+## Our flipped course structure
 
 * Homework before class: readings and exercises that will prepare you for class.
 * Lecture:
@@ -133,11 +150,18 @@ Students completing this course will be able to:
 
 * Optional homework and in-class activities: adds points to final(?) grades
 
-## Projects
+---
 
-## Grading checklist
+## Semester project
+
+
+---
+
+## Graded assessments checklist (example)
 
 {% include_relative materials/turn_in_checklist.md %}
+
+---
 
 ## Course Policies
 
