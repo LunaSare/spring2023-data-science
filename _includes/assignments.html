@@ -2,6 +2,7 @@
 
   <tr>
     <th width="50">Week</th>
+    <th width="200">Date</th>
     <th width="400">Lesson</th>
     <th width="100">Homework</th>
     <th width="50">Lecture</th>
@@ -52,8 +53,25 @@
       {% assign reading_link = nil %}
     {% endfor %}
 
+    {% for readingpage in site.pages %}
+    {% if week %}
+      {% if readingpage.title == assignment and readingpage.element == 'reading' and readingpage.language == language %}
+        {% capture week_dates %}{{ readingpage.week }}{% endcapture %}
+        {% break %}
+      {% endif %}
+    {% else %}
+      {% if readingpage.title == assignment and readingpage.element == 'reading' %}
+        {% capture week_dates %}{{ readingpage.week }}{% endcapture %}
+        {% break %}
+      {% endif %}
+    {% endif %}
+  {% assign week_dates = nil %}
+  {% endfor %}
+  
     <tr>
-      <td align="right">{{ forloop.index }}</td>
+      <td align="right"> {{ forloop.index }}</td>
+
+      <td align="right"> {{ week_dates }} </td>
       <td>{{ assignment }}</td>
 
       {% if reading_link %}
