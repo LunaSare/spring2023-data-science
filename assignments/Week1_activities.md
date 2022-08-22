@@ -6,7 +6,6 @@ pagetype: activities
 symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 language: Excel
 exercises: ['Improving Messy Data', 'Data entry validation in Excel']
-homework: ['Computer setup']
 ---
 
 > **Learning Objectives**
@@ -14,7 +13,9 @@ homework: ['Computer setup']
 > Following these activities students will be able to:
 >
 > - recognize bad data organization and why it is problematic for research
-> - implement quality control measures for data entry in spreadsheets
+> - implement quality control measures for data entry in spreadsheets using excel
+
+---
 
 ### Activity 1
 ### Improving Messy Data: Mammals data set
@@ -40,6 +41,8 @@ Think about what could be improved about this data and write down answers to the
 3.   Do you think it's a good idea to enter the data like this and clean it up
      later, or to have a good data structure for analysis by the time data is
      being entered? Why?
+
+---
 
 ### Activity 2
 ### Improving Messy Data: Birds data set
@@ -77,6 +80,8 @@ or in a small group, identify five things about this data that cause
 3. Evidently between the 2016 and 2017 field season, your birder colleague
 heard something about long versus wide data and switched up the data entry.
 Do you prefer one or the other approach? How would you combine the two?
+
+---
 
 ### Activity 3: Optional
 <!--

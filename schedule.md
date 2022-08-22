@@ -3,6 +3,7 @@ layout: page
 title: Course Schedule
 assignments: ['The Data Life Cycle',
 'Intro to R and RStudio',
+'Intro to the Unix shell',
 'Intro to version control',
 'Intro to rmarkdown',
 'Project Structure & manipulating data',

@@ -5,6 +5,7 @@ title: 'Intro to version control'
 language: R
 pagetype: homework
 symbol: <i class="fa fa-book fa-lg"></i>
+week: 'Sep 13, 15'
 ---
 
 Day 1: Introduction to version control

@@ -15,23 +15,29 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 
 ### Syllabus
 
-* Go through the syllabus and let me know if you have any questions
+* Go through the syllabus
+* Do you have any questions about it?
+* Choose grading scheme
+* Choose office hours
 
-### Schedule
+#### Schedule
 
-The schedule shows a list of topics that will be covered each week along the course.
+The schedule shows a list of topics that will be covered each week of the course.
 
 The schedule reflects the flipped course structure, and organizes homework and in-class activities by topic:
 
 * Homework
   - Prepare: Readings or activities to do before relevant class
   - Strengthen: Exercises to strengthen concepts discussed during class
-* Lectures
-  - Lectures notes used in class
+
+* Lectures/live-coding
+  - Lecture notes used in class
 	- Not expected to be read in advance; may be useful for review
 	- May not match lecture precisely
 
 * In-class activities
   - Individually or jointly
-  - A challenge that will support student's construction of a mental model of their own
+  - A challenge that will support the construction of a mental model of your own
 	- May require additional work time after class
+
+### Best practices for data entry and handling using excel

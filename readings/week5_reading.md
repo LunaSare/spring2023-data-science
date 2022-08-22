@@ -5,6 +5,7 @@ title: 'Intro to rmarkdown'
 language: R
 pagetype: homework
 symbol: <i class="fa fa-book fa-lg"></i>
+week: 'Sep 20, 22'
 ---
 
 Day 1: markdown and rmarkdown
