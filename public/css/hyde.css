@@ -281,5 +281,8 @@ a.sidebar-nav-item:focus {
 }
 .theme-base-poppy  .content a,
 .theme-base-poppy  .related-posts li a:hover {
-  color: #002856;
+  color: #005487; /* uc merced "Deep Sky Blue" links */
+  background-color: #EFEFEF; /* uc merced "Beginnings Light Grey" background" */
+  font-weight: normal;
+  /* color: #002856; dark blue links */
 }
