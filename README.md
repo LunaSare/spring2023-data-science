@@ -1,7 +1,7 @@
-# Ecoinformatics - Semester Course
+# Dat aScience Research in Biology - Fall 2022
 
 This is a [forkable](https://help.github.com/articles/fork-a-repo/) set of teaching materials for teaching biologists how to work
-with biodiversity data through programming, database management and computing more generally.
+with data through programming, database management and computing more generally.
 
 This repository contains teaching materials (excluding exams and
 answers to assignments) for a university style and self-guided
