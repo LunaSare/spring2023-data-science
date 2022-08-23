@@ -3,13 +3,14 @@ layout: page
 element: reading
 title: 'Intro to R and RStudio'
 language: R
-pagetype: homework
+pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
 week: 'Aug 3, Sep 1'
 ---
 
-Day 1
+**Day 1**
 <!-- from https://github.com/datacarpentry/semester-biology/blob/main/readings/R-intro.md-->
+
 1) Set up your computer by [installing the required software]({{ site.baseurl }}/computer-setup).
 
 If you have any issues with installation, contact the instructors or attend office hours previous to the in-class session.
@@ -20,7 +21,7 @@ If you have any issues with installation, contact the instructors or attend offi
 
 ---
 
-Day 2
+**Day 2**
 
 
 1) Watch the (15 min) video [An opinionated tour of RStudio (R-Ladies Sydney)](https://www.youtube.com/watch?v=kfcX5DEMAp4) for in-class discussion.

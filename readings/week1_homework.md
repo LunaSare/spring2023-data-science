@@ -3,7 +3,7 @@ layout: page
 element: reading
 title: 'The Data Life Cycle'
 language: Excel
-pagetype: homework
+pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
 week: 'Aug 25'
 ---
@@ -21,13 +21,3 @@ week: 'Aug 25'
    1. [Quality Assurance and Control](http://www.datacarpentry.org/spreadsheet-ecology-lesson/04-quality-control)
 
    <!--1. [Big data and the future of ecology](http://onlinelibrary.wiley.com/doi/10.1890/120103/full)-->
-
----
-
-> **Learning Objectives**
->
-> Following these readings students will be able to:
->
-> - recognize the elements of the data life cycle
-> - articulate the relevance of open data for scientific research
-> - identify the differences between good and bad data entry

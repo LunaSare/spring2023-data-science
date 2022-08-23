@@ -21,8 +21,8 @@ Download and install the [R base system](http://cran.rstudio.com/). We recommend
     4.  Click on "Next".
     5.  Click on "Next".
     6.  **Select "Use Git from the Windows Command Prompt" and click on
-        "Next".** If you forgot to do this programs that you need for
-        the workshop will not work properly. If this happens rerun the
+        "Next".** If you forgot to do this, programs that you need for
+        the course will not work properly. If this happens, rerun the
         installer and select the appropriate option.
     7.  Click on "Next". **Keep "Checkout Windows-style, commit
         Unix-style line endings" selected.**
@@ -64,15 +64,3 @@ Git is probably already installed. If it is not already available on your
 machine you can try to install it via your distro's package manager. For
 Debian/Ubuntu run `sudo apt-get install git` and for Fedora run `sudo yum
 install git`.
-
-### Configure Git
-
-Once Git is installed, you should configure your email and user name to track your version history.
-
-1. Open up the Terminal or command line window (in Windows you can use Git bash)
-2. Type and replace "Your name" and  your.email@domain.com from the following lines:
-
-```
-git config --global user.name "Your Name"
-git config --global user.email your.email@domain.com
-```

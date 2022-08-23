@@ -83,10 +83,14 @@ Do you prefer one or the other approach? How would you combine the two?
 
 ---
 
-### Activity 3: Optional
+### Activity 3: Extra
 <!--
 exercise from https://github.com/ericlind/data-mgmt-4-biologists/blob/gh-pages/exercises/Data-entry-validation-in-excel.md
 -->
+
+Watch the video ["Data validation in Excel"](https://www.youtube.com/watch?v=nMxl1_NAcxc).
+
+For additional tips, read the lesson ["Quality Assurance and Control in Excel"](https://datacarpentry.org/spreadsheet-ecology-lesson/04-quality-control/).
 
 Refer to the [bird dataset](https://ericlind.github.io/data-mgmt-4-biologists/data/bird-data.xlsx) about
 which your colleague asked for assistance.

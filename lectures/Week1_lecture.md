@@ -7,6 +7,16 @@ pagetype: lecture
 symbol: <i class="fa fa-comment fa-lg"></i>
 ---
 
+> **Learning Objectives**
+>
+> This week, students will be able to:
+>
+> - recognize the elements of the data life cycle
+> - articulate the relevance of good data management for scientific research
+> - identify the differences between good and bad data entry and management
+> - apply principles of good data entry using excel
+
+
 ### Welcome!
 
 * Introductions

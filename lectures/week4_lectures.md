@@ -19,13 +19,23 @@ Slides:
 [Introduction to R and Version Control]({{ site.baseurl }}/materials/01_RIntro_VersionControl/01_RIntro_VersionControl.html)
 
 -->
-Day 1
+
+
+> **Learning Objectives**
+>
+> Following these lesson, students will be able to:
+>
+> - recognize the elements of the data life cycle
+
+---
+
+**Day 1**
 
 Live coding
 
 * [Git basics in RStudio](http://nicercode.github.io/git/rstudio.html)
 
-Day 2
+**Day 2**
 
 Live coding
 

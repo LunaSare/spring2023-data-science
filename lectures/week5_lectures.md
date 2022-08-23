@@ -5,6 +5,14 @@ title: 'Intro to rmarkdown'
 language: R
 ---
 
+> **Learning Objectives**
+>
+> After this week, students will be able to:
+>
+> -
+
+---
+
 Day 1: markdown and rmarkdown
 
 [Reproducible documents with rmarkdown]({{ site.baseurl }}/materials/07_Rmarkdown/07_Rmarkdown.html)
