@@ -25,7 +25,10 @@ Slides:
 >
 > Following these lesson, students will be able to:
 >
-> - recognize the elements of the data life cycle
+> - create a new repository in git from Github
+> - connect to git, and perform `commit`, `push`, and `pull`
+> - clone a repository from Github using Rstudio
+>
 
 ---
 

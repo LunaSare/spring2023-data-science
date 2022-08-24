@@ -7,20 +7,22 @@ pagetype: activities
 symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 ---
 
-
-> Day 1: Learning Objectives
+> **Session 1: Instructions**
 >
-> Following this assignment students should be able to:
+> -
 >
-> - create a new repository in git from Github
-> - connect to git, and perform `commit`, `push`, and `pull`
-> - clone a repository from Github using Rstudio
 
-****
+---
+---
+
+> **Session 2: Instructions**
+>
+> -
+
+---
 
 {% include assignment.html %}
 
-1. Accept the Projects Structure assignment [here](https://classroom.github.com/a/8fd7EBJj){:target="_blank"}
 2. Clone your repository in a local directory using Rstudio
   - You can find last lecture slides [here]({{ site.baseurl }}/materials/01_RIntro_VersionControl/01_RIntro_VersionControl.html){:target="_blank"}
 3. Open the .R file and check its general structure

@@ -9,7 +9,10 @@ language: R
 >
 > After this week, students will be able to:
 >
-> -
+> - Use the main markup format options in an rmarkdown document
+> - Include images
+> - Create basic plots
+> - Render simple rmarkdown documents (pdf, html, word)
 
 ---
 
