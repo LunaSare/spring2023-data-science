@@ -6,17 +6,20 @@ assignments: ['The Data Life Cycle',
 'Intro to the Unix shell',
 'Intro to version control',
 'Intro to rmarkdown',
-'Project Structure & manipulating data',
-'Manipulating data II',
-'Visualising Data',
-'Intro to Spatial Analysis',
-'Basic programming I',
-'Basic programming II',
-'Projects week I',
-'Projects week II']
+'Week 6',
+'Week 7',
+'Week 8',
+'Week 9',
+'Week 10',
+'Week 11',
+'Week 12',
+'Week 13',
+'Week 14',
+'Projects week 1',
+'Projects week 2']
 ---
 
-[Grading checklist]({{ site.baseurl }}{% link syllabus.md %}#project)
+Consult the [grading checklist]({{ site.baseurl }}{% link syllabus.md %}#project) when turning assignments.
 
 {% include assignments.html %}
 

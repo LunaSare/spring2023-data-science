@@ -8,12 +8,14 @@ language: Excel
 exercises: ['Improving Messy Data', 'Data entry validation in Excel']
 ---
 
-> **Learning Objectives**
+> **Instructions**
 >
-> Following these activities students will be able to:
->
-> - recognize bad data organization and why it is problematic for research
-> - implement quality control measures for data entry in spreadsheets using excel
+> - (2 min) Go in small groups (breakout rooms) of 2-3 people.
+> - (10 min) Half of the groups will do Activity 1 (small mammals) and the other half will do Activity 2 (birds).
+> - Register your answers in the [collaborative document]().
+> - (10 min) Discuss answers with the whole group.
+> - (3 min) Start doing Activity 3 individually.
+
 
 ---
 

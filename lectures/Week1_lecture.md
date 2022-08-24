@@ -11,10 +11,11 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 >
 > This week, students will be able to:
 >
-> - recognize the elements of the data life cycle
+> - list the elements of the data life cycle
 > - articulate the relevance of good data management for scientific research
 > - identify the differences between good and bad data entry and management
-> - apply principles of good data entry using excel
+> - recognize bad data organization and why it is problematic for research
+> - implement quality control measures for data entry in spreadsheets using excel
 
 
 ### Welcome!
@@ -50,4 +51,9 @@ The schedule reflects the flipped course structure, and organizes homework and i
   - A challenge that will support the construction of a mental model of your own
 	- May require additional work time after class
 
-### Best practices for data entry and handling using excel
+### Best practices for data entry and quality assurance using excel
+
+Live coding:
+
+- [Quality Assurance and Control](http://www.datacarpentry.org/spreadsheet-ecology-lesson/04-quality-control)
+   - What is quality assurance? what is quality control?

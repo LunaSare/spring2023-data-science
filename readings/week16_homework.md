@@ -1,7 +1,7 @@
 ---
 layout: page
 element: reading
-title: 'Week 16'
+title: 'Projects week 2'
 language: R
 week: "Dec 6, 8"
 ---
