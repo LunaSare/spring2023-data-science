@@ -1,9 +1,9 @@
 ---
 layout: page
 element: reading
-title: 'Week 8'
+title: 'Creating functions'
 language: R
 week: "Oct 11, 13"
 ---
 
-##
+## Do not repeat yourself

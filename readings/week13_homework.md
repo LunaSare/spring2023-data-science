@@ -1,9 +1,9 @@
 ---
 layout: page
 element: reading
-title: 'Week 13'
+title: 'Communicating data science'
 language: R
 week: "Nov 15, 17"
 ---
 
-##
+## Creating a data science portfolio

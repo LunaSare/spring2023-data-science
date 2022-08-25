@@ -15,7 +15,8 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 > - articulate the relevance of good data management for scientific research
 > - identify the differences between good and bad data entry and management
 > - recognize bad data organization and why it is problematic for research
-> - implement quality control measures for data entry in spreadsheets using excel
+> - implement quality assurance and control measures for data entry in spreadsheets using excel
+> - list current measures used by the scientific community in ecology and evolution to preserve data long term
 
 
 ### Welcome!
@@ -51,9 +52,13 @@ The schedule reflects the flipped course structure, and organizes homework and i
   - A challenge that will support the construction of a mental model of your own
 	- May require additional work time after class
 
-### Best practices for data entry and quality assurance using excel
+### Lecture: Best practices for data entry and quality assurance using excel
+
+Reading discussion:
+
+  - show data repositories websites
 
 Live coding:
 
 - [Quality Assurance and Control](http://www.datacarpentry.org/spreadsheet-ecology-lesson/04-quality-control)
-   - What is quality assurance? what is quality control?
+   - What is the difference between quality assurance and quality control?

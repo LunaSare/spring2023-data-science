@@ -22,7 +22,7 @@ B) Read and prepare the following texts for in-class discussion:
       - Contacted researchers say the data still exists, why is it considered lost?
       - What percentage of contacted researchers answered back?
       - How can authors organize and preserve data used in research papers?
-      - Is willingness to share data increasing r decreasing among researchers?
+      - Is willingness to share data increasing or decreasing among researchers?
    1. [The Data Life Cycle](https://www.dataone.org/data-life-cycle)
       - How many steps are there in the DataOne life cycle? List the steps
 

@@ -1,9 +1,11 @@
 ---
 layout: page
 element: reading
-title: 'Week 11'
+title: 'Storing cleaned data publicly'
 language: R
 week: "Nov 1, 3"
 ---
 
-##
+## Metadata
+
+## DOIs and Zenodo

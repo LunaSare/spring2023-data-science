@@ -1,9 +1,9 @@
 ---
 layout: page
 element: reading
-title: 'Week 12'
+title: 'Human contexts and ethics'
 language: R
 week: "Nov 8, 10"
 ---
 
-##
+## Issues with publishing raw data

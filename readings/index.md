@@ -3,6 +3,4 @@ layout: page
 title: Readings
 ---
 
-# Macroecology
-
-* [Measuring biodiversity](week2_reading)
+# Data Science Research in Biology, Fall 2022
