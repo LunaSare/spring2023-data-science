@@ -12,7 +12,7 @@ exercises: ['Improving Messy Data', 'Data entry validation in Excel']
 >
 > - (2 min) Go in small groups (breakout rooms) of 2-3 people.
 > - (10 min) Half of the groups will do Activity 1 (small mammals) and the other half will do Activity 2 (birds).
-> - Register your answers in the [collaborative document]().
+> - Register your answers in the [collaborative document](https://jamboard.google.com/d/1R2BrILLK9K6IPD6O7kBYrdao8-Sd5o82oPnbcGKeIQc/viewer?f=5).
 > - (10 min) Discuss answers with the whole group.
 > - (3 min) Start doing Activity 3 individually.
 
@@ -29,10 +29,10 @@ A lot of real data isn't very tidy, mostly because most scientists aren't taught
 about how to structure their data in a way that is easy to analyze.
 
 [Download this untidy version](https://ndownloader.figshare.com/files/24469424)
-of some of the Portal Project data, which includes information on the site, date,
+of some of the Portal Project Teaching Database data, which includes information on the site, date,
 species identification, weight and sampling plot (within the site) for some small mammals.
 
-Think about what could be improved about this data and write down answers to the following questions:
+Think about what could be improved about this data and [write down answers](https://jamboard.google.com/d/1R2BrILLK9K6IPD6O7kBYrdao8-Sd5o82oPnbcGKeIQc/viewer?f=5) to the following questions:
 
 1.   Describe five things about this data that are not tidy and how you could
      fix each of those issues.
@@ -68,7 +68,7 @@ Imagine you have been asked to help out a colleague, a well-trained
 birder who has been sampling some of Minnesota's [Wildlife Management Areas (WMA)](http://www.dnr.state.mn.us/wmas/index.html).
 Download the [bird dataset](https://ericlind.github.io/data-mgmt-4-biologists/data/bird-data.xlsx)
 containing some of data from two years of this survey work. Note that there are multiple tabs in this
-spreadsheet.
+spreadsheet. Write down your answers in the [collaborative document](https://jamboard.google.com/d/1R2BrILLK9K6IPD6O7kBYrdao8-Sd5o82oPnbcGKeIQc/viewer?f=5).
 
 1. Find the mean and variance of the number of birds observed _per species_
 for each WMA (a) in each year and (b) across years.
