@@ -1,7 +1,7 @@
 ---
 layout: page
 element: assignment
-title: 'Intro to Spatial Analysis'
+title: 'Data repositories'
 language: R
 ---
 

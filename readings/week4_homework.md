@@ -5,7 +5,7 @@ title: 'Intro to version control'
 language: R
 pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
-week: 'Sep 13, 15'
+week: 'Sep 15, 20'
 ---
 
 **Day 1: Introduction to version control**

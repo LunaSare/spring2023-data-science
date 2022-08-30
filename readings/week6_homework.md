@@ -1,10 +1,10 @@
 ---
 layout: page
 element: reading
-title: 'Public data repositories'
+title: 'Data repositories'
 language: R
-week: "Sep 27, 29"
+week: "Sep 29"
 ---
 
 
-## Raw vs cleaned data repositories
+## Public vs private data repositories

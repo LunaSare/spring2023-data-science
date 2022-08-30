@@ -5,7 +5,7 @@ title: 'The Data Life Cycle'
 language: Excel
 pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
-week: 'Aug 25, Aug 30'
+week: 'Aug 25, 30'
 ---
 
 **Day 1**
