@@ -159,6 +159,8 @@ Students completing this course will be able to:
 
 ## Graded assessments checklist (example)
 
+![Homework Rubric]({{ site.baseurl}}/public/rubric.png)
+
 {% include_relative materials/turn_in_checklist.md %}
 
 ---
