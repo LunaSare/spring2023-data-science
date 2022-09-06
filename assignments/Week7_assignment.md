@@ -1,9 +1,26 @@
 ---
 layout: page
 element: assignment
-title: 'Reproducible documents with Rmarkdown'
+title: 'Visualizing data'
 language: R
 ---
+
+### Activity 1
+
+{% include_relative exercises/week2-install-packages-r.md %}
+
+---
+
+
+
+
+
+
+
+
+
+
+Reproducible documents with Rmarkdown
 
 #### Learning Objectives
 
@@ -50,14 +67,3 @@ Using the [amniote life-history database](http://www.esapubs.org/archive/ecol/E0
 8. Oecology
 9. Ecology Letters
 10. Trends in Ecology and Evolution
-
-
-## Databases
-
-1. GBIF
-2. List of Ecological databases http://innge.net/wiki/index.php/Ecological_Databases
-3. Data papers from the [Ecological Society of America](http://esapubs.org/archive/)
-4. [DRYAD](https://datadryad.org/)
-5. Databases available in Github [link](https://www.kdnuggets.com/2015/04/awesome-public-datasets-github.html)
-6. [Ecological traits for Amphibians](https://www.nature.com/articles/sdata2017123)
-7. Botanical Information and Ecology Network, [BIEN](http://bien.nceas.ucsb.edu/bien/)

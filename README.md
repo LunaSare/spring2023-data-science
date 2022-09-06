@@ -8,6 +8,7 @@ answers to assignments) for a university style and self-guided
 course teaching computational data skills to biologists.
 
 The basic design of this website is based on the Programming for Biologists course developed by Ethan White (@ethanwhite) at the University of Florida. His course materials can be found and forked [here](http://datacarpentry.org/semester-biology)
+It was also based using Eric Lind's course [Data Management for Biologists](https://github.com/ericlind/data-mgmt-4-biologists)
 
 [Helpful information](http://www.datacarpentry.org/semester-biology/docs/)
 is available regarding the structure and function of the course and website
@@ -120,3 +121,10 @@ After pushing to GitHub:
 ## Acknowledgements
 
 Development of this material is funded by the [National Science Foundation](http://nsf.gov/) as part of a [RUI Collaborative Research grant](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1556651).
+
+## Grading Rubric ideas from:
+
+https://www.researchgate.net/figure/Grading-rubric-for-DYOE-proposals_tbl2_5535069
+https://www.researchgate.net/figure/Group-Participation-Rubric_tbl1_280151573
+https://www.biologycorner.com/worksheets/participation_rubric.html
+https://www.academia.edu/35123968/Grading_Rubric_for_Class_Participation

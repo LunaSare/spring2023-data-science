@@ -22,15 +22,32 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 
 Day 1
 
-Live coding: Intro to programming with R and data tables
+Live coding: Intro to programming with R: vectors
 
 * [Introduction to R](http://www.datacarpentry.org/R-ecology-lesson/01-intro-to-r.html)
-* [Starting with data](http://www.datacarpentry.org/R-ecology-lesson/02-starting-with-data.html)
-* [Vector Reference](http://www.r-tutor.com/r-introduction/vector) (*Read links at bottom*)
-* [Data Frame Reference](http://www.r-tutor.com/r-introduction/data-frame)
+
+---
+---
 
 Day 2
 
-Live coding: organizing a project with RStudio
+**Live coding: data tables and organizing a project with RStudio**
 
-* [Before We Start](http://www.datacarpentry.org/R-ecology-lesson/00-before-we-start.html) from section "Getting set up"
+* Data Carpentry lesson [Starting with data](http://www.datacarpentry.org/R-ecology-lesson/02-starting-with-data.html):
+  - function `download.file()`
+  - inbuilt functions vs package functions
+  - installing packages: the `tidyverse` package
+  - function `tidyverse::read_csv()`
+  - functions to read excel tables
+  - functions to read google tables
+  - functions to explore data structures
+    - content: `head()`, `tail()`, and `view()`
+    - summary: `str()` and `summary()`
+    - size: `dim()`, `nrow()` and `ncol()`
+    - names: `names()`, `colnames()`, `rownames()`
+  - indexing data frames
+  - subsetting data frames
+  - Learners (in break out rooms) then instructor: do the [challenge](https://datacarpentry.org/R-ecology-lesson/02-starting-with-data.html#Challenge12)
+  - Learners: do [Activity 1](https://lunasare.github.io/data-science-research-biology/assignments/week2_activities/)
+
+* Factors and formatting dates will be covered later.

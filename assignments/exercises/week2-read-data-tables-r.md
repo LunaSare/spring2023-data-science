@@ -10,8 +10,9 @@ dataset for 2016. Your colleague has asked that you
 make sure you can read in this format and work with it in R
 before tackling the rearrangement of the 2017 data.
 
-1. Download the [cleaned 2016 WMA bird dataset]({{ site.baseurl }}/data/wma-bird-data-2016.csv)
-and save it to the /data directory in your working directory.
+1. Download the [cleaned 2016 WMA bird dataset](https://github.com/ericlind/data-mgmt-4-biologists/blob/gh-pages/data/wma-bird-data-2016.csv)
+using the function `download.file()`, and save it to the /data directory in your working directory.
+The url for the file is `https://raw.githubusercontent.com/ericlind/data-mgmt-4-biologists/gh-pages/data/wma-bird-data-2016.csv`
 
 2. Read in the dataset using `read.csv()`, and assign it to a named object.
 
