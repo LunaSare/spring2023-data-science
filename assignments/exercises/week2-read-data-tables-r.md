@@ -19,10 +19,10 @@ The url for the file is `https://raw.githubusercontent.com/ericlind/data-mgmt-4-
 3. Using the `str()` function, examine the structure of the
 imported dataset. Do the field types appear to be correct?
 
-4. type the name of the object at the console and hit enter. Is
-what is provided useful?
+4. Type the name of the object at the console and hit enter. Is
+what is printed to screen useful? Justify your answer.
 
-5. examine the first few rows of data using the `head()` function.
+5. Examine the first few rows of data using the `head()` function. How many rows and columns does the data table have?
 
-6. Create a new object from only the first 100 rows of data. Export
-this new object to a file called `wma-bird-data-2016-first100.csv`.
+6. Create a new object from only the first 100 rows of data. Use the function `write_csv()` to export
+this new object to a file called `wma-bird-data-2016-first100.csv`. Send this table to your instructor for grading.
