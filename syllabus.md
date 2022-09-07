@@ -6,7 +6,7 @@ semester: Fall 2022
 
 
 professor: Dr.  Luna L. Sanchez Reyes
-office: SE1 280
+office: SE1 390
 email: lsanchezreyes2@ucmerced.edu
 office_hours: By appointment and/or Monday 3pm-5pm, Tuesday & Thursday after class (4pm-6pm).
 
@@ -18,7 +18,7 @@ office_hours2: By appointment
 time: ['Tuesday & Thursday, 2:30-4pm']
 zoom: https://ucmerced.zoom.us/j/82767962714?pwd=T2RtZEZscGVJSVpkcjR0WHU5NHh1dz09
 zoom_tiny: https://ucmerced.zoom.us/j/82767962714
-location: SE1 271
+location: SE1 390
 location_map: https://www.google.com.mx/maps/place/Science+and+Engineering+Building+I,+Merced,+CA+95340,+EE.+UU./@37.3664436,-120.4243582,17z/data=!3m1!4b1!4m5!3m4!1s0x809146a5db7ea5e1:0x6c8c7244d1f78c15!8m2!3d37.3664394!4d-120.4221695
 ---
 
