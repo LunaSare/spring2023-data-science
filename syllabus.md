@@ -6,7 +6,7 @@ semester: Fall 2022
 
 
 professor: Dr.  Luna L. Sanchez Reyes
-office: SE1 390
+office: SE1 280
 email: lsanchezreyes2@ucmerced.edu
 office_hours: By appointment and/or Monday 3pm-5pm, Tuesday & Thursday after class (4pm-6pm).
 
@@ -152,16 +152,33 @@ Students completing this course will be able to:
 
 ---
 
-## Semester project
+## Grading rubrics
 
+### Homework and in-class activities
+
+![Homework Rubric]({{ site.baseurl}}/public/rubric-activities.png)
 
 ---
+### Participation
 
-## Graded assessments checklist (example)
+![Homework Rubric]({{ site.baseurl}}/public/rubric-participation.png)
 
-![Homework Rubric]({{ site.baseurl}}/public/rubric.png)
+---
+### Attendance
 
-{% include_relative materials/turn_in_checklist.md %}
+![Homework Rubric]({{ site.baseurl}}/public/rubric-attendance.png)
+
+---
+### Semester project
+
+![Homework Rubric]({{ site.baseurl}}/public/rubric-semester-project1.png)
+![Homework Rubric]({{ site.baseurl}}/public/rubric-semester-project2.png)
+
+<!-- {% include_relative materials/turn_in_checklist.md %} -->
+
+---
+## Semester project Structure
+
 
 ---
 
