@@ -13,23 +13,3 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 >
 
 ---
-
-### Activity 1
-
-{% include_relative exercises/week2-install-packages-r.md %}
-
----
-
-### Activity 2
-
-{% include_relative exercises/week2-read-data-tables-r.md %}
-
----
----
-
-> **Session 2: Instructions**
->
-> -
->
-
----
