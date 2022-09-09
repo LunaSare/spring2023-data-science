@@ -35,8 +35,9 @@ Day 1
   - using the "tilde" `~` as shortcut of the current home directory
   - using `cd -` to go back
   - defining commands, options and arguments
-  - other names for options ans arguments are parameters, switches or flags
+  - other names for options and arguments are parameters, switches or flags
   - capitalization is meaningful, example: `ls -s` vs `ls -S`
+
 * [Working With Files and Directories](https://swcarpentry.github.io/shell-novice/03-create/index.html)
   - creating directories with `mkdir` and `mkdir -p`
   - list nested directories with `ls -FR`
@@ -44,11 +45,11 @@ Day 1
   - good names for files and directories do not use blank spaces
   - creating a text file with `nano`
   - using the nano text editor
-  - creating a text file with `touch`
+  - homework challenge: creating a text file with `touch`
   - file extensions
-  - moving files and directories with mv
-  - copying with `cp`
-  - removing with `rm` and `rm -r`
+  - moving files and directories with `mv`
+  - copying files and directories with `cp`
+  - removing files with `rm` and directories with `rm -r`
   - wildcards `*` and `?`
   - [Challenge](https://swcarpentry.github.io/shell-novice/03-create/index.html#list-filenames-matching-a-pattern)
   - Homework activities
