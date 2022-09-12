@@ -29,9 +29,12 @@ B) Read and prepare the following text for in-class discussion:
          If the link is not available, a screen shot of the text is available [here]({{ site.baseurl }}/dataone-data-life-cycle).
          - How many steps are there in the DataOne life cycle? List the steps
 
+---
+---
+
 **Day 2**
 
-Read and prepare the following texts for in-class discussion:
+C) Read and prepare the following texts for in-class discussion:
 
    1. [8 Steps in the Data Life Cycle](https://online.hbs.edu/blog/post/data-life-cycle)
       - What is the importance of the data life cycle?

@@ -9,7 +9,7 @@ language: R
 
 > Following this assignment students should be able to:
 >
->  - Read files in R
+> - Read files in R
 > - Understand data manipulation functions in R
 > - Summarise dataframes
 > - Subset dataframes
@@ -28,12 +28,12 @@ language: R
 download.file("https://ndownloader.figshare.com/files/2292169", "./dataFolder/mydata.csv")
 ```
 3. Import the data file you just downloaded and complete the task listed on the R code handout
-  * You can read the data file (.csv) in R using either the `read.csv` function or the `read_csv` function from the tidyverse package
+  * You can read the data file (.csv) in R using either the `read.csv` function or the `read_csv` function from the `readr` package
 
 ```r
 mydata<-read.csv("./dataFolder/mydata.csv")
 
-library(tidyverse)
+library(readr)
 mydata<-read_csv("./dataFolder/mydata.csv")
 ```
 

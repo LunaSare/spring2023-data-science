@@ -6,7 +6,7 @@ title: 'Intro to version control'
 language: R
 pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
-week: 'Sep 15, 20'
+week: 'Sep 13, 15'
 ---
 
 **Day 1: Introduction to version control with RStudio**
@@ -18,10 +18,6 @@ Read for in-class discussion:
 * [Version Control with Git](https://swcarpentry.github.io/git-novice/)
 * [Automated Version Control](https://swcarpentry.github.io/git-novice/01-basics/index.html)
 
-Think:
-
-* What is version control?
-* What is git?
 
 Do the challenge:
 

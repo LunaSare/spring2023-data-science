@@ -23,21 +23,23 @@ Slides:
 
 > **Learning Objectives**
 >
-> Following these lesson, students will be able to use Rstudio to:
+> Following this lesson, students will be able to:
 >
-> - create a new git repository locally
-> - `stage` and `commit` changes to a local repository
-> - set up git
+> - Explain what is version control and why should we use it in research
+> - Explain what is git
+> - use Rstudio to:
+>   - create a new git repository locally
+>   - understand the concepts of "staging" and "committing" file versions
+>   - explain what is a hash
+>   - display, read and comprehend the git history
+> - list other software for version control
 
 ---
 
 **Day 1**
 
-Live coding
-
-* [Setting up git](https://swcarpentry.github.io/git-novice/02-setup/index.html)
-
-* [Git basics in RStudio](http://nicercode.github.io/git/rstudio.html)
+* Exercise: What is version control and why should we use it
+* Live coding [Git basics in RStudio](http://nicercode.github.io/git/rstudio.html)
   - activating git for your project with RStudio: starting a local git repository
   - checking the "git status" of your files
   - adding files to the staging area: indicating our intention to version control files
@@ -47,6 +49,13 @@ Live coding
   - directories are not version controlled if they are empty
 
 ![Stage and commit area](https://swcarpentry.github.io/git-novice/fig/git-staging-area.svg)
+* Exercise:
+Create a new RStudio project on your computer called bio.
+Start it as a git repository.
+Write a three-line biography for yourself in a file called me.txt, add and commit your changes
+Modify one line, add a fourth line.
+Use the git history to describe the differences between the updated state and the original state of your repository.
+
 
 **Day 2**
 
@@ -54,11 +63,15 @@ Live coding
 >
 > Following this lesson, students will be able to:
 >
+> - explain the difference between a local and a remote git repository
 > - create a new repository on GitHub
+> - set up git for usage with GitHub
 > - `push` and `pull` changes to a remote repository
 > - clone a repository from Github
->
+> - list other platforms for remote version control with git.
 
 Live coding
+
+* [Setting up git](https://swcarpentry.github.io/git-novice/02-setup/index.html)
 
 * [Remotes in GitHub](https://swcarpentry.github.io/git-novice/07-github/index.html)

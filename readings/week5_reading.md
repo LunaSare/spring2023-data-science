@@ -5,7 +5,7 @@ title: 'Intro to rmarkdown'
 language: R
 pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
-week: 'Sep 22, 27'
+week: 'Sep 20, 22'
 ---
 
 **Day 1: markdown and rmarkdown**

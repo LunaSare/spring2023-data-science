@@ -10,7 +10,7 @@ week: 'Sep 8'
 
 **Day 1: Intro to the Unix shell**
 
-* Set up your computer. Follow instructions for the Software Carpentry Lesson [The Unix Shell](https://swcarpentry.github.io/shell-novice/setup.html).
+* Set up your computer. Follow instructions for the Software Carpentry Lesson [The Unix Shell](https://swcarpentry.github.io/shell-novice/setup.html). Make sure you downloaded the data set, we will be using it during lecture.
 * Read the episode ["Introducing the Shell"](https://swcarpentry.github.io/shell-novice/01-intro/index.html)
 * Answer the following questions:
   - What is a command shell?
