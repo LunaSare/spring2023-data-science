@@ -13,7 +13,7 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 > **Activity 1: Tropical plan traits data**
 >
 > - The goals of this activity are:
->   - To reinforce usage of main R functions to read, summarize and write data tables as CSV files using RStudio.
+>   - To reinforce usage of main R functions to process data tables (read, summarize and write as CSV files) using RStudio.
 >   - To apply a good workflow of version control with git on a local repository using RStudio.
 
 
