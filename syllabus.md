@@ -8,7 +8,7 @@ semester: Fall 2022
 professor: Dr.  Luna L. Sanchez Reyes
 office: SE1 280
 email: lsanchezreyes2@ucmerced.edu
-office_hours: By appointment and/or Monday 3pm-5pm, Tuesday & Thursday after class (4pm-6pm).
+office_hours: By appointment and/or Monday 3pm-4pm, Tuesday and Wednesday 11am-12pm, & Wednesday 4pm-5pm.
 
 professor2: Prof. Emily Jane McTavish
 office2: SE1 281
