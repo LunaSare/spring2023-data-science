@@ -26,19 +26,22 @@ Slides:
 > Following this lesson, students will be able to:
 >
 > - Explain what is version control and why should we use it in research
-> - Explain what is git
 > - use Rstudio to:
 >   - create a new git repository locally
 >   - understand the concepts of "staging" and "committing" file versions
 >   - explain what is a hash
 >   - display, read and comprehend the git history
-> - list other software for version control
+> - Explain what is git
+> - list alternative software to git for version control
 
 ---
 
 **Day 1**
 
-* Exercise: What is version control and why should we use it
+* Discussion: What is version control and why should we use it.
+
+---
+
 * Live coding [Git basics in RStudio](http://nicercode.github.io/git/rstudio.html)
   - activating git for your project with RStudio: starting a local git repository
   - checking the "git status" of your files
@@ -48,13 +51,26 @@ Slides:
   - ignoring files: `.gitignore`
   - directories are not version controlled if they are empty
 
+
 ![Stage and commit area](https://swcarpentry.github.io/git-novice/fig/git-staging-area.svg)
-* Exercise:
-Create a new RStudio project on your computer called bio.
-Start it as a git repository.
-Write a three-line biography for yourself in a file called me.txt, add and commit your changes
-Modify one line, add a fourth line.
-Use the git history to describe the differences between the updated state and the original state of your repository.
+
+---
+* In-class exercise:
+
+  1. Create a new RStudio project on your computer called bio.
+  1. Write a three-line biography for yourself in a file called me.txt, add and commit your changes
+  1. Modify one line, add a fourth line.
+  1. Use the git history to describe the differences between the updated state and the original state of your repository.
+
+---
+
+Lecture why git?
+  - free
+  - open source
+  - distributed repository system (not centralized)
+  - faster to commit changes locally and offline
+  - staging area
+  - commit messages allow team communication
 
 
 **Day 2**
@@ -74,4 +90,13 @@ Live coding
 
 * [Setting up git](https://swcarpentry.github.io/git-novice/02-setup/index.html)
 
+* [Setting up keys and tokens](https://github.com/LunaSare/lunasare-blogdown/blob/main/content/post-dev/2022-02-01_configuring-git/index.md)
+
 * [Remotes in GitHub](https://swcarpentry.github.io/git-novice/07-github/index.html)
+
+---
+![Centralized version control](https://miro.medium.com/max/674/1*2FZbXMmr_FTV2T3LFj33sA.png)
+---
+![Distributed version control](https://miro.medium.com/max/834/1*2cG4BW2m1E-EcklOLG51jg.png)
+
+Images from [medium original article](https://medium.com/analytics-vidhya/what-is-version-control-tool-explore-git-and-github-e8c4e719bc05)
