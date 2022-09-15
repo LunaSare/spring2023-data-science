@@ -10,7 +10,7 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 
 **Day1**
 
-> **Activity 1: Tropical plan traits data**
+> **Individual activity: Tropical plan traits data**
 >
 > - The goals of this activity are:
 >   - To reinforce usage of main R functions to process data tables (read, summarize and write as CSV files) using RStudio.
@@ -20,8 +20,8 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 
 1. For this assignment, we are going to use the plant trait data from:
   * Razafindratsima OH, Brown KA, Carvalho F, Johnson SE, Wright PC, Dunham AE (2017) Data from: Edge effects on components of diversity and above-ground biomass in a tropical rainforest. Dryad Digital Repository. https://doi.org/10.5061/dryad.jn743
-2. Go to [this link](https://doi.org/10.5061/dryad.jn743){:target="_blank"} and download the .xlsx file.
-3. Open the file in a spreadsheet program (like excel) and save the trait tab into a CSV (comma delimited) file. Make sure you saved the CSV file in the `data-raw` folder of your project.
+2. Follow the [link to the dataset](https://doi.org/10.5061/dryad.jn743){:target="_blank"} and download the .xlsx file.
+3. Open the file in a spreadsheet program (like excel) and save the trait tab as a CSV (comma delimited) file. Make sure you saved the CSV file in the `data-raw` folder of your project.
 4. Create a file called "tropical-plant-trait.R" file. In it, write the necessary R code to:
   * Read the CSV file using the function `read.csv` and assign it to an object called `data_table`.
   * Use the functions `unique` and `length` to show the number of unique families found in the data frame. First, you will need to subset your `data_table` object using square brackets `[ ]`.
@@ -48,6 +48,22 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 <!-- with all the species that are dispersed by lemurs and have a fruit length > 8 mm. Make sure to save the file to the `data` folder. -->
 <!-- * Plot the average fruit length per seed size category using (A) all the data, and (B) the lemur subset data -->
 
+> **Group activity: absolute and relative paths**
+>
+> - The goals of this activity are:
+>   - To reinforce usage of absolute and relative paths.
+
+
+1. For this activity we will use a section of the code from the previous activity.
+2. Go into groups and compare the paths you used to save the subsets of `data_table` in the `data` folder, and answer:
+  - Did you use relative or absolute paths?
+  - If you all used the absolute path to save any CSV file, what does the path look like? Do you all have the same path? What are the differences?
+  - If you all used relative paths to save any of your CSV files, what does the path look like? Do you all have the same path? What are the differences?
+3. Create a script called `paths.R` and write the code to:
+  - Write the `data_table` object as a CSV file in your computer's home directory using an absolute path and a relative path.
+  - Write the `data_table` object as a CSV file in your project's home directory using an absolute path and a relative path.
+
+  
 ---
 ---
 
