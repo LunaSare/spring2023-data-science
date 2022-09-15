@@ -39,7 +39,13 @@ Slides:
 **Day 1**
 
 * Discussion: What is version control and why should we use it.
-
+* Lecture: why git for version control?
+  - free
+  - open source
+  - distributed repository system (not centralized)
+  - faster to commit changes locally and offline
+  - staging area
+  - commit messages allow team communication
 ---
 
 * Live coding [Git basics in RStudio](http://nicercode.github.io/git/rstudio.html)
@@ -64,13 +70,7 @@ Slides:
 
 ---
 
-Lecture why git?
-  - free
-  - open source
-  - distributed repository system (not centralized)
-  - faster to commit changes locally and offline
-  - staging area
-  - commit messages allow team communication
+
 
 
 **Day 2**

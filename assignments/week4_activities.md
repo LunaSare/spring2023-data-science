@@ -21,23 +21,35 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 1. For this assignment, we are going to use the plant trait data from:
   * Razafindratsima OH, Brown KA, Carvalho F, Johnson SE, Wright PC, Dunham AE (2017) Data from: Edge effects on components of diversity and above-ground biomass in a tropical rainforest. Dryad Digital Repository. https://doi.org/10.5061/dryad.jn743
 2. Go to [this link](https://doi.org/10.5061/dryad.jn743){:target="_blank"} and download the .xlsx file.
-3. Open the file in a spreadsheet program and save the trait tab into a CSV (comma delimited) file.
+3. Open the file in a spreadsheet program (like excel) and save the trait tab into a CSV (comma delimited) file. Make sure you saved the CSV file in the `data-raw` folder of your project.
 4. Create a file called "tropical-plant-trait.R" file. In it, write the necessary R code to:
-  * Read the CSV file
-  * Show the number of unique families found in the data frame
-  * Show the number of species in each family
-  * Calculate the average fruit width in cm per dispersal mode
-  * Create a CSV file with all the species that are dispersed by lemurs and have a fruit length > 8 mm. Make sure to save the file to the `data` folder.
+  * Read the CSV file using the function `read.csv` and assign it to an object called `data_table`.
+  * Use the functions `unique` and `length` to show the number of unique families found in the data frame. First, you will need to subset your `data_table` object using square brackets `[ ]`.
+    - Do the same to find the number of unique "dispersal modes" and "fruit colors".
+  <!-- * Show the number of species in each family -->
+  * Use the `mean` function to calculate the average fruit width in cm.
+  * Use the function `summary` on your `data_table` object. Can you find the average fruit width in the output of the function? Is it the same as the one you obtained using the function `mean`?
+  * Look at the output of the function  `summary`. What is the average fruit length in cm?
+  * Create the following subset CSV files of your original `data_table` object. Use square brackets to subset and the function `write.csv` to write the files into the `data` folder:
+    - A subset of `data_table` that contains the first 10 rows.
+    - A subset of `data_table` that contains the last 20 rows.
+    - A subset of `data_table` that contains rows 12, 17, 23 and 145.
+    - A subset of `data_table` that contains the first 10 rows and rows 12, 17, 23 and 145.
+    - A subset of `data_table` that contains the first 5 columns and all rows.
+    - A subset of `data_table` that contains the last 2 columns and all rows.
+    - A subset of `data_table` that contains columns with "family", "fruit_color" and "growth_rate", and all rows.
+    - A subset of `data_table` that contains the first 5 columns and rows 12, 17, 23 and 145.
+<!-- with all the species that are dispersed by lemurs and have a fruit length > 8 mm. Make sure to save the file to the `data` folder. -->
   <!-- * Plot the average fruit length per seed size category using (A) all the data, and (B) the lemur subset data -->
   * Remember to comment your code.
 5. Add and commit the R script file. Use an informative commit message.
-6. Add and commit the CSV file you generated. Use an informative commit message.
+6. Add and commit all CSV files that you generated. Use an informative commit message.
 7. Display your git history and take a snapshot. Send the snapshot to your instructor.
 
 ---
 ---
 
-** Day 2**
+<!-- ** Day 2**
 
 > **Activity 2: Goals**
 >
@@ -76,4 +88,4 @@ dat1<-read.csv("file2.csv")
 ## Assignment potential solution
 
 * [Here](https://github.com/GlobalEcologyBiogeography/projects-structure-susyelo.git) you can see an example of how to solve the assignment.
-* You can also access the files directly [here](../../solutions/Week2_solution/)
+* You can also access the files directly [here](../../solutions/Week2_solution/) -->
