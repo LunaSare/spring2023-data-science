@@ -25,8 +25,7 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 4. Create a file called "tropical-plant-trait.R" file. In it, write the necessary R code to:
   * Read the CSV file using the function `read.csv` and assign it to an object called `data_table`.
   * Use the functions `unique` and `length` to show the number of unique families found in the data frame. First, you will need to subset your `data_table` object using square brackets `[ ]`.
-    - Do the same to find the number of unique "dispersal modes" and "fruit colors".
-  <!-- * Show the number of species in each family -->
+  * Do the same to find the number of unique "dispersal modes" and "fruit colors".
   * Use the `mean` function to calculate the average fruit width in cm.
   * Use the function `summary` on your `data_table` object. Can you find the average fruit width in the output of the function? Is it the same as the one you obtained using the function `mean`?
   * Look at the output of the function  `summary`. What is the average fruit length in cm?
@@ -39,12 +38,15 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
     - A subset of `data_table` that contains the last 2 columns and all rows.
     - A subset of `data_table` that contains columns with "family", "fruit_color" and "growth_rate", and all rows.
     - A subset of `data_table` that contains the first 5 columns and rows 12, 17, 23 and 145.
-<!-- with all the species that are dispersed by lemurs and have a fruit length > 8 mm. Make sure to save the file to the `data` folder. -->
-  <!-- * Plot the average fruit length per seed size category using (A) all the data, and (B) the lemur subset data -->
   * Remember to comment your code.
 5. Add and commit the R script file. Use an informative commit message.
 6. Add and commit all CSV files that you generated. Use an informative commit message.
 7. Display your git history and take a snapshot. Send the snapshot to your instructor.
+
+
+<!-- * Show the number of species in each family -->
+<!-- with all the species that are dispersed by lemurs and have a fruit length > 8 mm. Make sure to save the file to the `data` folder. -->
+<!-- * Plot the average fruit length per seed size category using (A) all the data, and (B) the lemur subset data -->
 
 ---
 ---
