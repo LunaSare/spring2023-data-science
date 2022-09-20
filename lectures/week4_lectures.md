@@ -21,6 +21,11 @@ Slides:
 -->
 
 
+> **Learning Goal**
+>
+> - Familiarize with the main tools of version control with git using RStudio's graphical user interface.
+> - Practice creating new project with RStudio
+>
 > **Learning Objectives**
 >
 > Following this lesson, students will be able to:
@@ -32,14 +37,12 @@ Slides:
 >   - explain what is a hash
 >   - display, read and comprehend the git history
 > - Explain what is git
-> - list alternative software to git for version control
-
 ---
 
 **Day 1**
 
 * Discussion: What is version control and why should we use it.
-* Lecture: why git for version control?
+* Lecture: `git` for version control
   - free
   - open source
   - distributed repository system (not centralized)
@@ -75,6 +78,11 @@ Slides:
 
 **Day 2**
 
+> **Learning Goals**
+>
+> - Learn `git` tools for version control of remote repositories on GitHub
+> - Practice usage of Unix shell commands to set up remote version control on GitHub
+>
 > **Learning Objectives**
 >
 > Following this lesson, students will be able to:
@@ -83,7 +91,8 @@ Slides:
 > - create a new repository on GitHub
 > - set up git for usage with GitHub
 > - `push` and `pull` changes to a remote repository
-> - clone a repository from Github
+> - `clone` a repository from Github
+> - list alternative software to git for version control
 > - list other platforms for remote version control with git.
 
 Live coding
