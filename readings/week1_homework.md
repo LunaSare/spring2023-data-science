@@ -27,7 +27,7 @@ B) Read and prepare the following text for in-class discussion:
       - Is willingness to share data increasing or decreasing among researchers?
    1. [The DataONE Life Cycle](https://www.dataone.org/data-life-cycle).
          If the link is not available, a screen shot of the text is available [here]({{ site.baseurl }}/dataone-data-life-cycle).
-         - How many steps are there in the DataOne life cycle? List the steps
+         - How many steps are there in the DataOne life cycle? List and summarize the steps.
 
 ---
 ---

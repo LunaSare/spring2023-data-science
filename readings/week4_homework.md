@@ -15,7 +15,7 @@ week: 'Sep 13, 15'
 Set up your computer
 
 * If you have a MacOS: Make sure you have [xcode command line tools installed](https://www.freecodecamp.org/news/install-xcode-command-line-tools/)
-* Make sure you have [git installed](https://carpentries.github.io/workshop-template/#git) by opening the terminal and running the following line of code:
+* For all OS: Make sure you have [git installed](https://carpentries.github.io/workshop-template/#git) by opening the terminal and running the following line of code:
 
 ```
 git --version
