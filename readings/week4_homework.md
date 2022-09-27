@@ -46,6 +46,9 @@ Do the challenge:
 
 * Prepare a reading for in-class discussion:
   1. Read [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745).
-  2. On your bio project create a new text file called `best_practices.txt`. In that file, write the following:
+  2. On your bio project create a new text file called `best_practices.txt`. Stage and commit the file.
+  3. In that file, write the following:
      - List down any concepts or words from the paper that you did not know of, along with their definitions.
-     - For each number in `Box 1. Summary of Best Practices`, identify and write down the best practices that you have implemented so far for school in general and for this class.
+     - For each number in `Box 1. Summary of Best Practices`, identify and write down the best practices that you have implemented so far, in general and for this class.
+     - Stage and commit all changes made to your file.
+     - Take a snapshot of your git history and send it to your instructor.

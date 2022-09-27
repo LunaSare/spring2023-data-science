@@ -37,6 +37,7 @@ Slides:
 >   - explain what is a hash
 >   - display, read and comprehend the git history
 > - Explain what is git
+>
 ---
 
 **Day 1**
@@ -59,22 +60,23 @@ Slides:
   - adding files to the staging area: indicating our intention to version control files
   - committing files
     - it creates a unique numbered version of your work
-    - we need informative commit messages
-    - ![](https://workchronicles.com/wp-content/uploads/2020/08/Small-Changes-768x768.png)
+    - commit messages must be informative:
+    ![](https://workchronicles.com/wp-content/uploads/2020/08/Small-Changes-768x768.png)
   - viewing history: viewing the "git log" and "git diff" of versions that we have created
-  - ignoring files: `.gitignore`
+  - ignoring files for version control using the `.gitignore` file
+    - which files should we ignore?
+    - the ".Rproj" files
   - directories are not version controlled if they are empty
-
-
-![Stage and commit area](https://swcarpentry.github.io/git-novice/fig/git-staging-area.svg)
+  - the difference between staging/adding a file or changes to a file and commiting them:
+  ![Stage and commit area](https://swcarpentry.github.io/git-novice/fig/git-staging-area.svg)
 
 ---
 ---
 
 * In-class exercise
 
-  1. Create a new RStudio project on your computer called bio.
-  1. Write a three-line biography for yourself in a file called me.txt, add and commit your changes
+  1. Create a new RStudio project on your computer called "bio".
+  1. Write a three-line biography for yourself in a file called me.txt, add and commit your changes.
   1. Modify one line, add a fourth line, add and commit the changes.
   1. Display the git history of your project. Describe the differences between the updated state and the original state of your repository. Do your commit messages are informative enough to describe the differences?
 
@@ -133,7 +135,8 @@ Read: Best practices for commit messages
 
 * What is the difference between committing a change and pushing it?
 
-1. Read the comic, can you find three main differences between committing a change to a repository and pushing it?
+1. Read the comic, can you find three main differences between committing a change to a repository and pushing a change?
+2. Think of another example to illustrate the difference between `git commit` and `git push`. For example, I imagine that adding a song to my spotify queue is equivalent to committing a file, and then when the song is finally playing and made public that is like pushing the file to the remote repository 😜
 
 ![A Git Story](https://res.cloudinary.com/practicaldev/image/fetch/s--pYxSazy8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/d9n3kcnc76l5viwl4z2n.jpeg)
 
@@ -142,14 +145,13 @@ Comic from [Erika Heidi](https://dev.to/erikaheidi/stage-commit-push-a-git-story
 <!-- Additional for the activity: a jamboard with missing cells: -->
 <!-- Fill the missing cells in the [comparative table](http://cdn.differencebetween.net/wp-content/uploads/2019/10/Commit-vs-Push.jpg). -->
 
-2. Think of another example to illustrate the difference between `git commit` and `git push`. For example, I imagine that adding a song to my spotify queue is equivalent to committing a file, and then when the song is finally playing and made public that is like pushing the file to the remote repository 😜
 
 ---
 ---
 
 ### Individual activity
 
-1. Create a remote for your bio repository on your GitHub account.
+1. Create a remote repository called "bio" on your GitHub account.
 2. Add, commit and push your local repository to your newly created remote on GitHub.
 3. Add a line to your bio file using the GitHub GUI, and commit it.
 4. Modify another line of your bio on the GitHub GUI and commit it.
