@@ -173,22 +173,15 @@ Comic from [Erika Heidi](https://dev.to/erikaheidi/stage-commit-push-a-git-story
 * Other software for version control
   - https://en.wikipedia.org/wiki/List_of_version-control_software
   - https://en.wikipedia.org/wiki/Comparison_of_version-control_software
-
-![Centralized version control](https://miro.medium.com/max/674/1*2FZbXMmr_FTV2T3LFj33sA.png)
-
-Open Source: [Concurrent Versions System](https://en.wikipedia.org/wiki/Concurrent_Versions_System)
-![](http://savannah.nongnu.org/images/Savannah.theme/floating.png)
-
-Proprietary: [Microsoft Visual SourceSafe](https://learn.microsoft.com/en-us/previous-versions/ms181038(v=vs.80))
-
----
-
-![Distributed version control](https://miro.medium.com/max/834/1*2cG4BW2m1E-EcklOLG51jg.png)
-
-Open Source: [Git](https://git-scm.com/)
-* main Git features
-  - Ability to create local branches and merge them.
-  - `git merge` and `git branch` will be seen later during the course.
+  - ![Centralized version control](https://miro.medium.com/max/674/1*2FZbXMmr_FTV2T3LFj33sA.png)
+    - Open Source: [Concurrent Versions System](https://en.wikipedia.org/wiki/Concurrent_Versions_System)
+      - ![](http://savannah.nongnu.org/images/Savannah.theme/floating.png)
+    - Proprietary: [Microsoft Visual SourceSafe](https://learn.microsoft.com/en-us/previous-versions/ms181038(v=vs.80))
+  - ![Distributed version control](https://miro.medium.com/max/834/1*2cG4BW2m1E-EcklOLG51jg.png)
+    - Open Source: [Git](https://git-scm.com/)
+      - main Git features
+        - Ability to create local branches and merge them.
+        - `git merge` and `git branch` will be seen later during the course.
 
 Images from [medium original article](https://medium.com/analytics-vidhya/what-is-version-control-tool-explore-git-and-github-e8c4e719bc05).
 
