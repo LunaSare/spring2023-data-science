@@ -31,13 +31,11 @@ Slides:
 > Following this lesson, students will be able to:
 >
 > - Explain what is version control and why should we use it in research
-> - use Rstudio to:
+> - Use Rstudio to:
 >   - create a new git repository locally
 >   - understand the concepts of "staging" and "committing" file versions
 >   - explain what is a hash
 >   - display, read and comprehend the git history
-> - Explain what is git
->
 ---
 
 **Day 1**
@@ -99,12 +97,13 @@ Read: Best practices for commit messages
 >
 > Following this lesson, students will be able to:
 >
-> - explain the difference between a local and a remote git repository
-> - create a new repository on GitHub
-> - set up git for usage with GitHub
+> - Explain the difference between a local and a remote git repository
+> - Create a new repository on GitHub
+> - Set up git for usage with GitHub
 > - `push` and `pull` changes to a remote repository
-> - list alternative software to git for version control
-> - list other platforms for remote version control with git.
+> - List alternative software to git for version control
+> - List other platforms for remote version control with git
+> - Explain why we use Git
 
 ### Live coding
 
@@ -168,21 +167,23 @@ Comic from [Erika Heidi](https://dev.to/erikaheidi/stage-commit-push-a-git-story
 * The `git clone` tool:
   - clone the remote repository [markdown-cheatsheet](https://github.com/LunaSare/markdown-cheatsheet) to your computer
   - you can clone any public repository on GitHub
-  - one of the key features that make Git and GitHub so widely used, noy only by computer developers!
+  - one of the key features that make Git and GitHub so widely used, not only by computer developers!
 
 * Other software for version control
   - https://en.wikipedia.org/wiki/List_of_version-control_software
   - https://en.wikipedia.org/wiki/Comparison_of_version-control_software
-  - ![Centralized version control](https://miro.medium.com/max/674/1*2FZbXMmr_FTV2T3LFj33sA.png)
+  - Centralized version control:
+  ![Centralized version control](https://miro.medium.com/max/674/1*2FZbXMmr_FTV2T3LFj33sA.png)
     - Open Source: [Concurrent Versions System](https://en.wikipedia.org/wiki/Concurrent_Versions_System)
-      - ![](http://savannah.nongnu.org/images/Savannah.theme/floating.png)
+      ![](http://savannah.nongnu.org/images/Savannah.theme/floating.png)
     - Proprietary: [Microsoft Visual SourceSafe](https://learn.microsoft.com/en-us/previous-versions/ms181038(v=vs.80))
-  - ![Distributed version control](https://miro.medium.com/max/834/1*2cG4BW2m1E-EcklOLG51jg.png)
+  - Distributed version control
+  ![Distributed version control](https://miro.medium.com/max/834/1*2cG4BW2m1E-EcklOLG51jg.png)
     - Open Source: [Git](https://git-scm.com/)
       - main Git features
         - Ability to create local branches and merge them.
         - `git merge` and `git branch` will be seen later during the course.
 
-Images from [medium original article](https://medium.com/analytics-vidhya/what-is-version-control-tool-explore-git-and-github-e8c4e719bc05).
+_Images from [medium original article](https://medium.com/analytics-vidhya/what-is-version-control-tool-explore-git-and-github-e8c4e719bc05)_
 
 * [Other platforms for remote version control with Git](https://www.guru99.com/github-alternative.html)
