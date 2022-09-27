@@ -30,7 +30,7 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 * Use the `mean` function to calculate the average fruit width in cm.
 * Use the function `summary` on your `data_table` object. Can you find the average fruit width in the output of the function? Is it the same as the one you obtained using the function `mean`?
 * Look at the output of the function  `summary`. What is the average fruit length in cm?
-* Create the following subset CSV files of your original `data_table` object. Use square brackets to subset and the function `write.csv` to write the files into the `data` folder:
+* Create the following subset tables from your original `data_table` object. Use square brackets to create:
   - A subset of `data_table` that contains the first 10 rows.
   - A subset of `data_table` that contains the last 20 rows.
   - A subset of `data_table` that contains rows 12, 17, 23 and 145.
@@ -40,6 +40,7 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
   - A subset of `data_table` that contains columns with "family", "fruit_color" and "growth_rate", and all rows.
   - A subset of `data_table` that contains the first 5 columns and rows 12, 17, 23 and 145.
 * Remember to comment your code.
+* Use the function `write.csv` to write CSV files for each subset into the `data` folder. **Note: you have to use the argument `file` to provide the path and name for the subset CSV files, otherwise they will not be written to the correct folder or at all. If you do not know how to use the `file` argument, run `help(write,csv)` or `?write.csv`.**
 6. Add and commit all CSV files that you generated. Use an informative commit message.
 7. Display your git history and take a snapshot. Send the snapshot to your instructor.
 
@@ -61,7 +62,7 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 
 
 1. For this activity we will use a section of the code from the previous activity.
-2. Go into groups and compare the paths you used to save the subsets of `data_table` in the `data` folder, and answer:
+2. Go into groups and compare the file paths you used to save the CSV files in the `data` folder, and answer:
   - Did you use relative or absolute paths?
   - If you all used the absolute path to save any CSV file, what does the path look like? Do you all have the same path? What are the differences?
   - If you all used relative paths to save any of your CSV files, what does the path look like? Do you all have the same path? What are the differences?

@@ -33,7 +33,7 @@ Do the challenge:
 * Send your answers to [{{ page.email }}](mailto:{{ page.email }})
 
 
-<!-- [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745). -->
+
 
 ---
 ---
@@ -43,3 +43,9 @@ Do the challenge:
 * Create a [GitHub account](https://github.com/login). Tips:
   - Use an email that you will have access to for a long time.
   - Choose a username that you will use in an academic setting.
+
+* Prepare a reading for in-class discussion:
+  1. Read [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745).
+  2. On your bio project create a new text file called `best_practices.txt`. In that file, write the following:
+     - List down any concepts or words from the paper that you did not know of, along with their definitions.
+     - For each number in `Box 1. Summary of Best Practices`, identify and write down the best practices that you have implemented so far for school in general and for this class.

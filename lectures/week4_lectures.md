@@ -24,7 +24,7 @@ Slides:
 > **Learning Goal**
 >
 > - Familiarize with the main tools of version control with git using RStudio's graphical user interface.
-> - Practice creating new project with RStudio
+> - Practice creating a new project with RStudio GUI.
 >
 > **Learning Objectives**
 >
@@ -49,13 +49,18 @@ Slides:
   - faster to commit changes locally and offline
   - staging area
   - commit messages allow team communication
+
+---
 ---
 
 * Live coding [Git basics in RStudio](http://nicercode.github.io/git/rstudio.html)
   - activating git for your project with RStudio: starting a local git repository
   - checking the "git status" of your files
   - adding files to the staging area: indicating our intention to version control files
-  - committing files: creating a numbered version of our work
+  - committing files
+    - it creates a unique numbered version of your work
+    - we need informative commit messages
+    - ![](https://workchronicles.com/wp-content/uploads/2020/08/Small-Changes-768x768.png)
   - viewing history: viewing the "git log" and "git diff" of versions that we have created
   - ignoring files: `.gitignore`
   - directories are not version controlled if they are empty
@@ -64,16 +69,21 @@ Slides:
 ![Stage and commit area](https://swcarpentry.github.io/git-novice/fig/git-staging-area.svg)
 
 ---
-* In-class exercise:
+---
+
+* In-class exercise
 
   1. Create a new RStudio project on your computer called bio.
   1. Write a three-line biography for yourself in a file called me.txt, add and commit your changes
-  1. Modify one line, add a fourth line.
-  1. Use the git history to describe the differences between the updated state and the original state of your repository.
+  1. Modify one line, add a fourth line, add and commit the changes.
+  1. Display the git history of your project. Describe the differences between the updated state and the original state of your repository. Do your commit messages are informative enough to describe the differences?
 
 ---
+---
 
+* Homework
 
+Read: Best practices for commit messages
 
 
 **Day 2**
@@ -99,7 +109,7 @@ Slides:
 * [Setting up git](https://swcarpentry.github.io/git-novice/02-setup/index.html)
 
 * [Remotes in GitHub](https://swcarpentry.github.io/git-novice/07-github/index.html)
-  - Creating a remote repository
+  - Create a remote repository
   - Connect local repository to newly created remote repository
     - use SSH and not HTTPS, the latter is more secure
   - Set up authentication to remote repositories
@@ -108,32 +118,38 @@ Slides:
     - give your key to GitHub
     - manage your password
   - Push local repository to remote with `git push`
-  - The GitHub GUI: creating a README file
+  - The GitHub GUI
+    - create a README file
+    - look at the git history remotely on the Github GUI
   - Pulling a remote repository to local repo with `git pull`
-    - what happens when there are changes to remote?
-    - what happens when there are no changes to remote?
-  - Look at the git history with `git log`
+    - what happens locally when there are changes to remote?
+    - what about when there are no changes to remote?
+  - Look at the git history locally on the terminal with `git log`
+
 ---
 ---
 
 ### Group activity
 
-* What is the difference between pushing a change and commiting it?
+* What is the difference between committing a change and pushing it?
 
-1. Look at the comic, can you find three main differences between commiting a change to your git history and pushing it?
+1. Read the comic, can you find three main differences between committing a change to a repository and pushing it?
 
 ![A Git Story](https://res.cloudinary.com/practicaldev/image/fetch/s--pYxSazy8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/d9n3kcnc76l5viwl4z2n.jpeg)
 
 Comic from [Erika Heidi](https://dev.to/erikaheidi/stage-commit-push-a-git-story-comic-a37).
 
-2. Think of another example to illustrate the differnece between git commit and git push. For example, adding a song to my spotify queue is equivalent to commiting a file, and then when the song is finally playing and made public is like pushing the file to the remote repository 😜
+<!-- Additional for the activity: a jamboard with missing cells: -->
+<!-- Fill the missing cells in the [comparative table](http://cdn.differencebetween.net/wp-content/uploads/2019/10/Commit-vs-Push.jpg). -->
+
+2. Think of another example to illustrate the difference between `git commit` and `git push`. For example, I imagine that adding a song to my spotify queue is equivalent to committing a file, and then when the song is finally playing and made public that is like pushing the file to the remote repository 😜
 
 ---
 ---
 
 ### Individual activity
 
-1. Create a remote repository for your bio repository on your GitHub account.
+1. Create a remote for your bio repository on your GitHub account.
 2. Add, commit and push your local repository to your newly created remote on GitHub.
 3. Add a line to your bio file using the GitHub GUI, and commit it.
 4. Modify another line of your bio on the GitHub GUI and commit it.
@@ -146,6 +162,11 @@ Comic from [Erika Heidi](https://dev.to/erikaheidi/stage-commit-push-a-git-story
 ---
 
 ### Lecture
+
+* The `git clone` tool:
+  - clone the remote repository [markdown-cheatsheet](https://github.com/LunaSare/markdown-cheatsheet) to your computer
+  - you can clone any public repository on GitHub
+  - one of the key features that make Git and GitHub so widely used, noy only by computer developers!
 
 * Other software for version control
   - https://en.wikipedia.org/wiki/List_of_version-control_software
@@ -163,10 +184,10 @@ Proprietary: [Microsoft Visual SourceSafe](https://learn.microsoft.com/en-us/pre
 ![Distributed version control](https://miro.medium.com/max/834/1*2cG4BW2m1E-EcklOLG51jg.png)
 
 Open Source: [Git](https://git-scm.com/)
+* main Git features
+  - Ability to create local branches and merge them.
+  - `git merge` and `git branch` will be seen later during the course.
 
 Images from [medium original article](https://medium.com/analytics-vidhya/what-is-version-control-tool-explore-git-and-github-e8c4e719bc05).
 
 * [Other platforms for remote version control with Git](https://www.guru99.com/github-alternative.html)
-
-
-<!-- > - `clone` a repository from Github -->
