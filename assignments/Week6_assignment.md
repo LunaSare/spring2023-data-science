@@ -1,7 +1,7 @@
 ---
 layout: page
 element: assignment
-title: 'Data repositories'
+title: 'Getting Data'
 language: R
 ---
 
