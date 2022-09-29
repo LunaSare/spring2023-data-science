@@ -1,7 +1,7 @@
 ---
 layout: page
 element: reading
-title: 'Getting Data'
+title: 'Finding Data'
 language: R
 week: "Sep 29"
 ---

@@ -1,7 +1,7 @@
 ---
 layout: page
 element: assignment
-title: 'Getting Data'
+title: 'Finding Data'
 language: R
 ---
 

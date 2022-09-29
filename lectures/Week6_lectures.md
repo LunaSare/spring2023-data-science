@@ -1,7 +1,7 @@
 ---
 layout: page
 element: lecture
-title: 'Getting Data'
+title: 'Finding Data'
 language: R
 ---
 
