@@ -139,11 +139,18 @@ Read: Best practices for commit messages
 
 ![A Git Story](https://res.cloudinary.com/practicaldev/image/fetch/s--pYxSazy8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/d9n3kcnc76l5viwl4z2n.jpeg)
 
-Comic from [Erika Heidi](https://dev.to/erikaheidi/stage-commit-push-a-git-story-comic-a37).
+Comic by [Erika Heidi](https://dev.to/erikaheidi/stage-commit-push-a-git-story-comic-a37).
 
 <!-- Additional for the activity: a jamboard with missing cells: -->
 <!-- Fill the missing cells in the [comparative table](http://cdn.differencebetween.net/wp-content/uploads/2019/10/Commit-vs-Push.jpg). -->
 
+### Optional activity
+
+* What is the difference between fetching changes from a remote and pulling them?
+
+![A difference between fetching and pulling](https://pbs.twimg.com/media/FLG-tC-UcAEPRNk?format=jpg&name=4096x4096).
+
+Comic by [Allison Hurst](https://twitter.com/allison_horst)
 
 ---
 ---
@@ -161,29 +168,3 @@ Comic from [Erika Heidi](https://dev.to/erikaheidi/stage-commit-push-a-git-story
 
 ---
 ---
-
-### Lecture
-
-* The `git clone` tool:
-  - clone the remote repository [markdown-cheatsheet](https://github.com/LunaSare/markdown-cheatsheet) to your computer
-  - you can clone any public repository on GitHub
-  - one of the key features that make Git and GitHub so widely used, not only by computer developers!
-
-* Other software for version control
-  - https://en.wikipedia.org/wiki/List_of_version-control_software
-  - https://en.wikipedia.org/wiki/Comparison_of_version-control_software
-  - Centralized version control:
-  ![Centralized version control](https://miro.medium.com/max/674/1*2FZbXMmr_FTV2T3LFj33sA.png)
-    - Open Source: [Concurrent Versions System](https://en.wikipedia.org/wiki/Concurrent_Versions_System)
-      ![](http://savannah.nongnu.org/images/Savannah.theme/floating.png)
-    - Proprietary: [Microsoft Visual SourceSafe](https://learn.microsoft.com/en-us/previous-versions/ms181038(v=vs.80))
-  - Distributed version control
-  ![Distributed version control](https://miro.medium.com/max/834/1*2cG4BW2m1E-EcklOLG51jg.png)
-    - Open Source: [Git](https://git-scm.com/)
-      - main Git features
-        - Ability to create local branches and merge them.
-        - `git merge` and `git branch` will be seen later during the course.
-
-_Images from [medium original article](https://medium.com/analytics-vidhya/what-is-version-control-tool-explore-git-and-github-e8c4e719bc05)_
-
-* [Other platforms for remote version control with Git](https://www.guru99.com/github-alternative.html)
