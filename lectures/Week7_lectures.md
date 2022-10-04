@@ -12,6 +12,5 @@ language: R
 > - Install packages for data visualization in R
 > - Use basic plotting functions in R
 > - Create basic plots
-> - Render simple rmarkdown documents (pdf, html, word)
 
 ---

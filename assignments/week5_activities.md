@@ -7,27 +7,25 @@ pagetype: activities
 symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 ---
 
-> **Session 1: Instructions**
+> **Individual Activity: A document for your data life cycle**
 >
-> -
->
+> The goals of this activity are:
+> - To remember the steps of the data life cycle
+> - To practice mrakdown syntax
+> - To use rmarkdown functions that render a PDF file from an Rmd file
+> - To remember basic steps of version control with `git` when working with a remote repository on GitHub
 
-Create an .rmd file with the list of your data cycle [here]().
-Save it to the `documents` folder.
-Render it as pdf.
-Add, commit and push your changes to the remote repository on GitHub.
+1. Open the Rstudio project of your data science repository.
+2. From Rstudio, create a new Rmd file called "my_data_life_cycle.Rmd"
+3. In it, use markdown syntax and write down the list that you created for the assignemt "create your own data cycle", [here](https://jamboard.google.com/d/1R2BrILLK9K6IPD6O7kBYrdao8-Sd5o82oPnbcGKeIQc/viewer?f=5).
+1. Save the Rmd file to the `documents` folder.
+1. Render it as pdf.
+1. Add, commit and push your changes to the remote repository on GitHub.
 
 ---
 ---
 
 
-
-> **Session 2: Instructions**
->
-> -
->
-
----
 
 
    <!-- 5. Run the following code `sum(dispersal_mode == "lemur")`. Is it the same as the number of plant species that are dispersed by lemurs?

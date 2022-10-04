@@ -10,10 +10,11 @@ time: 1hr 45min
 >
 > After this week, students will be able to:
 >
-> - Use the main markup format options in an rmarkdown document
-> - Include images
-> - Create basic plots
+> - Use the main markup format syntax in an `rmarkdown` document
+> - Include images from other URL or saved in a project
 > - Render simple rmarkdown documents (pdf, html, word)
+> - R Notebooks are not covered yet
+
 
 ---
 ### Other software for version control (5 min)
@@ -80,7 +81,7 @@ Sub-heading
 Paragraphs are separated
 by a blank line.
 
-Two spaces at the end of a line  
+Two spaces at the end of a line
 produce a line break.
 ```
 
@@ -175,11 +176,9 @@ Resources:
 - Create a PDF file from your .Rmd file
 
 ### and first steps for project collaboration on GitHub (15 min)
-- Add, commit and push one the files that the instructor created.
+- Add, commit and push the files that the instructor created.
 - `git pull` before `git push`
 - Add collaborators to a project so that they can push changes.
-
-- R Notebooks
 
 ## Individual Activity (15 min)
 
