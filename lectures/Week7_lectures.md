@@ -87,13 +87,13 @@ language: R
 
 ### Intro to the package `ggplot2` (10 min)
 
-- "grammar of graphics plot"
+- "ggplot" stands for "grammar of graphics plot"
 - uses a more "natural" way of creating plots by describing what you want, not how to build it
 - we construct graphs by addibg layers of graphical elements, instead of modifying the whole code
 - install the package
 - load the package
 - the function `ggplot()` creates a base "ggplot" object that we can then add things to
-- it worls like a blank canvas
+- it works like a blank canvas
 - The two main arguments we will use for the function `ggplot()` are:
   - `data = ` assigns the the name of the data frame we want to plot
   - `mapping =` assign columns from the data that we want to plot on each axis
@@ -129,6 +129,7 @@ ggplot(data = acacia, mapping = aes(x = CIRC, y = HEIGHT)) +
 ggplot(data = acacia, mapping = aes(x = CIRC, y = HEIGHT)) +
   geom_point(size = 3, color = "blue", alpha = 0.5)
 ```
+
 ### Adding labels (5 min)
 
 - to add labels and a title to our plot, we use the `labs()` function:
@@ -178,18 +179,17 @@ ggplot(acacia, aes(x = CIRC, y = HEIGHT)) +
 
 ### In-class Activity:
 
-- Read the metadata for the research paper from Kartzinel et al. 2014, [Plant and small-mammal responses to large-herbivore exclusion in an African savanna: five years of the UHURU experiment](https://esapubs.org/archive/ecol/E095/064/metadata.php), published in the journal [Ecology](https://esajournals.onlinelibrary.wiley.com/doi/10.1890/13-1023R.1).
-
+1. Read the following metadata from the research paper from Kartzinel et al. 2014, [Plant and small-mammal responses to large-herbivore exclusion in an African savanna: five years of the UHURU experiment](https://esapubs.org/archive/ecol/E095/064/metadata.php), published in the journal [Ecology](https://esajournals.onlinelibrary.wiley.com/doi/10.1890/13-1023R.1):
 ![]({{ site.baseurl }}/materials/metadata.png)
-- In your Rmd document, create an introductory section to your dataset
-- Describe the experiment and its goal using the images
-- Describe the different variables that were measured
-- Add some images of the different metadata
-- add the corresponding units to the axis labels in your plots
-- Look at the graph colored by treatment, what is the influence of experimental treatment?
-- What happened to the acacias in the open plots?
-- render to pdf
-- add, commit and push the Rmd and the PDF files
+1. In your Rmd document, create an introductory section to your dataset
+1. Describe the experimental treatment and its goal
+1. Add some images of different herbivores belonging to each treatment
+1. Describe the different variables that were measured
+1. add the corresponding units to the axis labels in your plots
+1. Look at the graph colored by treatment, what is the influence of experimental treatment?
+1. What happened to the acacias in the open plots?
+1. render to pdf
+1. add, commit and push the Rmd and the PDF files
 
 ---
 ---
@@ -199,11 +199,12 @@ ggplot(acacia, aes(x = CIRC, y = HEIGHT)) +
 ### Introduction (5 min)
 
 - We are working on the Rmd file uhuru-dataset-visualization.Rmd
- - all code and writing should be added there 
+ - all code and writing should be added there
 - reviewing and explaining stuff I missed from day 1
   - working directory in an r chink is not the same as a project working directory
   - change absolute paths to relative paths
   - shape argument in `geom_point()`,
+  - the function `color()`
   - shape numbers with `?pch`
   - subplots with `facet_wrap()`
 
@@ -239,6 +240,7 @@ ggplot(acacia, aes(x = CIRC, y = HEIGHT, color = TREATMENT)) +
   geom_point(size = 3, alpha = 0.5) +
   geom_smooth(method = "lm") # try with "glm"
 ```
+
 ### Data distribution: Histograms and bar plots (10 min)
 
 - Function `geom_bar()` creates bar plots and can be used for categoric or discrete variables
@@ -342,8 +344,8 @@ Exercise 2. Histograms
 Exercise 3.
 <!-- https://raw.githubusercontent.com/datacarpentry/semester-biology/main/exercises/Graphing-acacia-ants-data-manip-R.md -->
 
-0. Download the file [TREE_SURVEYS.txt]() and save it to your "data-raw" folder
-0. Read the file with the function `read_tsv` from the package `readr` and assign it to an object called `trees`
+0. Download the file [TREE_SURVEYS.txt](https://figshare.com/ndownloader/files/5629536) and save it to your "data-raw" folder
+0. Read the file with the function `read_tsv` from the package `readr` and assign it to an object called `trees`:
 ```r
 trees <- read_tsv("TREE_SURVEYS.txt",
                   col_types = list(HEIGHT = col_double(),
@@ -375,3 +377,5 @@ Exercise 4.
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Graphing-data-from-multiple-tables-R.md -->
 
 We want to compare the circumference to height relationship in acacia and to the same relationship for trees in the region. These data are stored in two different tables. Make a graph with the relationship between `CIRC` and `HEIGHT` for the trees as gray circles in the background and the same relationship for acacia as red circles plotted on top of the gray circles. Scale both axes logarithmically. Inlude linear models for both sets of data. Provide clear labels for the axes.
+
+Your plot should look something like [this](https://datacarpentry.org/semester-biology/solutions/Graphing-data-from-multiple-tables-R.jpeg).
