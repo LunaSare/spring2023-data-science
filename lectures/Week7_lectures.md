@@ -177,31 +177,23 @@ ggplot(acacia, aes(x = CIRC, y = HEIGHT)) +
     facet_wrap(~TREATMENT)
   ```
 
-### In-class Activity:
+### In-class Activity (10 min)
 
-1. Read the following metadata from the research paper from Kartzinel et al. 2014, [Plant and small-mammal responses to large-herbivore exclusion in an African savanna: five years of the UHURU experiment](https://esapubs.org/archive/ecol/E095/064/metadata.php), published in the journal [Ecology](https://esajournals.onlinelibrary.wiley.com/doi/10.1890/13-1023R.1):
-![]({{ site.baseurl }}/materials/metadata.png)
-1. In your Rmd document, create an introductory section to your dataset
-1. Describe the experimental treatment and its goal
-1. Add some images of different herbivores belonging to each treatment
-1. Describe the different variables that were measured
-1. add the corresponding units to the axis labels in your plots
-1. Look at the graph colored by treatment, what is the influence of experimental treatment?
-1. What happened to the acacias in the open plots?
-1. render to pdf
-1. add, commit and push the Rmd and the PDF files
+- [The UHURU data set]({{ site.baseurl }}/assignments/exercises/week7-uhuru-dataset-r)
+
+<!-- {{ site.baseurl }}/assignments/exercises/week7-uhuru-dataset-r.md -->
 
 ---
 ---
 
 ## Day 2
 
-### Introduction (5 min)
+### Introduction (30 min)
 
-- We are working on the Rmd file uhuru-dataset-visualization.Rmd
+- We are working on the Rmd file "uhuru-dataset-visualization.Rmd"
  - all code and writing should be added there
 - reviewing and explaining stuff I missed from day 1
-  - working directory in an r chink is not the same as a project working directory
+  - working directory in an r chunk is not the same as a project working directory
   - change absolute paths to relative paths
   - shape argument in `geom_point()`,
   - the function `color()`
@@ -311,71 +303,6 @@ ggsave("acacia_by_treatment.jpg")
 ggsave("acacia_by_treatment.pdf", height = 5, width = 5)
 ```
 
-### In-class exercises:
+### In-class Activit (20 min) and home exercises (20 min)
 
-Exercise 1. Scatterplots
-<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Graphing-acacia-ants-R.md -->
-
-1. Make a scatter plot with `CIRC` on the x axis and `AXIS1` (the maximum canopy
-   width) on the y axis. Label the x axis "Circumference" and the y axis "Canopy
-   Diameter".
-2. The same plot as (1), but with both axes scaled logarithmically (using `scale_x_log10` and `scale_y_log10`).
-3. The same plot as (1), but with points colored based on the `ANT` column (the species of ant symbiont living with the acacia)
-4. The same plot as (3)), but instead of different colors show different species of ant (values of `ANT`) each in a separate subplot.
-5. The same plot as (4) but add a simple model of the data by adding `geom_smooth`.
-
-Exercise 2. Histograms
-<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Graphing-acacia-ants-histograms-R.md -->
-
-1. Make a bar plot of the number of acacia with each mutualist ant species (using the `ANT` column).
-2. Make a histogram of the height of acacia (using the `HEIGHT` column). Label
-   the x axis "Height (m)" and the y axis "Number of Acacia".
-3. Make a plot that shows histograms of both `AXIS1` and `AXIS2`. Due to the way
-   the data is structured you’ll need to add a 2nd geom_histogram() layer that
-   specifies a new aesthetic. To make it possible to see both sets of bars
-   you’ll need to make them transparent with the optional argument alpha = 0.3.
-   Set the color for `AXIS1` to "red" and `AXIS2` to "black" using the `fill`
-   argument. Label the x axis "Canopy Diameter(m)" and the y axis "Number of Acacia".
-4. Use `facet_wrap()` to make the same plot as (3) but with one subplot for each
-   treatment. Set the number of bins in the histogram to 10.
-
-### Home exercises:
-
-Exercise 3.
-<!-- https://raw.githubusercontent.com/datacarpentry/semester-biology/main/exercises/Graphing-acacia-ants-data-manip-R.md -->
-
-0. Download the file [TREE_SURVEYS.txt](https://figshare.com/ndownloader/files/5629536) and save it to your "data-raw" folder
-0. Read the file with the function `read_tsv` from the package `readr` and assign it to an object called `trees`:
-```r
-trees <- read_tsv("TREE_SURVEYS.txt",
-                  col_types = list(HEIGHT = col_double(),
-                                   AXIS_2 = col_double()))
-```
-1. Add a new column to the `trees` data frame that is named `canopy_area` and contains
-   the estimated canopy area calculated as the value in the `AXIS_1` column
-   times the value in the `AXIS_2` column.
-1. Subset the `trees` data frame with just the `SURVEY`, `YEAR`, `SITE`, and `canopy_area` columns.
-2. Make a scatter plot with `canopy_area` on the x axis and `HEIGHT` on the y
-   axis. Color the points by `TREATMENT` and plot the points for each value in
-   the `SPECIES` column in a separate subplot. Label the x axis "Canopy Area
-   (m)" and the y axis "Height (m)". Make the point size 2.
-3. That's a big outlier in the plot from (2). 50 by 50 meters is a little too
-   big for a real Acacia, so filter the data to remove any values for `AXIS_1`
-   and `AXIS_2` that are over 20 and update the data frame. Then remake the graph.
-4. Using the data without the outlier (i.e., the data generated in (3)),
-   find out how the abundance of each species has been changing through time.
-   Use `group_by`, `summarize`, and `n` to make a data frame with `YEAR`,
-   `SPECIES`, and an `abundance` column that has the number of individuals in
-   each species in each year. Print out this data frame.
-5. Using the data the data frame generated in (4),
-   make a line plot with points (by using `geom_line` in addition to
-   `geom_point`) with `YEAR` on the x axis and `abundance` on the y axis with
-   one subplot per species. To let you seen each trend clearly let the scale for
-   the y axis vary among plots by adding `scales = "free_y"` as an optional argument to `facet_wrap`.
-
-Exercise 4.
-<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Graphing-data-from-multiple-tables-R.md -->
-
-We want to compare the circumference to height relationship in acacia and to the same relationship for trees in the region. These data are stored in two different tables. Make a graph with the relationship between `CIRC` and `HEIGHT` for the trees as gray circles in the background and the same relationship for acacia as red circles plotted on top of the gray circles. Scale both axes logarithmically. Inlude linear models for both sets of data. Provide clear labels for the axes.
-
-Your plot should look something like [this](https://datacarpentry.org/semester-biology/solutions/Graphing-data-from-multiple-tables-R.jpeg).
+- [Acacia and ants]({{ site.baseurl }}/assignments/Week7_assignment)
