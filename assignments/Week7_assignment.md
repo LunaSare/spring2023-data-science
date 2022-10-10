@@ -60,7 +60,7 @@ trees <- read_tsv("TREE_SURVEYS.txt",
    times the value in the `AXIS_2` column.
 4. Subset the `trees` data frame with just the `SURVEY`, `YEAR`, `SITE`, and `canopy_area` columns.
 5. Make a scatter plot with `canopy_area` on the x axis and `HEIGHT` on the y
-   axis. Color the points by `TREATMENT` and create a subplot per species plot the points for each value in
+   axis. Color the points by `TREATMENT` and create a subplot per species uding the function `facet_wrap()`. This will plot the points for each variable in
    the `SPECIES` column in a separate subplot. Label the x axis "Canopy Area
    (m)" and the y axis "Height (m)". Make the point size 2.
 6. That's a big outlier in the plot from (2). 50 by 50 meters is a little too
