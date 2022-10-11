@@ -7,7 +7,7 @@ assignments: ['The Data Life Cycle',
 'Intro to version control',
 'Intro to rmarkdown',
 'Visualizing data',
-"Data wrangling"
+"Data wrangling",
 'Grouping and joining data',
 'Cleaning raw data',
 'Creating functions',

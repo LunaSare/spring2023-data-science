@@ -1,9 +1,9 @@
 ---
 layout: page
 element: reading
-title: 'Creating functions'
+title: 'Data wrangling'
 language: R
 week: "Oct 11, 13"
 ---
 
-## Do not repeat yourself
+## Functions: Do not repeat yourself
