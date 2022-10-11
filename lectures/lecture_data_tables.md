@@ -17,8 +17,8 @@ Portal data-->
 ### Intro to the data set and class set up (15 min)
 
 * We will be working with data from the Portal Project Teaching Database.
-* All data is avaiable on [figshare](https://figshare.com/articles/dataset/Portal_Project_Teaching_Database/1314459).
-* It is a simplified version of data from study [Erenst etal. 2016. Long-term monitoring and experimental manipulation of a Chihuahuan Desert ecosystem near Portal, Arizona, USA](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/15-2115.1).
+* All data is available on [figshare](https://figshare.com/articles/dataset/Portal_Project_Teaching_Database/1314459).
+* It is a simplified version of data from study [Ernest etal. 2016. Long-term monitoring and experimental manipulation of a Chihuahuan Desert ecosystem near Portal, Arizona, USA](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/15-2115.1).
 * See Portal, Arizona in the [map](https://www.google.com/maps/place/Portal,+Arizona+85632/@31.9137011,-109.1589591,14z/data=!3m1!4b1!4m5!3m4!1s0x86d995001c757413:0x1e02844f7993e453!8m2!3d31.9137028!4d-109.1414495?hl=en).
 * The original database is published at [Ecological Archives](http://esapubs.org/archive/ecol/E090/118/)
 * Long-term experimental study of small mammals in Arizona:
@@ -346,7 +346,7 @@ surveys |>
   lm(weight ~ year, data = _)
 ```
 
-### In-class Exercise
+### In-class Exercise 2
 
 <!-- > Do [Portal Data Manipulation Pipes 1]({{ site.baseurl }}/exercises/Portal-data-manip-pipes-R). -->
 
@@ -366,8 +366,10 @@ Use pipes (either `|>` or `%>%`) to combine the following operations to manipula
 
 ## Day 2
 
-**Exercise 3: Data agreggation**
+### In-class Exercise 3
 
+**Exercise 3: Data agreggation**
+<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-aggregation-R.md -->
 1. Use the `group_by()` and `summarize()` functions to get a count of the number
    of individuals in each species ID.
 2. Use the `group_by()` and `summarize()` functions to get a count of the number
@@ -375,5 +377,11 @@ Use pipes (either `|>` or `%>%`) to combine the following operations to manipula
 3. Use the `filter()`, `group_by()`, and `summarize()` functions to get the mean
    mass of species `DO` in each year.
 
+https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-joins-R.md
+https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-review-R.md
+https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-challenge-R.md
+
+
+### Homework:
 
 > Do [Shrub Volume Data Basics 8]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R).
