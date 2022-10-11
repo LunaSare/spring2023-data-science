@@ -64,9 +64,9 @@ trees <- read_tsv("TREE_SURVEYS.txt",
    the `SPECIES` column in a separate subplot. Label the x axis "Canopy Area
    (m)" and the y axis "Height (m)". Make the point size 2.
 6. That's a big outlier in the plot from (2). 50 by 50 meters is a little too
-   big for a real Acacia, so filter the data to remove any values for `AXIS_1`
-   and `AXIS_2` that are over 20 and update the data frame. Then remake the graph.
-7. For this question you will use the package `dplyr` and its pipe `%>%`. To learn more on what is the dplyr pipe and how to use it, [watch this YouTube video](https://www.youtube.com/watch?v=ui3VZeuN8QY).
+   big for a real acacia tree, so filter the data to remove any values for `AXIS_1`
+   and `AXIS_2` that are over 20 and update the data frame. Then, remake the graph.
+7. For this question you will use the package `dplyr` and the pipe operator `%>%`. To learn more about the pipe operator and how to use it, [watch this introductory video](https://www.youtube.com/watch?v=ui3VZeuN8QY). <!-- Another good introductory video on pipes: https://www.youtube.com/watch?v=3PMBr1RhdqM -->
    Using the data without the outlier -- i.e., the data generated in (6),
    create a data fram called `abundance` that shows how the abundance of each species
    has been changing through time.
@@ -83,7 +83,8 @@ trees <- read_tsv("TREE_SURVEYS.txt",
 **Exercise 4**.
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Graphing-data-from-multiple-tables-R.md -->
 
-We want to compare the circumference to height relationship in acacia and to the same relationship for trees in the region. These data are stored in two different tables. Make a graph with the relationship between `CIRC` and `HEIGHT` for the trees as gray circles in the background and the same relationship for acacia as red circles plotted on top of the gray circles. Scale both axes logarithmically. Include linear models for both sets of data. Provide clear labels for the axes.
+We want to compare the circumference to height relationship in acacia to the same relationship for all trees in the region. These data are stored in two different tables. Make a graph with the relationship between `CIRC` and `HEIGHT` for all trees as gray circles in the background and the same relationship for acacia as red circles plotted on top of the gray circles. Scale both axes logarithmically. Include linear models for both sets of data. Provide clear labels for the axes.
+
 
 Your plot should look something like [this](https://datacarpentry.org/semester-biology/solutions/Graphing-data-from-multiple-tables-R.jpeg).
 
