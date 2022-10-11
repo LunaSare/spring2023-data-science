@@ -6,17 +6,17 @@ assignments: ['The Data Life Cycle',
 'Intro to the Unix shell',
 'Intro to version control',
 'Intro to rmarkdown',
-# 'Finding Data',
 'Visualizing data',
-'Creating functions',
-'Cleaning raw data',
+"Data wrangling"
 'Grouping and joining data',
+'Cleaning raw data',
+'Creating functions',
+'Finding Data',
 'Storing cleaned data publicly',
 'Human contexts and ethics',
 'Communicating data science',
 'Why data science?',
-'Projects week 1',
-'Projects week 2']
+'Projects week']
 ---
 
 Consult the [grading checklist]({{ site.baseurl }}{% link syllabus.md %}#project) when turning assignments.
