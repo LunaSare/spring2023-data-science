@@ -92,21 +92,21 @@ plots <- read.csv("plots.csv")
 surveys <- read.csv("surveys.csv")
 ```
 
-#### Select
+#### Selecting columns
 
-* Select a subset of columns.
+* Create a subset of columns from a data table using the function `select()`:
 
 ```r
 select(surveys, year, month, day)
 ```
 
-* They can occur in any order.
+* Columns will follow the same order given in the function:
 
 ```r
 select(surveys, month, day, year)
 ```
 
-> Do [Shrub Volume Data Basics 1-2]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R).
+<!-- > Do [Shrub Volume Data Basics 1-2]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R). -->
 
 #### Mutate
 
@@ -158,7 +158,7 @@ arrange(surveys, plot_id, year, month, day)
 
 > Do [Shrub Volume Data Basics 4]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R).
 
-#### Filter
+#### Filter values
 
 * Use `filter()` to get only the rows that meet certain criteria.
 * Combine the data frame to be filtered with a series of conditional statements.
@@ -212,22 +212,38 @@ filter(surveys, species_id == "DS" | species_id == "DM" | species_id == "DO")
 > Do [Shrub Volume Data Basics 5-7]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R).
 
 
-### Filtering null values
+### Filtering missing values
 
-* One of the common tasks we use `filter` for is removing null values from data
+<!-- Some exaplanation from https://stackoverflow.com/questions/25100974/na-matches-na-but-is-not-equal-to-na-why -->
+
+* `NA` is a special value in R that represents data that is missing and should be treated differently.
+* Think of `NA` as "I do not know what's there".
+* One of the common tasks we use `filter` for is removing missing values from data
+* We know that the column `weight` has many missing values, so let's filter out these values.
 * Based on what we learned before it's natural to think that we do this by using the condition `weight != NA`
 
 ```r
 filter(surveys, weight != NA)
 ```
 
-* Why didn't that work?
-* Null values like `NA` are special
-* We don't want to accidentally say that two "missing" things are the same
-    * We don't know if they are
-* So we use special commands
+* But that does not work. Let's try some equivalences:
+
+```r
+NA > 3  # is obviously NA because we don't know if the missing value is larger than 3 or not
+NA == NA  # the same with this, we have two missing values but the true values could be quite different, so the correct answer is "I don't know."
+surveys$weight == NA
+```
+
+* Null values like `NA` are special: they are incomparable.
+* We don't want to accidentally say that two "missing" things are the same, because we don't know if they are
+* So we use special functions
 * The function `is.na()` checks if a value is `NA`
-* So if we wanted all of the data where the weigh is `NA`
+
+```r
+is.na(NA)
+is.na(3)
+is.na(surveys$weight)
+```
 
 ```r
 filter(surveys, is.na(weight))
@@ -246,7 +262,7 @@ filter(surveys, !is.na(weight))
 filter(surveys, !is.na(weight))
 ```
 
-* So ,`!is.na(weight)` is conceptually the same as "weight != NA"
+* So,`!is.na(weight)` is conceptually the same as "weight != NA"
 * It is common to combine a null filter with other conditions using "and"
 * For example we might want all of the data on a particular species that contains weights
 
@@ -254,23 +270,20 @@ filter(surveys, !is.na(weight))
 filter(surveys, species_id == "DS", !is.na(weight))
 ```
 
-### In-class Exercise
+### In-class Exercise (30 min)
 
 **Exercise 1: Data manipulation**
 <!-- https://github.com/datacarpentry/semester-biology/blob/f72ab33a6876b904c26ac566d13885096d4a0246/exercises/Portal-data-manip-R.md -->
-0. Load `surveys.csv` into R using `read.csv()`.
-1. Use `select()` to create a new data frame object with just the `year`, `month`,
+1. Load `surveys.csv` into R using `read.csv()`.
+2. Use `select()` to create a new data frame object called `surveys1` with just the `year`, `month`,
    `day`, and `species_id` columns in that order.
-2. Use `mutate()`, `select()`, and `filter()` with `!is.na()` to create a new
-   data frame with
-   the `year`, `species_id`, and weight **in kilograms** of each individual,
-   with no null weights. The weight in the table is given in grams so you will
-   need to create a new column for weight in kilograms by dividing the weight column by 1000.
-3. Use the `filter()` function to get all of the rows in the data frame for the species ID `SH`.
+3. Create a new data frame called `surveys2` with the `year`, `species_id`, and weight **in kilograms** of each individual, with no null weights. Use `mutate()`, `select()`, and `filter()` with `!is.na()`. The weight in the table is given in grams so you will need to create a new column called "weight_kg" for weight in kilograms by dividing the weight column by 1000.
+4. Use the `filter()` function to get all of the rows in the data frame `surveys2` for the species ID "SH".
 
 ---
 ---
 
+## Day 2
 <!-- Lecture modified from https://github.com/datacarpentry/semester-biology/blob/main/materials/combining-data-manip.md -->
 
 ### The usual analysis workflow: intermediate variables
@@ -346,25 +359,26 @@ surveys |>
   lm(weight ~ year, data = _)
 ```
 
-### In-class Exercise 2
+### In-class exercise 2
 
 <!-- > Do [Portal Data Manipulation Pipes 1]({{ site.baseurl }}/exercises/Portal-data-manip-pipes-R). -->
 
 **Exercise 2: Data pipes**
 <!-- https://github.com/datacarpentry/semester-biology/blob/f72ab33a6876b904c26ac566d13885096d4a0246/exercises/Portal-data-manip-pipes-R.md -->
-Use pipes (either `|>` or `%>%`) to combine the following operations to manipulate the data.
+Use pipes (either `|>` or `%>%`) to combine the following operations to manipulate the data:
 
 1. Use `mutate()`, `select()`, and `filter()` with `is.na()` to create a new data frame with
    the `year`, `species_id`, and weight **in kilograms** of each individual,
-   with no null weights.
-2. Use the `filter()` and `select()` to get the `year`, `month`, `day`, and
+   with no null weights. Create a new data object called `surveys1`
+2. Use `filter()` with `is.na()` and `select()` to get the `year`, `month`, `day`, and
    `species_id` columns for all of the rows in the data frame where `species_id`
-   is `SH`.
+   is `SH` and with no null weights. Create a new data object called `surveys2`
 
----
----
+### Data Aggregation
 
-## Day 2
+[data aggregation](https://datacarpentry.org/semester-biology/materials/dplyr-aggregation/)
+
+
 
 ### In-class Exercise 3
 
@@ -382,6 +396,66 @@ https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-dat
 https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-challenge-R.md
 
 
-### Homework:
+## Shrub volume data set
+<!-- > Do [Shrub Volume Data Basics 8]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R). -->
+### In-class Exercise 4
+<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Dplyr-shrub-volume-data-basics-R.md -->
+Dr. Granger is interested in studying the factors controlling the size and
+carbon storage of shrubs. She has conducted an experiment looking at the effect
+of three different treatments on shrub volume at four different locations. She
+has placed the data file on the web for you to download:
 
-> Do [Shrub Volume Data Basics 8]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R).
+If the file [`shrub-volume-data.csv`]({{ site.baseurl }}/data/shrub-volume-data.csv) is not already in your working directory (it probably is if you're taking this class using RStudio Cloud) then download it into your working directory.
+
+Get familiar with the data by importing it using `read.csv()` and use `dplyr` to complete the following tasks.
+
+1. Select the data from the length column and print it out (using `select`).
+2. Select the data from the site and experiment columns and print it out (using `select`).
+3. Add a new column named `area` containing the area of the shrub, which is the length times the width (using `mutate`).
+4. Sort the data by length (using `arrange`).
+5. Filter the data to include only plants with heights greater than 5 (using `filter`).
+6. Filter the data to include only plants with heights greater than 4 and widths greater than 2 (using `,` or `&` to include two conditions).
+7. Filter the data to include only plants from Experiment 1 or Experiment 3 (using `|` for "or").
+8. Filter the data to remove rows with null values in the `height` column (using `!is.na`)
+9. Create a new data frame called `shrub_volumes` that includes all of the original data and a new column containing the volumes (length * width * height), and display it.
+
+### In-class Exercise 5
+
+Dr. Granger wants some summary data of the plants at her sites and for her experiments.
+If the file [shrub-volume-data.csv]({{ site.baseurl }}/data/shrub-volume-data.csv) is not already in your work space download it.
+
+This code calculates the average height of a plant at each site:
+
+```r
+shrub_dims <- read.csv('shrub-volume-data.csv')
+by_site <- group_by(shrub_dims, site)
+avg_height <- summarize(by_site, avg_height = mean(height))
+```
+
+1. Modify the code to calculate and print the average height of a plant in each
+   experiment.
+2. Use `max()` to determine the maximum height of a plant at each site.
+
+### In-class Exercise 6
+<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Dplyr-fix-the-code-R.md -->
+This is a follow-up to
+[Shrub Volume Aggregation]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-aggregation-R).
+If you don't already have the [shrub volume data]({{ site.baseurl }}/data/shrub-volume-data.csv) in your working directory download it.
+
+The following code is supposed to import the shrub volume data and calculate the
+average shrub volume for each site and, separately, for each experiment.
+
+```r
+read.csv("shrub-volume-data.csv")
+shrub_data |>
+  mutate(volume = length * width * height) |>
+  group_by(site) |>
+  summarize(mean_volume = max(volume))
+shrub_data |>
+  mutate(volume = length * width * height)
+  group_by(experiment) |>
+  summarize(mean_volume = mean(volume))
+```
+
+1. Fix the errors in the code so that it does what it's supposed to
+2. Add a comment to the top of the code explaining what it does
