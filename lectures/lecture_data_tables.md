@@ -44,22 +44,10 @@ Portal data-->
 - Save the new Rmd file in the "documents" folder with the name "small-mammals.Rmd"
 - Use markdown syntax to create a description of this dataset
 
-### Installing vs loading packages
-
-* Reminder: Packages are the main way that reusable code is shared in R
-* Combination of code, data, and documentation
-* R has a rich ecosystem of packages for data manipulation & analysis
-* Download and install packages with the R console:
-    * `install.packages("dplyr")`
-* Even if we've installed a package it is automatically available to do analysis with
-* This because different packages may have functions with the same names
-* So don't want to have to worry about all of the packages we've installed every time we write a piece of code
-* Using a package:
-    * Load all of the functions in the package: `library("dplyr")`
 
 #### Loading and viewing the dataset
 
-* Load these files into `R` using the function `read.csv()`.
+* Load these files into `R` using the function `read.csv()` from the package `utils`.
 * Remember to use relative paths.
 
 ```r
@@ -68,14 +56,14 @@ species <- read.csv("species.csv")
 plots <- read.csv("plots.csv")
 ```
 
-* You can display a data table by clicking on it in `Environment`
+* You can display a data table by clicking on it in the "Environment" tab
 * Three tables
     * `surveys` - main table, one row for each rodent captured, date on date,
-      location, species ID, sex, and size
+      location, species ID, sex, and weight in grams and hindfoot length in millimeters.
     * `species` - latin species names for each species ID + general taxon
     * `plots` - information on the experimental manipulations at the site
 
-* Good tabular data structure
+* This data set is an example of a good tabular data structure
     * One table per type of data
         * Tables can be linked together to combine information.
     * Each row contains a single record.
@@ -84,20 +72,45 @@ plots <- read.csv("plots.csv")
         * A single type of information
 
 
-#### Basic `dplyr`
+### The `dplyr` R package
 
-* Modern data manipulation library for R
+![](https://dplyr.tidyverse.org/logo.png)
 
-```r
-surveys <- read.csv("surveys.csv")
-```
+* A modern library of R functions for data manipulation
+* <https://dplyr.tidyverse.org/>
+* "`dplyr` is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges".
+* Use the cheat sheet:
+
+![](https://raw.githubusercontent.com/rstudio/cheatsheets/main/pngs/thumbnails/data-transformation-cheatsheet-thumbs.png)
+
+
+#### Installing vs loading packages
+
+* Reminder: Packages are the main way that reusable code is shared in R
+* Combination of code, data, and documentation
+* R has a rich ecosystem of packages for data manipulation & analysis
+* Download and install packages with the R console:
+    * `install.packages("dplyr")`
+* Even if we've installed a package it is NOT automatically available to do analysis with
+* This is because sometimes different packages have functions with the same name
+* So don't want to have to worry about functions and packages we've installed every time we write a piece of code
+* To use a package:
+    * Load all of the functions in the package with `library("dplyr")`
+    * Use the syntax `package_name::function_name`
 
 #### Selecting columns
 
-* Create a subset of columns from a data table using the function `select()`:
+* Create a new data frame with your columns of interest, in any order you prefer using the function `select()`.
+* For example, get a new data frame with the column "year", "month" and "day" from the `surveys` data frame:
 
 ```r
 select(surveys, year, month, day)
+```
+
+* The function `select()` does not modifiy the original object. Check this by comparing the output we just produced to `surveys`:
+
+```r
+head(surveys)
 ```
 
 * Columns will follow the same order given in the function:
@@ -108,46 +121,41 @@ select(surveys, month, day, year)
 
 <!-- > Do [Shrub Volume Data Basics 1-2]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R). -->
 
-#### Mutate
+#### Mutating data
 
-* Add new columns with calculated values using `mutate()`
+* The function `mutate()` creates new data columns based on data from existing columns
+* It allows to calculate new values using data from the original columns
+* For example, the column "hindfoot_length" stores measurements in millimeters (mm). Let's calculate a new column showing the length of the hindfoot in centimeters (cm):
 
 ```r
 mutate(surveys, hindfoot_length_cm = hindfoot_length / 10)
 ```
 
-* If we look at `surveys` now will it contain the new column?
-* *Open `surveys`*
-* All of these commands produce new values, data frames in this case
-* To store them for later use we need to assign them to a variable
+* Similar to `select()`, when we open `surveys`, it does not contain a new column, because the function
+`mutate()` does not modify the original object; it produces a new object with the new column.
+* To store the new data frame for later use we need to assign it to an object:
 
 ```r
 surveys_plus <- mutate(surveys,
                        hindfoot_length_cm = hindfoot_length / 10)
 ```
 
-* Or we could overwrite the existing variable if we don't need it
+* Or we could overwrite the existing data frame if we don't need it
 
 ```r
 surveys <- mutate(surveys,
                   hindfoot_length_cm = hindfoot_length / 10)
 ```
 
-> Do [Shrub Volume Data Basics 3]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R).
+<!-- > Do [Shrub Volume Data Basics 3]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R). -->
 
-#### Arrange
+#### Arranging (sorting) data
 
 * We can sort the data in the table using `arrange`
-* To sort the surveys table by by weight
+* Let's sort the surveys table by "weight":
 
 ```r
 arrange(surveys, weight)
-```
-
-* We can reverse the order of the sort by "wrapping" `weight` in another function, `desc` for "descending
-
-```r
-arrange(surveys, desc(weight))
 ```
 
 * We can also sort by multiple columns, so if we wanted to sort first by `plot_id` and then by date
@@ -156,14 +164,52 @@ arrange(surveys, desc(weight))
 arrange(surveys, plot_id, year, month, day)
 ```
 
-> Do [Shrub Volume Data Basics 4]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R).
+* Similar to `select()` and `mutate()`, the function `arrange()` does not modifiy the original object. Check this by comparing the output we just produced to `surveys`:
 
-#### Filter values
+```r
+head(surveys)
+```
 
-* Use `filter()` to get only the rows that meet certain criteria.
-* Combine the data frame to be filtered with a series of conditional statements.
-* Column, condition, value
-* To filter the data frame to only keep the data on species `DS`
+* We can reverse the order of the sort by _wrapping_ "weight" in the function `desc()` (for "descending order"):
+
+```r
+arrange(surveys, desc(weight))
+```
+
+<!-- * If you want to know how `desc()` works:
+
+```r
+numbers <- c(1,2,3,10,4,5)
+desc()
+``` -->
+
+<!-- > Do [Shrub Volume Data Basics 4]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R). -->
+
+#### Filtering values
+
+* Use `filter()` to keep only the rows that meet certain criteria.
+* We use conditional or logical statements for the filtering criteria.
+* Some examples of conditional statements are:
+
+```r
+1 == 1
+1 == 2
+1 != 2
+1 > 2
+1 > 1
+1 >= 1
+1 < 2
+1 <= 2
+"A" == "A"
+"A" == "a"
+"A" != "a"
+```
+
+* As with all other function that we have seen, the first argument specifies the data set we want to work with:
+* The second and following arguments are conditional statements that specify the filtering criteria.
+* For usage inside the function `filter()`, conditional statements are coded as:
+  `column name`  `conditionl statement` `value`
+* For example, to filter the `surveys` data frame to only keep the data with the species id "DS":
     * Type the name of the function, `filter`
     * Parentheses
     * The name of the data frame we want to filter, `surveys`
@@ -176,40 +222,39 @@ arrange(surveys, plot_id, year, month, day)
 filter(surveys, species_id == "DS")
 ```
 
-* Like with vectors we can have a condition that is "not equal to" using "!="
-* So if we wanted the data for all species except "DS
+* Like the examples above, we can have a conditional statement that is _not equal to_ using `!=`.
+* For example, to filter the data for all species except "DS":
 
 ```r
 filter(surveys, species_id != "DS")
 ```
 
-* We can also filter on multiple conditions at once
-* In computing we combine conditions in two ways "and" & "or"
-* "and" means that all of the conditions must be true
-* Do this in `dplyr` using additional comma separate arguments
-* So, to get the data on species "DS" for the year 1995:
+* We can also filter on multiple conditions at once by adding more conditional statements
+* To indiciate that we want all the conditions to be TRUE, we have two ways:
+  1. We can add more conditions for filtering by separating them with a comma `,`.
+* For example, to get the data on species "DS" for the year 1995 and above:
 
 ```r
 filter(surveys, species_id == "DS", year > 1995)
 ```
 
-* Alternatively we can use the `&` symbol, which stands for "and"
+  2. Alternatively, we can use the ampersand `&` symbol, which is called the _AND operator_:
 
 ```r
 filter(surveys, species_id == "DS" & year > 1995)
 ```
 
-* This approach is mostly useful for building more complex conditions
-
-* "or" means that one or more of the conditions must be true
-* Do this using `|`
-* To get data on all of the *Dipodomys* species
+* Combining conditions with a comma `,` or with the _AND operator_ `&` indicates that we want all conditions to be met.
+* To indicate that not all conditions have to be true (one or more of the conditions can be true), we combine conditions using the pipe symbol `|`, which is called _OR operator_.
+* For example, to get data for all of the *Dipodomys* species, with different species id ("DS", "DM", and "DO")
 
 ```r
 filter(surveys, species_id == "DS" | species_id == "DM" | species_id == "DO")
 ```
 
-> Do [Shrub Volume Data Basics 5-7]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R).
+* The `&` and `|` allow building conditions that are as complex as needed.
+
+<!-- > Do [Shrub Volume Data Basics 5-7]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R). -->
 
 
 ### Filtering missing values
@@ -249,22 +294,16 @@ is.na(surveys$weight)
 filter(surveys, is.na(weight))
 ```
 
-* To remove null values we combine this with `!` for "not"
+* To remove null values we combine the function `is.na()` with the _NOT operator_ `!`:
 
 ```r
+is.na(3)
+!is.na(3)
 filter(surveys, !is.na(weight))
 ```
 
-* We'll learn more about why this works in the same way as the other conditional statements when we study conditionals in detail later in the course
-
-
-```r
-filter(surveys, !is.na(weight))
-```
-
-* So,`!is.na(weight)` is conceptually the same as "weight != NA"
-* It is common to combine a null filter with other conditions using "and"
-* For example we might want all of the data on a particular species that contains weights
+* Keep the function `is.na()` in mind. You will use it often to filter missing values in combination with other conditions.
+* For example, we might want all of the data on a particular species that has weight data:
 
 ```r
 filter(surveys, species_id == "DS", !is.na(weight))
@@ -293,23 +332,18 @@ filter(surveys, species_id == "DS", !is.na(weight))
 * Store the output in a variable
 * Use that variable later in the code
 * Repeat
-* Obtain the data for only DS, sorted by year, with only the year and and weight columns
-
-```
-ds_data <- filter(surveys, species_id == "DS", !is.na(weight))
-ds_data_by_year <- arrange(ds_data, year)
-ds_weight_by_year <- select(ds_data_by_year, year, weight)
-```
 
 ### Pipes
 
 * Intermediate variables can get cumbersome if there are lots of steps.
-* `%>%` or `|>` ("pipe") takes the output of one command and passes it as input to the
- next command
+* `%>%` or `|>` (the _pipe operator_) takes the output of one command and passes it as valur for the first argument of the
+ next command.
+* The `|>` pipe will work everywhere as long as you have a new enough version of R and RStudio
 * `%>%` is the original pipe in R. It is called the "magrittr" pipe, and you have to load the `magrittr` package to use it (this gets loaded automatically by `dplyr`)
-* Either pipe is fine for this class
-    * `|>` will work everywhere as long as you have a new enough version of R
-    * `magrittr` has some fancier functionality that may be useful in some cases
+* `magrittr` has some fancier functionality that may be useful in some cases
+* You can use any pipe you like.
+* Shortcut to get the pipe: `Ctrl-shift-m`.
+  * You can change this to give the base R pipe: Tools -> Global Options -> Code -> Use native pipe operator
 * How does the pipe work: want to take the mean of a vector?
 * Normally we would run the `mean` function with the vector as the input:
 
@@ -332,31 +366,23 @@ mean(x, na.rm = TRUE)
 x %>% mean(na.rm = TRUE)
 ```
 
-* *Questions?*
+Exercise
 
+1. Use pipes to obtain the data for "DS" in the "species_id" column, sorted by year, with only the year and weight columns
+1. In sequental form, the code to get that looks like this:
+
+```r
+ds_data <- filter(surveys, species_id == "DS", !is.na(weight))
+ds_data_by_year <- arrange(ds_data, year)
+ds_weight_by_year <- select(ds_data_by_year, year, weight)
 ```
-surveys %>%
- filter(species_id == "DS", !is.na(weight))
-```
+
+Solution:
 ```
 ds_weight_by_year <- surveys %>%
  filter(species_id == "DS", !is.na(weight)) %>%
  arrange(year) %>%
  select(year, weight)
-```
-
-* Shortcut to get the pipe: Ctrl-shift-m
-* You can change this to give the base R pipe
-    * Tools -> Global Options -> Code -> Use native pipe operator
-
-### What if I want to pipe to an argument other than the first argument?
-
-```
-surveys |>
-  filter(species_id == "DS", !is.na(weight)) |>
-  arrange(year) |>
-  select(year, weight) |>
-  lm(weight ~ year, data = _)
 ```
 
 ### In-class exercise 2
@@ -374,11 +400,78 @@ Use pipes (either `|>` or `%>%`) to combine the following operations to manipula
    `species_id` columns for all of the rows in the data frame where `species_id`
    is `SH` and with no null weights. Create a new data object called `surveys2`
 
-### Data Aggregation
+---
 
-[data aggregation](https://datacarpentry.org/semester-biology/materials/dplyr-aggregation/)
+### What if I want to pipe to an argument other than the first argument?
 
+We use the underscore to indicate the position of the piped argument
 
+```
+surveys |>
+ filter(species_id == "DS", !is.na(weight)) |>
+ arrange(year) |>
+ select(year, weight) |>
+ lm(weight ~ year, data = _)
+```
+
+---
+
+### Data grouping (also called data agreggation)
+
+<!-- https://datacarpentry.org/semester-biology/materials/dplyr-aggregation/ -->
+### Basic grouping
+
+* The function `group_by()` combines rows into groups based on ONE or MORE columns.
+* `group_by()` function has two arguments: 1) data to work on; 2) names for column or columns to group by
+* Let's group `surveys` by `year`:
+
+```r
+group_by(surveys, year)
+```
+
+* The output is a `tibble`, a different looking kind of `data.frame`.
+  * The `tibble` contains the source, the groupings, and the data type information.
+
+* We can also group by multiple columns.
+* For example, group by "plot id" and by "year":
+
+```r
+group_by(surveys, plot_id, year)
+```
+
+### Summarizing data from groupings
+
+* After grouping a data frame we can use the function `summarize()` to analyze each group.
+* The function `n()` counts the number of rows for each grouping. It is a special function that only works within `dplyr` functions.
+* `summarize()` function takes as arguments:
+  * a grouped table, output of `group_by()`
+  * One additional argument for each calculation we want to do for each group
+    * New column name to store calculated value
+    * the equal sign `=`
+    * The calculation that we want to perform for each group
+
+```r
+surveys_by_year <- group_by(surveys, year)
+year_counts <- summarize(surveys_by_year, abundance = n())
+```
+
+* Count the number of individuals in each plot in each year
+
+```r
+surveys_by_plot_year <- group_by(surveys, plot_id, year)
+plot_year_counts <- summarize(surveys_by_plot_year, abundance = n())
+```
+
+* Just like with other `dplyr` functions we could write this using pipes instead
+
+```r
+plot_year_counts <- surveys |>
+  group_by(plot_id, year) |>
+  summarize(abundance = n())
+```
+
+<!-- > Do [Portal Data Aggregation 1-2]({{ site.baseurl }}/exercises/Portal-data-aggregation-R/). -->
+<!-- > Do [Portal Data Aggregation 3]({{ site.baseurl }}/exercises/Portal-data-aggregation-R/). -->
 
 ### In-class Exercise 3
 
@@ -391,71 +484,44 @@ Use pipes (either `|>` or `%>%`) to combine the following operations to manipula
 3. Use the `filter()`, `group_by()`, and `summarize()` functions to get the mean
    mass of species `DO` in each year.
 
+* We can also do multiple calculations using summarize
+* We can use any function that returns a single value from a vector; e.g., `mean()`, `max()`, `min()`
+* We'll calculate the number of individuals in each plot year combination and their average weight
+
+```r
+plot_year_count_weight <- surveys |>
+  group_by(plot_id, year) |>
+  summarize(abundance = n(), avg_weight = mean(weight))
+```
+
+* Why did we get `NA`?
+    * `mean(weight)` returns `NA` when `weight` has missing values (`NA`)
+* Can fix using `mean(weight, na.rm = TRUE)`
+
+```r
+plot_year_count_weight <- surveys |>
+  group_by(plot_id, year) |>
+  summarize(abundance = n(),
+            avg_weight = mean(weight, na.rm = TRUE))
+```
+
+* Still has `NaN` for species that have never been weighed
+* Can filter using `!is.na`
+
+```r
+plot_year_count_weight <- surveys |>
+  group_by(plot_id, year) |>
+  summarize(abundance = n(),
+            avg_weight = mean(weight, na.rm = TRUE)) |>
+  filter(!is.na(avg_weight))
+```
+
+
+
+<!--
 https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-joins-R.md
 https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-review-R.md
 https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-challenge-R.md
-
-
-## Shrub volume data set
-<!-- > Do [Shrub Volume Data Basics 8]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R). -->
-### In-class Exercise 4
-<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Dplyr-shrub-volume-data-basics-R.md -->
-Dr. Granger is interested in studying the factors controlling the size and
-carbon storage of shrubs. She has conducted an experiment looking at the effect
-of three different treatments on shrub volume at four different locations. She
-has placed the data file on the web for you to download:
-
-If the file [`shrub-volume-data.csv`]({{ site.baseurl }}/data/shrub-volume-data.csv) is not already in your working directory (it probably is if you're taking this class using RStudio Cloud) then download it into your working directory.
-
-Get familiar with the data by importing it using `read.csv()` and use `dplyr` to complete the following tasks.
-
-1. Select the data from the length column and print it out (using `select`).
-2. Select the data from the site and experiment columns and print it out (using `select`).
-3. Add a new column named `area` containing the area of the shrub, which is the length times the width (using `mutate`).
-4. Sort the data by length (using `arrange`).
-5. Filter the data to include only plants with heights greater than 5 (using `filter`).
-6. Filter the data to include only plants with heights greater than 4 and widths greater than 2 (using `,` or `&` to include two conditions).
-7. Filter the data to include only plants from Experiment 1 or Experiment 3 (using `|` for "or").
-8. Filter the data to remove rows with null values in the `height` column (using `!is.na`)
-9. Create a new data frame called `shrub_volumes` that includes all of the original data and a new column containing the volumes (length * width * height), and display it.
-
-### In-class Exercise 5
-
-Dr. Granger wants some summary data of the plants at her sites and for her experiments.
-If the file [shrub-volume-data.csv]({{ site.baseurl }}/data/shrub-volume-data.csv) is not already in your work space download it.
-
-This code calculates the average height of a plant at each site:
-
-```r
-shrub_dims <- read.csv('shrub-volume-data.csv')
-by_site <- group_by(shrub_dims, site)
-avg_height <- summarize(by_site, avg_height = mean(height))
-```
-
-1. Modify the code to calculate and print the average height of a plant in each
-   experiment.
-2. Use `max()` to determine the maximum height of a plant at each site.
-
-### In-class Exercise 6
-<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Dplyr-fix-the-code-R.md -->
-This is a follow-up to
-[Shrub Volume Aggregation]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-aggregation-R).
-If you don't already have the [shrub volume data]({{ site.baseurl }}/data/shrub-volume-data.csv) in your working directory download it.
-
-The following code is supposed to import the shrub volume data and calculate the
-average shrub volume for each site and, separately, for each experiment.
-
-```r
-read.csv("shrub-volume-data.csv")
-shrub_data |>
-  mutate(volume = length * width * height) |>
-  group_by(site) |>
-  summarize(mean_volume = max(volume))
-shrub_data |>
-  mutate(volume = length * width * height)
-  group_by(experiment) |>
-  summarize(mean_volume = mean(volume))
-```
-
-1. Fix the errors in the code so that it does what it's supposed to
-2. Add a comment to the top of the code explaining what it does
+ -->
+<!-- > Do [Shrub Volume Data Basics 8]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R).
+We are doing all teh shrub volume exercises as homework-->
