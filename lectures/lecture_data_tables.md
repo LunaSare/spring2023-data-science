@@ -3,6 +3,8 @@ layout: page
 element: lecture
 title: 'Data wrangling'
 language: R
+pagetype: lecture
+symbol: <i class="fa fa-comment fa-lg"></i>
 ---
 
 <!--
@@ -21,14 +23,15 @@ Portal data-->
 * It is a simplified version of data from study [Ernest etal. 2016. Long-term monitoring and experimental manipulation of a Chihuahuan Desert ecosystem near Portal, Arizona, USA](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/15-2115.1).
 * See Portal, Arizona in the [map](https://www.google.com/maps/place/Portal,+Arizona+85632/@31.9137011,-109.1589591,14z/data=!3m1!4b1!4m5!3m4!1s0x86d995001c757413:0x1e02844f7993e453!8m2!3d31.9137028!4d-109.1414495?hl=en).
 * The original database is published at [Ecological Archives](http://esapubs.org/archive/ecol/E090/118/)
-* Long-term experimental study of small mammals in Arizona:
+* Long-term experimental study, showing a time-series for a small mammal community in southern Arizona. This is part of a project studying the effects of rodents and ants on the plant community that has been running for almost 40 years. The rodents are sampled on a series of 24 plots, with different experimental manipulations controlling which rodents are allowed to access which plots.
   * 24 experimental and control plots
   * Experimental manipulations over the years include removal of all or some rodent species, all or some ants, seed additions, and various alterations of the annual plant community.
 * The dataset is composed of three tables, which includes information on the site, date, species identification, weight and sampling plot (within the site) for some small mammals in Arizona.
 * Each table is stored as a CSV file.
+
+
 * CSV stands for "comma separated values"
 * CSV is common way of storing data that can be used across programming and data management software
-* _Click on species.csv and View File_
 * If we look at one of these files we can see that
     * It is plain text, so any program can read it
     * The first row is the header row, with different column headers separated by commas
@@ -37,17 +40,22 @@ Portal data-->
 
 #### Setup your RStudio project
 
-* Open your `data-science` RStudio project (modeling good practice)
-* Download [surveys.csv](https://ndownloader.figshare.com/files/2292172), [species.csv](https://ndownloader.figshare.com/files/3299483), and [plots.csv](https://ndownloader.figshare.com/files/3299474) files into your "data-raw" folder. Click on the names of the files to download them.
-  * Need to know where the data is? Right click -> `Save link as`.
-- In your `data-science` RStudio project create a new Rmd file.
-- Save the new Rmd file in the "documents" folder with the name "small-mammals.Rmd"
-- Use markdown syntax to create a description of this dataset
+* Remember! Working in projects is considered a best practice in data science.
+* Open your RStudio project. I called mine `data-science`.
+* Click on the names of the following files to download them:
+  - [surveys.csv](https://ndownloader.figshare.com/files/2292172) - main table, one row for each rodent captured, date on date,
+    location, species ID, sex, and weight in grams and hindfoot length in millimeters.
+  - [species.csv](https://ndownloader.figshare.com/files/3299483) - latin species names for each species ID + general taxon
+  - [plots.csv](https://ndownloader.figshare.com/files/3299474) - information on the experimental manipulations at the site
+* Save the three CSV files into your "data-raw" folder.
+  * Don't know where the CSV files are? Right click -> `Save link as`.
+- Create a new Rmd file and save it in the "documents" folder with the name "small-mammals.Rmd".
+- Use markdown syntax to create a description of this dataset.
 
 
 #### Loading and viewing the dataset
 
-* Load these files into `R` using the function `read.csv()` from the package `utils`.
+* Load the three CSV files into `R` using the function `read.csv()` from the package `utils`.
 * Remember to use relative paths.
 
 ```r
@@ -56,14 +64,8 @@ species <- read.csv("species.csv")
 plots <- read.csv("plots.csv")
 ```
 
-* You can display a data table by clicking on it in the "Environment" tab
-* Three tables
-    * `surveys` - main table, one row for each rodent captured, date on date,
-      location, species ID, sex, and weight in grams and hindfoot length in millimeters.
-    * `species` - latin species names for each species ID + general taxon
-    * `plots` - information on the experimental manipulations at the site
-
-* This data set is an example of a good tabular data structure
+* Once loaded you can display a data table by clicking on it in the "Environment" tab.
+* This data set is a great example of a good tabular data structure
     * One table per type of data
         * Tables can be linked together to combine information.
     * Each row contains a single record.
@@ -79,7 +81,7 @@ plots <- read.csv("plots.csv")
 * A modern library of R functions for data manipulation
 * <https://dplyr.tidyverse.org/>
 * "`dplyr` is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges".
-* Use the cheat sheet:
+* When in doubt, use the cheat sheet:
 
 ![](https://raw.githubusercontent.com/rstudio/cheatsheets/main/pngs/thumbnails/data-transformation-cheatsheet-thumbs.png)
 
@@ -309,7 +311,7 @@ filter(surveys, !is.na(weight))
 filter(surveys, species_id == "DS", !is.na(weight))
 ```
 
-### In-class Exercise (30 min)
+### Solo In-class Exercise (30 min)
 
 **Exercise 1: Data manipulation**
 <!-- https://github.com/datacarpentry/semester-biology/blob/f72ab33a6876b904c26ac566d13885096d4a0246/exercises/Portal-data-manip-R.md -->
@@ -325,18 +327,34 @@ filter(surveys, species_id == "DS", !is.na(weight))
 ## Day 2
 <!-- Lecture modified from https://github.com/datacarpentry/semester-biology/blob/main/materials/combining-data-manip.md -->
 
-### The usual analysis workflow: intermediate variables
-* Combine a series of data manipulation actions
-* Do each action in sequential order
-* Run a command
-* Store the output in a variable
-* Use that variable later in the code
-* Repeat
+### The usual analysis workflow: intermediate variables and nesting functions
+
+* We usually use intermediate variables when writing code
+  * We run one line of code for each action in sequential order
+  * Store the output in a variable
+  * Use that variable later in the code
+  * Repeat
+
+* For example, to get the square root of the mean of a vector of numbers, we would run the `mean()` function with a numeric vector as the input, assign it to a variable, and then run the function `sqrt()` using that newly created object as input:
+
+
+```r
+x = c(1, 2, 3)
+mean_x <- mean(x)
+sqrt_x <- sqrt(mean_x)
+sqrt_x
+```
+
+* And, in nested form:
+
+```r
+sqrt(mean(x = c(1,2,3)))
+```
 
 ### Pipes
 
-* Intermediate variables can get cumbersome if there are lots of steps.
-* `%>%` or `|>` (the _pipe operator_) takes the output of one command and passes it as valur for the first argument of the
+* Intermediate variables and nested functions can get cumbersome (and confusing) if there are lots of steps.
+* `%>%` or `|>` (the _pipe operator_) takes the output of one command and passes it as value for the first argument of the
  next command.
 * The `|>` pipe will work everywhere as long as you have a new enough version of R and RStudio
 * `%>%` is the original pipe in R. It is called the "magrittr" pipe, and you have to load the `magrittr` package to use it (this gets loaded automatically by `dplyr`)
@@ -344,75 +362,120 @@ filter(surveys, species_id == "DS", !is.na(weight))
 * You can use any pipe you like.
 * Shortcut to get the pipe: `Ctrl-shift-m`.
   * You can change this to give the base R pipe: Tools -> Global Options -> Code -> Use native pipe operator
-* How does the pipe work: want to take the mean of a vector?
-* Normally we would run the `mean` function with the vector as the input:
-
+* To calculate the mean of a numeric vector, we can directly pipe the vector into the function `mean()`, no need to create an object:
+```r
+c(1, 2, 3) %>% mean()
 ```
-x = c(1, 2, 3)
-mean(x)
-```
-
-* Instead we could pipe the vector into the function
-
-```
-x %>% mean()
-```
-
-* So `x` becomes the first argument in `mean`
-* If we want to add other arguments they get added to the function call
-```
+* The numeric vector becomes the first argument in `mean`
+* We can add other arguments to the functions as needed. For example, to remove missing values from the mean:
+```r
 x = c(1, 2, 3, NA)
 mean(x, na.rm = TRUE)
 x %>% mean(na.rm = TRUE)
 ```
+* For example, taking the mean of `surveys$weight` using a pipe gives the same result as doing it using the classic sequential form:
+```r
+mean(surveys$weight, na.rm = TRUE)
+surveys$weight |>
+  mean(na.rm = TRUE)
+```
+* The usefulness (and clarity) of pipes becomes apparent when trying to run more complicated analysis, that require creating intermediate variables or nesting code:
+```r
+c(1, 2, 3, NA) |>
+  mean(na.rm = TRUE) |>
+  sqrt()
+```
 
-Exercise
+### Joint In-class exercise 3
 
-1. Use pipes to obtain the data for "DS" in the "species_id" column, sorted by year, with only the year and weight columns
-1. In sequental form, the code to get that looks like this:
+<!-- > Do [Portal Data Manipulation Pipes 1]({{ site.baseurl }}/exercises/Portal-data-manip-pipes-R). -->
+<!-- https://github.com/datacarpentry/semester-biology/blob/f72ab33a6876b904c26ac566d13885096d4a0246/exercises/Portal-data-manip-pipes-R.md
+Instructions:
+Students will work alone to write the code in sequential form (using intermediate variables). The instructor can help and guide.
+Then, instructor will ask students help to transform the sequential code to a pipeline and demo it to the whole class.
+Instructor will demo the use of three functions to verify that the code is producing the expected outputs:
+  - `colnames()` to display the column names of a data frame
+  - `any()` to find myssing values in a vector
+  - `nrow()` to get the numer of rows of a data frame
+
+-->
+1. Write the necessary code using intermediate variables to manipulate the data as follows:
+  - (a) Use `mutate()`, `select()`, and `filter()` with `is.na()` to create a new data frame with the `year`, `species_id`, and weight **in kilograms** of each individual, with no null weights. Create a new data object called `surveys1`. Remember: The weight in the table is given in grams so you will need to create a new column called "weight_kg" for weight in kilograms by dividing the weight column by 1000.
+  - (b) Use `filter()` with `is.na()` and `select()` to get the `year`, `month`, `day`, and `species_id` columns for all of the rows in the data frame where `species_id` is `SH` and with no null weights. Create a new data object called `surveys2`.
+2. Write the same code but using pipes (either `|>` or `%>%`).
+
+---
+
+### Solo In-class exercise 4
+
+The following code is written using intermediate variables. It obtains the data for "DS" in the "species_id" column, sorted by year, with only the year and weight columns. Write the same code to get the same output but using pipes instead.
 
 ```r
 ds_data <- filter(surveys, species_id == "DS", !is.na(weight))
 ds_data_by_year <- arrange(ds_data, year)
 ds_weight_by_year <- select(ds_data_by_year, year, weight)
 ```
+<!--
+<details>
+<summary> Solution: </summary>
 
-Solution:
-```
+```r
 ds_weight_by_year <- surveys %>%
  filter(species_id == "DS", !is.na(weight)) %>%
  arrange(year) %>%
  select(year, weight)
 ```
 
-### In-class exercise 2
-
-<!-- > Do [Portal Data Manipulation Pipes 1]({{ site.baseurl }}/exercises/Portal-data-manip-pipes-R). -->
-
-**Exercise 2: Data pipes**
-<!-- https://github.com/datacarpentry/semester-biology/blob/f72ab33a6876b904c26ac566d13885096d4a0246/exercises/Portal-data-manip-pipes-R.md -->
-Use pipes (either `|>` or `%>%`) to combine the following operations to manipulate the data:
-
-1. Use `mutate()`, `select()`, and `filter()` with `is.na()` to create a new data frame with
-   the `year`, `species_id`, and weight **in kilograms** of each individual,
-   with no null weights. Create a new data object called `surveys1`
-2. Use `filter()` with `is.na()` and `select()` to get the `year`, `month`, `day`, and
-   `species_id` columns for all of the rows in the data frame where `species_id`
-   is `SH` and with no null weights. Create a new data object called `surveys2`
+</details>
+ -->
 
 ---
 
 ### What if I want to pipe to an argument other than the first argument?
 
-We use the underscore to indicate the position of the piped argument
+* To indicate the position of the piped argument we use the _underscore_ symbol `_` for the `|>` pipe and the _dot_ symbol `.` for the `%>%` magrittr pipe.
+* This is used when the output goes to an argument other than the first argument of the function.
+* For example, the function `lm()` fits a linear model relationship between two variables.
+* This function takes the `formula =` as the first argument and the `data =` containing our two variables as the second argument.
+* For example, to evaluate if weight has decreased or increased with time, in sequential/nested form:
 
+```r
+lm(weight ~ year, data = surveys)
 ```
+* And using pipes and the placeholder:
+```r
+surveys |>
+ lm(weight ~ year, data =_)
+```
+
+```r
+surveys %>%
+ lm(weight ~ year, data =.)
+```
+* We can get the summary of the fitted model with the function `summary()`; in nested form:
+```r
+summary(lm(weight ~ year, data = surveys))
+```
+
+
+### Solo In-class exercise 5
+
+Use pipes to evaluate and summarize the relationship between weight and year for the species "DS". Make sure that you filter for missing values in weight.
+The code in sequential form would look like the following:
+```r
+surveys_DS <- filter(surveys, species_id == "DS", !is.na(weight))
+surveys_DS_lm <- lm(weight ~ year, data = surveys_DS)
+summary(surveys_DS_lm)
+```
+<!--
+```r
 surveys |>
  filter(species_id == "DS", !is.na(weight)) |>
- arrange(year) |>
- select(year, weight) |>
- lm(weight ~ year, data = _)
+ lm(weight ~ year, data =_) |>
+ summary()
 ```
+-->
+
 
 ---
 
@@ -422,16 +485,15 @@ surveys |>
 ### Basic grouping
 
 * The function `group_by()` combines rows into groups based on ONE or MORE columns.
-* `group_by()` function has two arguments: 1) data to work on; 2) names for column or columns to group by
-* Let's group `surveys` by `year`:
+* `group_by()` function has two arguments: 1) data to work on; 2) name of column (or columns) to group by
+* For example, to group `surveys` by `year`:
 
 ```r
 group_by(surveys, year)
 ```
 
 * The output is a `tibble`, a different looking kind of `data.frame`.
-  * The `tibble` contains the source, the groupings, and the data type information.
-
+  * The `tibble` contains information on the data source, the groupings, and the data type.
 * We can also group by multiple columns.
 * For example, group by "plot id" and by "year":
 
@@ -443,12 +505,10 @@ group_by(surveys, plot_id, year)
 
 * After grouping a data frame we can use the function `summarize()` to analyze each group.
 * The function `n()` counts the number of rows for each grouping. It is a special function that only works within `dplyr` functions.
-* `summarize()` function takes as arguments:
-  * a grouped table, output of `group_by()`
-  * One additional argument for each calculation we want to do for each group
-    * New column name to store calculated value
-    * the equal sign `=`
-    * The calculation that we want to perform for each group
+* The `summarize()` function takes as first argument a grouped table, an output of `group_by()`
+* Then, it takes one additional argument for each new column with summarized data you want to add.
+* The format of this arguments is `New column name`, followed by the equal sign `=`, finished by the calculation that we want to perform for each group
+* For example, to get the abundance of individual pers year, we will use the function `n()`
 
 ```r
 surveys_by_year <- group_by(surveys, year)
@@ -470,10 +530,41 @@ plot_year_counts <- surveys |>
   summarize(abundance = n())
 ```
 
+* We can use any function that returns a single value from a vector; e.g., `mean()`, `max()`, `min()`
+* For example, we can calculate the number of individuals in each plot-year group and their average weight
+
+```r
+surveys |>
+  group_by(plot_id, year) |>
+  summarize(abundance = n(), avg_weight = mean(weight))
+```
+
+* We get all `NA` in the "avg_weight" column :/
+* Remember: `mean()` returns `NA` when `x` has missing values (`NA`)
+* We can fix this with the argument `na.rm = TRUE`; using `mean(weight, na.rm = TRUE)`
+
+```r
+surveys |>
+  group_by(plot_id, year) |>
+  summarize(abundance = n(),
+            avg_weight = mean(weight, na.rm = TRUE))
+```
+
+* We still get `NaN` for species that have never been weighed!
+* We can filter this using `!is.na()`
+
+```r
+surveys |>
+  group_by(plot_id, year) |>
+  summarize(abundance = n(),
+            avg_weight = mean(weight, na.rm = TRUE)) |>
+  filter(!is.na(avg_weight))
+```
+
 <!-- > Do [Portal Data Aggregation 1-2]({{ site.baseurl }}/exercises/Portal-data-aggregation-R/). -->
 <!-- > Do [Portal Data Aggregation 3]({{ site.baseurl }}/exercises/Portal-data-aggregation-R/). -->
 
-### In-class Exercise 3
+### Solo In-class Exercise 6
 
 **Exercise 3: Data agreggation**
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-aggregation-R.md -->
@@ -483,40 +574,6 @@ plot_year_counts <- surveys |>
    of individuals in each species ID in each year.
 3. Use the `filter()`, `group_by()`, and `summarize()` functions to get the mean
    mass of species `DO` in each year.
-
-* We can also do multiple calculations using summarize
-* We can use any function that returns a single value from a vector; e.g., `mean()`, `max()`, `min()`
-* We'll calculate the number of individuals in each plot year combination and their average weight
-
-```r
-plot_year_count_weight <- surveys |>
-  group_by(plot_id, year) |>
-  summarize(abundance = n(), avg_weight = mean(weight))
-```
-
-* Why did we get `NA`?
-    * `mean(weight)` returns `NA` when `weight` has missing values (`NA`)
-* Can fix using `mean(weight, na.rm = TRUE)`
-
-```r
-plot_year_count_weight <- surveys |>
-  group_by(plot_id, year) |>
-  summarize(abundance = n(),
-            avg_weight = mean(weight, na.rm = TRUE))
-```
-
-* Still has `NaN` for species that have never been weighed
-* Can filter using `!is.na`
-
-```r
-plot_year_count_weight <- surveys |>
-  group_by(plot_id, year) |>
-  summarize(abundance = n(),
-            avg_weight = mean(weight, na.rm = TRUE)) |>
-  filter(!is.na(avg_weight))
-```
-
-
 
 <!--
 https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-joins-R.md

@@ -46,7 +46,7 @@ comu_2012_dt<-
   * Using the same code, create a new object called `comu_2013_dt` with the 2013 treatment data
   * Do not forget to commit your changes on your git console (select files -> commit -> write commit)
 
-7. Comment in the code how the object `Comunitity_total` was obtained, and check the dimensions of the object or data frame using the function `dim()`
+7. Comment in the code how the object `Comunity_total` was obtained, and check the dimensions of the object or data frame using the function `dim()`
 
 8. Write a csv file into the `outputs` folder called `mothComunity_2012_2013.csv` using the function `write.csv()`
 

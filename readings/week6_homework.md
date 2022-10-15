@@ -3,7 +3,7 @@ layout: page
 element: reading
 title: 'Finding Data'
 language: R
-week: "Oct 4"
+week: ""
 ---
 
 
