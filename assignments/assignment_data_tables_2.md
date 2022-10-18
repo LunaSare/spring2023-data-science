@@ -1,13 +1,13 @@
 ---
 layout: page
 element: assignment
-title: 'Joining data tables'
+title: 'Joining data'
 language: R
 pagetype: activities
 symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 ---
 
-## Day 1
+## Day 1: Practice
 
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Vectors-nulls-in-vectors-R.md -->
 
@@ -58,13 +58,12 @@ Copy these vectors into an R script and then determine the following:
 
 1. The volume of each shrub (length × width × height).
    *Storing this in a variable will make some of the next problems easier*.
-2. The sum of the volume of all of the shrubs (using the `sum` function).
+2. The sum of the volume of all of the shrubs (using the `sum()` function).
 3. A vector of the height of shrubs with lengths > 2.5.
 4. A vector of the height of shrubs with heights > 5.
 5. A vector of the heights of the first 5 shrubs (using `[]`).
 6. A vector of the volumes of the first 3 shrubs (using `[]`).
-
-*Optional Challenge*: A vector of the volumes of the last 5 shrubs with the code written so that it will return the last 5 values regardless of the length of the vector (i.e., it will give the last 5 values if there are 10, 20, or 50 individuals).
+7. *Optional Challenge*: A vector of the volumes of the last 5 shrubs with the code written so that it will return the last 5 values regardless of the length of the vector (i.e., it will give the last 5 values if there are 10, 20, or 50 individuals).
 
 ### Exercise 6: Data frames
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Data-frames-shrub-volume-data-frame-R.md -->

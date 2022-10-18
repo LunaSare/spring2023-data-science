@@ -12,7 +12,7 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 
 [Manipulating data]({{ site.baseurl }}/materials/02_Manipulating_data/02_ManipulatingData.html) -->
 
-## Day 1
+## Day 1: Data wrangling
 <!-- Lecture from https://github.com/datacarpentry/semester-biology/blob/main/materials/dplyr.md
 Exercises from https://github.com/datacarpentry/semester-biology/tree/f72ab33a6876b904c26ac566d13885096d4a0246/exercises/
 Portal data-->
@@ -127,7 +127,7 @@ select(surveys, month, day, year)
 
 * The function `mutate()` creates new data columns based on data from existing columns
 * It allows to calculate new values using data from the original columns
-* For example, the column "hindfoot_length" stores measurements in millimeters (mm). Let's calculate a new column showing the length of the hindfoot in centimeters (cm):
+* For example, the column `"hindfoot_length"` stores measurements in millimeters (mm). To create a new column showing the length of the hindfoot in centimeters (cm), we have to divide the values in mm from the original column `"hindfoot_length"` by 10:
 
 ```r
 mutate(surveys, hindfoot_length_cm = hindfoot_length / 10)
@@ -153,8 +153,8 @@ surveys <- mutate(surveys,
 
 #### Arranging (sorting) data
 
-* We can sort the data in the table using `arrange`
-* Let's sort the surveys table by "weight":
+* We can sort the data in the table using the function `arrange()`
+* Let's sort the surveys table by the values on the column `"weight"`:
 
 ```r
 arrange(surveys, weight)
@@ -172,7 +172,7 @@ arrange(surveys, plot_id, year, month, day)
 head(surveys)
 ```
 
-* We can reverse the order of the sort by _wrapping_ "weight" in the function `desc()` (for "descending order"):
+* We can reverse the order of the sort by _wrapping_ `"weight"` in the function `desc()` (for "descending order"):
 
 ```r
 arrange(surveys, desc(weight))
@@ -190,8 +190,8 @@ desc()
 #### Filtering values
 
 * Use `filter()` to keep only the rows that meet certain criteria.
-* We use conditional or logical statements for the filtering criteria.
-* Some examples of conditional statements are:
+* We use _relational or logical statements_ to evaluate and establish the criteria to filter on.
+* Some examples of relational statements are:
 
 ```r
 1 == 1
@@ -207,54 +207,53 @@ desc()
 "A" != "a"
 ```
 
-* As with all other function that we have seen, the first argument specifies the data set we want to work with:
-* The second and following arguments are conditional statements that specify the filtering criteria.
-* For usage inside the function `filter()`, conditional statements are coded as:
-  `column name`  `conditionl statement` `value`
+* As with all other function that we have seen, the first argument specifies the data set we want to work with
+* The second and following arguments are relational/conditional statements that specify the filtering criteria.
+* For usage inside the function `filter()`, relational/conditional statements are coded as:
+  `column name`  `relational/conditional statement` `value`
 * For example, to filter the `surveys` data frame to only keep the data with the species id "DS":
-    * Type the name of the function, `filter`
-    * Parentheses
+    * Type the name of the function and **open parentheses**, `filter()`
     * The name of the data frame we want to filter, `surveys`
-    * The column the want to filter on, `species_id`
-    * The condition, which is `==` for "is equal to"
-    * And then the value, `"DS"`
-    * `DS` here is a string, not a variable or a column name, so we enclose it in quotation marks
+    * The column the want to filter on, `"species_id"`
+    * The relational statement, which is `==` for _is equal to_
+    * And then the value we want to evaluate, `"DS"`
+    * `"DS"` here is a string, not a variable or a column name, so we enclose it in quotation marks
 
 ```r
 filter(surveys, species_id == "DS")
 ```
 
-* Like the examples above, we can have a conditional statement that is _not equal to_ using `!=`.
+* Like the examples above, we can have a relational statement that is _not equal to_ using `!=`.
 * For example, to filter the data for all species except "DS":
 
 ```r
 filter(surveys, species_id != "DS")
 ```
 
-* We can also filter on multiple conditions at once by adding more conditional statements
-* To indiciate that we want all the conditions to be TRUE, we have two ways:
-  1. We can add more conditions for filtering by separating them with a comma `,`.
-* For example, to get the data on species "DS" for the year 1995 and above:
+* We can also filter on multiple criteria at once by adding more relational statements
+* To indiciate that we want all the criteria to be TRUE, we have two ways:
+  1. We can add more criteria for filtering by separating them with a comma `,`.
+* For example, to get the data on species `"DS"` for the year `1995` and above:
 
 ```r
 filter(surveys, species_id == "DS", year > 1995)
 ```
 
-  2. Alternatively, we can use the ampersand `&` symbol, which is called the _AND operator_:
+  2. Alternatively, we can use the _ampersand_ `&` symbol, which is called the _AND operator_:
 
 ```r
 filter(surveys, species_id == "DS" & year > 1995)
 ```
 
-* Combining conditions with a comma `,` or with the _AND operator_ `&` indicates that we want all conditions to be met.
-* To indicate that not all conditions have to be true (one or more of the conditions can be true), we combine conditions using the pipe symbol `|`, which is called _OR operator_.
+* Combining criteria with a comma `,` or with the _AND operator_ `&` indicates that we want all criteria to be met.
+* To indicate that not all statements have to be true (that is, one or more of the statements can be true), we combine statements using the _vertical bar_ symbol `|`, which is called the _OR operator_.
 * For example, to get data for all of the *Dipodomys* species, with different species id ("DS", "DM", and "DO")
 
 ```r
 filter(surveys, species_id == "DS" | species_id == "DM" | species_id == "DO")
 ```
 
-* The `&` and `|` allow building conditions that are as complex as needed.
+* The `&` and `|` allow building filtering criteria that are as complex as needed.
 
 <!-- > Do [Shrub Volume Data Basics 5-7]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R). -->
 
@@ -304,7 +303,7 @@ is.na(3)
 filter(surveys, !is.na(weight))
 ```
 
-* Keep the function `is.na()` in mind. You will use it often to filter missing values in combination with other conditions.
+* Keep the function `is.na()` in mind. You will use it often to filter missing values in combination with other statements.
 * For example, we might want all of the data on a particular species that has weight data:
 
 ```r
@@ -324,7 +323,7 @@ filter(surveys, species_id == "DS", !is.na(weight))
 ---
 ---
 
-## Day 2
+## Day 2: Pipes
 <!-- Lecture modified from https://github.com/datacarpentry/semester-biology/blob/main/materials/combining-data-manip.md -->
 
 ### The usual analysis workflow: intermediate variables and nesting functions
@@ -438,7 +437,6 @@ ds_weight_by_year <- surveys %>%
 * For example, the function `lm()` fits a linear model relationship between two variables.
 * This function takes the `formula =` as the first argument and the `data =` containing our two variables as the second argument.
 * For example, to evaluate if weight has decreased or increased with time, in sequential/nested form:
-
 ```r
 lm(weight ~ year, data = surveys)
 ```

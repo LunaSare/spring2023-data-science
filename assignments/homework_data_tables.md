@@ -18,7 +18,7 @@ has placed the data file on the web for you to download:
 
 1. Download the file [shrub-volume-data.csv]({{ site.baseurl }}/data/shrub-volume-data.csv) and save it into your "data-raw" folder.
 2. Create a new Rmd file called "shrub_volume.Rmd". Write a short paragraph describing the data set before starting your analysis. Include a figure.
-3. Import the data set using `read.csv()`. Assign it to an object called `shrubs`.
+3. Import the data set using `read.csv()`. Assign it to an object called `shrub_data`.
 4. Select the data from the "length" column and print it out (using `select()`).
 5. Select the data from the site and experiment columns and print it out (using `select()`).
 6. Add a new column named "area" containing the area of the shrub, which is the length times the width (using `mutate()`).
@@ -27,7 +27,7 @@ has placed the data file on the web for you to download:
 9. Filter the data to include only plants with heights greater than 4 and widths greater than 2 (using `,` or `&` to include two conditions).
 10. Filter the data to include only plants from Experiment 1 or Experiment 3 (using `|` for "or").
 11. Filter the data to remove rows with null values in the `height` column (using `!is.na`)
-12. Create a new data frame called `shrub_volumes` that includes all of the original data and a new column containing the volumes (length * width * height), and display it.
+12. Create a new data frame called `shrub_volumes` that includes all of the original data, plus a new column containing the volumes (length * width * height), and display it.
 
 ### Exercise 2: Data agreggation
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Dplyr-shrub-volume-aggregation-R.md -->
@@ -42,10 +42,9 @@ by_site <- group_by(shrub_dims, site)
 avg_height <- summarize(by_site, avg_height = mean(height))
 ```
 
-1. Modify the code to calculate and print the average height of a plant in each
-   experiment.
+1. Modify the code to calculate and print the average height of a plant in each experiment.
 2. Use `max()` to determine the maximum height of a plant at each site.
-3. Write the same code but as a pipeline (using the pipe `|>` or `*>*`) to get the same result.
+3. Use the code you wrote to solve question (2) but as a pipeline (using the pipe `|>` or `%>%`). Make sure you get the same result.
 
 ### Exercise 3: Fix the code
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Dplyr-fix-the-code-R.md -->
@@ -68,4 +67,4 @@ shrub_data |>
 ```
 
 1. Fix the errors in the code so that it does what it's supposed to.
-2. Add a comment to the end of each line of code explaining what it does.
+2. Add a comment to the end of each line of code explaining what it does and how you modified it so that it works.

@@ -1,7 +1,7 @@
 ---
 layout: page
 element: lecture
-title: 'Joining data tables'
+title: 'Joining data'
 language: R
 pagetype: lecture
 symbol: <i class="fa fa-comment fa-lg"></i>
@@ -12,11 +12,52 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 
 [Manipulating data]({{ site.baseurl }}/materials/02_Manipulating_data/02_ManipulatingData.html) -->
 
-## Day 1
+## Day 1: Joining data tables
 
 ### Homework and class review (15 min)
 
-- review missing values in functions mean, max, sum, min
+- review of homework
+  - `select()`, `mutate()`, `filter()`, `arrange()` do not change the original data!
+  - We use relational/logical statements as filtering criteria in the function `filter()`
+  - Some examples of simple relational statements are:
+  ```r
+  1 == 1
+  1 == 2
+  1 != 2
+  1 > 2
+  1 > 1
+  1 >= 1
+  1 < 2
+  1 <= 2
+  "A" == "A"
+  "A" == "a"
+  "A" != "a"
+  ```
+  - We use two general types of logical statements: _AND_, and _OR_
+  - Some examples of logical statements:
+  ```r
+  1 == 1 & 1 == 2
+  1 == 1 | 1 == 2
+  ```
+  - relational operations with `NA`
+  ```r
+  NA > 3  # is obviously NA because we don't know if the missing value is larger than 3 or not
+  NA == NA  # the same with this, we have two missing values but the true values could be quite different, so the correct answer is "I don't know."
+  surveys$weight == NA
+  ```
+  - That's why we have `is.na()`, a special function to detect `NA` values.
+  - Also, the argument `rm.na = TRUE` detects and removes missing values in functions `mean()`, `max()`, `sum()`, `min()`.
+  - The classic coding workflow: intermediate variables and nesting functions
+  - The new (in R), cleaner alternative: the coding pipeline
+  - pipes work by taking the output from a function and giving it to a second function without creating intermediate objects or variables
+  - the pipe argument placeholder `_` or `.`
+  ```r
+  lm(weight ~ year, data = surveys)
+  surveys |>
+   lm(weight ~ year, data =_)
+  surveys %>%
+    lm(weight ~ year, data =.)
+  ```
 
 ### Setup your RStudio project (15 min)
 
@@ -161,9 +202,9 @@ Develop a data manipulation pipeline for the Portal surveys table that produces 
 --------
 --------
 
-## Day 2
+## Day 2: Joining data vectors
 
-### Setup your RStudio project
+### Setup Your RStudio Project
 
 * Remember! Working in projects is considered a best practice in data science.
 * Go ahead and open your RStudio project for the class. I called mine **fall-2022**.
@@ -176,17 +217,62 @@ Develop a data manipulation pipeline for the Portal surveys table that produces 
 
 <!-- Lecture from https://github.com/datacarpentry/semester-biology/blob/main/materials/converting-dataframes-vectors.md -->
 
-### Converting Between Data Frames and Vectors
+### A Relationship Between Data Frames and Vectors
 
-* R is a language for data anlysis
-* It stores information following data structures
+* R is a programming language for data anlysis
+* It stores information using data structures
 * We've learned about two general ways to store data, vectors and data frames
 * What are vectors: Vectors store a single set of values with the same type
-* Whar are data frames: Data frames store multiple sets of values, one in each column, that can have different types
+* What are data frames: Data frames store multiple sets of values, one in each column, that can have different types
 * These two ways of storing data are related to one another
   * Actually, all data structures in R are related to each other!
 * A data frame is a bunch of equal length vectors that are grouped together
 * So, we can extract vectors from data frames and we can also make data frames from vectors
+
+### Joining vectors to make a data frame
+
+*  join vectors to make a data frame
+* We can make a data frame We use the `data.frame()` function
+* It takes one argument for each column in the data frame
+* The argument includes the name of the column we want in the data frame, `=`, and the name of the vector whose values we want in that column
+* Just like `mutate()` and `summarize()`
+* So we give it the arguments `sites = `, and `density = `
+ ```r
+density_data <- data.frame(sites = c("a", "a", "b", "c"), density = c(2.8, 3.2, 1.5, 3.8))
+```
+
+* If we look in the **Global Environment** tab we can see that there is a new data frame called `density_data`, and that it has our two vectors as columns.
+* We could also make this data frame using the vectors that are already stored in variables:
+```r
+sites <- c("a", "a", "b", "c")
+density <- c(2.8, 3.2, 1.5, 3.8)
+density_data <- data.frame(sites = sites, density = density)
+```
+
+* We can also add columns to the data from that only include a single value without first creating a vector
+* We do this by providing a name for the new column, an equals sign, and the value that we want to occur in every row
+* For example, if all of this data was collected in the same year and we wanted to add that year as a column in our data frame we could do it like this
+
+```r
+density_data_year <- data.frame(year = 2000, sites = sites, density = density)
+```
+
+* `year =` sets the name of the column in the data frame
+* And 2000 is that value that will occur on every row of that column
+* If we run this and look at the `density_data_year` data frame we'll see that it includes the year column with the value `2000` in every row
+
+### Joint in-class exercise
+
+<!-- > Do [Building data frames from vectors]({{ site.baseurl }}/exercises/building-data-frames-from-vectors-R/). -->
+You have data on the length, width, and height of 10 individuals of the yew *Taxus baccata* stored in the following vectors:
+
+```r
+length <- c(2.2, 2.1, 2.7, 3.0, 3.1, 2.5, 1.9, 1.1, 3.5, 2.9)
+width <- c(1.3, 2.2, 1.5, 4.5, 3.1, NA, 1.8, 0.5, 2.0, 2.7)
+height <- c(9.6, 7.6, 2.2, 1.5, 4.0, 3.0, 4.5, 2.3, 7.5, 3.2)
+```
+
+- Make a data frame that contains these three vectors as columns along with a `"genus"` column containing the genus name *Taxus* on all rows and a `"species"` column containing the species epithet *baccata* on all rows.
 
 ### Extracting vectors from data frames
 
@@ -233,51 +319,6 @@ Using the Portal data `surveys` table ([download a copy](https://ndownloader.fig
 1. Use `$` to extract the `weight` column into a vector called `surveys_weight`
 2. Use `[]` to extract the `month` column into a vector called `surveys_month`
 3. Extract the `hindfoot_length` column into a vector and calculate the mean hindfoot length ignoring missing values.
-
-### Combining vectors to make a data frame
-
-* We can also combine vectors to make a data frame
-* We can make a data frame using the `data.frame()` function
-* It takes one argument for each column in the data frame
-* The argument includes the name of the column we want in the data frame, `=`, and the name of the vector whose values we want in that column
-* Just like `mutate()` and `summarize()`
-* So we give it the arguments `sites = `, and `density = `
- ```r
-density_data <- data.frame(sites = c("a", "a", "b", "c"), density = c(2.8, 3.2, 1.5, 3.8))
-```
-
-* If we look in the **Global Environment** tab we can see that there is a new data frame called `density_data`, and that it has our two vectors as columns.
-* We could also make this data frame using the vectors that are already stored in variables:
-```r
-sites <- c("a", "a", "b", "c")
-density <- c(2.8, 3.2, 1.5, 3.8)
-density_data <- data.frame(sites = sites, density = density)
-```
-
-* We can also add columns to the data from that only include a single value without first creating a vector
-* We do this by providing a name for the new column, an equals sign, and the value that we want to occur in every row
-* For example, if all of this data was collected in the same year and we wanted to add that year as a column in our data frame we could do it like this
-
-```r
-density_data_year <- data.frame(year = 2000, sites = sites, density = density)
-```
-
-* `year =` sets the name of the column in the data frame
-* And 2000 is that value that will occur on every row of that column
-* If we run this and look at the `density_data_year` data frame we'll see that it includes the year column with the value `2000` in every row
-
-### Joint in-class exercise
-
-<!-- > Do [Building data frames from vectors]({{ site.baseurl }}/exercises/building-data-frames-from-vectors-R/). -->
-You have data on the length, width, and height of 10 individuals of the yew *Taxus baccata* stored in the following vectors:
-
-```r
-length <- c(2.2, 2.1, 2.7, 3.0, 3.1, 2.5, 1.9, 1.1, 3.5, 2.9)
-width <- c(1.3, 2.2, 1.5, 4.5, 3.1, NA, 1.8, 0.5, 2.0, 2.7)
-height <- c(9.6, 7.6, 2.2, 1.5, 4.0, 3.0, 4.5, 2.3, 7.5, 3.2)
-```
-
-- Make a data frame that contains these three vectors as columns along with a `"genus"` column containing the genus name *Taxus* on all rows and a `"species"` column containing the species epithet *baccata* on all rows.
 
 
 ### Summary
