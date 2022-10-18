@@ -1,7 +1,7 @@
 ---
 layout: page
 element: lecture
-title: 'Joining data'
+title: 'Joining data tables'
 language: R
 pagetype: lecture
 symbol: <i class="fa fa-comment fa-lg"></i>
@@ -14,20 +14,17 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 
 ## Day 1
 
-- Why do we need to join data tables?
-  - We often have data from the same project/experiment in multiple tables, as it is one of the best practices for data science, because:
-    - it avoids redundant information (like listing the full taxonomy for every individual of a species)
-    - it makes storage more efficient,
-    - makes data processing more efficient (such as changing data in one place, not hundreds of places),
-    - Each table contains a single kind of information
-  - We often need to join multiple tables from the same data set for analysis
-- The [Portal Project Teaching Database](https://www.weecology.org/data-projects/portal-teaching-db/) has this properties, so we will be working with it.
+### Homework and class review (15 min)
 
-#### Setup your RStudio project
+- review missing values in functions mean, max, sum, min
+
+### Setup your RStudio project (15 min)
 
 * Remember! Working in projects is considered a best practice in data science.
 * Go ahead and open your RStudio project for the class. I called mine **fall-2022**.
-* We will keep on working on the rmarkdown file `"small-mammals.Rmd"`.
+* We will keep on working on:
+  - the rmarkdown file `"small-mammals.Rmd"`, and
+  - the [Portal Project Teaching Database](https://www.weecology.org/data-projects/portal-teaching-db/).
 - If you have not downloaded the following CSV files, do so by clicking on their names:
   - [surveys.csv](https://ndownloader.figshare.com/files/2292172) - main table, one row for each rodent captured, date on date,
     location, species ID, sex, and weight in grams and hindfoot length in millimeters.
@@ -36,7 +33,7 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 - Make sure that the three CSV files are:
   - saved into your **data-raw** folder.
   - loaded into `R` using the function `read.csv()` from the package `utils`.
-    - Remember to use relative paths.
+    - Remember to use relative paths!
 ```r
 surveys <- read.csv("surveys.csv")
 species <- read.csv("species.csv")
@@ -52,7 +49,18 @@ plots <- read.csv("plots.csv")
     * Each column or field contains a single attribute.
         * A single type of information
 
-### Joining two data Tables
+### Why do we need to join data tables? (5 min)
+
+- One of the best practices in data science is to structure data from the same project/experiment in multiple tables:
+  - It is recommended to have one main table (the `surveys` table in our case) and multiple supplementary tables that provide additional details.
+- The practical reasons why data scientists do this are:
+    - it avoids redundant information (like listing the full taxonomy for every individual of a species),
+    - it makes storage more efficient (smaller files),
+    - it makes data processing more efficient (such as changing data in one place, not hundreds of places),
+    - it makes tables more readable, as they contain a single kind of information.
+- So, having data in multiple tables means that we often need to join them to perform an analysis.
+
+### Joining two data Tables (5 min)
 
 - To combine two tables based on the values from a shared column, we use the functions
   - `inner_join()`
@@ -78,33 +86,52 @@ nrow(combined)
 ```
 - Inner joins: only keep information from both tables when both tables have a matching value in the join column
   - Rows with missing `"species_id"` values are dropped.
+  - ![Illustration of an inner join showing two tables being joined.
+  First table has 1, 2, 3 in column 1 and x1, x2, x3 in column 2.
+  Second table has 1, 2, 4, in column 1 and y1, y2, y4 in column 2.
+  Combined table has 1 and 2 in column 1, x1 and x2 in column 2, and y1 and y2 in column 3.
+  ]({{ site.baseurl }}/materials/inner-join.gif)  
 - Left joins: The function `left_join()` keeps all values from the _left table_ (the first table given in the function).
 - Right joins: `right_join()` keeps all values from the _right table_ (the second table given in the function).
 - Outter joins: keep all information from both tables.
 
-### Finding shared column names (`colnames()`) between tables
+### Finding shared column names (`colnames()`) between tables (10 min)
 
-- `match()`
-- `%in%`
--
+- reminder of indexing vectors using:
+  - numbers
+  - names
+  - logicals
+- The operator `%in%`
+  - Generates a logical vector that we can use to index a vector.
+  - Alternatively, the function which() gives us the numeric index position of values that are `TRUE`.
+- The function `match()`
+  - Produces a numeric vector with `NA` values when there are no matches
+  - To use this for indexing, we need to remove the `NA`s
 
-### Joining two or more data Tables
+### Joining two or more data Tables (5 min)
 
 - To combine two or more tables we use the same functions, incrementally.
-- For example
+- We start by joining two tables
+- Then, join the resulting table to a third table, and so on.
+- For example, for the Portal data set, we can start by joining the surveys and the species tables together, and then combining the resulting table with the plots table:
+```r
+combined <- inner_join(surveys, species, by = "species_id")
+combined_final <- inner_join(combined, plots, by = "plot_id")
+```
+- Now, how do we do this using a pipe?
+```r
+combined <- surveys |>
+  inner_join(species, by = "species_id") |>
+  inner_join(plots, by = "plot_id")
+```
 
-### Joint in-class exercise
+### Joint in-class exercise (5 min)
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-joins-R.md -->
-Run the following calculations using a single pipe:
-1. Use `inner_join()` to create a table that contains the information from both
-   the `surveys` table and the `species` table.
-2. Use `inner_join()` twice to create a table that contains the information from
-   all three tables.
-3. Use `inner_join()` and `filter()` to get a data frame with the information
-   from the `surveys` and `plots` tables where the `"plot_type"` is "Control".
+Do the following calculations using a single pipe of code (no nested nor intermediate variables):
+- Use `inner_join()` and `filter()` to get a data frame with the information from the `surveys` and `plots` tables where the `"plot_type"` is `"Control"`.
 
 
-### Solo in-class exercise
+### Joint in-class exercise (10 min)
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-dplyr-review-R.md -->
 We want to do an analysis comparing the size of individuals on the `"Control"` plots to the `"Long-term Krat Exclosures"`.
  - Create a data frame with the `"year"`, `"genus"`, `"species"`, `"weight"` and `"plot_type"` for all cases where the
@@ -112,7 +139,7 @@ We want to do an analysis comparing the size of individuals on the `"Control"` p
  - Only include cases where `"Taxa"` is `"Rodent"`.
  - Remove any records where the "weight" is missing.
 
-### Solo in-class exercise
+### Solo in-class exercise (10 min)
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-review-R.md -->
  1. Create a data frame with only data for the "species_id" "DO", with the columns `"year"`, `"month"`, `"day"`, `"species_id"`, and `"weight"`.
  2. Create a data frame with only data for species IDs `"PP"` and `"PB"` and for years starting in 1995, with the columns `"year"`, `"species_id"`, and `"hindfoot_length"`, with no missing values for `"hindfoot_length"`.
@@ -122,7 +149,7 @@ We want to do an analysis comparing the size of individuals on the `"Control"` p
  6. Make a histogram of weights with a separate subplot for each `"species_id"`. Do not include species with no weights. Set the `"scales"` argument to `"free_y"` so that the y-axes can vary. Include good axis labels.
  7. (Challenge) Make a plot with histograms of the weights of three species, `"PP"`, `"PB"`, and `"DM"`, colored by `"species_id"`, with a different facet (i.e., subplot) for each of three `"plot_type"`'s `"Control"`, `"Long-term Krat Exclosure"`, and `"Short-term Krat Exclosure"`. Include good axis labels and a title for the plot. Export the plot to a PNG file.
 
-### Solo in-class exercise
+### Solo in-class exercise (10 min)
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-challenge-R.md -->
 
 Develop a data manipulation pipeline for the Portal surveys table that produces a table of data for only the three _Dipodomys_ species (`"DM"`, `"DO"`, `"DS"`).
@@ -130,3 +157,132 @@ Develop a data manipulation pipeline for the Portal surveys table that produces 
 - The table should contain information on the date, the species ID, the weight and hindfoot length.
 - The data should not include null values for either weight or hindfoot length.
 - The table should be sorted first by the species (so that each species is grouped together) and then by weight, with the largest weights at the top.
+
+--------
+--------
+
+## Day 2
+
+### Setup your RStudio project
+
+* Remember! Working in projects is considered a best practice in data science.
+* Go ahead and open your RStudio project for the class. I called mine **fall-2022**.
+* We will keep on working on:
+  - the rmarkdown file `"small-mammals.Rmd"`, and
+  - the [Portal Project Teaching Database](https://www.weecology.org/data-projects/portal-teaching-db/).
+- If you have not downloaded the following CSV files, do so by clicking on their names:
+  - [surveys.csv](https://ndownloader.figshare.com/files/2292172) - main table, one row for each rodent captured, date on date,
+    location, species ID, sex, and weight in grams and hindfoot length in millimeters.
+
+<!-- Lecture from https://github.com/datacarpentry/semester-biology/blob/main/materials/converting-dataframes-vectors.md -->
+
+### Converting Between Data Frames and Vectors
+
+* R is a language for data anlysis
+* It stores information following data structures
+* We've learned about two general ways to store data, vectors and data frames
+* What are vectors: Vectors store a single set of values with the same type
+* Whar are data frames: Data frames store multiple sets of values, one in each column, that can have different types
+* These two ways of storing data are related to one another
+  * Actually, all data structures in R are related to each other!
+* A data frame is a bunch of equal length vectors that are grouped together
+* So, we can extract vectors from data frames and we can also make data frames from vectors
+
+### Extracting vectors from data frames
+
+* There are several ways to extract a vector from a data frame
+* Let's look at these using the Portal data
+* We'll start by loading the `surveys` table into R
+
+```r
+surveys <- read.csv("surveys.csv")
+```
+
+* One common approach to extracting a column into a vector is to use the `[]`
+* Remember that `[]` also mean "give me a piece of something"
+* Let's get the `species_id` column
+* `"species_id"` has to be in quotes because we we aren't using `dplyr`
+
+```r
+surveys["species_id"]
+```
+
+* This actually returns a one column data frame, not a vector
+* To extract a single column as a vector we use two sets of `[]`
+* Think of the second set of `[]` as getting the single vector from inside the one column data frame
+
+```r
+surveys[["species_id"]]
+```
+
+* We can also do this using `$`
+* The `$` in R is short hand for `[[]]` in cases where the piece we want to get has a name
+* So, we start with the object we want a part of, our `surveys` data frame
+* Then the `$` with no spaces around it
+* and then the name of the `species_id` column (without quotes, just to be confusing)
+
+```r
+surveys$species_id
+```
+
+### Joint in-class exercise
+
+<!-- > Do [Extracting vectors from data frames]({{ site.baseurl }}/exercises/extracting-vectors-from-data-frames-R/). -->
+Using the Portal data `surveys` table ([download a copy](https://ndownloader.figshare.com/files/2292172) if it's not in your working directory):
+
+1. Use `$` to extract the `weight` column into a vector called `surveys_weight`
+2. Use `[]` to extract the `month` column into a vector called `surveys_month`
+3. Extract the `hindfoot_length` column into a vector and calculate the mean hindfoot length ignoring missing values.
+
+### Combining vectors to make a data frame
+
+* We can also combine vectors to make a data frame
+* We can make a data frame using the `data.frame()` function
+* It takes one argument for each column in the data frame
+* The argument includes the name of the column we want in the data frame, `=`, and the name of the vector whose values we want in that column
+* Just like `mutate()` and `summarize()`
+* So we give it the arguments `sites = `, and `density = `
+ ```r
+density_data <- data.frame(sites = c("a", "a", "b", "c"), density = c(2.8, 3.2, 1.5, 3.8))
+```
+
+* If we look in the **Global Environment** tab we can see that there is a new data frame called `density_data`, and that it has our two vectors as columns.
+* We could also make this data frame using the vectors that are already stored in variables:
+```r
+sites <- c("a", "a", "b", "c")
+density <- c(2.8, 3.2, 1.5, 3.8)
+density_data <- data.frame(sites = sites, density = density)
+```
+
+* We can also add columns to the data from that only include a single value without first creating a vector
+* We do this by providing a name for the new column, an equals sign, and the value that we want to occur in every row
+* For example, if all of this data was collected in the same year and we wanted to add that year as a column in our data frame we could do it like this
+
+```r
+density_data_year <- data.frame(year = 2000, sites = sites, density = density)
+```
+
+* `year =` sets the name of the column in the data frame
+* And 2000 is that value that will occur on every row of that column
+* If we run this and look at the `density_data_year` data frame we'll see that it includes the year column with the value `2000` in every row
+
+### Joint in-class exercise
+
+<!-- > Do [Building data frames from vectors]({{ site.baseurl }}/exercises/building-data-frames-from-vectors-R/). -->
+You have data on the length, width, and height of 10 individuals of the yew *Taxus baccata* stored in the following vectors:
+
+```r
+length <- c(2.2, 2.1, 2.7, 3.0, 3.1, 2.5, 1.9, 1.1, 3.5, 2.9)
+width <- c(1.3, 2.2, 1.5, 4.5, 3.1, NA, 1.8, 0.5, 2.0, 2.7)
+height <- c(9.6, 7.6, 2.2, 1.5, 4.0, 3.0, 4.5, 2.3, 7.5, 3.2)
+```
+
+- Make a data frame that contains these three vectors as columns along with a `"genus"` column containing the genus name *Taxus* on all rows and a `"species"` column containing the species epithet *baccata* on all rows.
+
+
+### Summary
+
+* So, that's the basic idea behind how vectors and data frames are related and how to convert between them.
+* A data frame is a set of equal length vectors
+* We can extract a column of a data frame into a vector using either `$` or two sets of `[]`
+* We can combine vectors into data frames using the `data.frame()` function, which takes a series of arguments, one vector for each column we want to create in the data frame.

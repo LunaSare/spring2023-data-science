@@ -530,7 +530,7 @@ plot_year_counts <- surveys |>
   summarize(abundance = n())
 ```
 
-* We can use any function that returns a single value from a vector; e.g., `mean()`, `max()`, `min()`
+* We can use any function that returns a single value from a vector; e.g., `mean()`, `max()`, `min()`, `sum()`
 * For example, we can calculate the number of individuals in each plot-year group and their average weight
 
 ```r
@@ -540,9 +540,13 @@ surveys |>
 ```
 
 * We get all `NA` in the "avg_weight" column :/
-* Remember: `mean()` returns `NA` when `x` has missing values (`NA`)
-* We can fix this with the argument `na.rm = TRUE`; using `mean(weight, na.rm = TRUE)`
+* Remember: `mean()` (and max, min and sum) returns `NA` when the input vector  has missing values (`NA`s)
+* To fix this we use the argument `na.rm = TRUE`:
+```r
+mean(surveys$weight, na.rm = TRUE)
+```
 
+* Now, applied to the pipe:
 ```r
 surveys |>
   group_by(plot_id, year) |>
@@ -550,8 +554,8 @@ surveys |>
             avg_weight = mean(weight, na.rm = TRUE))
 ```
 
-* We still get `NaN` for species that have never been weighed!
-* We can filter this using `!is.na()`
+* We still get missing valies (in the form of `NaN`) because there are species that have never been weighed!
+* We can `filter()` this using `!is.na()`
 
 ```r
 surveys |>
@@ -560,6 +564,7 @@ surveys |>
             avg_weight = mean(weight, na.rm = TRUE)) |>
   filter(!is.na(avg_weight))
 ```
+
 
 <!-- > Do [Portal Data Aggregation 1-2]({{ site.baseurl }}/exercises/Portal-data-aggregation-R/). -->
 <!-- > Do [Portal Data Aggregation 3]({{ site.baseurl }}/exercises/Portal-data-aggregation-R/). -->
