@@ -14,6 +14,29 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 
 ## Day 1: Joining data tables
 
+> **Learning Objectives**
+>
+> This week, students will learn to:
+>
+> - Explain the importance of joining multiple data tables.
+> - Use the `dplyr` functions that join data tables.
+> - Understand why data is dropped when joining tables
+> - Use pipes to join more than two data tables
+> - Use the ``%in%`` operator to find matching column names in two data tables
+>
+> **Practice Objectives**
+>
+> This week, students will practice:
+>
+> - Use of relational and logical statements to filter data tables
+> - Handling missing values with `is.na()` and `na.rm =`
+> - pipeline placeholders
+>
+> **Non Objectives**
+>
+> - `which()`
+> - `match()`
+
 ### Homework and class review (15 min)
 
 - review of homework
@@ -50,6 +73,9 @@ symbol: <i class="fa fa-comment fa-lg"></i>
   - The classic coding workflow: intermediate variables and nesting functions
   - The new (in R), cleaner alternative: the coding pipeline
   - pipes work by taking the output from a function and giving it to a second function without creating intermediate objects or variables
+  - by default, they feed the output to the first argument!
+
+<!--
   - the pipe argument placeholder `_` or `.`
   ```r
   lm(weight ~ year, data = surveys)
@@ -58,6 +84,7 @@ symbol: <i class="fa fa-comment fa-lg"></i>
   surveys %>%
     lm(weight ~ year, data =.)
   ```
+ -->
 
 ### Setup your RStudio project (15 min)
 
@@ -103,58 +130,77 @@ plots <- read.csv("plots.csv")
 
 ### Joining two data Tables (5 min)
 
-- To combine two tables based on the values from a shared column, we use the functions
+- To combine two tables based on the values from a shared column, we use the `dplyr` functions
   - `inner_join()`
   - `left_join()`
   - `right_join()`
-  - `outter_join()`
-- These functions take at least three arguments.
+  - `full_join()`
+- These functions take at least three arguments:
   - The first two arguments specify the two tables that we want to join.
-  - The third argument `by = `specifies the name of the shared column as a character string (enclosed in quotations `" "`)
-- To join the tables `surveys` and `species` by their only shared column `"species_id"` into a new `combined` table:
-```r
-combined <- inner_join(surveys, species, by = "species_id")
-```
-- How would you do this with a pipe?
-```r
-surveys |>
-  inner_join(species, by = "species_id")
-```
-- Check row numbers from original tables and `combined`.
+  - The third argument `by = ` specifies the name of the shared column as a character string (enclosed in quotations `" "`)
+  - For example, to join the tables `surveys` and `species` by their only shared column `"species_id"` into a new `combined` table:
+  ```r
+  inner_join(surveys, species, by = "species_id")
+  ```
+  - The same, but with a pipe:
+  ```r
+  surveys |>
+    inner_join(species, by = "species_id")
+  ```
+
+### Exercise 1 (10 min)
+<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-joins-R.md -->
+Do the following calculations using a single pipe of code (no nested nor intermediate variables):
+- Use `inner_join()` and `filter()` to get a data frame with the information from the `surveys` and `plots` tables where the `"plot_type"` is `"Control"`.
+
+#### Check dropped data
+
+- The function `nrow()` let us see the row numbers from the original tables and the joined tables:
 ```r
 nrow(surveys)
 nrow(combined)
 ```
-- Inner joins: only keep information from both tables when both tables have a matching value in the join column
-  - Rows with missing `"species_id"` values are dropped.
-  - ![Illustration of an inner join showing two tables being joined.
+- We can test if the row number has changed:
+```r
+nrow(surveys) == nrow(combined)
+```
+- inner joins: only keep information from both tables when both tables have a matching value in the join column
+  - Rows with `"species_id"` values from the first table that are not in the second table (and visceversa) are dropped:
+  ![Illustration of an inner join showing two tables being joined.
   First table has 1, 2, 3 in column 1 and x1, x2, x3 in column 2.
   Second table has 1, 2, 4, in column 1 and y1, y2, y4 in column 2.
   Combined table has 1 and 2 in column 1, x1 and x2 in column 2, and y1 and y2 in column 3.
   ]({{ site.baseurl }}/materials/inner-join.gif)  
-- Left joins: The function `left_join()` keeps all values from the _left table_ (the first table given in the function).
-- Right joins: `right_join()` keeps all values from the _right table_ (the second table given in the function).
-- Outter joins: keep all information from both tables.
+- left joins: The function `left_join()` keeps all values from the _left table_ (the first table given in the function).
+- right joins: `right_join()` keeps all values from the _right table_ (the second table given in the function).
+- full joins: keep all information from both tables.
 
-### Finding shared column names (`colnames()`) between tables (10 min)
+#### Finding shared column names (`colnames()`) between tables (5 min)
 
-- reminder of indexing vectors using:
-  - numbers
-  - names
-  - logicals
-- The operator `%in%`
-  - Generates a logical vector that we can use to index a vector.
-  - Alternatively, the function which() gives us the numeric index position of values that are `TRUE`.
-- The function `match()`
-  - Produces a numeric vector with `NA` values when there are no matches
-  - To use this for indexing, we need to remove the `NA`s
+- How do we find shared column names to join our tables??
+1. We can visually search for shared column names between two tables:
+  - We can open each table from the _Environment_ tab, or with the function `View()`
+  - We can display the `colnames()` of each table individually
+2. Using code!
+  - The function `intersect()`:
+  ```r
+  intersect(colnames(surveys), colnames(species))
+  ```
+
+### Exercise 1 (10 min)
+<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-joins-R.md -->
+1. Find the column name that is shared between the `plots` table and the `surveys` table. Use that column name for the next question.
+2. Do the following using a single pipe of code (no nested code nor intermediate variables):
+  - Use function `inner_join()` and `filter()` to get a data frame with the information from the `surveys` and `plots` tables where the `"plot_type"` is `"Control"`.
+
 
 ### Joining two or more data Tables (5 min)
 
-- To combine two or more tables we use the same functions, incrementally.
-- We start by joining two tables
-- Then, join the resulting table to a third table, and so on.
-- For example, for the Portal data set, we can start by joining the surveys and the species tables together, and then combining the resulting table with the plots table:
+- There is no special function to join more than two data tables.
+- We use the `_join()` functions, incrementally:
+  - Start by joining two tables
+  - Then, join the resulting table to a third table, and so on.
+  - For example, for the Portal data set, we can start by joining the surveys and the species tables together, and then combining the resulting table with the plots table:
 ```r
 combined <- inner_join(surveys, species, by = "species_id")
 combined_final <- inner_join(combined, plots, by = "plot_id")
@@ -166,43 +212,43 @@ combined <- surveys |>
   inner_join(plots, by = "plot_id")
 ```
 
-### Joint in-class exercise (5 min)
-<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-joins-R.md -->
-Do the following calculations using a single pipe of code (no nested nor intermediate variables):
-- Use `inner_join()` and `filter()` to get a data frame with the information from the `surveys` and `plots` tables where the `"plot_type"` is `"Control"`.
-
-
-### Joint in-class exercise (10 min)
+### Exercise 2 (15 min)
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-dplyr-review-R.md -->
 We want to do an analysis comparing the size of individuals on the `"Control"` plots to the `"Long-term Krat Exclosures"`.
  - Create a data frame with the `"year"`, `"genus"`, `"species"`, `"weight"` and `"plot_type"` for all cases where the
- - plot type is either `"Control"` or `"Long-term Krat Exclosure"`.
- - Only include cases where `"Taxa"` is `"Rodent"`.
- - Remove any records where the "weight" is missing.
+ - plot type is either `"Control"` or `"Long-term Krat Exclosure"`. Pay attention to typos in lower case and upper case values.
+ - Only include cases where the column `"taxa"` is `"Rodent"`.
+ - Remove any records where the `"weight"` is missing.
 
-### Solo in-class exercise (10 min)
-<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-review-R.md -->
- 1. Create a data frame with only data for the "species_id" "DO", with the columns `"year"`, `"month"`, `"day"`, `"species_id"`, and `"weight"`.
- 2. Create a data frame with only data for species IDs `"PP"` and `"PB"` and for years starting in 1995, with the columns `"year"`, `"species_id"`, and `"hindfoot_length"`, with no missing values for `"hindfoot_length"`.
- 3. Create a data frame with the average `"hindfoot_length"` for each `"species_id"` in each `"year"` with no null values.
- 4. Create a data frame with the `"year"`, `"genus"`, `"species"`, `"weight"` and `"plot_type"` for all cases where the `"genus"` is `"Dipodomys"`.
- 5. Make a scatter plot with `"weight"` on the x-axis and `"hindfoot_length"` on the y-axis. Use a `log10()` scale on the x-axis. Color the points by `"species_id"`. Include good axis labels.
- 6. Make a histogram of weights with a separate subplot for each `"species_id"`. Do not include species with no weights. Set the `"scales"` argument to `"free_y"` so that the y-axes can vary. Include good axis labels.
- 7. (Challenge) Make a plot with histograms of the weights of three species, `"PP"`, `"PB"`, and `"DM"`, colored by `"species_id"`, with a different facet (i.e., subplot) for each of three `"plot_type"`'s `"Control"`, `"Long-term Krat Exclosure"`, and `"Short-term Krat Exclosure"`. Include good axis labels and a title for the plot. Export the plot to a PNG file.
+### Start with the Homework
 
-### Solo in-class exercise (10 min)
-<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-challenge-R.md -->
+Exercises 3 and 4 of [Joining data tables practice]({{ site.baseurl }}/assignments/assignment_data_tables_2/).
 
-Develop a data manipulation pipeline for the Portal surveys table that produces a table of data for only the three _Dipodomys_ species (`"DM"`, `"DO"`, `"DS"`).
-- The species IDs should be presented as lower case, not upper case.
-- The table should contain information on the date, the species ID, the weight and hindfoot length.
-- The data should not include null values for either weight or hindfoot length.
-- The table should be sorted first by the species (so that each species is grouped together) and then by weight, with the largest weights at the top.
-
---------
---------
+---
+---
 
 ## Day 2: Joining data vectors
+
+> **Learning Objectives**
+>
+> This week, students will learn to:
+>
+> -
+> -
+> -
+> -
+> -
+>
+> **Practice Objectives**
+>
+> This week, students will practice:
+>
+> -
+> -
+>
+> **Non Objectives**
+>
+> -
 
 ### Setup Your RStudio Project
 
@@ -221,7 +267,7 @@ Develop a data manipulation pipeline for the Portal surveys table that produces 
 
 * R is a programming language for data anlysis
 * It stores information using data structures
-* We've learned about two general ways to store data, vectors and data frames
+* We've learned about two general ways to store data, _vectors_ and _data frames_
 * What are vectors: Vectors store a single set of values with the same type
 * What are data frames: Data frames store multiple sets of values, one in each column, that can have different types
 * These two ways of storing data are related to one another
@@ -229,13 +275,64 @@ Develop a data manipulation pipeline for the Portal surveys table that produces 
 * A data frame is a bunch of equal length vectors that are grouped together
 * So, we can extract vectors from data frames and we can also make data frames from vectors
 
+### Creating vectors
+
+- Examples of numeric vectors:
+  - with a single number
+  ```r
+  a_number <- 1
+  ```
+  - with two or more numbers, we can use the _concatenate_ function `c()`
+  ```r
+  c(1, 2, 3) # in order
+  ```
+  - We can use the _colon_ `:` operator to create sequences of numbers
+  ```r
+  1:3
+  ```
+  - With the `c()` function we can add numbers in any order we want
+  ```r
+  c(10, 1, 8) # random order
+  ```
+  - But with `:` we can create sequences as long as we want to with just a few key strokes:
+  ```r
+  1:10
+  1:100
+  1:4589567
+  ```
+  - The function `seq()` creates sequences with any step we specify (not only 1 as with `:`)
+  ```r
+  seq(from = 1, to = 100, by = 2)
+  seq(from = 1, to = 100, by = 0.5)
+  ```
+  - We can start numeric sequences at any number, in reverse order, and using negative numbers,
+    - with the `:` operator:
+    ```r
+    15:20
+    100:50
+    -100:50
+    5:-5
+    ```
+    - and with `seq()` (pay attention to the sign of the step (`by = ` argument))
+    ```r
+    seq(15, 20)
+    seq(100, 50, -2)
+    seq(-100, 50, 2)
+    ```
+
+2. Examples of logical vectors
+  ```r
+  abc
+  ```
+
 ### Joining vectors to make a data frame
 
-*  join vectors to make a data frame
-* We can make a data frame We use the `data.frame()` function
-* It takes one argument for each column in the data frame
-* The argument includes the name of the column we want in the data frame, `=`, and the name of the vector whose values we want in that column
-* Just like `mutate()` and `summarize()`
+* The `data.frame()` function joins vectors into a single data frame
+* Each argument we provide will be a column in the data frame (just like in `mutate()` and `summarize()`!)
+* The arguments are taken as follows:
+  - The name of the column we want in the data frame,
+  - an equal sign `=`, and
+  - the vector whose values we want in that column.
 * So we give it the arguments `sites = `, and `density = `
  ```r
 density_data <- data.frame(sites = c("a", "a", "b", "c"), density = c(2.8, 3.2, 1.5, 3.8))
@@ -251,7 +348,7 @@ density_data <- data.frame(sites = sites, density = density)
 
 * We can also add columns to the data from that only include a single value without first creating a vector
 * We do this by providing a name for the new column, an equals sign, and the value that we want to occur in every row
-* For example, if all of this data was collected in the same year and we wanted to add that year as a column in our data frame we could do it like this
+* For example, if all of this data was collected in the same year and we wanted to add that year as a column in our data frame we could do it like this:
 
 ```r
 density_data_year <- data.frame(year = 2000, sites = sites, density = density)
@@ -311,7 +408,7 @@ surveys[["species_id"]]
 surveys$species_id
 ```
 
-### Joint in-class exercise
+### Exercise
 
 <!-- > Do [Extracting vectors from data frames]({{ site.baseurl }}/exercises/extracting-vectors-from-data-frames-R/). -->
 Using the Portal data `surveys` table ([download a copy](https://ndownloader.figshare.com/files/2292172) if it's not in your working directory):
@@ -320,6 +417,15 @@ Using the Portal data `surveys` table ([download a copy](https://ndownloader.fig
 2. Use `[]` to extract the `month` column into a vector called `surveys_month`
 3. Extract the `hindfoot_length` column into a vector and calculate the mean hindfoot length ignoring missing values.
 
+### Extacting values from Vectors
+
+```r
+letters[10] # indexing the 10th letter of the alphabet
+```
+```r
+letters[1:3] # getting the first three letters
+abc <- letters[c(1,2,3)] # creating a vector of the first three letters of the alphabet
+```
 
 ### Summary
 

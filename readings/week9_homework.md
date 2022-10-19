@@ -9,11 +9,11 @@ symbol: <i class="fa fa-book fa-lg"></i>
 ---
 
 
-## Day 1: Joining data tables
+## Joining data tables
 
-1. Watch the 8 minute video [Combining Data From Two Tables Using Joins In dplyr](https://youtu.be/8ir57LRKV9A).
-1. Watch the 4 minute video [Combining Data From More Than Two Tables](https://youtu.be/3Hw80Gl6Bgs).
+1) Watch the 8 minute video [Combining Data From Two Tables Using Joins In dplyr](https://youtu.be/8ir57LRKV9A).
+2) Watch the 4 minute video [Combining Data From More Than Two Tables](https://youtu.be/3Hw80Gl6Bgs).
 
-## Day 2: Joining data vectors
+## Joining data vectors
 
-1. Watch the 10 minute video [Converting Between Data Frames and Vectors](https://youtu.be/ZSUQU-QzNRw).
+3) Watch the 10 minute video [Converting Between Data Frames and Vectors](https://youtu.be/ZSUQU-QzNRw).

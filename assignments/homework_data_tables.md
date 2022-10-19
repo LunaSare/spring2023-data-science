@@ -7,7 +7,7 @@ pagetype: activities
 symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 ---
 
-## Shrub volume data set
+## Homework Day 2: Shrub volume data set
 
 ### Exercise 1: Data wrangling basics
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Dplyr-shrub-volume-data-basics-R.md -->
