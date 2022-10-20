@@ -325,7 +325,7 @@ Exercises 3 and 4 of [Joining data tables practice]({{ site.baseurl }}/assignmen
   abc
   ```
 
-### Joining vectors to make a data frame
+### Creating data frames from Vectors
 
 * The `data.frame()` function joins vectors into a single data frame
 * Each argument we provide will be a column in the data frame (just like in `mutate()` and `summarize()`!)
@@ -371,7 +371,12 @@ height <- c(9.6, 7.6, 2.2, 1.5, 4.0, 3.0, 4.5, 2.3, 7.5, 3.2)
 
 - Make a data frame that contains these three vectors as columns along with a `"genus"` column containing the genus name *Taxus* on all rows and a `"species"` column containing the species epithet *baccata* on all rows.
 
-### Extracting vectors from data frames
+---
+---
+
+### Extracting values from vectors and data frames
+
+#### Extracting vectors from data frames
 
 * There are several ways to extract a vector from a data frame
 * Let's look at these using the Portal data
@@ -417,19 +422,19 @@ Using the Portal data `surveys` table ([download a copy](https://ndownloader.fig
 2. Use `[]` to extract the `month` column into a vector called `surveys_month`
 3. Extract the `hindfoot_length` column into a vector and calculate the mean hindfoot length ignoring missing values.
 
-### Extacting values from Vectors
+### Extacting Values from Vectors
 
 ```r
 letters[10] # indexing the 10th letter of the alphabet
-```
-```r
 letters[1:3] # getting the first three letters
 abc <- letters[c(1,2,3)] # creating a vector of the first three letters of the alphabet
+letters[3:1] #
+letters[-1]
+letters[-1:5]
 ```
 
 ### Summary
 
-* So, that's the basic idea behind how vectors and data frames are related and how to convert between them.
 * A data frame is a set of equal length vectors
-* We can extract a column of a data frame into a vector using either `$` or two sets of `[]`
+* We can extract a column of a data frame into a vector using either `$` or two sets of square brackets `[[]]`
 * We can combine vectors into data frames using the `data.frame()` function, which takes a series of arguments, one vector for each column we want to create in the data frame.

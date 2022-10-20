@@ -50,11 +50,11 @@ Develop a data manipulation pipeline for the Portal surveys table that produces 
 In addition to the main data table on shrub dimensions, Dr. Granger has two additional data tables.
 The first describes the manipulation for each experiment.
 The second provides information about the different sites.
-Check if the files `shrub-volume-experiments.csv` and `shrub-volume-sites.csv` are in your work space (your instructor may have already added them).
-If not download the [experiments data]({{ site.baseurl }}/data/shrub-volume-experiments.csv) and the [sites data]({{ site.baseurl }}/data/shrub-volume-sites.csv).
+Check if the files `shrub-volume-experiments.csv` and `shrub-volume-data.csv` are in your work space.
 
-1. Import the experiments data and then use `inner_join()` to combine it with the shrub dimensions data to add a `"manipulation"` column to the shrub data.
-2. Import the sites data and then combine it with both the data on shrub dimensions and the data on experiments to produce a single data frame that contains all of the data.
+
+1. Import the experiments data and then use `inner_join()` to combine it with the shrub volume data to add a `"manipulation"` column to the shrub data.
+2. Import the [shrub volume sites data]({{ site.baseurl }}/data/shrub-volume-sites.csv) and then combine it with both the data on [shrub volume data]({{ site.baseurl }}/data/shrub-volume-experiments.csv) and the [experiments data]({{ site.baseurl }}/data/shrub-volume-experiments.csv) to produce a single data frame that contains all of the data.
 
 ### Exercise 5: Vectors
 <!-- This exercise is a combination of the two following exercises: -->
