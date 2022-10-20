@@ -91,13 +91,13 @@ Copy these vectors into your Rmd file, and use them to get the correct answers.
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Data-frames-shrub-volume-data-frame-R.md -->
 One of your collaborators has posted [a comma-delimited text file]({{
 site.baseurl }}/data/shrub-dimensions-labeled.csv) online for you to analyze.
-The file contains dimensions of a series of shrubs (shrubID, length, width,
-height) and they need you to determine their volumes
+The file contains dimensions (`"length"`, `"width"`,
+`"height"`) of a series of shrubs (`"shrubID"`) and they need you to determine their volumes
 (`length * width * height`). You could do this using a spreadsheet, but the
 project that you are working on is going to be generating lots of these files so
 you decide to write a program to automate the process.
 
-Download the data and save itto the appropriate folder, use `read.csv()` to import it into R, and use it to produce the following information:
+Download the data and save it to the appropriate folder, use `read.csv()` to import it into R, and use it to produce the following information:
 
 1. A vector of shrub lengths
 2. A vector of the volume of each of the shrubs
