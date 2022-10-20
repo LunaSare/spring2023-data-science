@@ -47,14 +47,12 @@ Develop a data manipulation pipeline for the Portal surveys table that produces 
 
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Dplyr-shrub-volume-join-R.md -->
 
-In addition to the main data table on shrub dimensions, Dr. Granger has two additional data tables.
-The first describes the manipulation for each experiment.
-The second provides information about the different sites.
-Check if the files `shrub-volume-experiments.csv` and `shrub-volume-data.csv` are in your work space.
+In addition to the [main data table on shrub volume]({{ site.baseurl }}/data/shrub-volume-data.csv), Dr. Granger has two additional data tables.
+The first describes the manipulation for each experiment, and it is called [shrub-volume-experiments.csv]({{ site.baseurl }}/data/shrub-volume-experiments.csv)
+The second provides information about the different sites, and it is called [shrub-volume-sites.csv]({{ site.baseurl }}/data/shrub-volume-sites.csv).
 
-
-1. Import the experiments data and then use `inner_join()` to combine it with the shrub volume data to add a `"manipulation"` column to the shrub data.
-2. Import the [shrub volume sites data]({{ site.baseurl }}/data/shrub-volume-sites.csv) and then combine it with both the data on [shrub volume data]({{ site.baseurl }}/data/shrub-volume-experiments.csv) and the [experiments data]({{ site.baseurl }}/data/shrub-volume-experiments.csv) to produce a single data frame that contains all of the data.
+1. Import the [experiments data]({{ site.baseurl }}/data/shrub-volume-experiments.csv) into your R environment, and then use `inner_join()` to combine it with the [shrub volume data]({{ site.baseurl }}/data/shrub-volume-data.csv) to add a `"manipulation"` column to the shrub data.
+2. Import the [shrub volume sites data]({{ site.baseurl }}/data/shrub-volume-sites.csv) and then combine it with both the data on [shrub volume data]({{ site.baseurl }}/data/shrub-volume-data.csv) and the [experiments data]({{ site.baseurl }}/data/shrub-volume-experiments.csv) to produce a single data frame that contains all of the data.
 
 ### Exercise 5: Vectors
 <!-- This exercise is a combination of the two following exercises: -->
