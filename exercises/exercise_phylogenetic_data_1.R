@@ -40,3 +40,6 @@ my_tree <- rotl::tol_induced_subtree(ott_ids = ott_ids,
                                      label_format = "name", 
                                      file = "data/portal_tree.tre")
 my_tree
+
+
+ape::read.tree(file = "")
