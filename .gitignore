@@ -7,3 +7,5 @@ Gemfile.lock
 .jekyll-metadata
 .DS_Store
 .Rproj.user
+*.Rproj
+dev.txt
