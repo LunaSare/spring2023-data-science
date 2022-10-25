@@ -41,5 +41,9 @@ my_tree <- rotl::tol_induced_subtree(ott_ids = ott_ids,
                                      file = "data/portal_tree.tre")
 my_tree
 
+library(ape)
+tree <- ape::read.tree("https://github.com/LunaSare/data-science-research-biology/raw/main/data/portal_tree.tre")
+tree2 <- ape::read.tree(file = "data/portal-tree.tre")
 
-ape::read.tree(file = "")
+
+ape::plot.phylo(tree2)
