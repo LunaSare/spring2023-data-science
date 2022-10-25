@@ -43,7 +43,62 @@ my_tree
 
 library(ape)
 tree <- ape::read.tree("https://github.com/LunaSare/data-science-research-biology/raw/main/data/portal_tree.tre")
-tree2 <- ape::read.tree(file = "data/portal-tree.tre")
+portal_tree <- ape::read.tree(file = "data/portal-tree.tre")
 
-
+class(tree)
+typeof(tree)
+length(tree)
+names(tree)
+str(tree)
 ape::plot.phylo(tree2)
+tree
+class(tree$edge)
+
+install.packages("BiocManager")
+BiocManager::install("ggtree")
+library(ggtree)
+ggtree(portal_tree)
+tree_plot <- ggtree(portal_tree)
+head(BiocManager::available())
+small_tree <- read.tree(file = "http://ape-package.ird.fr/APER/APER2/primfive.tre")
+
+ggplot(portal_tree, aes(x, y)) + geom_tree() + theme_tree()
+
+ggtree(small_tree) + 
+  geom_tiplab(size=3, color="purple") +
+  geom_nodelab(size = 10, color = "gray")
+
+ggtree(portal_tree, layout="circular", open.angle=15)
+
+ggtree(small_tree) +
+  geom_treescale()
+
+plot_list(ggtree(portal_tree, layout="circular"), 
+          ggtree(portal_tree, layout="fan", open.angle=15), 
+          labels = c("Circular", "Fan"))
+
+node_labels <- portal_tree$node.label
+unnamed_nodes_position <- grep("mrcaott", node_labels)
+head(unnamed_nodes_position)
+node_labels[9]
+node_labels[unnamed_nodes_position]
+
+node_labels[unnamed_nodes_position] %>%
+  head()
+
+head(node_labels, 10)
+
+node_labels[unnamed_nodes_position] <- ""
+portal_tree$node.label <- node_labels
+
+ggtree(portal_tree) +
+  geom_tiplab(size=3, color="purple", fontface = "italic") +
+  geom_nodelab(size = 3, color = "blue") +
+  xlim(NA,18)
+ggsave(filename = "test.png")
+plot.phylo(small_tree)
+
+has.singles(portal_tree)
+has.singles(small_tree)
+
+portal_tree <- collapse.singles(portal_tree)

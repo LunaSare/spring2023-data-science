@@ -1,7 +1,7 @@
 ---
 layout: page
 element: reading
-title: 'Phylogenies'
+title: 'Phylogenetic trees'
 language: R
 week: "Oct 25, 27"
 ---
@@ -9,6 +9,7 @@ week: "Oct 25, 27"
 ## Day 1: Reading and plotting phylogenies
 
 - Read [The Newick tree format](https://evolution.genetics.washington.edu/phylip/newicktree.html).
+- Watch [Introduction to CRAN and Bioconductor](https://www.youtube.com/watch?v=qAvJ92qCGqE).
 
 ## Day 2: Joining phylogenies to data tables
 

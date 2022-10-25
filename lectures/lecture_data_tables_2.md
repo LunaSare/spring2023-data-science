@@ -422,7 +422,7 @@ Using the Portal data `surveys` table ([download a copy](https://ndownloader.fig
 2. Use `[]` to extract the `month` column into a vector called `surveys_month`
 3. Extract the `hindfoot_length` column into a vector and calculate the mean hindfoot length ignoring missing values.
 
-### Extacting Values from Vectors
+### Extracting Values from Vectors
 
 ```r
 letters[10] # indexing the 10th letter of the alphabet
@@ -432,6 +432,8 @@ letters[3:1] #
 letters[-1]
 letters[-1:5]
 ```
+
+### Overwriting values in vectors and data frames
 
 ### Summary
 
