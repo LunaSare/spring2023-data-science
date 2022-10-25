@@ -40,9 +40,11 @@ Day 1
 
 * [Working With Files and Directories](https://swcarpentry.github.io/shell-novice/03-create/index.html)
   - creating directories with `mkdir` and `mkdir -p`
+    - Read [10 Best Practices for Naming Files & Folders](https://medium.com/thewhybuilder/10-best-practices-for-naming-files-folders-for-you-and-your-team-653f58d5db73)
   - list nested directories with `ls -FR`
   - use the finder to see the folders you just created
   - good names for files and directories do not use blank spaces
+    - Read [File Naming Best Practices](https://guides.library.harvard.edu/c.php?g=1033502&p=7496710)
   - creating a text file with `nano`
   - using the nano text editor
   - homework challenge: creating a text file with `touch`
