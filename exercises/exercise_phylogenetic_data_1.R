@@ -10,7 +10,7 @@ species <- read.csv("https://ndownloader.figshare.com/files/3299483")
 head(species)
 
 # UNNECESSARY for this workflow: join `surveys` data with `species` names
-
+library(dplyr)
 intersect(colnames(species), colnames(surveys))
 
 combo <- dplyr::inner_join(species, surveys, by = "species_id")
@@ -28,21 +28,27 @@ species_names <- unlist(as.vector(species_names))
 paste(species$genus, species$species) -> species_names
 class(species_names) # a vector
 
-# get a phylogeny, names must be a character vector, not a data frame
+# match species names from portal data to OTT, 
+# names must be a character vector, not a data frame
 
 ott_matches <- rotl::tnrs_match_names(names = species_names) %>% 
   dplyr::filter(!is.na(unique_name)) %>% # drop names that were not matched
   dplyr::filter(flags == "")
 
+# get a vector of ott ids
 ott_ids <- ott_matches$ott_id
 
-my_tree <- rotl::tol_induced_subtree(ott_ids = ott_ids, 
-                                     label_format = "name", 
-                                     file = "data/portal_tree.tre")
-my_tree
+# get and save the OpenTree induced subtree
+portal_tree <- rotl::tol_induced_subtree(ott_ids = ott_ids, 
+                                     label_format = "name")
+portal_tree$tip.label <- gsub("_", " ", portal_tree$tip.label)
 
 library(ape)
-tree <- ape::read.tree("https://github.com/LunaSare/data-science-research-biology/raw/main/data/portal_tree.tre")
+# ape::write_tree always replaces spaces by underscores, so we need to chnage this upon reading
+ape::write.tree(portal_tree, file = "data/portal-tree.tre")
+
+# test that it worked correctly
+tree <- ape::read.tree("https://github.com/LunaSare/data-science-research-biology/raw/main/data/portal-tree.tre")
 portal_tree <- ape::read.tree(file = "data/portal-tree.tre")
 
 class(tree)
@@ -100,5 +106,16 @@ plot.phylo(small_tree)
 
 has.singles(portal_tree)
 has.singles(small_tree)
+small_tree$
+ggtree(small_tree) +
+  geom_tiplab(size=3, color="purple", fontface = "italic") +
+  xlim(NA,1.5) + 
+  geom_nodelab(aes(label = node), geom = "label")
 
 portal_tree <- collapse.singles(portal_tree)
+
+branching.times(small_tree)
+
+ggtree(small_tree) +
+  geom_nodelab(aes(label = node), size = 3, color = "blue", geom = "label")
+

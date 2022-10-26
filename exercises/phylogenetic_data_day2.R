@@ -1,0 +1,95 @@
+library(magrittr)
+library(ggtree)
+
+# download data tables from the Portal Project Teaching Database
+
+surveys <- read.csv("https://ndownloader.figshare.com/files/2292172")
+head(surveys)
+colnames(surveys)
+
+species_raw <- read.csv("https://ndownloader.figshare.com/files/3299483")
+head(species_raw)
+
+# get a vector or data frame of species names from the `species` table:
+# paste "genus" and "species" columns into a new column for searching OTT
+library(magrittr)
+library(tidyr)
+species_mutated <- species %>% 
+  mutate(search_string = tolower(paste(genus, species, sep = " ")))
+
+# save as csv, table with matching column for joining
+write.csv(x = species_mutated, file = "data/portal_species.csv", row.names = FALSE)
+
+# match species names from portal data to OTT, 
+# names must be a character vector, not a data frame
+
+ott_matches <- rotl::tnrs_match_names(names = species_mutated$search_string) 
+
+# double check that we have a matching column name:
+intersect(colnames(species_mutated), colnames(ott_matches))
+
+# join the two tables
+
+ott_data <- full_join(x = species_mutated, y = ott_matches, by = "search_string")
+
+# select relevant column for phylogenetic annotation
+# search_string has the original names
+# unique_name has the OTT matched names
+
+portal_species_updated_names <- ott_data %>% 
+  select(species_id, genus, species, taxa, search_string, unique_name)
+
+# write the joined table as csv
+write.csv(portal_species_updated_names, file = "data/portal_species_ott.csv", row.names = FALSE)
+
+# update species table with a column that has the full name
+# call that column containing the tip labels "label":
+
+taxonomy <- read.csv(file = "data/portal_species_ott.csv") 
+nrow(taxonomy) #54
+colnames(taxonomy)
+class(taxonomy)
+taxonomy$label <- taxonomy$unique_name
+taxonomy$unique_name <- NULL
+rows2keep <- match(portal_tree$tip.label, taxonomy$label)
+taxonomy_matched <- taxonomy[rows2keep,]
+# read portal tree and small tree
+
+portal_tree <- ape::read.tree("data/portal-tree.tre")
+portal_tree$tip.label <- gsub("_", " ", portal_tree$tip.label)
+small_tree <- ape::read.tree("http://ape-package.ird.fr/APER/APER2/primfive.tre")
+
+ggtree(portal_tree) 
+
+# link the data and tree for plotting using join functions
+
+tree <- full_join(portal_tree, taxonomy_matched, by= "label")
+# doing a full join does not work down the analysis flow
+
+tree <- left_join(portal_tree, taxonomy, by = "label")
+
+ggtree(tree, aes(color = taxa, fontface = "italic")) + # it freezes if there are any unmatched or NA labels in data table!!!
+  xlim(0, 20) +
+  geom_tiplab()
+  
+ggtree(portal_tree) %<+% taxonomy_matched # still gives an error
+# Error in `rename_impl()`:
+#   ! Names must be unique.
+# ✖ These names are duplicated:
+#   * "label" at locations 1 and 6.
+# Run `rlang::last_error()` to see where the error occurred.
+
+
+
+# using images instead of labels
+
+install.packages("ggimage")
+library(ggimage)
+d <- ggimage::phylopic_uid(portal_tree$tip.label)
+names(d)
+# d$body_mass <- c(52, 114, 47, 45, 58, 6)
+
+p <- ggtree(tree) %<+% d + 
+  geom_tiplab(aes(image=uid, colour=body_mass), geom="phylopic", offset=2.5) +
+  geom_tiplab(aes(label=label), offset = .2) + xlim(NA, 7) +
+  scale_color_viridis_c()
