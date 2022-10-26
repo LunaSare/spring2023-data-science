@@ -17,9 +17,6 @@ library(tidyr)
 species_mutated <- species %>% 
   mutate(search_string = tolower(paste(genus, species, sep = " ")))
 
-# save as csv, table with matching column for joining
-write.csv(x = species_mutated, file = "data/portal_species.csv", row.names = FALSE)
-
 # match species names from portal data to OTT, 
 # names must be a character vector, not a data frame
 
@@ -28,31 +25,28 @@ ott_matches <- rotl::tnrs_match_names(names = species_mutated$search_string)
 # double check that we have a matching column name:
 intersect(colnames(species_mutated), colnames(ott_matches))
 
-# join the two tables
+# join species_mutated with ott_matches:
 
 ott_data <- full_join(x = species_mutated, y = ott_matches, by = "search_string")
 
-# select relevant column for phylogenetic annotation
-# search_string has the original names
-# unique_name has the OTT matched names
+# select relevant columns for phylogenetic annotation
+  # search_string has the original names
+  # unique_name has the OTT matched names
 
-portal_species_updated_names <- ott_data %>% 
+taxonomy <- ott_data %>% 
   select(species_id, genus, species, taxa, search_string, unique_name)
-
-# write the joined table as csv
-write.csv(portal_species_updated_names, file = "data/portal_species_ott.csv", row.names = FALSE)
 
 # update species table with a column that has the full name
 # call that column containing the tip labels "label":
 
-taxonomy <- read.csv(file = "data/portal_species_ott.csv") 
-nrow(taxonomy) #54
-colnames(taxonomy)
-class(taxonomy)
 taxonomy$label <- taxonomy$unique_name
 taxonomy$unique_name <- NULL
 rows2keep <- match(portal_tree$tip.label, taxonomy$label)
 taxonomy_matched <- taxonomy[rows2keep,]
+
+# write the joined taxonomy table as csv
+write.csv(taxonomy, file = "data/portal-species-taxonomy.csv", row.names = FALSE)
+
 # read portal tree and small tree
 
 portal_tree <- ape::read.tree("data/portal-tree.tre")

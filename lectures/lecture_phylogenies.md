@@ -190,7 +190,8 @@ ggtree(portal_tree) +
 ```
 
 - If tip labels are truncated, give more plotting space with the function `xlim()`
-- `xlim()` requires two numbers, start and end of x axis. Giving an `NA` will let R choose the default xlim:
+  - `xlim()` requires two numbers, specifying the start and end of the x axis.
+  - specifying an `NA` will let R choose the default limit for the axis:
 ```r
 ... +
   xlim(NA,20)
@@ -213,19 +214,95 @@ ggtree(portal_tree) +
 
 ## Day 2: Joining phylogenies to data tables
 
-### The structure of a phylogenetic tree
+### Define a phylogenetic tree (10 min)
+
+- A phylogeny is a hypothesis of ancestor-descendant relationships
+- We represent this hypothesis graphically in the form of a tree:
 
 ![](https://slideplayer.com/slide/3369393/12/images/7/Branch+Length+%28Distance%29+~+Time.jpg)
 
-### Add node labels (20 min)
+- The main parts of a phylogenetic tree are:
+  - Tips, represent our observations; either a living species, a fossil, a sample of a virus, etc.
+  - Nodes, represent a hypothesis of common ancestry. That means, based on evidence, we think that two or more lineages share a common acestor some time in the past; or that two or more lineages descend from the same lineage and diverged from it some time in the past.
+  - Branches, represents a measure of amount of change that occured between lineages in a measure of time (commonly known as evolutionary distance).
+    - branches by themselves cannot say in wich direction the change occurred.
+  - Root, is a special type of node, as it represents the common ancestor to all lineages in the tree.
+    - The position of the root provides a direction of evolution.
 
-- The function `geom_nodelab()`
+![](https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1842/2017/05/26155615/figure-20-01-01.jpeg)
+
+> Both of these phylogenetic trees shows the relationship of the three domains of life (Bacteria, Archaea, and Eukarya), but the (a) rooted tree attempts to identify when various species diverged from a common ancestor, while the (b) unrooted tree does not.
+
+Caption from original Figure 20.1𝐴.1 of [LibreTexts](https://bio.libretexts.org/Bookshelves/Introductory_and_General_Biology/Book%3A_General_Biology_(Boundless)/20%3A_Phylogenies_and_the_History_of_Life/20.01%3A_Organizing_Life_on_Earth/20.1A%3A_Phylogenetic_Trees)
+
+<!-- ![Expansion and collapse of VEGF diversity in major clades of the animal kingdom](https://www.biorxiv.org/content/biorxiv/early/2022/09/19/2022.09.19.507521/F4.large.jpg) -->
+
+
+### Tree layouts
+
+- The argument `layout = `
+```
+ggtree(portal_tree, layout="roundrect")
+```
+
+- Exercise: Try the following layouts on your tree of Portal species:
+```
+ggtree(portal_tree, layout="slanted")
+ggtree(portal_tree, layout="ellipse")
+ggtree(portal_tree, layout="circular")
+ggtree(portal_tree, layout="fan", open.angle=120)
+ggtree(portal_tree, layout="fan", open.angle=15)
+ggtree(portal_tree, layout="equal_angle")
+ggtree(portal_tree, layout="daylight")
+```
+
+### Subplots
+<!-- https://yulab-smu.top/treedata-book/chapter12.html -->
+- package `aplot`
+```
+install.packages("aplot")
+```
+- usage of function `plot_list()`:
+```
+plot_list(plot1, plot2, tag_levels = "A")
+```
+- Example with option `tag_levels =`
+```
+plot_list(ggtree(portal_tree, layout="circular"),
+          ggtree(portal_tree, layout="fan", open.angle=15),
+          tag_levels = "A")
+```
+- Example with option `labels =`
+```
+plot_list(ggtree(portal_tree, layout="circular"),
+          ggtree(portal_tree, layout="fan", open.angle=15),
+          labels = c("Circular", "Fan"))
+```
+
+### Connecting data from tables with a phylogeny
+
+Exercise:
+- Download a data table of the species from the Portal Data base that inlcudes [taxonomy]({{ site.baseurl }}/data/portal-species-taxnomy.csv)
+- Save it in your **data-raw** folder
+- Read it into R with `read.csv()`, and assign it to an object called `taxonomy`.
+
+https://codertsv.github.io/meeting/tutorial/how-to-plot-phylogenetic-trees-in-R/
+https://yulab-smu.top/treedata-book/chapter6.html#group-taxa-vis
+
+
+### Add node labels (5 min)
+
+- The function `geom_nodelab()` adds names to nodes of a tree
 ```r
 ggtree(portal_tree) +
   geom_nodelab(size = 3, color = "blue")
 ```
+- Our `portal_tree` has more node labels than tip labels!
+- This means it has singleton nodes
+  - they are common when we do not have a full sample of lineages
+  - they represent the existence of an ancestor shared with a lineage that was not sampled
 
-### Remove singleton/redundant nodes
+### Remove singleton nodes
 -
 ```r
 has.singles(portal_tree)
@@ -325,47 +402,10 @@ ggtree(small_tree) +
 
 
 
+### Get a phylogeny for a group of species names
 
-### Tree layouts
-
-- The argument `layout = `
-```
-ggtree(portal_tree, layout="roundrect")
-```
-
-- Exercise: Try the following layouts on your tree of Portal species:
-```
-ggtree(portal_tree, layout="slanted")
-ggtree(portal_tree, layout="ellipse")
-ggtree(portal_tree, layout="circular")
-ggtree(portal_tree, layout="fan", open.angle=120)
-ggtree(portal_tree, layout="fan", open.angle=15)
-ggtree(portal_tree, layout="equal_angle")
-ggtree(portal_tree, layout="daylight")
-```
-
-### Subplots
-<!-- https://yulab-smu.top/treedata-book/chapter12.html -->
-- package `aplot`
-```
-install.packages("aplot")
-```
-- usage of function `plot_list()`:
-```
-plot_list(plot1, plot2, tag_levels = "A")
-```
-- Example with option `tag_levels =`
-```
-plot_list(ggtree(portal_tree, layout="circular"),
-          ggtree(portal_tree, layout="fan", open.angle=15),
-          tag_levels = "A")
-```
-- Example with option `labels =`
-```
-plot_list(ggtree(portal_tree, layout="circular"),
-          ggtree(portal_tree, layout="fan", open.angle=15),
-          labels = c("Circular", "Fan"))
-```
+- `install.packages("rotl")`
+- The Open Tree of Life
 
 ### Formatting tip labels
 
@@ -373,13 +413,3 @@ plot_list(ggtree(portal_tree, layout="circular"),
 ```r
 clean_labels <- gsub("_", " ", portal_tree$tip.label)
 ```
-
-### Data table of taxonomy
-
-https://codertsv.github.io/meeting/tutorial/how-to-plot-phylogenetic-trees-in-R/
-https://yulab-smu.top/treedata-book/chapter6.html#group-taxa-vis
-
-### Get a phylogeny for a group of species names
-
-- `install.packages("rotl")`
-- The Open Tree of Life
