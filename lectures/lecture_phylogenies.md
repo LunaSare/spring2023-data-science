@@ -214,9 +214,16 @@ ggtree(portal_tree) +
 
 ## Day 2: Joining phylogenies to data tables
 
+### Setup your RStudio project (5 min)
+
+- 🎗️ Structuring your files into a _project_ is a best practice for good data science!
+- Open your _RStudio project_ for the class; I called mine "**fall-2022**".
+- Go to your "**documents**" folder and open the Rmd file for this topic; it should be named "**portal-phylogenies.Rmd**".
+
 ### Define a phylogenetic tree (10 min)
 
-- A phylogeny is a hypothesis of ancestor-descendant relationships
+- What is a phylogeny?
+- A phylogeny is a hypothesis of ancestor-descendant relationships (_aka_ evolutionary relationships)/
 - We represent this hypothesis graphically in the form of a tree:
 
 ![](https://slideplayer.com/slide/3369393/12/images/7/Branch+Length+%28Distance%29+~+Time.jpg)
@@ -237,15 +244,18 @@ Caption from original Figure 20.1𝐴.1 of [LibreTexts](https://bio.libretexts.o
 
 <!-- ![Expansion and collapse of VEGF diversity in major clades of the animal kingdom](https://www.biorxiv.org/content/biorxiv/early/2022/09/19/2022.09.19.507521/F4.large.jpg) -->
 
+### Tree representation: layouts (5 min))
 
-### Tree layouts
+- The argument `layout = ` for the function `ggtree()`.
+- It has several options: 	
+one of `"rectangular"`, `"dendrogram"`, `"slanted"`, `"ellipse"`, `"roundrect"`, `"fan"`, `"circular"`, `"inward_circular"`, `"radial"`, `"equal_angle"`, `"daylight"` or `"ape".`
 
-- The argument `layout = `
 ```
-ggtree(portal_tree, layout="roundrect")
+ggtree(tr = portal_tree, layout = "roundrect")
 ```
 
-- Exercise: Try the following layouts on your tree of Portal species:
+-
+
 ```
 ggtree(portal_tree, layout="slanted")
 ggtree(portal_tree, layout="ellipse")
@@ -258,7 +268,9 @@ ggtree(portal_tree, layout="daylight")
 
 ### Subplots
 <!-- https://yulab-smu.top/treedata-book/chapter12.html -->
-- package `aplot`
+- It is possible to use facets as with `ggplot()`
+- We will use the package `aplot`
+- Install it from CRAN:
 ```
 install.packages("aplot")
 ```
@@ -279,16 +291,80 @@ plot_list(ggtree(portal_tree, layout="circular"),
           labels = c("Circular", "Fan"))
 ```
 
-### Connecting data from tables with a phylogeny
+### Exercise: Tree representation.
 
-Exercise:
-- Download a data table of the species from the Portal Data base that inlcudes [taxonomy]({{ site.baseurl }}/data/portal-species-taxnomy.csv)
-- Save it in your **data-raw** folder
-- Read it into R with `read.csv()`, and assign it to an object called `taxonomy`.
+1. Try the following layouts on your tree of Portal species:
+```
+ggtree(portal_tree, layout="ape")
+ggtree(portal_tree, layout="rectangular")
+ggtree(portal_tree, layout="roundrect")
+ggtree(portal_tree, layout="slanted")
+ggtree(portal_tree, layout="ellipse")
+ggtree(portal_tree, layout="dendogram")
+ggtree(portal_tree, layout="circular")
+ggtree(portal_tree, layout="radial")
+ggtree(portal_tree, layout="fan", open.angle = 90)
+ggtree(portal_tree, layout="equal_angle")
+ggtree(portal_tree, layout="daylight")
+ggtree(portal_tree, layout="unrooted")
+```
 
-https://codertsv.github.io/meeting/tutorial/how-to-plot-phylogenetic-trees-in-R/
-https://yulab-smu.top/treedata-book/chapter6.html#group-taxa-vis
+2. Create a plot containing a subplot for each one of them.
+3. As title for each subplot, indicate if the tree representation is rooted or unrooted.
+4. Which layout options display the same tree visualization?
 
+### Difference between phylogeny and taxonomy (5 min)
+
+- What is taxonomy?
+- The science of description, identification, nomenclature, and classification of organisms.
+
+![](https://faunafacts.com/wp-content/uploads/2022/01/taxonomy-infographic-final.jpg)
+
+> In a broad sense, taxonomy is the method used for organizing similar content into relevant groups. To put it even more broadly, taxonomy is how we classify things. From its conception, taxonomies have played an important role in biological science, where it has been largely used to organize the animal kingdom. Think of mammals vs. birds vs. reptiles and all the details in between: within the mammals group, we have cats, whales, apes, etc.; as we move further down the line, we have different species of apes such as gorilla, chimpanzees, etc. If you can visualize this as a tree of sorts, you’re already on the way to understanding what a taxonomy is at its basic level.
+
+Text from [Taxonomy management 101](https://www.poolparty.biz/learning-hub/taxonomy-management-101).
+
+### Connecting a phylogeny with data from a table
+
+- Preparation:
+1. Download a data table of the species from the Portal Data base that inlcudes [taxonomy]({{ site.baseurl }}/data/portal-species-taxnomy.csv)
+2. Save it in your **data-raw** folder.
+3. Read it into R with `read.csv()`, and assign it to an object called `taxonomy`.
+
+<!-- https://codertsv.github.io/meeting/tutorial/how-to-plot-phylogenetic-trees-in-R/ -->
+<!-- https://yulab-smu.top/treedata-book/chapter6.html#group-taxa-vis -->
+
+- To join a tree and a data table, we will use the `_join()` functions that we used previously to join tables
+- How do they work? Example with `surveys` and `species`.
+- To link a tree and a data table, the tree is the first argument and the table is second:
+```r
+full_join(portal_tree, taxonomy_matched, by= "label")
+```
+- What is the structure of the object?
+- Attention! doing a full join does not work down the analysis flow, we need a left join to drop non matches
+```r
+tree_table <- left_join(portal_tree, taxonomy, by = "label")
+```
+- We can still plot our tree normally with `ggtree(tree_table)`
+- But now we can use aesthetics to plor our tip labels with certain group by color:
+```r
+ggtree(tree, aes(color = taxa, fontface = "italic")) + # it freezes if there are any unmatched or NA labels in data table!!!
+  xlim(0, 20) +
+  geom_tiplab()
+```
+
+### Exercise: A taxonomy table for `small_tree`
+
+1. Find the appropriate scientific group labels for each genus in `small_tree` using [this tree as guide](https://en.wikipedia.org/wiki/Primate#Etymology)
+2. Create a data frame with 3 columns:
+  - a `"label"` column with the names of the tip labels of `small_tree`.
+  - a `"taxa"` column with the scientific names of the group that each genus belongs to.
+  - a `"common_name"` column with the common names of the group that each genus belongs to.
+3. Join your tree and your table
+4. Create two different tree plots using `taxa` and `common name` to color the tips of the tree.
+
+---
+---
 
 ### Add node labels (5 min)
 

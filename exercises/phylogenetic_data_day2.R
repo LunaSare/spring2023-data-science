@@ -34,15 +34,15 @@ ott_data <- full_join(x = species_mutated, y = ott_matches, by = "search_string"
   # unique_name has the OTT matched names
 
 taxonomy <- ott_data %>% 
-  select(species_id, genus, species, taxa, search_string, unique_name)
+  select(unique_name, search_string, species_id, genus, species, taxa)
 
 # update species table with a column that has the full name
 # call that column containing the tip labels "label":
 
-taxonomy$label <- taxonomy$unique_name
-taxonomy$unique_name <- NULL
-rows2keep <- match(portal_tree$tip.label, taxonomy$label)
-taxonomy_matched <- taxonomy[rows2keep,]
+colnames(taxonomy)[1] <- "label"
+colnames(taxonomy)
+#rows2keep <- match(portal_tree$tip.label, taxonomy$label)
+#taxonomy_matched <- taxonomy[rows2keep,]
 
 # write the joined taxonomy table as csv
 write.csv(taxonomy, file = "data/portal-species-taxonomy.csv", row.names = FALSE)
