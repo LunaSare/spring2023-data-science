@@ -10,15 +10,15 @@ colnames(surveys)
 species_raw <- read.csv("https://ndownloader.figshare.com/files/3299483")
 head(species_raw)
 
-# get a vector or data frame of species names from the `species` table:
-# paste "genus" and "species" columns into a new column for searching OTT
+# add a column to the `species` table that contains the search string for a TNRS match
+  # I will paste "genus" and "species" columns into a new column, separated by blank spaces and all lower case
 library(magrittr)
 library(tidyr)
 species_mutated <- species %>% 
   mutate(search_string = tolower(paste(genus, species, sep = " ")))
 
-# match species names from portal data to OTT, 
-# names must be a character vector, not a data frame
+# TNRS match species names from portal data to Open Tree Taxonomy 
+  # names must be a character vector, not a data frame
 
 ott_matches <- rotl::tnrs_match_names(names = species_mutated$search_string) 
 
@@ -30,14 +30,13 @@ intersect(colnames(species_mutated), colnames(ott_matches))
 ott_data <- full_join(x = species_mutated, y = ott_matches, by = "search_string")
 
 # select relevant columns for phylogenetic annotation
-  # search_string has the original names
-  # unique_name has the OTT matched names
+  # search_string has the original names, but we do not need it for now
+  # unique_name has the OTT matched names that are also in the tree, we will rename that to label
 
 taxonomy <- ott_data %>% 
-  select(unique_name, search_string, species_id, genus, species, taxa)
+  select(unique_name, species_id, genus, species, taxa)
 
-# update species table with a column that has the full name
-# call that column containing the tip labels "label":
+# change th ename of the unique_name column to "label":
 
 colnames(taxonomy)[1] <- "label"
 colnames(taxonomy)
@@ -50,7 +49,6 @@ write.csv(taxonomy, file = "data/portal-species-taxonomy.csv", row.names = FALSE
 # read portal tree and small tree
 
 portal_tree <- ape::read.tree("data/portal-tree.tre")
-portal_tree$tip.label <- gsub("_", " ", portal_tree$tip.label)
 small_tree <- ape::read.tree("http://ape-package.ird.fr/APER/APER2/primfive.tre")
 
 ggtree(portal_tree) 
