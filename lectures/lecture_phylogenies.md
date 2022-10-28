@@ -355,16 +355,19 @@ ggtree(tree, aes(color = taxa, fontface = "italic")) + # it freezes if there are
 
 ### Exercise: A taxonomy table for `small_tree`
 
-1. Find the appropriate scientific group labels for each genus in `small_tree` using [this tree as guide](https://en.wikipedia.org/wiki/Primate#Etymology)
+1. Find the appropriate scientific group labels for each genus in `small_tree` using [this tree as guide](https://en.wikipedia.org/wiki/Primate#Etymology).
 2. Create a data frame with 3 columns:
-  - a `"label"` column with the names of the tip labels of `small_tree`.
+  - a `"label"` column with the names of the tip labels of `small_tree`. Tip: extract the element `"tip.label"` from your phylo object to get a vector of tip labels that you can then join to the other vectors to create a data frame.
   - a `"taxa"` column with the scientific names of the group that each genus belongs to.
   - a `"common_name"` column with the common names of the group that each genus belongs to.
-3. Join your tree and your table
+Tip: use the function `c()` to create the vectors that will be columns `"taxa"` and `"common_name"`
+3. Join your tree and your table using `left_join()`.
 4. Create two different tree plots using `taxa` and `common name` to color the tips of the tree.
 
 ---
 ---
+
+## Day 3:
 
 ### Add node labels (5 min)
 

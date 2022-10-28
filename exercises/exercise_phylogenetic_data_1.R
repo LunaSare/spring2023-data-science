@@ -31,17 +31,25 @@ class(species_names) # a vector
 # match species names from portal data to OTT, 
 # names must be a character vector, not a data frame
 
-ott_matches <- rotl::tnrs_match_names(names = species_names) %>% 
+ott_matches <- rotl::tnrs_match_names(names = species_names)
+ott_filtered <- ott_matches %>% 
   dplyr::filter(!is.na(unique_name)) %>% # drop names that were not matched
   dplyr::filter(flags == "")
 
-# get a vector of ott ids
-ott_ids <- ott_matches$ott_id
-
+# get a vector of ott ids to use in the next step
+ott_ids <- ott_filtered$ott_id
+length(ott_ids)
 # get and save the OpenTree induced subtree
 portal_tree <- rotl::tol_induced_subtree(ott_ids = ott_ids, 
                                      label_format = "name")
-portal_tree$tip.label <- gsub("_", " ", portal_tree$tip.label)
+
+# replace OTT tip labels by original search string from the species portal data CSV:
+
+mm <- match(portal_tree$tip.label, 
+      gsub(" ", "_", ott_filtered$unique_name))
+original_species_names <- stringr::str_to_sentence(ott_filtered$search_string[mm])
+data.frame(portal_tree$tip.label, original_species_names)
+portal_tree$tip.label <- gsub(" ", "_", original_species_names)
 
 library(ape)
 # ape::write_tree always replaces spaces by underscores, so we need to chnage this upon reading
