@@ -153,34 +153,34 @@ ggtree(portal_tree) +
   geom_treescale()
 ```
 
-### Exercise 1 (10 min)
+#### Exercise 1: A scale for `small_tree` (10 min)
 
 - Plot the small tree of five species of primates and include a scale.
-- What is the difference in terms of data structure between the two trees?
 ```r
 ggtree(small_tree) +
   geom_treescale()
 ```
-- Trees differ in number of tips (43 vs 5)
-```r
-length(portal_tree$tip.label)
-length(small_tree$tip.label)
-```
-- Thay also differ in that `small_tree` has no node labels, but it has an `"edge.length"` element that `portal_tree` does not have.
-- This is where branch length data is stored
+- What is the difference in terms of data structure between the two trees?
+  - Trees differ in number of tips (43 vs 5)
+  ```r
+  length(portal_tree$tip.label)
+  length(small_tree$tip.label)
+  ```
+  - They also differ in that `small_tree` has no node labels, but it has an `"edge.length"` element that `portal_tree` does not have.
+  - This is where branch length data is stored. Access it with `branching.times(small_tree)`.
 
 A mouse lemur (Primates)             |  A kangaroo rat (Rodentia)
 :-----------------------------------:|:-------------------------:
 ![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShfK5NkjsPH7HwiF7KLNm-auSVcmdL73qabg&usqp=CAU) | ![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw0pkznjKJc3xnIOEN4JtepLLJkskifCnjPA&usqp=CAU)
 
-### Branch lengths (5 min)
+### Access Branch lengths (5 min)
 
 - data in `"edge.length"` is used to plot the timescale in the `small_tree` visualization
 - how is the timescale calculated in trees with no `"edge.length"`?
-- Get branching times with `branching.times(small_tree)`
+- Get branching times with `branching.times()`
 
 
-### Add tip labels (5 min)
+### Plot tip labels (5 min)
 
 - Use the function `geom_tiplab()`
 - the `fontface = ` argument allows plotting species names in italics
@@ -197,7 +197,7 @@ ggtree(portal_tree) +
   xlim(NA,20)
 ```
 
-### Exercise 2 (5 min)
+#### Exercise 2: Tip labels for `small_tree` (5 min)
 
 - Plot the small tree of five species of primates; include a scale, and tip labels.
 - Use the function `branching_times()` to set up an appropriate limit for the x axis, so tips are fully displayed (not truncated).
@@ -291,7 +291,7 @@ plot_list(ggtree(portal_tree, layout="circular"),
           labels = c("Circular", "Fan"))
 ```
 
-### Exercise: Tree representation.
+#### Exercise: Tree representation.
 
 1. Try the following layouts on your tree of Portal species:
 ```
@@ -353,7 +353,7 @@ ggtree(tree, aes(color = taxa, fontface = "italic")) + # it freezes if there are
   geom_tiplab()
 ```
 
-### Exercise: A taxonomy table for `small_tree`
+#### Exercise: A taxonomy table for `small_tree`
 
 1. Find the appropriate scientific group labels for each genus in `small_tree` using [this tree as guide](https://en.wikipedia.org/wiki/Primate#Etymology).
 2. Create a data frame with 3 columns:
@@ -369,20 +369,96 @@ Tip: use the function `c()` to create the vectors that will be columns `"taxa"` 
 
 ## Day 3:
 
-### Add node labels (5 min)
+### Review: Creating data Tables
 
-- The function `geom_nodelab()` adds names to nodes of a tree
+- Questions form exercise?
+
+### Mapping Data to The tree Structure
+
+<!-- From https://yulab-smu.top/treedata-book/chapter7.html#attach-operator -->
+
+- Load and install the necessary packages:
 ```r
-ggtree(portal_tree) +
+library(ggimage)
+library(ggtree)
+install.packages("TDbook")
+library(TDbook)
+library(tidytree)
+```
+
+- use function `data()` to load a tree and data table data from package `TDbook`:
+  - `tree_boots`,
+  - `df_tip_data`,
+  - `df_inode_data`
+```r
+data("tree_boots", "df_tip_data", "df_inode_data")
+```
+
+- Change the `"newick_label"` column name of the data tables to `"table"`:
+```r
+colnames(df_tip_data)[1] <- "label"
+```
+
+- Use `left_join()` to join data table and tree
+```r
+tree_joined <- left_join(tree_boots, df_tip_data, by = "label") # only works with by = "label", not with "Newick_label"
+tree_joined
+```
+
+- add data on weight to tips with `geom_tippoint()`
+```r
+ggtree(tree_joined) +
+  geom_tippoint(aes(shape = "circle",
+                    color = trophic_habit,
+                    size = mass_in_kg))
+```
+
+#### Exercise: Mapping weight data from surveys CSV table to the portal tree
+  1. Get the average weight and hindfoot length per species.
+  2. Create a new data frame that contains the taxonomy data plus the averaged data per species that you got on last question.
+  3. Create two plots with data on the tips, one with the average weight and the other with average hindfoot length. Make sure to also add tip labels, formatted in italics.
+
+### Adding node labels from a data table
+
+- We will use `df_inode_data`:
+
+```r
+colnames(df_inode_data)[1] <- "label"
+tj2 <- left_join(tree_joined, df_inode_data, by = "label")
+tj2
+```
+
+```r
+ggtree(tj2) +
+  geom_label(aes(label = vernacularName.y, fill = vernacularName.y))
+```
+
+#### Exercise: Adding node names to the portal tree
+
+  * Add node labels to your two tree plots with average weight and hindfoot length. Use the column `"taxa"` both as label and fill color.
+
+### Adding node labels from a tree
+
+- The function `geom_nodelab()` adds names to nodes of a tree that are stored in the `$node.label` element
+```r
+ggtree(tree_boots) +
   geom_nodelab(size = 3, color = "blue")
 ```
-- Our `portal_tree` has more node labels than tip labels!
-- This means it has singleton nodes
-  - they are common when we do not have a full sample of lineages
-  - they represent the existence of an ancestor shared with a lineage that was not sampled
+
+
+- Exercise: Add node labels to the portal tree using data from the `$node.label` element.
+  <!-- ```r
+  ggtree(portal_tree) +
+    geom_nodelab(size = 3, color = "blue")
+    ```
+    - Our `portal_tree` has more node labels than tip labels!
+    - This means it has singleton nodes
+    - they are common when we do not have a full sample of lineages
+    - they represent the existence of an ancestor shared with a lineage that was not sampled -->
 
 ### Remove singleton nodes
--
+
+- function `ape::has.singles()` and `ape::collapse.singles()`
 ```r
 has.singles(portal_tree)
 
@@ -394,101 +470,4 @@ has.singles(portal_tree)
 
 ggtree(portal_tree) +
   geom_nodelab(size = 3, color = "blue")
-```
-
-### Customize node labels
-- We can change labels (and any value, really) on a `"phylo"` object in the same way we access vectors and data frames
-- Clean node labels from the `portal_tree`
-  1. Extract the vector of node labels
-  ```
-  node_labels <- portal_tree$node.label
-  ```
-  2. Use the function `grep()` to get the numeric index of unnamed nodes (nodes that start with `"mrcaott"`)
-  ```
-  unnamed_nodes_position <- grep("mrcaott", node_labels)
-  ```
-  3. Check that it worked:
-  ```
-  node_labels[unnamed_nodes_position] %>%
-    head()
-  unnamed_nodes_position %>%
-    head()
-  node_labels[7]
-  node_labels[9]
-  node_labels[11]
-  node_labels[12]
-  node_labels[13]
-  node_labels[14]
-  ```
-  4. Overwrite unnamed nodes with an empty string,
-    - first one by one
-    ```
-    head(node_labels, n = 10)
-    node_labels[7] <- ""
-    head(node_labels, n = 10)
-    node_labels[9] <- ""
-    head(node_labels, n = 10)
-    ```
-    - overwrite all at once:
-    ```
-    node_labels[unnamed_nodes_position] <- ""
-    node_labels
-    ```
-  5. Overwrite the `"node.label"` element of `portal_tree`
-  ```
-  portal_tree$node.label <- node_labels
-  portal_tree$node.label
-  ```
-
-
-### Exercise 3: A phylogeny for a sample of amniotes
-
-1. Write the necessary code to modify at least **three** of the node labels from `portal_tree` that are not empty, replacing them by their common names.
-2. Plot the `portal_tree` with node labels using the common names. Include tip labels in italics.
-3. Use the function `ggsave()` to save the plot in PNG format into the **figures** folder.
-
-<!-- https://educalingo.com/en/dic-fr/amniote -->
-
-![](https://static.educalingo.com/img/fr/800/amniota.jpg)
-
-### Add node labels
-
-- We already know that `small_tree` has no node labels, but we can verify:
-```r
-small_tree$node.label
-```
-- To use the position of a node as node label:
-```r
-ggtree(small_tree) +
-  geom_tiplab(size=3, color="purple", fontface = "italic") +
-  xlim(NA,1.5) +
-  geom_nodelab(aes(label = node), geom = "label")
-```
-
-
-### Exercise 4: Positioning node labels
-
-1. The phylo object `small_tree` has no node labels:
-  - Find the appropriate node labels using [this tree as guide](https://en.wikipedia.org/wiki/Primate#Etymology)
-  - Create a character vector with the node labels, pay attention to the order
-  - Add the vector of node labels to `small_tree`, make sure it is names `"node.label"`
-2. Plot `small_tree` with node labels using scientific names. Include tip labels in italics.
-3. Use the function `ggsave()` to save the plot in PNG format into the **figures** folder.
-
-<!-- https://educalingo.com/en/dic-fr/amniote -->
-
-![](https://static.educalingo.com/img/fr/800/amniota.jpg)
-
-
-
-### Get a phylogeny for a group of species names
-
-- `install.packages("rotl")`
-- The Open Tree of Life
-
-### Formatting tip labels
-
-- If you want to replace the underscore in the name by a white space:
-```r
-clean_labels <- gsub("_", " ", portal_tree$tip.label)
 ```
