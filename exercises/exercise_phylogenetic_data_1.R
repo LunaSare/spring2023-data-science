@@ -43,7 +43,8 @@ length(ott_ids)
 portal_tree <- rotl::tol_induced_subtree(ott_ids = ott_ids, 
                                      label_format = "name")
 
-# replace OTT tip labels by original search string from the species portal data CSV:
+# replace OTT tip labels by original search string from
+# species portal data CSV:
 
 mm <- match(portal_tree$tip.label, 
       gsub(" ", "_", ott_filtered$unique_name))
@@ -57,14 +58,16 @@ ape::write.tree(portal_tree, file = "data/portal-tree.tre")
 
 # test that it worked correctly
 tree <- ape::read.tree("https://github.com/LunaSare/data-science-research-biology/raw/main/data/portal-tree.tre")
-portal_tree <- ape::read.tree(file = "data/portal-tree.tre")
+tree2 <- ape::read.tree(file = "data/portal-tree.tre")
+
+data.frame(tree$tip.label, original_species_names)
 
 class(tree)
 typeof(tree)
 length(tree)
 names(tree)
 str(tree)
-ape::plot.phylo(tree2)
+ape::plot.phylo(tree, cex = 0.5)
 tree
 class(tree$edge)
 
