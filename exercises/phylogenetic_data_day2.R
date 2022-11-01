@@ -1,5 +1,8 @@
 library(magrittr)
 library(ggtree)
+library(tidyr)
+library(dplyr)
+library(tidytree)
 
 # download data tables from the Portal Project Teaching Database
 
@@ -15,7 +18,7 @@ head(species_raw)
 library(magrittr)
 library(tidyr)
 species_mutated <- species %>% 
-  mutate(search_string = tolower(paste(genus, species, sep = " ")))
+  dplyr::mutate(search_string = tolower(paste(genus, species, sep = " ")))
 
 # TNRS match species names from portal data to Open Tree Taxonomy 
   # names must be a character vector, not a data frame
@@ -78,18 +81,14 @@ tree <- full_join(portal_tree, taxonomy, by= "label")
 # doing a full join does not work down the analysis flow
 
 tree <- left_join(portal_tree, taxonomy, by = "label")
+tree <- tidytree:::left_join.phylo(portal_tree, taxonomy, by = "label")
 tree
 ggtree(tree, aes(color = taxa, fontface = "italic")) + # it freezes if there are any unmatched or NA labels in data table!!!
   xlim(0, 20) +
   geom_tiplab()
   
-ggtree(portal_tree) %<+% taxonomy_matched # still gives an error
-# Error in `rename_impl()`:
-#   ! Names must be unique.
-# ✖ These names are duplicated:
-#   * "label" at locations 1 and 6.
-# Run `rlang::last_error()` to see where the error occurred.
-
+p <- ggtree(portal_tree) %<+% taxonomy
+p
 
 
 # using images instead of labels
