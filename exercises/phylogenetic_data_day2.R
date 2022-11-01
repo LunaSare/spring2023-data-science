@@ -29,19 +29,37 @@ intersect(colnames(species_mutated), colnames(ott_matches))
 
 ott_data <- full_join(x = species_mutated, y = ott_matches, by = "search_string")
 
+colnames(ott_data)
 # select relevant columns for phylogenetic annotation
   # search_string has the original names, but we do not need it for now
   # unique_name has the OTT matched names that are also in the tree, we will rename that to label
 
 taxonomy <- ott_data %>% 
-  select(unique_name, species_id, genus, species, taxa)
+  select(search_string, 
+         species_id, 
+         genus, 
+         species, 
+         taxa, 
+         unique_name, 
+         approximate_match, 
+         ott_id,
+         is_synonym,
+         flags)
 
-# change th ename of the unique_name column to "label":
+# change the name of the unique_name column to "label":
 
-colnames(taxonomy)[1] <- "label"
 colnames(taxonomy)
-#rows2keep <- match(portal_tree$tip.label, taxonomy$label)
-#taxonomy_matched <- taxonomy[rows2keep,]
+colnames(taxonomy)[1] <- "label"
+colnames(taxonomy)[6] <- "ott_name"
+colnames(taxonomy)
+
+# match label column to tip labels in tree:
+# make first letter uppercase
+
+taxonomy$label <- stringr::str_to_sentence(taxonomy$label)
+
+# then, replace blabk by underscore:
+taxonomy$label <- gsub(" ", "_", taxonomy$label)
 
 # write the joined taxonomy table as csv
 write.csv(taxonomy, file = "data/portal-species-taxonomy.csv", row.names = FALSE)
@@ -54,12 +72,13 @@ small_tree <- ape::read.tree("http://ape-package.ird.fr/APER/APER2/primfive.tre"
 ggtree(portal_tree) 
 
 # link the data and tree for plotting using join functions
+library(ggtree)
 
-tree <- full_join(portal_tree, taxonomy_matched, by= "label")
+tree <- full_join(portal_tree, taxonomy, by= "label")
 # doing a full join does not work down the analysis flow
 
 tree <- left_join(portal_tree, taxonomy, by = "label")
-
+tree
 ggtree(tree, aes(color = taxa, fontface = "italic")) + # it freezes if there are any unmatched or NA labels in data table!!!
   xlim(0, 20) +
   geom_tiplab()
