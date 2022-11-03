@@ -11,6 +11,31 @@ PGLS
 
 http://www.phytools.org/Cordoba2017/ex/4/PGLS.html
 
+```r
+ggtree(portal_tree) +
+  geom_nodelab(size = 3, color = "blue")
+  ```
+  - Our `portal_tree` has more node labels than tip labels!
+  - This means it has singleton nodes
+  - they are common when we do not have a full sample of lineages
+  - they represent the existence of an ancestor shared with a lineage that was not sampled
+
+### Remove singleton nodes
+
+- function `ape::has.singles()` and `ape::collapse.singles()`
+```r
+has.singles(portal_tree)
+
+has.singles(small_tree)
+
+portal_tree <- collapse.singles(portal_tree)
+
+has.singles(portal_tree)
+
+ggtree(portal_tree) +
+  geom_nodelab(size = 3, color = "blue")
+```
+
 ### Customize node labels
 - We can change labels (and any value, really) on a `"phylo"` object in the same way we access vectors and data frames
 - Clean node labels from the `portal_tree`

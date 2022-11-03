@@ -39,6 +39,7 @@ p <- ggtree(tj2) +
 
 p
 
+colnames(df_inode_data)
 ####
 
 tree_boots$node.label

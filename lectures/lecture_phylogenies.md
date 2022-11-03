@@ -438,64 +438,96 @@ ggtree(tree_joined) +
 
 ## Day 4
 
-### Setup your RStudio project (5 min)
+### Review: Joining trees and data
+
+- Questions from homework?
+
+### Setup your RStudio project
 
 - 🎗️ Structuring your files into a _project_ is a best practice for good data science!
 - Open your _RStudio project_ for the class; I called mine "**fall-2022**".
-- Go to your "**documents**" folder and open the Rmd file for this topic; it should be named "**portal-phylogenies.Rmd**".
+- Go to your "**documents**" folder and open a new Rmd file for this topic; it should be named "**portal-phylogenies-day4.Rmd**".
+- Load and the necessary packages:
+```r
+library(ggimage)
+library(ggtree)
+library(TDbook)
+library(tidytree)
+```
+- Load the data:
+```r
+data("tree_boots", "df_tip_data", "df_inode_data")
+```
+#### Exercise: Explore the data
+  1. What is the class of `tree_boots`? How many elements does it have?
+  2. What is the class of `df_tip_data`? How many rows does it have? Compare this to the length of tip labels in `tree_boots`
+  3. What is the class of `df_inode_data`? How many rows does it have? Compare this to the length of node labels in `tree_boots`
+  4. Are the column names in the two data frame objects the same or different?
 
-### Review:
+### Access elements of a `"treedata"` object
+
+- Join the `tree_boots` tree with `df_tip_data` and create an object called `tree_joined`
+- Explore the object
+  - Type its names and hit return
+  - Use the following functions
+  ```r
+  str(tree_joined)
+  class(tree_joined)
+  length(tree_joined)
+  ```
+- Use the `@` to access firt elements, then `$`. Look at the names of the element ExtraInfo. These are the column names of the data table.
 
 ### Plot node labels from a data table
 
-- We will use `df_inode_data`:
-
+- Introduction:
+  - So far we have plotted things on tips of the tree.
+  - To plot node data, we need to join the tree and the data table with node data.
+    - The `df_inode_data` object has data about the nodes of the tree.
+- To join a data table and a tree, we must check the column names of the data table.
+  The column name that contains the tip labels mus be named `"label"`:
+  ```r
+  colnames(df_inode_data)
+  colnames(df_inode_data)[1] <- "label"
+  ```
+- We can join this data table in two ways:
+  - We can join this data table to the tree directly (`portal_tree`)
+  - Or, in the same way we join multiple tables, we can join a new table to our treedata object:
+  ```r
+  tree_data <- left_join(tree_joined, df_inode_data, by = "label")
+  tree_data
+  ```
+- Explore the names of `@ExtraInfo`
+- Pay attention to the names of the columns from `df_inode_data`.
+- We will use these names to add node labels to the tree.
 ```r
-colnames(df_inode_data)[1] <- "label"
-tj2 <- left_join(tree_joined, df_inode_data, by = "label")
-tj2
-```
-
-```r
-ggtree(tj2) +
+ggtree(tree_data) +
   geom_label(aes(label = vernacularName.y, fill = vernacularName.y))
 ```
 
-#### Exercise: Adding node names to the portal tree
+#### Exercise: Node labels for the Portal tree
 
-  * Add node labels to your two tree plots with average weight and hindfoot length. Use the column `"taxa"` both as label and fill color.
+  * Add node labels to your two tree plots with average weight and hindfoot length.
+  Use the column `"taxa"` both as label and fill color.
 
 ### Plot node labels from a tree
 
-- The function `geom_nodelab()` adds names to nodes of a tree that are stored in the `$node.label` element
+- The function `geom_nodelab()` adds names to nodes of a tree that are stored in the `$node.label` element:
 ```r
 ggtree(tree_boots) +
   geom_nodelab(size = 3, color = "blue")
 ```
 
+#### Exercise: More node labels for the Portal tree
 
-#### Exercise: Add node labels to the portal tree using data from the `$node.label` element.
-  <!-- ```r
-  ggtree(portal_tree) +
-    geom_nodelab(size = 3, color = "blue")
-    ```
-    - Our `portal_tree` has more node labels than tip labels!
-    - This means it has singleton nodes
-    - they are common when we do not have a full sample of lineages
-    - they represent the existence of an ancestor shared with a lineage that was not sampled -->
+  * Add node labels to the portal tree using data from the `$node.label` element.
 
-### Remove singleton nodes
+### Getting trees from an Open data base
 
-- function `ape::has.singles()` and `ape::collapse.singles()`
-```r
-has.singles(portal_tree)
-
-has.singles(small_tree)
-
-portal_tree <- collapse.singles(portal_tree)
-
-has.singles(portal_tree)
-
-ggtree(portal_tree) +
-  geom_nodelab(size = 3, color = "blue")
-```
+- How do we construct phylogenetic trees?
+- How long does it take?
+- Open Science and Data Science
+- The Open Tree of Life project
+- the `rotl` package.
+- the Open Tree of Life Taxonomy
+- matching names to OTT
+- Getting a tree from Open Tree using R
