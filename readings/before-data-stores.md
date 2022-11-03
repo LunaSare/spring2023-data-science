@@ -1,9 +1,9 @@
 ---
 layout: page
 element: reading
-title: 'Storing cleaned data publicly'
+title: 'Public Data Stores'
 language: R
-week: "Nov 1, 3"
+week: "Nov 22, 24"
 ---
 
 ## Metadata

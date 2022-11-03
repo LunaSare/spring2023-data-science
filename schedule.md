@@ -10,17 +10,14 @@ assignments: ['The Data Life Cycle',
 "Data wrangling",
 'Joining data',
 "Phylogenetic trees",
-'Creating functions',
-"Making choices",
-'The `apply` family of functions',
-'Loops',
-'Data cleaning',
-'Finding Data',
-'Storing data publicly',
+'Reusing code - Creating functions',
+'Reusing code - Loops',
+'Reusing code - Apply functions',
+'Public Data Stores',
 'Human contexts and ethics',
-'Communicating data science',
-'Why data science?',
-'Projects week']
+'Projects week',
+'Projects week - Optional',
+'Data cleaning']
 ---
 
 Consult the [grading checklist]({{ site.baseurl }}{% link syllabus.md %}#project) when turning assignments.
@@ -33,4 +30,12 @@ Consult the [grading checklist]({{ site.baseurl }}{% link syllabus.md %}#project
 - Update the `assignments:` list with `title:` from `assignments/` files.
 - Add 'Template' to `assignments:` to view the course template from `docs/`.
 - The remaining content should be left AS IS.
+-->
+
+<!--
+Notes from fall 2022:
+Public data stores encompasses:
+'Finding Data', and 'Storing data publicly',
+'Communicating data science' and 'Why data science?' is part of the 'Projects week'
+'Data cleaning' goes on extras
 -->

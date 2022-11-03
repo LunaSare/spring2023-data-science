@@ -153,6 +153,16 @@ ggtree(portal_tree) +
   geom_treescale()
 ```
 
+- how is the timescale calculated?
+
+### Access Branch lengths (5 min)
+
+- data in `"edge.length"` is used to plot the timescale in the `small_tree` visualization
+- how is the timescale calculated in trees with no `"edge.length"`?
+- Get branching times with `branching.times()`
+
+
+
 #### Exercise 1: A scale for `small_tree` (10 min)
 
 - Plot the small tree of five species of primates and include a scale.
@@ -172,12 +182,6 @@ ggtree(small_tree) +
 A mouse lemur (Primates)             |  A kangaroo rat (Rodentia)
 :-----------------------------------:|:-------------------------:
 ![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShfK5NkjsPH7HwiF7KLNm-auSVcmdL73qabg&usqp=CAU) | ![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw0pkznjKJc3xnIOEN4JtepLLJkskifCnjPA&usqp=CAU)
-
-### Access Branch lengths (5 min)
-
-- data in `"edge.length"` is used to plot the timescale in the `small_tree` visualization
-- how is the timescale calculated in trees with no `"edge.length"`?
-- Get branching times with `branching.times()`
 
 
 ### Plot tip labels (5 min)
@@ -369,11 +373,19 @@ Tip: use the function `c()` to create the vectors that will be columns `"taxa"` 
 
 ## Day 3:
 
-### Review: Creating data Tables
+### Setup your RStudio project (5 min)
 
-- Questions form exercise?
+- 🎗️ Structuring your files into a _project_ is a best practice for good data science!
+- Open your _RStudio project_ for the class; I called mine "**fall-2022**".
+- Go to your "**documents**" folder and open the Rmd file for this topic; it should be named "**portal-phylogenies.Rmd**".
 
-### Mapping Data to The tree Structure
+### Review: Creating data Tables (40 min)
+
+- Questions from homework?
+- Updating the portal tree and taxonomy table
+- Joining tree and data
+
+### Intro to the data set (10 min)
 
 <!-- From https://yulab-smu.top/treedata-book/chapter7.html#attach-operator -->
 
@@ -394,6 +406,8 @@ library(tidytree)
 data("tree_boots", "df_tip_data", "df_inode_data")
 ```
 
+### Plot Data to tree tips (10 min)
+
 - Change the `"newick_label"` column name of the data tables to `"table"`:
 ```r
 colnames(df_tip_data)[1] <- "label"
@@ -413,12 +427,26 @@ ggtree(tree_joined) +
                     size = mass_in_kg))
 ```
 
-#### Exercise: Mapping weight data from surveys CSV table to the portal tree
+#### Exercise: Mapping weight data from surveys CSV table to the portal tree (10 min)
   1. Get the average weight and hindfoot length per species.
   2. Create a new data frame that contains the taxonomy data plus the averaged data per species that you got on last question.
   3. Create two plots with data on the tips, one with the average weight and the other with average hindfoot length. Make sure to also add tip labels, formatted in italics.
 
-### Adding node labels from a data table
+---
+---
+---
+
+## Day 4
+
+### Setup your RStudio project (5 min)
+
+- 🎗️ Structuring your files into a _project_ is a best practice for good data science!
+- Open your _RStudio project_ for the class; I called mine "**fall-2022**".
+- Go to your "**documents**" folder and open the Rmd file for this topic; it should be named "**portal-phylogenies.Rmd**".
+
+### Review:
+
+### Plot node labels from a data table
 
 - We will use `df_inode_data`:
 
@@ -437,7 +465,7 @@ ggtree(tj2) +
 
   * Add node labels to your two tree plots with average weight and hindfoot length. Use the column `"taxa"` both as label and fill color.
 
-### Adding node labels from a tree
+### Plot node labels from a tree
 
 - The function `geom_nodelab()` adds names to nodes of a tree that are stored in the `$node.label` element
 ```r
@@ -446,7 +474,7 @@ ggtree(tree_boots) +
 ```
 
 
-- Exercise: Add node labels to the portal tree using data from the `$node.label` element.
+#### Exercise: Add node labels to the portal tree using data from the `$node.label` element.
   <!-- ```r
   ggtree(portal_tree) +
     geom_nodelab(size = 3, color = "blue")
