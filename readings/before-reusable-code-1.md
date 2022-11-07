@@ -6,7 +6,12 @@ language: R
 week: "Nov  8, 10"
 ---
 
+## Instructions
 
+- Create anew Rmd file, save it in your document folder with the name `"functions-prep.Rmd"`.
+- After each video, do the corresponding exercise and write the answer in an R chunk on your Rmd file.
+- Knit to pdf.
+- Git add, commit and push both files (Rmd and PDF).
 
 ## Day 1: Functions in R
 
