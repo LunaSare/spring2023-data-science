@@ -1,24 +1,15 @@
 ---
 layout: exercise
 topic: Functions
-title: Use and Modify
+title: Use and Modify Functions
 language: R
 ---
 
-The length of an organism is typically strongly correlated with its body
-mass. This is useful because it allows us to estimate the mass of an organism
-even if we only know its length. This relationship generally takes the form:
-
-> mass = a * length^b
-
-Where the parameters `a` and `b` vary among groups. This allometric approach is
-regularly used to estimate the mass of dinosaurs since we cannot weigh something
-that is only preserved as bones.
 
 The following function estimates the mass of an organism in kg based on its
-length in meters for a particular set of parameter values, those for *Theropoda*
-(where `a` has been estimated as `0.73` and `b` has been estimated as `3.63`;
-[Seebacher 2001](http://www.jstor.org/stable/4524171)).
+length in meters for a particular set of parameter values `a` and `b`, those for *Theropoda*
+dinosaurs, where `a` has been estimated as `0.73` and `b` has been estimated as `3.63`
+([Seebacher 2001](http://www.jstor.org/stable/4524171)).
 
 ```r
 get_mass_from_length_theropoda <- function(length){

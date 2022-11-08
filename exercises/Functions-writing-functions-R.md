@@ -5,7 +5,7 @@ title: Writing Functions
 language: R
 ---
 
-Copy the following function into your assignment and replace the `________` with variables names for the input and output.
+1. Copy the following function into and R chunk of your Rmd file and replace the spaces `________` with variables names for the input and output.
 
 ```r
 convert_pounds_to_grams <- function(________) {
@@ -14,4 +14,4 @@ convert_pounds_to_grams <- function(________) {
 }
 ```
 
-Use the function to calculate how many grams there are in 3.75 pounds.
+2. Use the function to calculate how many grams there are in 3.75 pounds.
