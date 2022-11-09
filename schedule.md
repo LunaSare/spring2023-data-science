@@ -22,7 +22,7 @@ assignments: ['The Data Life Cycle',
 
 Consult the [grading checklist]({{ site.baseurl }}{% link syllabus.md %}#project) when turning assignments.
 
-{% include assignments.html %}
+{% include schedule-table.html %}
 
 
 
