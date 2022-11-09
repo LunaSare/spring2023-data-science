@@ -52,12 +52,12 @@ symbol: <i class="fa fa-book fa-lg"></i>
 ---
 ---
 
-## Day 2: Making choices in R (42 min)
+## Day 2: Making choices inside R functions (42 min)
 
 > **Instructions**
 >
-> - Keep on working on the Rmd file `"functions-prep.Rmd"`.
-> - Write a title for this new section (using a first level header,  indicated with one hashtag followed by a blank space `# `)
+> - Create a new Rmd file, save it in your document folder with the name `"choices-prep.Rmd"`.
+> - Write a title for this section (using a first level header, indicated with one hashtag followed by a blank space `# `)
 > - After (or during) watching each video, write the code that is being explained by the virtual instructor in your Rmd file.
 >   - Write a subtitle before the code section of each video (as a second level header indicated with two hastags followed by a blank space `## `).
 >   - Write each piece of code explained in the video in its own R chunk.

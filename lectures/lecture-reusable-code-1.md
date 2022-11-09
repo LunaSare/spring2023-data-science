@@ -63,8 +63,11 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 - In this lesson we will use the concept of "mass" to learn how to create functions.
 - Mass describes the density and type of atoms in any given object.
 - The SI unit of mass is the kilogram (kg), though mass can also be measured in grams (gr), ounces (oz), and pounds (lb).
-- The mass of an object will never change, but the weight of an item can change based on its location.
-- Weight is the measure of the force of gravity on an object:
+- Reminder - Mass is not the same as weight:
+  - Weight is the measure of the force of gravity on an object
+  - It is hence a relative measure
+  - Mass is an absolute measure
+  - The mass of an object will never change, but the weight of an item can change based on its location.
 
 ![https://spaceplace.nasa.gov/planets-weight/en/](https://spaceplace.nasa.gov/review/planets-weight/planets-weight3.en.png)
 
@@ -87,25 +90,22 @@ Pounds to kilograms   |  Kilograms to pounds
 
 ---
 
-### Using and modifying functions (10 min)
+### Using and modifying functions (20 min)
 
 - The length of an organism is strongly correlated with its body
 mass.
-- Scientists use this correlation to estimate the mass of an organism
-when we only know its length.
 - This [allometric](https://www.nature.com/scitable/knowledge/library/allometry-the-study-of-biological-scaling-13228439/#:~:text=Allometry%2C%20in%20its%20broadest%20sense,as%20both%20grow%20during%20development.) relationship takes the form of _mass equals to parameter "a" multiplied by "length" elevated to the power of parameter "b"_:
 
 > mass = a * length^b
 
 - Parameters `a` and `b` vary among biological groups.
-- This formula is used to estimate the mass of organisms for which we only have length measurememts. For example:
+- Scientists use this formula to estimate the mass of organisms for which we only have length measurememts. For example:
   - trees, we cannot weigh them unless we unroot them,
   - extinct creatures such as dinosaurs, as we cannot get the living weight of something that is fossilized.
 
 - The following function uses the formula `mass = a * length^b` to estimate the mass of an organisms belonging to *Theropoda*
-dinosaurs in kg, based on its
-  length in meters and the set of parameter values `a` and `b` that have been estimated for that biological group, `a = 0.73` and `b = 3.63`, by [Seebacher (2001)](http://www.jstor.org/stable/4524171)).
-  - Take 3 min to type the function in:
+dinosaurs in kg, based on its length in meters and the set of parameter values `a` and `b` that have been estimated for that biological group, `a = 0.73` and `b = 3.63`, by [Seebacher (2001)](http://www.jstor.org/stable/4524171).
+  - Take 3 min to type the following function in:
   ```r
   get_mass_from_length_theropoda <- function(length){
       mass <- 0.73 * length ^ 3.63
@@ -119,32 +119,128 @@ dinosaurs in kg, based on its
 
 ---
 
-### Defining argument values in a Function (10 min)
+### Defining argument values in a Function (20 min)
 
 - In the previous exercise, you created the function `get_mass_from_length()` which is a more flexible form of `get_mass_from_length_theropoda()`, by allowing `a` and `b` to be passed as arguments.
 - Still, for some organisms we don't have specific values of `a` and `b`. In this case, we have to use values of `a` and `b` that can be applied generally.
-- We can set general values as default values for some or all arguments in any function that we are creating.
+- We can give this general values as _default values_ for some or all arguments in any function that we are creating.
 
-#### Exercise 3: [Setting default values for arguments]({{ site.baseurl }}/exercises/Functions-default-arguments-R)
+#### Exercise 3: [The general form of a formula]({{ site.baseurl }}/exercises/Functions-default-arguments-R)
 
 <!-- https://datacarpentry.org/semester-biology/exercises/Functions-default-arguments-R -->
 
 ---
 
-### Combining functions (10 min)
+### Combining functions (20 min)
 
 - The metric system is the standard approach used in scientific practice.
 - To communicate scientific results to a broader audience, it might be more impactful to use different units (at least in some countries).
 
-#### Exercise 4: [Converting between units]({{ site.baseurl }}/exercises/Functions-combining-functions-R)
+#### Exercise 4: [Facilitating impactful science]({{ site.baseurl }}/exercises/Functions-combining-functions-R)
 
 <!-- https://datacarpentry.org/semester-biology/exercises/Functions-combining-functions-R -->
 
 
+### Homework:
+
+<!-- Challenges from https://datacarpentry.org/semester-biology/assignments/r-functions/ -->
+
+#### Exercise 1: [Creating a function for the Portal data set]({{ site.baseurl}}/exercises/Functions-portal-species-time-series-R)
+
+<!-- Task 1 and 2 from https://github.com/datacarpentry/semester-biology/blob/main/exercises/Functions-portal-species-time-series-R.md -->
+
 
 ---
 ---
 
-## Day 2: Making choices in R
+## Day 2: Making choices inside R functions
 
-<!-- #### Exercise: []({{ site.baseurl }}/) -->
+### Review from last class (10 min)
+
+- Exercise 4 from last class: Combining functions
+  - Combining functions in a nested way
+  - Calling functions inside functions
+- Homework
+
+
+### Setup your RStudio project (5 min)
+
+- 🎗️ Structuring your files into a _project_ is a best practice for good data science!
+- Open your _RStudio project_ for the class; I called mine "**fall-2022**".
+- Open a new file, name it "**choices.Rmd**", and save it to your "**documents**" folder.
+
+### Review: Logical and conditional statements (15 min)
+
+- Statements that return logical values (`TRUE` or `FALSE`)
+  - logical operators
+  - conditional operators
+  - logical functions
+
+
+#### Exercise 1: [Practice logical and conditional statements]({{ site.baseurl }}/exercises/Making-choices-choice-operators-R)
+
+<!-- https://datacarpentry.org/semester-biology/exercises/Making-choices-choice-operators-R -->
+
+---
+
+### Basic `if` statement (10 min)
+
+- A simple `if` statement allows us to choose between a single option and its alternative.
+
+#### Exercise 2: [Handling one choice]({{ site.baseurl }}/exercises/Making-choices-if-statements-R-1)
+
+<!-- https://datacarpentry.org/semester-biology/exercises/Making-choices-basic-if-statements-R -->
+
+---
+
+### The `if`/`else` statement (10 min)
+
+- An `else` statement allows us to choose between two options and its alternative.
+
+#### Exercise 3: [Handling 2 choices]({{ site.baseurl }}/exercises/Making-choices-if-statements-R-2)
+
+<!-- https://datacarpentry.org/semester-biology/exercises/Making-choices-basic-if-statements-R -->
+
+---
+
+### The `if`/`else if`/`else` statement (10 min)
+
+- An `else if` statement allows us to choose between three or more options and an alternative.
+
+#### Exercise 4: [Handling 3 choices or more]({{ site.baseurl }}/exercises/Making-choices-if-statements-R-3)
+
+---
+
+### Using conditions inside functions (30 min)
+
+- We can use conditions inside functions
+- Conditions alter the behavior of a functions
+- Conditions give us more control on the behavior of a function
+
+#### Exercise 5: [Value of `y` by age class]({{ site.baseurl }}/exercises/Making-choices-if-statements-R-4) (10 min)
+
+- Conditions allow us to be even more efficient in reusing code
+  - For example, we can consolidate all the functions we created to get the mass of a dinosaur into a single one.
+
+#### Exercise 6: [Mass estimates by biological group]({{ site.baseurl }}/exercises/Making-choices-size-estimates-by-name-R) (20 min)
+
+<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Making-choices-size-estimates-by-name-R.md -->
+
+---
+
+### Homework:
+
+<!-- Optional exercises from : https://datacarpentry.org/semester-biology/assignments/R-conditionals/ -->
+
+#### Exercise 1: [Load or download a file?]({{ site.baseurl }}/exercises/Making-choices-load-or-download-file-R)
+
+<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Making-choices-load-or-download-file-R.md -->
+
+#### Exercise 2: [A function for the UHURU data set]({{ site.baseurl }}/exercises/Making-choices-choices-with-functions-R)
+
+<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Making-choices-choices-with-functions-R.md -->
+
+
+#### Exercise 3: [Energy conversion challenge]({{ site.baseurl }}/exercises/Making-choices-unit-conversion-challenge-R)
+
+<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Making-choices-unit-conversion-challenge-R.md -->
