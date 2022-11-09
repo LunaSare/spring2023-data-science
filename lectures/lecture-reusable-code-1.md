@@ -30,18 +30,37 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 - Open your _RStudio project_ for the class; I called mine "**fall-2022**".
 - Open a new file, name it "**functions.Rmd**", and save it to your "**documents**" folder.
 
-### Why do we use functions in programming? (10 min)
+### Why do we use functions in programming? (15 min)
 
-#### Exercise 1:
+#### Discussion in small groups (5 min)
 
-In your Rmd file:
+- Discuss in small groups: Based on your experience with coding so far and after watching the [introductory videos]({{ }}/readings/before-reusable-code-1), discuss in small groups how creating your own functions would improve your coding workflow.
 
-- Write a secon level subtitle for the introductory section.
-- Discuss and list three reasons why using functions is useful in data science. 
+- Individually, work on your Rmd file:
+  - Write a second level subtitle for the introductory section.
+  - List and justify three reasons why using functions is useful in data science.
+
+#### Discussion in full (10 min)
+
+- How does creating your own functions will improve your code?
+
+- Makes code more understandable:
+  - Code is shorter, easier to remember
+  - Code is more organized for you and others, so it is easier to read
+  - Code is grouped conceptually, easier to understand
+  - Code is more manageable, invites you to be intentional on the code that you are writing
+  - Allows to be more in control of the outputs
+- Makes code reusable:
+  - It allows reusing code for other parts of a project or a future project
+  - It is less error prone than copy-pasting code
+    - If it occurs in more than one place, it will eventually be wrong somewhere.
+  - It is more efficient than copy-pasting code
+    - Functions are written to be reusable.
+
 
 ### Writing functions (10 min)
 
-- In this lesson we will use mass to learn how to create functions.
+- In this lesson we will use the concept of "mass" to learn how to create functions.
 - Mass describes the density and type of atoms in any given object.
 - The SI unit of mass is the kilogram (kg), though mass can also be measured in grams (gr), ounces (oz), and pounds (lb).
 - The mass of an object will never change, but the weight of an item can change based on its location.
@@ -49,18 +68,20 @@ In your Rmd file:
 
 ![https://spaceplace.nasa.gov/planets-weight/en/](https://spaceplace.nasa.gov/review/planets-weight/planets-weight3.en.png)
 
-![https://sciencenotes.org/mass-vs-weight-the-difference-between-mass-and-weight/](https://sciencenotes.org/wp-content/uploads/2020/08/Mass-vs-Weight.jpg)
+<!-- ![https://sciencenotes.org/mass-vs-weight-the-difference-between-mass-and-weight/](https://sciencenotes.org/wp-content/uploads/2020/08/Mass-vs-Weight.jpg) -->
 
 <!-- [https://www.reagent.co.uk/whats-the-difference-between-volume-mass-weight/](https://www.reagent.co.uk/wp-content/uploads/weight-and-mass-illustration-1.png) -->
 
-- Mass unit conversion formulas
-  - Pounds to kilograms
-  ![](https://www.wikihow.com/images/thumb/8/83/Convert-Pounds-to-Kilograms-Step-2-Version-6.jpg/aid1718006-v4-728px-Convert-Pounds-to-Kilograms-Step-2-Version-6.jpg.webp)
-  - Kilograms to pounds
-  ![](https://www.wikihow.com/images/thumb/0/00/Convert-Pounds-to-Kilograms-Step-5-Version-2.jpg/aid1718006-v4-728px-Convert-Pounds-to-Kilograms-Step-5-Version-2.jpg.webp)
+- Formulas to convert between different units of mass:
+
+Pounds to kilograms   |  Kilograms to pounds
+:--------------------:|:---------------------:
+![](https://www.wikihow.com/images/thumb/8/83/Convert-Pounds-to-Kilograms-Step-2-Version-6.jpg/aid1718006-v4-728px-Convert-Pounds-to-Kilograms-Step-2-Version-6.jpg.webp) | ![](https://www.wikihow.com/images/thumb/0/00/Convert-Pounds-to-Kilograms-Step-5-Version-2.jpg/aid1718006-v4-728px-Convert-Pounds-to-Kilograms-Step-5-Version-2.jpg.webp)
+![](https://www.wikihow.com/images/thumb/5/53/Convert-Pounds-to-Kilograms-Step-1-Version-8.jpg/aid1718006-v4-728px-Convert-Pounds-to-Kilograms-Step-1-Version-8.jpg.webp) | ![](https://www.wikihow.com/images/thumb/0/0c/Convert-Pounds-to-Kilograms-Step-4-Version-2.jpg/aid1718006-v4-728px-Convert-Pounds-to-Kilograms-Step-4-Version-2.jpg.webp)
 
 
-#### Exercise 2: [Inputs and outputs]({{ site.baseurl }}/exercises/Functions-writing-functions-R)
+
+#### Exercise 1: [Converting between units of mass]({{ site.baseurl }}/exercises/Functions-writing-functions-R)
 
 <!-- https://datacarpentry.org/semester-biology/exercises/Functions-writing-functions-R -->
 
@@ -68,27 +89,43 @@ In your Rmd file:
 
 ### Using and modifying functions (10 min)
 
-- The length of an organism is typically strongly correlated with its body
-mass. This is useful because it allows us to estimate the mass of an organism
-even if we only know its length. This relationship generally takes the form:
+- The length of an organism is strongly correlated with its body
+mass.
+- Scientists use this correlation to estimate the mass of an organism
+when we only know its length.
+- This [allometric](https://www.nature.com/scitable/knowledge/library/allometry-the-study-of-biological-scaling-13228439/#:~:text=Allometry%2C%20in%20its%20broadest%20sense,as%20both%20grow%20during%20development.) relationship takes the form of _mass equals to parameter "a" multiplied by "length" elevated to the power of parameter "b"_:
 
 > mass = a * length^b
 
-- Where the parameters `a` and `b` vary among groups. This allometric approach is
-regularly used to estimate the mass of dinosaurs since we cannot weigh something
-that is only preserved as bones.
+- Parameters `a` and `b` vary among biological groups.
+- This formula is used to estimate the mass of organisms for which we only have length measurememts. For example:
+  - trees, we cannot weigh them unless we unroot them,
+  - extinct creatures such as dinosaurs, as we cannot get the living weight of something that is fossilized.
 
-#### Exercise 3: [Use and Modify Functions]({{ site.baseurl }}/exercises/Functions-use-and-modify-R)
+- The following function uses the formula `mass = a * length^b` to estimate the mass of an organisms belonging to *Theropoda*
+dinosaurs in kg, based on its
+  length in meters and the set of parameter values `a` and `b` that have been estimated for that biological group, `a = 0.73` and `b = 3.63`, by [Seebacher (2001)](http://www.jstor.org/stable/4524171)).
+  - Take 3 min to type the function in:
+  ```r
+  get_mass_from_length_theropoda <- function(length){
+      mass <- 0.73 * length ^ 3.63
+      return(mass)
+    }
+    ```
+
+#### Exercise 2: [The weight of dinosaurs]({{ site.baseurl }}/exercises/Functions-use-and-modify-R)
 
 <!-- https://datacarpentry.org/semester-biology/exercises/Functions-use-and-modify-R/ -->
 
 ---
 
-### Arguments (10 min)
+### Defining argument values in a Function (10 min)
 
-- Allowing `a` and `b` to be passed as arguments to `get_mass_from_length()` made the function more flexible, but for some types of dinosaurs we don't have specific values of `a` and `b` and so we have to use general values that can be applied to a number of different species.
+- In the previous exercise, you created the function `get_mass_from_length()` which is a more flexible form of `get_mass_from_length_theropoda()`, by allowing `a` and `b` to be passed as arguments.
+- Still, for some organisms we don't have specific values of `a` and `b`. In this case, we have to use values of `a` and `b` that can be applied generally.
+- We can set general values as default values for some or all arguments in any function that we are creating.
 
-#### Exercise 4: [Default Arguments]({{ site.baseurl }}/exercises/Functions-default-arguments-R)
+#### Exercise 3: [Setting default values for arguments]({{ site.baseurl }}/exercises/Functions-default-arguments-R)
 
 <!-- https://datacarpentry.org/semester-biology/exercises/Functions-default-arguments-R -->
 
@@ -96,9 +133,10 @@ that is only preserved as bones.
 
 ### Combining functions (10 min)
 
-- Measuring things using the metric system is the standard approach for scientists, but when communicating your results more broadly it may be useful to use different units (at least in some countries).
+- The metric system is the standard approach used in scientific practice.
+- To communicate scientific results to a broader audience, it might be more impactful to use different units (at least in some countries).
 
-#### Exercise 5: [Using Functions within Functions]({{ site.baseurl }}/exercises/Functions-combining-functions-R)
+#### Exercise 4: [Converting between units]({{ site.baseurl }}/exercises/Functions-combining-functions-R)
 
 <!-- https://datacarpentry.org/semester-biology/exercises/Functions-combining-functions-R -->
 
