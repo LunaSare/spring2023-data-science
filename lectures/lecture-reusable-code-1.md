@@ -144,6 +144,13 @@ dinosaurs in kg, based on its length in meters and the set of parameter values `
 ### Homework:
 
 <!-- Challenges from https://datacarpentry.org/semester-biology/assignments/r-functions/ -->
+> **Instructions**
+> - Open a new file called "**functions-after.Rmd**" that is saved in your "**documents**" folder.
+> - Write the code to solve the following exercises in R chunks.
+> - Add comments to each line of code explaining with your own words what the code is doing.
+> - Once you are finished, knit to PDF.
+> - Git add, commit and push the new files (PDF and Rmd) to your remote repository.
+>
 
 #### Exercise 1: [Creating a function for the Portal data set]({{ site.baseurl}}/exercises/Functions-portal-species-time-series-R)
 
@@ -231,6 +238,15 @@ dinosaurs in kg, based on its length in meters and the set of parameter values `
 ### Homework:
 
 <!-- Optional exercises from : https://datacarpentry.org/semester-biology/assignments/R-conditionals/ -->
+
+<!-- Challenges from https://datacarpentry.org/semester-biology/assignments/r-functions/ -->
+> **Instructions**
+> - Open a new file called "**choices-after.Rmd**" that is saved in your "**documents**" folder.
+> - Write the code to solve the following exercises in R chunks.
+> - Add comments to each line of code explaining with your own words what the code is doing.
+> - Once you are finished, knit to PDF.
+> - Git add, commit and push the new files (PDF and Rmd) to your remote repository.
+>
 
 #### Exercise 1: [Load or download a file?]({{ site.baseurl }}/exercises/Making-choices-load-or-download-file-R)
 
