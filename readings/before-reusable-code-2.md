@@ -3,12 +3,15 @@ layout: page
 element: reading
 title: 'Reusing code - Loops'
 language: R
-week: "Nov  15"
+week: "Nov  17"
 ---
 
 ## Loops in R
 
-**Watching all videos for this section will take around 40 min**
+**Watching all videos for this section takes ~ 51 min**.
+Hint: Watch the videos with a higher reproduction speed to save some time.
+
+<!-- Videos from https://datacarpentry.org/semester-biology/lessons/R-iteration-2/ -->
 
 > **Instructions**
 >
@@ -27,7 +30,7 @@ week: "Nov  15"
 > - Git add, commit and push both files (Rmd and PDF).
 
 
-1. Watch the 9min 44s video [Basic For Loops in R](https://youtu.be/qeWSTeFyg6U).
+1. Watch the 9min 44s video [Basic `For` Loops in R](https://youtu.be/qeWSTeFyg6U).
   - Write a subtitle header for this section.
   - Write and run the code that was explained on the video.
 1. Watch the 15min 43s video [Looping By Index](https://youtu.be/vWj5rypEZ4U).
