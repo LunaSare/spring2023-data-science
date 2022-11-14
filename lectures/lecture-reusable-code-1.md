@@ -34,7 +34,7 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 
 #### Discussion in small groups (5 min)
 
-- Discuss in small groups: Based on your experience with coding so far and after watching the [introductory videos]({{ site.baseurl }}/readings/before-reusable-code-1), discuss in small groups how creating your own functions would improve your coding workflow.
+- Discuss in small groups: Based on your experience with coding so far and after watching the [introductory videos]({{ site.baseurl }}/readings/before-reusable-code-1), **how does creating your own functions would improve your coding workflow?**
 
 - Individually, work on your Rmd file:
   - Write a second level subtitle for the introductory section.

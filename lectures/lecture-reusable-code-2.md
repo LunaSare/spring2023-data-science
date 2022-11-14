@@ -7,16 +7,16 @@ pagetype: lecture
 symbol: <i class="fa fa-comment fa-lg"></i>
 ---
 
-## Day 1:
+## Loops in R
 
 > **Learning Objectives**
 >
 > This week, students will:
-> - learn
+> - Learn the structure of loops
 >
 > **Practice Objectives**
-> -
-> -
+> - Vectorized functions
+> - Creating functions
 >
 <!-- > **Non Objectives**
 > -
@@ -33,5 +33,13 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 
 #### Exercise : []({{ site.baseurl }}/)
 
+
+#### Exercise : []({{ site.baseurl }}/)
+
+
+#### Exercise : []({{ site.baseurl }}/)
+
+
+#### Exercise : []({{ site.baseurl }}/)
 
 https://github.com/datacarpentry/semester-biology/blob/main/exercises/Functions-string-data-R.md
