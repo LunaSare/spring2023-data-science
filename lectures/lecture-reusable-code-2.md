@@ -30,16 +30,24 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 - Open your _RStudio project_ for the class; I called mine "**fall-2022**".
 - Open a new file, name it "**loops.Rmd**", and save it to your "**documents**" folder.
 
+### Basics of `for` loops
 
-#### Exercise : []({{ site.baseurl }}/)
+#### Exercise 1: [Basics of for loops]({{ site.baseurl }}/exercises/Loops-basic-for-loops-R) (30 min)
+
+<!-- https://datacarpentry.org/semester-biology/exercises/Loops-basic-for-loops-R/ -->
+
+### Looping over functions
+
+#### Exercise 2: [Mass of dinosaurs with loops]({{ site.baseurl }}/exercises/Loops-size-estimates-by-name-loop-R) (30 min)
+
+<!-- https://datacarpentry.org/semester-biology/exercises/Loops-size-estimates-by-name-loop-R/ -->
+
+### Practical uses of `for` loops
+
+#### Exercise 3: [Automatic analysis of muliple files]({{ site.baseurl }}/exercises/Loops-multi-file-analysis-R) (30 min)
+
+<!-- https://datacarpentry.org/semester-biology/exercises/Loops-multi-file-analysis-R/ -->
 
 
-#### Exercise : []({{ site.baseurl }}/)
 
-
-#### Exercise : []({{ site.baseurl }}/)
-
-
-#### Exercise : []({{ site.baseurl }}/)
-
-https://github.com/datacarpentry/semester-biology/blob/main/exercises/Functions-string-data-R.md
+<!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Functions-string-data-R.md -->
