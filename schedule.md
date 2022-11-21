@@ -13,10 +13,11 @@ assignments: ['The Data Life Cycle',
 'Reusing code - Creating functions',
 'Reusing code - Apply functions',
 'Reusing code - Loops',
-'Public Data Stores',
-'Human contexts and ethics',
+# 'Public Data Stores',
+'Getting phylogenetic trees',
+# 'Human contexts and ethics',
 'Projects week',
-'Projects week - Optional',
+# 'Projects week - Optional',
 'Data cleaning']
 ---
 
