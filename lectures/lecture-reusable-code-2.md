@@ -42,9 +42,14 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 
 <!-- https://datacarpentry.org/semester-biology/exercises/Loops-size-estimates-by-name-loop-R/ -->
 
+<!--
+We did not hav etime to cover this during class, students required more time to assimilate the structure of loops to fully understand it and be bale to apply it by themselves.
+
+Moved this exercise to review week:
+
 ### Practical uses of `for` loops
 
-#### Exercise 3: [Automatic analysis of muliple files]({{ site.baseurl }}/exercises/Loops-multi-file-analysis-R) (30 min)
+#### Exercise 3: [Automatic analysis of muliple files]({{ site.baseurl }}/exercises/Loops-multi-file-analysis-R) (30 min) -->
 
 <!-- https://datacarpentry.org/semester-biology/exercises/Loops-multi-file-analysis-R/ -->
 

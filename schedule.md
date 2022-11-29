@@ -14,11 +14,12 @@ assignments: ['The Data Life Cycle',
 'Reusing code - Apply functions',
 'Reusing code - Loops',
 # 'Public Data Stores',
-'Getting phylogenetic trees',
+'Review Week',
+# 'Getting phylogenetic trees',
 # 'Human contexts and ethics',
-'Projects week',
+'Projects week']
 # 'Projects week - Optional',
-'Data cleaning']
+# 'Data cleaning']
 ---
 
 Consult the [grading checklist]({{ site.baseurl }}{% link syllabus.md %}#project) when turning assignments.

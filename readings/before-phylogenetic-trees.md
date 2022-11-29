@@ -20,6 +20,6 @@ week: "Oct 25, 27, Nov 1, 3"
 ## Day 3: Plotting data on Phylogenies
 
 
-## Day 4: Phylogenetic correlation
+<!-- ## Day 4: Phylogenetic correlation
 
-- [How to measure and test phylogenetic signal](https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/j.2041-210X.2012.00196.x)
+- [How to measure and test phylogenetic signal](https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/j.2041-210X.2012.00196.x) -->
