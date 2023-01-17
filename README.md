@@ -1,4 +1,5 @@
-# Data Science Research in Biology - Fall 2022
+# Data Science Research in Biology
+# Spring 2023
 
 This is a [forkable](https://help.github.com/articles/fork-a-repo/) set of teaching materials for teaching biologists how to work
 with data through programming, database management and computing more generally.
