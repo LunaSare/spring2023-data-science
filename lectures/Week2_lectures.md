@@ -22,7 +22,8 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 
 Day 1
 
-Live coding: Intro to programming with R: vectors
+- Let's talk about our knowledge in R (R survey results)
+- Live coding: Intro to programming with R: vectors
 
 * [Introduction to R](http://www.datacarpentry.org/R-ecology-lesson/01-intro-to-r.html)
 

@@ -39,7 +39,10 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 
 The schedule shows a list of topics that will be covered each week of the course.
 
-The schedule reflects the flipped course structure, and organizes homework and in-class activities by topic:
+The schedule reflects a flipped course structure, aka minimal lecture and maximal
+student practice.
+Each row corresponds to a different topic, and organizes links for pre-class
+activities, in-class activities and homework.
 
 * Before Class
   - Prepare: Readings or activities to dive into the topic before class
@@ -57,27 +60,35 @@ The schedule reflects the flipped course structure, and organizes homework and i
 * After-class
   - Strengthen: Exercises to strengthen and evaluate concepts discussed during class
 
+### The importance of data for research: Exercises
 
-### Exercises
-
-1. Take 10 min to read [8 Steps in the Data Life Cycle](https://online.hbs.edu/blog/post/data-life-cycle)   
+1. Data is used in all areas of human activity. Tim Stobierski writes about business analytics and the importance of knowing the data life cycle.
+  - Take 5-10 min to read [8 Steps in the Data Life Cycle](https://online.hbs.edu/blog/post/data-life-cycle), from Harvard business school.  
+  - Answer the next two questions interactively on this [mentimeter](https://www.menti.com/al5kemcp5gtc):
     - What is the importance of the data life cycle?
     - How is it related to research?
 
-3. Take 10 min to read [The DataONE Life Cycle](https://www.dataone.org/data-life-cycle). If the link is not available, a screen shot of the text is available [here]({{ site.baseurl }}/dataone-data-life-cycle).
-    - How many steps are there in the DataOne life cycle? Summarize the steps.
+2. [DataONE](https://www.dataone.org/) is an organization dedicated to making earth data universally accessible and FAIR (Findable, Accessible, Interoperable, and Reusable).
+  - Take 10 min to read [The DataONE Life Cycle](https://www.dataone.org/data-life-cycle).
+  If the link is not available, a screen shot of the text is available [here]({{ site.baseurl }}/dataone-data-life-cycle).
+  - Answer the following questions interactively on this [mentimeter](https://www.menti.com/al7r43cgidhm):
+    - How many steps are there in the DataOne life cycle?
+    - Identify steps that are different between the previous and this data life cycle.
 
-2. Look at [Figure 1]({{ site.baseurl }}/f1000res-2017-paper) from research paper [Best practice data life cycle approaches for the life sciences](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6069748/).
-    - Take 5 min to identify what steps are similar and different across the three data life cycle approaches you have reviewed so far.
+3. Look at [Figure 1]({{ site.baseurl }}/f1000res-2017-paper) from research paper [Best practice data life cycle approaches for the life sciences](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6069748/).
+    - Take 5 min to identify steps that are similar across the three data life cycle
+    approaches you have reviewed so far. Write the steps that you consider similar
+     on this [mentimeter](https://www.menti.com/ald679dwg3j3).
+
 
 ### In class group activity
 
-- Follow instructions on this [jamboard](https://jamboard.google.com/d/1T7MKWvtgBZuLa_LjGg02GAjySPQtHj1iwf9sdupfkoU/viewer?f=3).
+- Follow instructions on this [jamboard](https://jamboard.google.com/d/1T7MKWvtgBZuLa_LjGg02GAjySPQtHj1iwf9sdupfkoU/viewer?f=0).
 
 
 ### Homework
 
-- Create your own data life cycle on this [jamboard](https://jamboard.google.com/d/1giFAdjGzPK9vMM8aLuGP5KwF_FzyyT5hJ3eoPslS3rU/viewer?f=5).
+- Create your own data life cycle on this [jamboard](https://jamboard.google.com/d/1giFAdjGzPK9vMM8aLuGP5KwF_FzyyT5hJ3eoPslS3rU/viewer?f=1).
 
 **A minute feedback**
 
