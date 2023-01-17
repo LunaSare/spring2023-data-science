@@ -3,7 +3,7 @@ layout: page
 element: reading
 title: 'Reusing code - Creating functions'
 language: R
-week: "Nov  8, 10"
+week: "Mar 14, 16"
 pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
 ---

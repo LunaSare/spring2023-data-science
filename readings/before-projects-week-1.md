@@ -3,12 +3,11 @@ layout: page
 element: reading
 title: 'Projects week'
 language: R
-week: "Dec 6, 8"
+week: "May 2, 4"
 ---
 
-## Day 1: Phylogenetic correlation
+## Day 1:
 
-- [How to measure and test phylogenetic signal](https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/j.2041-210X.2012.00196.x)
 
 ## Day 2: Wrap-up
 

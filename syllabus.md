@@ -1,25 +1,26 @@
 ---
 layout: page
 title: Syllabus
-catalog: BIO 197
-semester: Fall 2022
+catalog: BIO 195/197
+semester: Spring 2023
 
 
 professor: Dr.  Luna L. Sanchez Reyes
 office: SE1 280
 email: lsanchezreyes2@ucmerced.edu
-office_hours: By appointment and/or Monday 3pm-4pm, Tuesday and Wednesday 11am-12pm, & Wednesday 4pm-5pm.
+office_hours: By appointment and TBD.
 
 professor2: Prof. Emily Jane McTavish
 office2: SE1 281
 email2: ejmctavish@ucmerced.edu
 office_hours2: By appointment
 
-time: ['Tuesday & Thursday, 2:30-4pm']
+time: ['Tuesday & Thursday, 2-4pm']
 zoom: https://ucmerced.zoom.us/j/82767962714?pwd=T2RtZEZscGVJSVpkcjR0WHU5NHh1dz09
 zoom_tiny: https://ucmerced.zoom.us/j/82767962714
-location: SE1 390
+location: SE1 298
 location_map: https://www.google.com.mx/maps/place/Science+and+Engineering+Building+I,+Merced,+CA+95340,+EE.+UU./@37.3664436,-120.4243582,17z/data=!3m1!4b1!4m5!3m4!1s0x809146a5db7ea5e1:0x6c8c7244d1f78c15!8m2!3d37.3664394!4d-120.4221695
+website: https://lunasare.github.io/spring2023-data-science
 ---
 
 ## {{ page.catalog }}, {{ page.semester }}
@@ -67,7 +68,7 @@ Evolution
 ## Semester schedule
 
 The schedule, including class information, homeworks materials, lectures and in-class activities is available
- [here](https://lunasare.github.io/data-science-research-biology/schedule).
+ [here]({{ site.baseurl}}/schedule).
 Check the website periodically for updates.
 
 ---
@@ -152,7 +153,7 @@ Students completing this course will be able to:
 
 ---
 
-## Grading rubrics
+## Grading rubric Examples
 
 ### Homework and in-class activities
 

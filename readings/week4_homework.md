@@ -6,7 +6,7 @@ title: 'Intro to version control'
 language: R
 pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
-week: 'Sep 13, 27'
+week: 'Feb 2, 7'
 ---
 
 **Day 1: Introduction to version control with RStudio**

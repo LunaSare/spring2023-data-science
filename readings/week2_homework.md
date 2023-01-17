@@ -5,7 +5,7 @@ title: 'Intro to R and RStudio'
 language: R
 pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
-week: 'Sep 1, 6'
+week: 'Jan 24, 26'
 ---
 
 **Day 1**

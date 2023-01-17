@@ -9,10 +9,10 @@ kramdown:
 permalink:        pretty
 
 # Setup
-title:            'Data Science Research in Biology - <br> Fall 2022'
-description:      'A course for UC Merced undergraduates in data science applications for research in ecology and evolution'
+title:            'UC Merced - <br> Spring 2023'
+description:      'Data Science Research Biology: An intro to programming with R for ecology and evolution'
 url:              http://www.datacarpentry.org/semester-biology
-baseurl:          /data-science-research-biology
+baseurl:          /spring2023-data-science
 email:            sanchez.reyes.luna@gmail.com
 feedbackurl:      docs.google.com/forms/d/1y35uJukuZ9MPKQWWqw0Y8R4VOiaOtFJezDY_t_kJfTs/
 author:
@@ -20,5 +20,5 @@ author:
   url:            https://mctavishlab.github.io/
 
 github:
-  repo:           https://github.com/LunaSare/data-science-research-biology.git
+  repo:           https://github.com/LunaSare/spring2023-data-science.git
   #               Be sure the 'Issues' feature is activated in 'Settings'
