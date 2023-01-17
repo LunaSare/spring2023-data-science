@@ -24,9 +24,9 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 * Introductions
 * Why are you taking this class? What do you expect from it?
 
-### Pre-class survey:
+### Logistics survey:
 
-- Take 5 min to complete the survey on this [Google Form]](https://docs.google.com/forms/d/e/1FAIpQLSfXzFNSegtfIuAPTK9LEwSmYKhPk_Fs8GPFXRjia5DNZaJTtg/viewform).
+- Take 5 min to complete the survey on this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSfXzFNSegtfIuAPTK9LEwSmYKhPk_Fs8GPFXRjia5DNZaJTtg/viewform).
 
 ### Syllabus overview
 
