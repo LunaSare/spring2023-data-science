@@ -35,7 +35,7 @@ There are many different units for energy and their utilization varies across me
 2\. Test your function by running the example call above.
 
 3\. Modify the function so that if either the input unit or the output unit do not match any of the four unit types given above, have the
-function print - "Sorry, I don't know how to convert " + the name of the unit provided.
+function print - "Sorry, I don't know how to convert + name of the unit provided".
 
 4\. Use your function to answer the following questions:
 

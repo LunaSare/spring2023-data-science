@@ -8,6 +8,18 @@ language: Excel
 exercises: ['Improving Messy Data', 'Data entry validation in Excel']
 ---
 
+
+
+## Day 1: The data life cycle
+
+
+- Create your own data life cycle on this [jamboard](https://jamboard.google.com/d/1giFAdjGzPK9vMM8aLuGP5KwF_FzyyT5hJ3eoPslS3rU/viewer?f=1).
+
+---
+---
+
+## Day 2: Messy Data
+
 > **Instructions**
 >
 > - (2 min) Go in small groups (breakout rooms) of 2-3 people.

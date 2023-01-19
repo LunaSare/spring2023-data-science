@@ -85,7 +85,6 @@ activities, in-class activities and homework.
 
 - Follow instructions on this [jamboard](https://jamboard.google.com/d/1T7MKWvtgBZuLa_LjGg02GAjySPQtHj1iwf9sdupfkoU/viewer?f=0).
 
-
 ### Homework
 
 - Create your own data life cycle on this [jamboard](https://jamboard.google.com/d/1giFAdjGzPK9vMM8aLuGP5KwF_FzyyT5hJ3eoPslS3rU/viewer?f=1).
@@ -95,22 +94,72 @@ activities, in-class activities and homework.
 - Provide some quick feedback for this session [here](https://docs.google.com/forms/d/e/1FAIpQLSeRETx27OK9PJlTd8djqySqrRa5ZMDTiUizF_vXuau82nASqQ/viewform)
 
 
-
 ---
 ---
 
 ## Day 2
 
-### Lecture: Best practices for data entry and quality assurance using excel
+### Reading discussion
 
-**In-class discussion of reading for Day 2**
-  - showcase data repository websites (GenBank, GBIF, Dryad, Zenodo)
+- Before class, read the text [Scientists Losing Data at a Rapid Rate](http://www.nature.com/news/scientists-losing-data-at-a-rapid-rate-1.14416)
+
+- Questions:
+  - Which research paper are they referring to in the text? **Hint**: take a look at the references.
+  - According to the research paper, how much does data availability drop per year?
+  - Contacted researchers say the data still exists, why is it considered lost?
+  - What percentage of contacted researchers answered back?
+  - How can authors organize and preserve data used in research papers?
+  - Is willingness to share data increasing or decreasing among researchers?
+
+- On the role of journals and data repositories:
+  - "Some types of data, such as DNA sequences, **must** be submitted to a community-endorsed public repository"
+    - data repository websites (GenBank, GBIF, Dryad, Zenodo)
+  - "For other kinds of data, where public repositories are less developed, this is **"strongly recommended"**."
+
+- What is a research paper? What are some differences between the Nature text you just read and the research paper they talk about (the Vines _et al_. paper)?
 
 
-**Live coding: Lesson [Quality Assurance and Control](http://www.datacarpentry.org/spreadsheet-ecology-lesson/04-quality-control)**
-- What is the difference between quality assurance and quality control.
-- Quality assurance
-  - Demo data validation in excel using this data file [figshare.com/files/2252083](https://ndownloader.figshare.com/files/2252083). Students **download** it to their computer, too, and follow along.
+### Group exercise
+
+- Work with your neighbor
+- Skim the paper [Vines _et al_. (2014)](https://www.sciencedirect.com/science/article/pii/S0960982213014000?via%3Dihub)
+  - What are the main sections of a research paper?
+  - Identify the following [parts on the abstract](https://services.unimelb.edu.au/__data/assets/pdf_file/0007/471274/Writing_an_Abstract_Update_051112.pdf):
+    1. Reason for writing: What is the importance of the research?
+    1. Problem: What problem does this work attempt to solve?
+    1. Methodology: Includes specific models or approaches used in the larger study.
+    1. Results:  Include specific data that indicates the results of the project
+    1. Implications: How does this work add to the body of knowledge on the topic?
+
+### Best practices for data entry and quality assurance
+
+- What step of the data life cycle are we addressing?
+
+#### Tidy Data Principles
+
+- What: Tidy data is data that is well designed for working with using computers
+- Why: Creating tidy data as you collect it will make it much easier to analyze it later
+- Joint exercise: [Improving Messy Data]({{ site.baseurl }}/exercises/Tidy-data-improving-messy-data-SQL)
+  - Goal: look at some messy data and think about what makes it messy and what we could do to improve it:
+    - make it a narrow rectangle
+    - one cell one value
+    - don't confuse the computer
+    - be clear and consistent
+    - Use one table for each category of data
+    - Export data into easy to read formats
+
+
+#### Data entry
+
+- Planning: What's the first thing to do when you are ready to enter data?
+- Where to enter data?
+- Quality assurance: what is it?
+  - Read [Quality Assurance and Control](http://www.datacarpentry.org/spreadsheet-ecology-lesson/04-quality-control) to answer the following question _What is the difference between quality assurance and quality control?_
+
+- Do individual [Exercise - Data Entry Validation in Excel]({{ site.baseurl }}/exercises/Qaqc-data-entry-validation-in-excel-SQL/).
+
+  <!-- - Demo data validation in excel using this data file [figshare.com/files/2252083](https://ndownloader.figshare.com/files/2252083). Students **download** it to their computer, too, and follow along. -->
+
 - Quality control
   - Saving a copy of the original raw data is key.
   - Start a README file describing the documents you create in your project.
@@ -120,9 +169,10 @@ activities, in-class activities and homework.
   - Conditional formatting to scan data for outliers: [Exercise 2](https://datacarpentry.org/spreadsheet-ecology-lesson/04-quality-control/#exercise-1)
     - Use this cautiously, it might corrupt the data.
 
-**In-class exercises**
-
-- [Instructions]({{ site.baseurl}}/assignments/week1_activities/) and group activities.
 
 **A minute feedback**
-- Provide some quick feedback for this session [here](https://docs.google.com/forms/d/e/1FAIpQLSeRETx27OK9PJlTd8djqySqrRa5ZMDTiUizF_vXuau82nASqQ/viewform).
+- Please provide some quick feedback for this second session of the course [here](https://docs.google.com/forms/d/e/1FAIpQLSebNcnZqOBS8eUjI2V6bMyjHBQIukRZLY4PuMTh9ERjJXJBUw/viewform).
+
+### Homework
+
+- Complete [Activities 2 and 3]({{ site.baseurl}}/assignments/week1_activities/).

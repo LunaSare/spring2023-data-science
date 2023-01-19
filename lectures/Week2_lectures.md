@@ -9,11 +9,10 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 
 > **Learning Objectives**
 >
-> - explain why coding is advantageous for data management
-> - format R code for readability and clarity
-> - add comments and breaks to R code
+> - understand and explain why coding is advantageous for data management
+> - learn principles to format R code for readability and clarity
+> - practice adding comments and breaks to R code
 > - call R scripts from within R scripts (sourcing)
-> - write simple custom R functions
 > - properly organize an R project and workspace with RStudio
 > - read and write tables
 >

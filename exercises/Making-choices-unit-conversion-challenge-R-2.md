@@ -47,4 +47,4 @@ function print - "Sorry, I don't know how to convert " + the name of the input u
   - c) How many ergs (ERG) are there in one kilocalorie. *Since we didn't include the erg conversion this should trigger our 'don't know how to convert' message*.
 
 5\. Write a function with the form `convert_energy_units(energy_value, input_unit, output_unit)` that converts between all the energy units above.
-Instead of writing an individual conversion between each of the different units (which requires 12 if statements), make the function efficient, and convert all of the input units to a common scale and then convert from that common scale to the output units. This will make it easier if you need to add new units later.
+Instead of writing an individual conversion between each of the different units (which requires 12 if statements), make the function efficient, and convert all of the input units to a common unit and then convert from that common unit to the output units. This will make it easier if you need to add new units later.
