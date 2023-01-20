@@ -116,12 +116,13 @@ activities, in-class activities and homework.
     - data repository websites (GenBank, GBIF, Dryad, Zenodo)
   - "For other kinds of data, where public repositories are less developed, this is **"strongly recommended"**."
 
-- What is a research paper? What are some differences between the Nature text you just read and the research paper they talk about (the Vines _et al_. paper)?
+- What are some differences between the Nature text you just read and the research paper they talk about (the Vines _et al_. paper)?
+- What is a research paper?
 
 
 ### Group exercise
 
-- Work with your neighbor
+- Work with your neighbor.
 - Skim the paper [Vines _et al_. (2014)](https://www.sciencedirect.com/science/article/pii/S0960982213014000?via%3Dihub)
   - What are the main sections of a research paper?
   - Identify the following [parts on the abstract](https://services.unimelb.edu.au/__data/assets/pdf_file/0007/471274/Writing_an_Abstract_Update_051112.pdf):
@@ -131,48 +132,54 @@ activities, in-class activities and homework.
     1. Results:  Include specific data that indicates the results of the project
     1. Implications: How does this work add to the body of knowledge on the topic?
 
-### Best practices for data entry and quality assurance
 
-- What step of the data life cycle are we addressing?
+### Tidy Data Principles
 
-#### Tidy Data Principles
-
-- What: Tidy data is data that is well designed for working with using computers
+- What: Tidy data is data that is well designed for processing with computers
 - Why: Creating tidy data as you collect it will make it much easier to analyze it later
 - Joint exercise: [Improving Messy Data]({{ site.baseurl }}/exercises/Tidy-data-improving-messy-data-SQL)
   - Goal: look at some messy data and think about what makes it messy and what we could do to improve it:
-    - make it a narrow rectangle
+    - make it a (narrow) rectangle
     - one cell one value
     - don't confuse the computer
     - be clear and consistent
     - Use one table for each category of data
     - Export data into easy to read formats
 
+### Steps for data entry
 
-#### Data entry
-
-- Planning: What's the first thing to do when you are ready to enter data?
+- What's the first thing to do when you are ready to enter/collect data?
+  - Planning
 - Where to enter data?
-- Quality assurance: what is it?
+  - Software
+- Data quality assurance VS. data quality control
   - Read [Quality Assurance and Control](http://www.datacarpentry.org/spreadsheet-ecology-lesson/04-quality-control) to answer the following question _What is the difference between quality assurance and quality control?_
-
-- Do individual [Exercise - Data Entry Validation in Excel]({{ site.baseurl }}/exercises/Qaqc-data-entry-validation-in-excel-SQL/).
+- How to assure data quality?
+  - Do individual [Exercise - Data Entry Validation in Excel]({{ site.baseurl }}/exercises/Qaqc-data-entry-validation-in-excel-SQL/).
 
   <!-- - Demo data validation in excel using this data file [figshare.com/files/2252083](https://ndownloader.figshare.com/files/2252083). Students **download** it to their computer, too, and follow along. -->
 
-- Quality control
-  - Saving a copy of the original raw data is key.
-  - Start a README file describing the documents you create in your project.
-    - Use a template following readme best practices from https://data.research.cornell.edu/content/readme
-  - Sorting to check for invalid data: [Exercise 1](https://datacarpentry.org/spreadsheet-ecology-lesson/04-quality-control/#exercise)
+- Important steps for quality control
+  - Saving a copy of the original raw data is key in this step.
+  - Sorting to check for invalid data, demo
+  <!-- : [Exercise 1](https://datacarpentry.org/spreadsheet-ecology-lesson/04-quality-control/#exercise) -->
     - Ensure that data sorting is expanded to the whole data table, so data is not corrupted.
-  - Conditional formatting to scan data for outliers: [Exercise 2](https://datacarpentry.org/spreadsheet-ecology-lesson/04-quality-control/#exercise-1)
+  - Conditional formatting to scan data for outliers, Demo
+   <!-- [Exercise 2](https://datacarpentry.org/spreadsheet-ecology-lesson/04-quality-control/#exercise-1) -->
     - Use this cautiously, it might corrupt the data.
 
+### Best practices for data collection
 
-**A minute feedback**
+- What step of the data life cycle we addressed today?
+  - collection
+  - assurance
+  - processing
+  - management
+
+### A minute feedback
+
 - Please provide some quick feedback for this second session of the course [here](https://docs.google.com/forms/d/e/1FAIpQLSebNcnZqOBS8eUjI2V6bMyjHBQIukRZLY4PuMTh9ERjJXJBUw/viewform).
 
 ### Homework
 
-- Complete [Activities 2 and 3]({{ site.baseurl}}/assignments/week1_activities/).
+- Complete homework [activities]({{ site.baseurl}}/assignments/week1_activities/).

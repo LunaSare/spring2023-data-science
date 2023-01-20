@@ -28,7 +28,9 @@ A) Read and prepare the following text for in-class discussion:
       - Is willingness to share data increasing or decreasing among researchers?
 
 
-
+<!-- For next iteration of the class, provide a google form for students to answer these questions
+In class, elaborate on how to get the answer to these questions from the research paper instead of the note
+-->
 
 
 

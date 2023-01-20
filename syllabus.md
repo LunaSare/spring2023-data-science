@@ -8,7 +8,7 @@ semester: Spring 2023
 professor: Dr.  Luna L. Sanchez Reyes
 office: SE1 280
 email: lsanchezreyes2@ucmerced.edu
-office_hours: By appointment and TBD.
+office_hours: On zoom (same link as class) or in person by appointment, Monday & Wednesday, 2-4pm
 
 professor2: Prof. Emily Jane McTavish
 office2: SE1 281
@@ -18,7 +18,7 @@ office_hours2: By appointment
 time: ['Tuesday & Thursday, 2-4pm']
 zoom: https://ucmerced.zoom.us/j/82767962714?pwd=T2RtZEZscGVJSVpkcjR0WHU5NHh1dz09
 zoom_tiny: https://ucmerced.zoom.us/j/82767962714
-location: SE1 298
+location: SE2 390
 location_map: https://www.google.com.mx/maps/place/Science+and+Engineering+Building+I,+Merced,+CA+95340,+EE.+UU./@37.3664436,-120.4243582,17z/data=!3m1!4b1!4m5!3m4!1s0x809146a5db7ea5e1:0x6c8c7244d1f78c15!8m2!3d37.3664394!4d-120.4221695
 website: https://lunasare.github.io/spring2023-data-science
 ---

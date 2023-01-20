@@ -19,7 +19,7 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 
 ---
 
-Day 1
+## Day 1
 
 - Let's talk about our knowledge in R (R survey results)
 - Live coding: Intro to programming with R: vectors
@@ -29,7 +29,7 @@ Day 1
 ---
 ---
 
-Day 2
+## Day 2
 
 **Live coding: data tables and organizing a project with RStudio**
 
@@ -51,3 +51,6 @@ Day 2
   - Learners: do [Activity 1](https://lunasare.github.io/data-science-research-biology/assignments/week2_activities/)
 
 * Factors and formatting dates will be covered later.
+
+- Start a README file describing the documents you create in your project.
+  - Use a template following readme best practices from https://data.research.cornell.edu/content/readme
