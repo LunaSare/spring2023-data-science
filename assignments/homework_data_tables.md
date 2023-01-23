@@ -3,7 +3,7 @@ layout: page
 element: assignment
 title: 'Data wrangling'
 language: R
-pagetype: activities
+pagetype: homework
 symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 ---
 

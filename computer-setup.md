@@ -6,7 +6,8 @@ title: Computer Setup
 
 ### R
 
-Download and install the [R base system](http://cran.rstudio.com/). We recommend you use [R studio](http://www.rstudio.com/products/rstudio/download/) to work with the base system.
+- Download and install the [R base system](http://cran.rstudio.com/) lastest version for your OS. 
+- Install the latest version of [R studio](http://www.rstudio.com/products/rstudio/download/) Desktop for your OS, to work with R's base system.
 
 ### Git
 

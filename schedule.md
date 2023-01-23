@@ -1,9 +1,9 @@
 ---
 layout: page
 title: Course Schedule
-assignments: ['The Data Life Cycle',
-'Intro to R and RStudio',
-'Intro to the Unix shell',
+assignments: ['The Data Life Cycle', # the importance of programming for data science, hence intro to programming with the shell
+'Intro to the Unix shell', # the shell is great processing, not good for visualization and statistical analysis, hence R
+'Intro to R and RStudio', #
 'Intro to version control',
 'Intro to rmarkdown',
 'Visualizing data',

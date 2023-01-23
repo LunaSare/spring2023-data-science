@@ -5,6 +5,8 @@ title: Data entry validation in Excel
 language: SQL
 --- -->
 
+If you want some additional tips on creating rules for data validation, watch the video ["Data validation in Excel"](https://www.youtube.com/watch?v=nMxl1_NAcxc).
+
 Create a spreadsheet in Excel for data entry. It should have five columns: Date, Site, Species, Mass, and Length.
 
 Set the following data validation criteria to prevent invalid data from getting entered:

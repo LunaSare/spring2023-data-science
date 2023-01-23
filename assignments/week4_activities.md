@@ -3,7 +3,7 @@ layout: page
 element: assignment
 title: 'Intro to version control'
 language: R
-pagetype: activities
+pagetype: homework
 symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 ---
 

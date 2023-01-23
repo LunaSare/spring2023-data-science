@@ -85,9 +85,19 @@ activities, in-class activities and homework.
 
 - Follow instructions on this [jamboard](https://jamboard.google.com/d/1T7MKWvtgBZuLa_LjGg02GAjySPQtHj1iwf9sdupfkoU/viewer?f=0).
 
+
 ### Homework
 
 - Create your own data life cycle on this [jamboard](https://jamboard.google.com/d/1giFAdjGzPK9vMM8aLuGP5KwF_FzyyT5hJ3eoPslS3rU/viewer?f=1).
+
+<!--
+For next iteration, at this point (after leaving the exercise as homework) talk about why programming is key in data sciences; so this connects to programming with the shell and then with R:
+- What is data science?
+- Data science uses scientific tools to extract meaning from data
+- Programming is a key tool for data science
+- What is programming?
+- Programming means to write a set of written rules that give instructions to a computational device (such as a computer) to perform a set of tasks.
+-->
 
 **A minute feedback**
 
@@ -182,4 +192,4 @@ activities, in-class activities and homework.
 
 ### Homework
 
-- Complete homework [activities]({{ site.baseurl}}/assignments/week1_activities/).
+- Complete the homework [activities]({{ site.baseurl}}/assignments/week1_activities/).

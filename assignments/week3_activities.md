@@ -3,7 +3,7 @@ layout: page
 element: assignment
 title: 'Intro to the Unix shell'
 language: Unix
-pagetype: activities
+pagetype: homework
 symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 
 ---

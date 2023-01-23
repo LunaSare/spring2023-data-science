@@ -2,10 +2,10 @@
 layout: page
 element: assignment
 title: 'The Data Life Cycle'
-pagetype: activities
+pagetype: homework
 symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 language: Excel
-exercises: ['Improving Messy Data', 'Data entry validation in Excel']
+# exercises: ['Improving Messy Data', 'Data entry validation in Excel']
 ---
 
 
