@@ -3,7 +3,7 @@ layout: page
 element: reading
 title: 'Reusing code - Apply functions'
 language: R
-week: "Mar 28"
+week: "Mar 14"
 ---
 
 ## The `apply` family of functions

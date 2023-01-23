@@ -26,12 +26,15 @@ Address this on day 1 of the course!!!
 -->
 
 
-## Day 1: Overview of R and RStudio
+## Day 1: Intro to programming with R
 
+### Intro
 - Programming is a key tool for data science and many areas of the human experience
 - What is programming?
 - Programming means to write a set of written rules that give instructions to a computational device (such as a computer) to perform a set of tasks.
 - R survey results
+
+### Knowing your way around R and Rstudio
 - What is R?
 - What is an R project?
 - Best practices in data science (in R)
@@ -43,9 +46,16 @@ Address this on day 1 of the course!!!
   - Use a template following readme best practices from https://data.research.cornell.edu/content/readme
 - Finding help in R
 
-- Live coding: Intro to programming with R: vectors
+### Vectors
+- Live coding inspired from [Introduction to R](http://www.datacarpentry.org/R-ecology-lesson/01-intro-to-r.html)
+  - expressions
+  - creating variables/objects
+  - types of vectors
+  - creating vectors with `c()`
 
-* [Introduction to R](http://www.datacarpentry.org/R-ecology-lesson/01-intro-to-r.html)
+  - functions to explore data structures
+    - content: `head()`, `tail()`, and `view()`
+    - summary: `str()` and `summary()`
 
 **A minute feedback for class 3**
 
@@ -65,7 +75,7 @@ Address this on day 1 of the course!!!
   - function `tidyverse::read_csv()`
   - functions to read excel tables
   - functions to read google tables
-  - functions to explore data structures
+  - functions to explore table structures
     - content: `head()`, `tail()`, and `view()`
     - summary: `str()` and `summary()`
     - size: `dim()`, `nrow()` and `ncol()`
