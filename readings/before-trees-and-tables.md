@@ -3,7 +3,7 @@ layout: page
 element: reading
 title: 'Joining trees and tables'
 language: R
-week: "Apr 5, 7"
+week: "Apr 6, 11"
 ---
 
 ## Day 1: Joining trees to data tables

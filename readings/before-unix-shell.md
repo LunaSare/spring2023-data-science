@@ -5,7 +5,7 @@ title: 'Intro to the Unix shell'
 language: Unix
 pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
-week: 'Jan 24'
+week: 'Jan 24, 26'
 ---
 
 **Day 1: Intro to the Unix shell**
