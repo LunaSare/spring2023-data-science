@@ -96,10 +96,8 @@ The job of a software engineer, data scientist, or any other technical person wr
 ## Day 2
 ### Pipes and filters (35 min)
 - [SWC lesson](https://swcarpentry.github.io/shell-novice/04-pipefilter/index.html)
-- [Etherpad]({{ site.etherpad }})
 
-
-[IN-CLASS ACTIVITIES]()
+[IN-CLASS ACTIVITIES]({{ site.etherpad }})
 
 <!-- After class notes: students took 15 min tops to finish all the questions, and got them right. They were super fast!
 The first student emailed me the code from their terminal 50 min after they started the class. It was really fast, but other students took more time.
@@ -108,7 +106,7 @@ Might be a good idea for in-class lessons to have them do the exercise at the be
 
 A) Go into teams of 2 or 3 people. Find a name for your team and write it down in the etherpad along with the names of the team members. Take 5-7 min to do so.
 
-B)  Read https://swcarpentry.github.io/shell-novice/04-pipefilter/index.html and run along the example code on the terminal (as well as the exercises!). Email the code to your instructor once you are done. You can email the code as a txt file or directly on the body of the email.
+B)  Read https://swcarpentry.github.io/shell-novice/04-pipefilter/index.html and run along the example code on the terminal (as well as the exercises!). Email the code to your instructor once you are done. You can email the code as a .txt file or directly on the body of the email.
 
 C) As you read, discuss with your team and answer:
 
