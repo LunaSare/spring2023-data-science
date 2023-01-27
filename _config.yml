@@ -13,6 +13,8 @@ title:            'UC Merced - <br> Spring 2023'
 description:      'Data Science Research Biology: An intro to programming with R for ecology and evolution'
 url:              http://www.datacarpentry.org/semester-biology
 baseurl:          /spring2023-data-science
+
+
 email:            sanchez.reyes.luna@gmail.com
 feedbackurl:      docs.google.com/forms/d/1y35uJukuZ9MPKQWWqw0Y8R4VOiaOtFJezDY_t_kJfTs/
 author:
@@ -22,3 +24,6 @@ author:
 github:
   repo:           https://github.com/LunaSare/spring2023-data-science.git
   #               Be sure the 'Issues' feature is activated in 'Settings'
+
+# content
+etherpad:         https://etherpad.wikimedia.org/p/spring2023
