@@ -15,9 +15,13 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 
 ---
 -->
+Day 1
+
+- [More variables]({{ site.baseurl }}/exercises/Expressions-and-variables-more-variables-R)
+- [Variable names]({{ site.baseurl }}/exercises/Expressions-and-variables-variable-names-R).
 
 
-<!-- 
+<!--
 >
 **Session 2: Instructions**
 >
@@ -31,6 +35,8 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 ### Activity 1
 
 {% include_relative exercises/week2-read-data-tables-r.md %}
+
+
 
 ---
 

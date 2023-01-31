@@ -36,11 +36,12 @@ The job of a software engineer, data scientist, or any other technical person wr
 - [“Introducing the Shell”](https://swcarpentry.github.io/shell-novice/01-intro/index.html) reading discussion:
   - What is a GUI?
   - What is a command shell?
-    - An command-line interface (CLI): How else do we interact with computers? [Interfaces exercise](https://jamboard.google.com/d/11001yh4s56Qg8_h73_hnTbvH-PHKRyy9uO1KTPDwlHo/viewer?f=0)
-    - A scripting language: What is a scripting language? [High-level languages](https://jamboard.google.com/d/1R091zAGq9zB-Zl0I7DlQO67rvs458hZW_s5OVunTNKc/viewer?f=0)
+    - A command-line interface (CLI); how else do we interact with computers? [Interfaces exercise](https://jamboard.google.com/d/11001yh4s56Qg8_h73_hnTbvH-PHKRyy9uO1KTPDwlHo/viewer?f=0).
+    - A scripting language; what is a scripting language? [High-level languages presentation](https://jamboard.google.com/d/1R091zAGq9zB-Zl0I7DlQO67rvs458hZW_s5OVunTNKc/viewer?f=0).
       - [Banksy fetch](https://raw.githubusercontent.com/LunaSare/slides/master/media/banksy_2019.11.13.png)
       - Programming and scripting languages provide a set of written rules that give instructions to a computational device (such as a computer) to perform a set of tasks.
-    - Programming and scripting languages have different strengths.
+      - ["Programming languages are artificial languages that can be used to control the behaviour of a machine, particularly a computer"](https://www.cs.mcgill.ca/~rwest/wikispeedia/wpcd/wp/p/Programming_language.htm).
+      - Different programming and scripting languages have different strengths.
   - Why would I use the command shell? What are the strengths of the shell?
   - Explain how the shell relates to the keyboard, the screen, the operating system, and users’ programs.
   - Explain when and why command-line interfaces should be used instead of graphical interfaces.
