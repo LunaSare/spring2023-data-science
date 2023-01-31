@@ -187,7 +187,7 @@ Address this on day 1 of the course!!!
 
 **A minute feedback for class 5**
 
-- Please provide some quick feedback for this session [here](https://docs.google.com/forms/d/e/1FAIpQLSchxHqqJEKhGUxIxJcl3EELFzyTP_BReBQPNu-SS3nqolo_Kg/viewform)
+- Please provide some quick feedback for this session [here]({{ site.feedback.class5 }})
 
 ---
 ---
@@ -207,7 +207,7 @@ Address this on day 1 of the course!!!
 
 **A minute feedback for class 6**
 
-- Please provide some quick feedback for this session [here]()
+- Please provide some quick feedback for this session [here]({{ site.feedback.class6 }})
 
 
 <!--
