@@ -24,8 +24,7 @@ author:
 github:
   repo:           https://github.com/LunaSare/spring2023-data-science.git
   #               Be sure the 'Issues' feature is activated in 'Settings'
-plugins:
-  - jekyll-sitemap
+
 # content
 etherpad:         https://etherpad.wikimedia.org/p/spring2023
 
