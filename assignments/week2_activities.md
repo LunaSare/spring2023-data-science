@@ -7,6 +7,13 @@ pagetype: homework
 symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 ---
 
+
+Day 1
+
+- [More variables]({{ site.baseurl }}/exercises/Expressions-and-variables-more-variables-R)
+- [Variable names]({{ site.baseurl }}/exercises/Expressions-and-variables-variable-names-R).
+
+
 <!--
 > **Session 1: Instructions**
 >
@@ -15,12 +22,6 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 
 ---
 -->
-Day 1
-
-- [More variables]({{ site.baseurl }}/exercises/Expressions-and-variables-more-variables-R)
-- [Variable names]({{ site.baseurl }}/exercises/Expressions-and-variables-variable-names-R).
-
-
 <!--
 >
 **Session 2: Instructions**
@@ -32,13 +33,10 @@ Day 1
 ---
 -->
 
-### Activity 1
+<!-- ### Activity 1
 
 {% include_relative exercises/week2-read-data-tables-r.md %}
 
-
-
----
 
 ### Activity 2
 
@@ -46,7 +44,4 @@ Run the code from the following tutorials:
 - [Data Frame Reference](http://www.r-tutor.com/r-introduction/data-frame)
 - [Data frame column vectors](http://www.r-tutor.com/r-introduction/data-frame/data-frame-column-vector)
 - [Data frame column slice](http://www.r-tutor.com/r-introduction/data-frame/data-frame-column-slice)
-- [Data frame row slice](http://www.r-tutor.com/r-introduction/data-frame/data-frame-row-slice)
-
-
----
+- [Data frame row slice](http://www.r-tutor.com/r-introduction/data-frame/data-frame-row-slice) -->

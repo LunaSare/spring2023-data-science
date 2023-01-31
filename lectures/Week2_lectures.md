@@ -36,7 +36,7 @@ Address this on day 1 of the course!!!
   - Programming is a key tool in data science
   - There are many different programming and scripting languages; they all have different strengths.
 - What is a CLI? Which CLIs have we used so far?
-- R survey results
+- R [survey results](https://docs.google.com/forms/d/1MgTN7yxMo2hJ0G6_uNHXlUu_QjAEDwFKJJuBkCFHR9g/edit#responses)
 
 ### Intro
 - What is R?
