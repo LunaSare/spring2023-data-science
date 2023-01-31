@@ -201,7 +201,7 @@ Address this on day 1 of the course!!!
   - content: `head()`, `tail()`, and `view()`
   - `summary()`
 
-{% include_relative vector-R.md %}
+{% include_relative vectors-R.md %}
 
 
 
