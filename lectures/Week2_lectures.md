@@ -103,7 +103,7 @@ Address this on day 1 of the course!!!
           - the `<-` assignment operator
             - `weight_kg <- 20` executes the code, creates the object/variable
             - `(weight_kg <- 20)` prints value of variable to screen
-          - Solo/joint exercise [Basic Variables]({{ site.basurl }}/exercises/Expressions-and-variables-basic-variables-R)
+          - Solo/joint exercise [Basic Variables]({{ site.baseurl }}/exercises/Expressions-and-variables-basic-variables-R)
           - Homework exercises [More variables]({{ site.baseurl }}/exercises/Expressions-and-variables-more-variables-R) and [Variable names]({{ site.baseurl }}/exercises/Expressions-and-variables-variable-names-R).
       - It is good practice to never save the R workspace and always start sessions fresh
       - Demo: How to never save the workspace in R
@@ -182,7 +182,7 @@ Address this on day 1 of the course!!!
   weight_rounded <- round(weight, 1)
   weight_rounded
   ```
-- Exercise [Built-in functions]({{ site.baseurl}}/exercise/Functions-built-in-functions-R)
+- Exercise [Built-in functions]({{ site.baseurl }}/exercise/Functions-built-in-functions-R)
 - Homework exercise []()
 
 **A minute feedback for class 5**
