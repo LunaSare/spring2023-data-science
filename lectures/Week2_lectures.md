@@ -26,7 +26,7 @@ Address this on day 1 of the course!!!
 -->
 
 
-## Day 1: Intro to programming with R
+## Day 1: Intro to R and Rstudio
 
 ### Review
 - What is a GUI?
@@ -111,7 +111,7 @@ Address this on day 1 of the course!!!
       - You can access the history with the up and down arrows
       - Also with the function `history()`
 
-### RStudio projects
+### Rstudio projects
 
 - What is the working directory in R?
   - It is one of many best practices for data science and reproducibility
@@ -148,7 +148,7 @@ Address this on day 1 of the course!!!
 - For more information on README best practices, read [Guide to writing "readme" style metadata](https://data.research.cornell.edu/content/readme) from the Research Data Management Service Group at Cornell University.
 
 
-### Functions
+### Basics of functions
 - functions and their arguments
 - similarities and differences of R functions with shell commands
   - name of function
@@ -183,7 +183,7 @@ Address this on day 1 of the course!!!
   weight_rounded
   ```
 - Exercise [Built-in functions]({{ site.baseurl }}/exercise/Functions-built-in-functions-R)
-- Homework exercise []()
+<!-- - Homework exercise []() -->
 
 **A minute feedback for class 5**
 
@@ -192,14 +192,26 @@ Address this on day 1 of the course!!!
 ---
 ---
 
-## Day 2:
+## Day 2: Intro to vectors
 
-### Vectors
-- types of vectors
-- creating vectors with `c()`
-- functions to explore data structures
-  - content: `head()`, `tail()`, and `view()`
-  - `summary()`
+### Review
+
+- bash shell
+  - `echo` and `print` commands
+  - the exclamation mark `!` command, [many uses](https://www.baeldung.com/linux/exclamation-mark-interactive-shells):
+    - repeating the last command
+    - searching the beginning of a command in the history
+    - reuse the file path from teh previous command `!$`
+    - start a shell script `#!/usr/bin/bash`
+  - escaping `!` to use as a character string
+- difference between `>` and `>>` exercise:
+```
+echo "hello" > hello.txt
+nano hello.txt
+echo "hello" >> hello.txt
+nano hello.txt  
+echo "leopard" > hello.txt
+```
 
 {% include_relative vectors-R.md %}
 

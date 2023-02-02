@@ -59,7 +59,7 @@ D) Read and prepare for discussion [Best Practices for Scientific Computing](htt
   - List down any concepts or words from the paper that you did not know of, along with their definitions.
   - For each number in `Box 1. Summary of Best Practices`, identify the best practices that you have implemented in the past, in general and for this class.
 
-E) Watch the videos listed below. Open a new R file and as you watch the videos, follow along with the instructor and type down and run the code that is being demoed on the video. **Watching all videos takes ~ 55 min**. Hint: Watch the videos with a higher reproduction speed to save some time:
+E) **Optional - extra points** Watch the videos listed below. Open a new R file and as you watch the videos, follow along with the instructor and type down and run the code that is being demoed on the video. **Watching all videos takes ~ 55 min**. Hint: Watch the videos with a higher reproduction speed to save some time:
 
  - 7min [Intro to R and Rstudio](https://youtu.be/zqUQL8OOtMQ)
  - 8min 14s [Expressions and variables in R](https://youtu.be/BFVX0CKY67g)

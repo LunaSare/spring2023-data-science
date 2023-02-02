@@ -276,7 +276,7 @@ Exercises 3 and 4 of [Joining data tables practice]({{ site.baseurl }}/assignmen
 * So, we can extract vectors from data frames and we can also make data frames from vectors
 
 ### Creating vectors
-
+<!--
 - Examples of numeric vectors:
   - with a single number
   ```r
@@ -286,7 +286,7 @@ Exercises 3 and 4 of [Joining data tables practice]({{ site.baseurl }}/assignmen
   ```r
   c(1, 2, 3) # in order
   ```
-  - We can use the _colon_ `:` operator to create sequences of numbers
+- We can use the _colon_ `:` operator to create sequences of numbers
   ```r
   1:3
   ```
@@ -323,7 +323,7 @@ Exercises 3 and 4 of [Joining data tables practice]({{ site.baseurl }}/assignmen
 2. Examples of logical vectors
   ```r
   abc
-  ```
+  ``` -->
 
 ### Creating data frames from Vectors
 

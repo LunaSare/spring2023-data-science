@@ -1,26 +1,71 @@
----
-layout: page
-element: notes
-title: Vectors
-language: R
----
+### Basics of Vectors
 
-### Vectors Basics
-
-* Remember that all values in R have a type
+* All values in R have a basic type: numeric, logical, character, integer
 * A vector is a sequence of values that all have the same type
-* Create using the `c()` function, which stands for "combine"
+- numeric vectors:
+  - We can use the _colon_ `:` operator to create sequences of numbers
+  ```r
+  1:3
+  ```
+  - With the `c()` function we can add numbers in any order we want
+  ```r
+  c(10, 1, 8) # random order
+  ```
+  - But with `:` we can create sequences as long as we want to with just a few key strokes:
+  ```r
+  1:10
+  1:100
+  1:4589567
+  ```
+  - The function `seq()` creates sequences with any step we specify (not only 1 as with `:`)
+  ```r
+  seq(from = 1, to = 100, by = 2)
+  seq(from = 1, to = 100, by = 0.5)
+  ```
+  - We can start numeric sequences at any number, in reverse order, and using negative numbers,
+    - with the `:` operator:
+    ```r
+    15:20
+    100:50
+    -100:50
+    5:-5
+    ```
+    - and with `seq()` (pay attention to the sign of the step (`by = ` argument))
+    ```r
+    seq(15, 20)
+    seq(100, 50, -2)
+    seq(-100, 50, 2)
+    ```
+    * We can use numeric vectors to calculate common summary statistics
+    - For example, if we have a vector of population counts
 
-```
-states <- c("FL", "FL", "GA", "SC")
-```
+    ```
+    count <- c(9, 16, 3, 10)
+    mean(count)
+    max(count)
+    min(count)
+    sum(count)
+    summary(count)
+    ```
 
-* Using the `str` function we learned last time shows that this is a vector of 4 character strings
+- character vectors:
+  * Created using the `c()` function, which stands for "combine"
+  ```
+  states <- c("FL", "FL", "GA", "SC")
+  ```
+  * Many functions in R take a vector as input and return a value  
+  * The `str()` function shows that this is a vector of 4 character strings
 
-```
-str(states)
-```
+  ```
+  str(states)
+  ```
+  - Other useful functions to explore the structure of an object/variable
+    - `type()`
+    - `class()`
+    - `length` which determines how many items are in a vector
+    - `head()`, `tail()`, and `view()`
 
+- subsetting vectors
 * Select pieces of a vector by slicing the vector (like slicing a pizza)
 * Use square brackets `[]`
 * In general `[]` in R means, "give me a piece of something"
@@ -30,23 +75,27 @@ str(states)
 * So, this is the same as `states[1:3]` is the same as `states[c(1, 2, 3)]`
 * You can use a vector to get any subset or order you want `states[c(4, 1, 3)]`
 
-* Many functions in R take a vector as input and return a value
-* This includes the function `length` which determines how many items are in a vector
+- logical vectors:
+- can be created with `c()`
+- cam also be created with relational operators: equality `==`, larger than, smaller than, not equal to:
+* Some examples of relational statements are:
 
-```
-length(states)
+```r
+1 == 1
+1 == 2
+1 != 2
+1 > 2
+1 > 1
+1 >= 1
+1 < 2
+1 <= 2
+"A" == "A"
+"A" == "a"
+"A" != "a"
 ```
 
-* We can also calculate common summary statistics
-* For example, if we have a vector of population counts
-
-```
-count <- c(9, 16, 3, 10)
-mean(count)
-max(count)
-min(count)
-sum(count)
-```
+- we can compare a longer vector and a smaller vector `1:10 == 7`
+- this returns a vector of length eual to the larger vector
 
 > Do [Basic Vectors]({{ site.baseurl }}/exercises/Vectors-basic-vectors-R/).
 
@@ -78,6 +127,11 @@ mean(count_na)
 mean(count_na, na.rm = TRUE)
 ```
 
+- relational operations with `NA`
+```r
+NA > 3  # is obviously NA because we don't know if the missing value is larger than 3 or not
+NA == NA  # the same with this, we have two missing values but the true values could be quite different, so the correct answer is "I don't know."
+```
 > Do [Nulls in Vectors]({{ site.baseurl }}/exercises/Vectors-nulls-in-vectors-R/).
 
 ### Working with multiple vectors
@@ -141,4 +195,4 @@ density[density > 3]
 * Multiple vectors can be used together to perform element-wise math, where we do the same calculation for each position in the vectors
 * We can also filter the values in vector based on the values in another vector or itself
 
-> Do [Shrub Volume Vectors 1-3]({{ site.baseurl }}/exercises/Vectors-shrub-volume-vectors-R/).
+> Do [Shrub Volume Vectors exercise]({{ site.baseurl }}/exercises/Vectors-shrub-volume-vectors-R/).
