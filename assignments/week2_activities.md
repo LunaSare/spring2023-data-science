@@ -12,3 +12,8 @@ Day 1
 
 - [More variables]({{ site.baseurl }}/exercises/Expressions-and-variables-more-variables-R)
 - [Variable names]({{ site.baseurl }}/exercises/Expressions-and-variables-variable-names-R).
+
+
+Day 2
+
+- [Shrub Volume Vectors exercise]({{ site.baseurl }}/exercises/Vectors-shrub-volume-vectors-R/).

@@ -182,7 +182,7 @@ Address this on day 1 of the course!!!
   weight_rounded <- round(weight, 1)
   weight_rounded
   ```
-- Exercise [Built-in functions]({{ site.baseurl }}/exercise/Functions-built-in-functions-R)
+- Exercise [Built-in functions]({{ site.baseurl }}/exercises/Functions-built-in-functions-R)
 <!-- - Homework exercise []() -->
 
 **A minute feedback for class 5**
