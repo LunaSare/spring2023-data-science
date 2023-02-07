@@ -38,9 +38,11 @@ Slides:
 >   - display, read and comprehend the git history
 ---
 
-**Day 1**
+## Day 1
 
-* Discussion: What is version control and why should we use it.
+### Intro to `git`
+- [quizz]({{ site.etherpad }})
+* Discussion: What is version control and why should we use it?
 * Lecture: `git` for version control
   - free
   - open source
@@ -49,10 +51,23 @@ Slides:
   - staging area
   - commit messages allow team communication
 
----
----
+### Configuring `git` (on the terminal)
 
-* Live coding [Git basics in RStudio](http://nicercode.github.io/git/rstudio.html)
+* [Setting up git](https://swcarpentry.github.io/git-novice/02-setup/index.html)
+
+### Creating a repository on the terminal
+
+* [Creating a repository](https://swcarpentry.github.io/git-novice/03-create/index.html)
+
+### Tracking changes on the terminal
+
+* [Tracking changes](https://swcarpentry.github.io/git-novice/04-changes/index.html)
+- the difference between staging/adding a file or changes to a file and commiting them:
+![Stage and commit area](https://swcarpentry.github.io/git-novice/fig/git-staging-area.svg)
+
+### Using `git` on Rstudio
+
+* [Git basics in RStudio](http://nicercode.github.io/git/rstudio.html)
   - activating git for your project with RStudio: starting a local git repository
   - checking the "git status" of your files
   - adding files to the staging area: indicating our intention to version control files
@@ -65,25 +80,23 @@ Slides:
     - which files should we ignore?
     - the ".Rproj" files
   - directories are not version controlled if they are empty
-  - the difference between staging/adding a file or changes to a file and commiting them:
-  ![Stage and commit area](https://swcarpentry.github.io/git-novice/fig/git-staging-area.svg)
 
----
----
 
-* In-class exercise
+### In-class exercise
 
   1. Create a new RStudio project on your computer called "bio".
   1. Write a three-line biography for yourself in a file called me.txt, add and commit your changes.
   1. Modify one line, add a fourth line, add and commit the changes.
   1. Display the git history of your project. Describe the differences between the updated state and the original state of your repository. Do your commit messages are informative enough to describe the differences?
 
----
----
+
+**A minute feedback for class 7**
+
+- Please provide some quick feedback for this session [here]({{ site.feedback.class7 }})
 
 * Homework
 
-Read: Best practices for commit messages
+Read: [Best practices for commit messages](https://reflectoring.io/meaningful-commit-messages/)
 
 
 **Day 2**
@@ -105,9 +118,7 @@ Read: Best practices for commit messages
 > - List other platforms for remote version control with git
 > - Explain why we use Git
 
-### Live coding
-
-* [Setting up git](https://swcarpentry.github.io/git-novice/02-setup/index.html)
+### Remote version control with `git`
 
 * [Remotes in GitHub](https://swcarpentry.github.io/git-novice/07-github/index.html)
   - Create a remote repository
@@ -165,6 +176,12 @@ Comic by [Allison Hurst](https://twitter.com/allison_horst)
 4. Take a snapshot of the commit history displayed on GitHub and send it to your instructor.
 5. Now pull the changes into your local repository.
 6. Get your commit history on the terminal with `git log`, take a snapshot of it and send it to your instructor.
+
+**A minute feedback for class 8**
+
+- Please provide some quick feedback for this session [here]({{ site.feedback.class8 }})
+
+* Homework
 
 ---
 ---
