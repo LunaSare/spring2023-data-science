@@ -40,10 +40,11 @@ Slides:
 
 ## Day 1
 
-### Intro to `git`
-- [quizz]({{ site.etherpad }})
-* Discussion: What is version control and why should we use it?
-* Lecture: `git` for version control
+### Intro to `git` (40 min)
+
+- Do the [quizz]({{ site.etherpad }}) (20 min)
+* Discussion: What is version control and why should we use it? (20 min)
+* `git` for version control
   - free
   - open source
   - distributed repository system (not centralized)
@@ -51,7 +52,7 @@ Slides:
   - staging area
   - commit messages allow team communication
 
-### Configuring `git` (on the terminal)
+### Configuring `git` (on the terminal, 20 min)
 
 * [Setting up git](https://swcarpentry.github.io/git-novice/02-setup/index.html)
 
@@ -65,7 +66,7 @@ Slides:
 - the difference between staging/adding a file or changes to a file and commiting them:
 ![Stage and commit area](https://swcarpentry.github.io/git-novice/fig/git-staging-area.svg)
 
-### Using `git` on Rstudio
+### Using `git` on Rstudio (20 min)
 
 * [Git basics in RStudio](http://nicercode.github.io/git/rstudio.html)
   - activating git for your project with RStudio: starting a local git repository
@@ -81,25 +82,24 @@ Slides:
     - the ".Rproj" files
   - directories are not version controlled if they are empty
 
-
-### In-class exercise
-
-  1. Create a new RStudio project on your computer called "bio".
-  1. Write a three-line biography for yourself in a file called me.txt, add and commit your changes.
-  1. Modify one line, add a fourth line, add and commit the changes.
-  1. Display the git history of your project. Describe the differences between the updated state and the original state of your repository. Do your commit messages are informative enough to describe the differences?
-
-
 **A minute feedback for class 7**
 
 - Please provide some quick feedback for this session [here]({{ site.feedback.class7 }})
 
 * Homework
 
-Read: [Best practices for commit messages](https://reflectoring.io/meaningful-commit-messages/)
+1. Do the [exercise](https://swcarpentry.github.io/git-novice/04-changes/index.html#bio-repository)
+  1. Create a new RStudio project on your computer called "bio".
+  1. Write a three-line biography for yourself in a file called me.txt, add and commit your changes.
+  1. Modify one line, add a fourth line, add and commit the changes.
+  1. Display the git history of your project. Describe the differences between the updated state and the original state of your repository. Do your commit messages are informative enough to describe the differences?
+2. Read ["best practices for commit messages"](https://reflectoring.io/meaningful-commit-messages/)
 
 
-**Day 2**
+---
+---
+
+## Day 2
 
 > **Learning Goals**
 >
