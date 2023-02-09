@@ -119,9 +119,37 @@ Slides:
 > - List other platforms for remote version control with git
 > - Explain why we use Git
 
+### Introduction
+- Do the [quizz]({{ site.etherpad }}) (10 min)
+- A version control system is a tool (implemented as software) that keeps track of any changes made on files of a project, effectively creating different versions of our files.
+- A repository is the complete history of commits for a particular project and their metadata.
+
+### Other software for version control (10 min)
+- [A wikipedia List of version control software](https://en.wikipedia.org/wiki/List_of_version-control_software)
+- [And a comparison](https://en.wikipedia.org/wiki/Comparison_of_version-control_software)
+- Centralized vs Distributed version control software:
+  ![Centralized version control](https://miro.medium.com/max/674/1*2FZbXMmr_FTV2T3LFj33sA.png)
+  ![Distributed version control](https://miro.medium.com/max/834/1*2cG4BW2m1E-EcklOLG51jg.png)
+  1. Centralized version control examples:
+    - Example of **centralized** open source software for version control: [Concurrent Versions System](https://en.wikipedia.org/wiki/Concurrent_Versions_System)
+      - Pros: It is free
+      - It has a cool logo
+        ![](http://savannah.nongnu.org/images/Savannah.theme/floating.png)
+    - Example of proprietary software for version control: [Microsoft Visual SourceSafe](https://learn.microsoft.com/en-us/previous-versions/ms181038(v=vs.80))
+      - Cons: You have to pay to use it!
+  2. Distributed version control examples:
+    - Example of **distributed** open source software for version control: [Git](https://git-scm.com/)
+    - As opposed to distributed software, centralized version control has:
+      - The ability to create branches and merge them (`git merge` and `git branch` will be seen later during the course).
+      - The ability to create working copies from any public project hosted on the web (GitHub): cloning and forking
+      - [Other platforms for remote hosting of Git repositories](https://www.guru99.com/github-alternative.html).
+
+  _Images from [medium original article](https://medium.com/analytics-vidhya/what-is-version-control-tool-explore-git-and-github-e8c4e719bc05)_
+
+
 ### Remote version control with `git`
 
-* [Remotes in GitHub](https://swcarpentry.github.io/git-novice/07-github/index.html)
+* Lab [Remotes in GitHub](https://swcarpentry.github.io/git-novice/07-github/index.html)
   - Create a remote repository
   - Connect local repository to newly created remote repository
     - use SSH and not HTTPS, the latter is more secure
@@ -139,25 +167,14 @@ Slides:
     - what about when there are no changes to remote?
   - Look at the git history locally on the terminal with `git log`
 
-### Other software for version control (5 min)
-- [A wikipedia List of version control software](https://en.wikipedia.org/wiki/List_of_version-control_software)
-- [And a comparison](https://en.wikipedia.org/wiki/Comparison_of_version-control_software)
-- Centralized vs Distributed version control software:
-  ![Centralized version control](https://miro.medium.com/max/674/1*2FZbXMmr_FTV2T3LFj33sA.png)
-  ![Distributed version control](https://miro.medium.com/max/834/1*2cG4BW2m1E-EcklOLG51jg.png)
-  1. Centralized version control examples:
-    - Open Source: [Concurrent Versions System](https://en.wikipedia.org/wiki/Concurrent_Versions_System)
-      - Has a cool logo:
-    ![](http://savannah.nongnu.org/images/Savannah.theme/floating.png)
-    - Proprietary: [Microsoft Visual SourceSafe](https://learn.microsoft.com/en-us/previous-versions/ms181038(v=vs.80))
-      - You have to pay to use it!
-  2. Distributed version control examples:
-    - Open Source: [Git](https://git-scm.com/)
-      - Ability to create branches and merge them (`git merge` and `git branch` will be seen later during the course).
-      - Ability to create working copies from any public project hosted on GitHub: cloning and forking
-      - [Other platforms for remote hosting of Git repositories](https://www.guru99.com/github-alternative.html).
-
-  _Images from [medium original article](https://medium.com/analytics-vidhya/what-is-version-control-tool-explore-git-and-github-e8c4e719bc05)_
+### Group activity
+* What is the difference between committing a change and pushing it?
+1. Read the comic, can you find three main differences between committing a change to a repository and pushing a change?
+2. Think of another example to illustrate the difference between `git commit` and `git push`. For example, I imagine that adding a song to my spotify queue is equivalent to committing a file, and then when the song is finally playing and made public that is like pushing the file to the remote repository 😜
+![A Git Story](https://res.cloudinary.com/practicaldev/image/fetch/s--pYxSazy8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/d9n3kcnc76l5viwl4z2n.jpeg)
+Comic by [Erika Heidi](https://dev.to/erikaheidi/stage-commit-push-a-git-story-comic-a37).
+<!-- Additional for the activity: a jamboard with missing cells: -->
+<!-- Fill the missing cells in the [comparative table](http://cdn.differencebetween.net/wp-content/uploads/2019/10/Commit-vs-Push.jpg). -->
 
 
 ### Cloning repositories (20 min)
@@ -177,24 +194,8 @@ Slides:
     1. What is the difference between the file that you see on your terminal and the file as it is displayed on GitHub?
     <!-- Answer: Text is intermixed with markup instructions or symbols -->
 
----
----
 
-### Group activity
-
-* What is the difference between committing a change and pushing it?
-
-1. Read the comic, can you find three main differences between committing a change to a repository and pushing a change?
-2. Think of another example to illustrate the difference between `git commit` and `git push`. For example, I imagine that adding a song to my spotify queue is equivalent to committing a file, and then when the song is finally playing and made public that is like pushing the file to the remote repository 😜
-
-![A Git Story](https://res.cloudinary.com/practicaldev/image/fetch/s--pYxSazy8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/d9n3kcnc76l5viwl4z2n.jpeg)
-
-Comic by [Erika Heidi](https://dev.to/erikaheidi/stage-commit-push-a-git-story-comic-a37).
-
-<!-- Additional for the activity: a jamboard with missing cells: -->
-<!-- Fill the missing cells in the [comparative table](http://cdn.differencebetween.net/wp-content/uploads/2019/10/Commit-vs-Push.jpg). -->
-
-### Optional activity
+### Activity
 
 * What is the difference between fetching changes from a remote and pulling them?
 
@@ -202,8 +203,6 @@ Comic by [Erika Heidi](https://dev.to/erikaheidi/stage-commit-push-a-git-story-c
 
 Comic by [Allison Hurst](https://twitter.com/allison_horst)
 
----
----
 
 ### Individual activity
 
