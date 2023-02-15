@@ -194,6 +194,7 @@ Comic by [Erika Heidi](https://dev.to/erikaheidi/stage-commit-push-a-git-story-c
     1. What is the difference between the file that you see on your terminal and the file as it is displayed on GitHub?
     <!-- Answer: Text is intermixed with markup instructions or symbols -->
 
+[Link]({{ site.baseurl }}/lectures/git-clone)
 
 ### Activity
 
