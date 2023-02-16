@@ -7,7 +7,7 @@ language: Bash
 
 - To "clone" a repository means to make a local copy of a repository from a remote copy of it.
 - you can clone any public repository on GitHub, from any user account or organization
-- In-class activity 1: Clone the GitHub repository [markdown-cheatsheet](https://github.com/LunaSare/markdown-cheatsheet) to your computer using termnal commands:
+- **In-class activity 1**: Clone the GitHub repository [markdown-cheatsheet](https://github.com/LunaSare/markdown-cheatsheet) to your computer using termnal commands:
   1. Go to the repository home on GitHub, at [https://github.com/LunaSare/markdown-cheatsheet](https://github.com/LunaSare/markdown-cheatsheet)
   1. Copy the ssh address of the repo. You can find that by clicking on the green button that says "Code":
   ![Git clone]({{ site.baseurl }}/materials/git-clone.png)
