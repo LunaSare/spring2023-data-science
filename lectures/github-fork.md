@@ -1,0 +1,4 @@
+- Forking
+- to make a remote copy of a public repo in your account, you have to use the "fork" option on GitHub.
+- the ability to clone and fork a public repository is one of the features that makes Git and GitHub so widely used and a great tool for collaboration, not only by computer developers!
+- Take home activity: Read the Git Basics tutorial [Getting a Git Repository](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
