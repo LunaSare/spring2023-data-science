@@ -17,19 +17,11 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 
 1. Open the Rstudio project of your data science repository.
 2. From Rstudio, create a new Rmd file called "my_data_life_cycle.Rmd"
-3. In it, use markdown syntax and write down the list that you created for the assignemt "create your own data cycle", [here]({{ site.jamboard-data-life-cycle }}).
+3. In it, use markdown syntax and write down the list that you created for the assignemt "create your own data cycle", [here]({{ site.jamboard2 }}).
 1. Save the Rmd file to the `documents` folder.
 1. Render it as pdf.
 1. Add, commit and push your changes to the remote repository on GitHub.
 
-
-
-
-
-   <!--
-   5. Run the following code `sum(dispersal_mode == "lemur")`. Is it the same as the number of plant species that are dispersed by lemurs?
-   6. Now run the code `sum(TRUE)`, `sum(FALSE)`, `sum(c(TRUE, TRUE))`. Can you explain why  
-   -->
 
 
 <!-- ** Day 2**
