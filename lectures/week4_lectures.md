@@ -195,7 +195,10 @@ Comic by [Erika Heidi](https://dev.to/erikaheidi/stage-commit-push-a-git-story-c
     <!-- Answer: Text is intermixed with markup instructions or symbols -->
 
 [git clone Link]({{ site.baseurl }}/lectures/git-clone)
+
 [git push Link]({{ site.baseurl }}/lectures/git-push)
+
+[github fork Link]({{ site.baseurl }}/lectures/github-fork)
 
 ### Activity
 
