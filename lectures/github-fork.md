@@ -5,7 +5,7 @@ subtitle: 'Forking a repository on GitHub (20 min)'
 language: Bash
 ---
 
-- Forking means to make a copy of a GitHub repository from another account into your account,
+- "Forking" means to make a **remote copy** of a GitHub repository from another account into your account,
 - To do this, you have to use the "fork" option on GitHub.
 
 - Examples of open source projects that you can fork on GitHub:

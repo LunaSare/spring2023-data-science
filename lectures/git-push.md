@@ -5,7 +5,7 @@ subtitle: 'Pushing to a remote repository with `git`'
 language: Bash
 ---
 
-- To `push` a repository means to upload local changes to a remote copy of a repository.
+- To "push" a repository means to **upload** local changes to a remote copy of a repository.
 - to do this, we use the command `git push`
 - The command `git push` can be run after we have added and committed the changes that we want to upload.
 - Note: You can only push to remote repositories that you have been given access to collaborate with!
