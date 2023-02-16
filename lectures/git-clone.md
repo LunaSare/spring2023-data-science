@@ -1,7 +1,7 @@
 ---
 layout: page
 element: lecture
-title: 'Cloning repositories with `git` (20 min)'
+subtitle: 'Cloning repositories with `git`'
 language: Bash
 ---
 

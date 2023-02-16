@@ -147,5 +147,10 @@ Resources:
 1. Create a PDF file from your .Rmd file
 1. Add, commit and push the files that you just created.
 
-## Homework Activity
-[rmarkdown demo R code]({{ site.baseurl }}/code/07_Rmarkdown/Rmarkdown_demo.zip)
+**A minute feedback for class 10**
+
+- Please provide some quick feedback for this session [here]({{ site.feedback.class10 }})
+
+**Homework**
+
+- Do [A document for your data life cycle]({{ site.baseurl }}/assignments/week5_activities/).

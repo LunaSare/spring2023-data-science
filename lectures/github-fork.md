@@ -16,6 +16,7 @@ language: Bash
   - Python packages: [Numpy](https://github.com/numpy)
   - Operative Systems: [Linux](https://github.com/torvalds/linux)
   - Version control software: [Git](https://github.com/git)
+- Other [examples](https://www.mygreatlearning.com/blog/top-github-projects/)
 
 **Summary**
 - The ability to clone and fork a public repository is one of the features that makes Git and GitHub so widely used and a great tool for collaboration for anyone, not only for computer developers!

@@ -1,7 +1,7 @@
 ---
 layout: page
 element: lecture
-title: 'Pushing to a remote repository with `git` (20 min)'
+subtitle: 'Pushing to a remote repository with `git`'
 language: Bash
 ---
 
