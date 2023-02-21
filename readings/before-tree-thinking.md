@@ -3,7 +3,7 @@ layout: page
 element: reading
 title: 'Tree thinking'
 language: R
-week: "Apr 18, 20"
+week: "Apr 25, 27"
 ---
 
 ## Models and phylogenetic correlation

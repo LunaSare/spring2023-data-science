@@ -3,7 +3,7 @@ layout: page
 element: reading
 title: 'Joining data'
 language: R
-week: "Mar 2, 7"
+week: "Mar 9, 14"
 pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
 ---

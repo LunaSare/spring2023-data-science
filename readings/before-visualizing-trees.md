@@ -3,7 +3,7 @@ layout: page
 element: reading
 title: 'Visualizing trees'
 language: R
-week: "Apr 4"
+week: "Apr 11"
 ---
 
 ## Day 1: Reading and plotting phylogenies

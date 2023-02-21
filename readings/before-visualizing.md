@@ -3,7 +3,7 @@ layout: page
 element: reading
 title: 'Visualizing data'
 language: R
-week: "Feb 16, 21"
+week: "Feb 23, 28"
 ---
 
 ## Visualizing data from tables
