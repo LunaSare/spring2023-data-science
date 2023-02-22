@@ -8,7 +8,8 @@ pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
 ---
 
-## Day 1: Functions in R (50 min)
+## A) Prepare for in-class exercises for
+## Day1: Functions in R (50 min)
 
 > **Instructions**
 >
@@ -52,6 +53,7 @@ symbol: <i class="fa fa-book fa-lg"></i>
 ---
 ---
 
+## B) Prepare for in-class exercises for
 ## Day 2: Making choices inside R functions (42 min)
 
 > **Instructions**

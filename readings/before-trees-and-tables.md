@@ -3,15 +3,21 @@ layout: page
 element: reading
 title: 'Joining trees and tables'
 language: R
+pagetype: 'before class'
+symbol: <i class="fa fa-book fa-lg"></i>
 week: "Apr 13, 18"
 ---
 
-## Day 1: Joining trees to data tables
+**Day 1**
+
+## A) Joining trees to data tables
 
 - [What is phylogenetic analysis?](https://www.news-medical.net/health/What-is-Phylogenetic-Analysis.aspx)
 - Read [Reading a Phylogenetic Tree: The Meaning of Monophyletic Groups](https://www.nature.com/scitable/topicpage/reading-a-phylogenetic-tree-the-meaning-of-41956/#:~:text=Phylogenies%20are%20useful%20for%20organizing,events%20that%20occurred%20during%20evolution).
 
-## Day 2: Plotting data from tables on trees
+**Day 2**
+
+## B) Plotting data from tables on trees
 
 
 <!-- ## Day 4: Phylogenetic correlation

@@ -17,7 +17,7 @@ Nothing :)
 
 **Day 2**
 
-A) Read and prepare the following text for in-class discussion:
+## A) Read and prepare the following text for in-class discussion:
 
    1. [Scientists Losing Data at a Rapid Rate](http://www.nature.com/news/scientists-losing-data-at-a-rapid-rate-1.14416)
       - Which research paper are they referring to in the text? **Hint** Take a look at the references.

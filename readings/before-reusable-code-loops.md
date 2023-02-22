@@ -3,10 +3,12 @@ layout: page
 element: reading
 title: 'Reusing code - Loops'
 language: R
+pagetype: 'before class'
+symbol: <i class="fa fa-book fa-lg"></i>
 week: "Apr 4, 6"
 ---
 
-## Loops in R
+## A) Prepare for in-class exercises
 
 **Watching all videos for this section takes ~ 51 min**.
 Hint: Watch the videos with a higher reproduction speed to save some time.
