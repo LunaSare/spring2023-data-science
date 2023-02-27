@@ -21,7 +21,7 @@ language: R
 
 - Open your `data-science` RStudio project
 - make sure that everything is up to date from the remote and that you have pushed all previous changes.
-- make sure that your working directory is set up correctly with `getwd` and `setwd`
+- make sure that your working directory is set up correctly to the root of the project with `getwd` and `setwd`
 - Make sure that you have a "documents" folder. All your Rmd files will go in there.
 
 ### Intro to the working dataset and class set up (15 min)
@@ -42,9 +42,8 @@ language: R
 ### Reading TSV files (10 min)
 
 - To start working with the dataset, we need to read it into R and create an object.
-- Which function do we use for that?
-  - `read.csv()`
-- Use `read,csv()` to read the file "ACACIA_DREPANOLOBIUM_SURVEY.txt" that you saved in the "data-raw" folder
+- To read tables into R we use the function `read.csv()`
+- Use `read.csv()` to read the file "ACACIA_DREPANOLOBIUM_SURVEY.txt" that you saved in the "data-raw" folder
   - run `read.csv(file = "../data-raw/ACACIA_DREPANOLOBIUM_SURVEY.txt")`
   - if a "read error" comes up, try the following:
     1. make sure that your data set file is in the "data-raw" folder
@@ -89,9 +88,9 @@ language: R
 
 - "ggplot" stands for "grammar of graphics plot"
 - uses a more "natural" way of creating plots by describing what you want, not how to build it
-- we construct graphs by addibg layers of graphical elements, instead of modifying the whole code
-- install the package
-- load the package
+- we construct graphs by adding layers of graphical elements, instead of modifying the whole code
+- install the package with `install.packages()`
+- load the package with `library()`
 - the function `ggplot()` creates a base "ggplot" object that we can then add things to
 - it works like a blank canvas
 - The two main arguments we will use for the function `ggplot()` are:
@@ -105,7 +104,7 @@ ggplot(data = acacia, mapping = aes(x = CIRC, y = HEIGHT))
 
 ### A scatter plot (10 min)
 
-- Once we haave the base layer, we can start adding points
+- Once we have the base layer, we can start adding points
   1. Then, use the ` + ` sign to add the next layer
   1. It is standard to hit "Enter" after the plus so that each layer shows up on its own line
   1. to add a scatter plot we use the function `geom_point()`
@@ -114,7 +113,7 @@ ggplot(data = acacia, mapping = aes(x = CIRC, y = HEIGHT)) +
   geom_point()
 ```
 - We can change the look of the scatter plot using arguments from the `geom_point()` function:
-  - the shae of the points is determined by the `shape = ` argument.
+  - the shape of the points is determined by the `shape = ` argument.
   - the size of the points is determined by the argument `size = `.
     - Small numbers like `1` or `2` will plot small points.
     - Large numbers like `10` or `11` will plot larger points.
@@ -140,17 +139,6 @@ ggplot(data = acacia, mapping = aes(x = CIRC, y = HEIGHT)) +
        title = "Acacia Survey at UHURU")
 ```
 
-### Rescaling axes (5 min)
-
-- We can transform the scale of the axes in many ways
-- This does not change the data itself, just the presentation of it
-- to do a log 10 rescale of our axis, we use the functions `scale_x_log10()` and `scale_y_log10()`
-```
-ggplot(data = acacia, mapping = aes(x = CIRC, y = HEIGHT)) +
-  geom_point(size = 3, color = "blue", alpha = 0.5) +
-  scale_y_log10() +
-  scale_x_log10()
-```
 
 ### Grouping: Plotting data by another variable (10 min)
 
@@ -177,7 +165,7 @@ ggplot(acacia, aes(x = CIRC, y = HEIGHT)) +
     facet_wrap(~TREATMENT)
   ```
 
-### In-class Activity (10 min)
+### In-class Activity/Homework (10 min)
 
 - [The UHURU data set]({{ site.baseurl }}/assignments/exercises/week7-uhuru-dataset-r)
 
@@ -192,18 +180,23 @@ ggplot(acacia, aes(x = CIRC, y = HEIGHT)) +
 
 - We are working on the Rmd file "uhuru-dataset-visualization.Rmd"
  - all code and writing should be added there
-- reviewing and explaining stuff I missed from day 1
-  - working directory in an r chunk is not the same as a project working directory
-  - change absolute paths to relative paths
+  - working directory in an R code chunk is not the same as a project working directory
+  - make sure you are using relative paths (never use absolute paths)
   - shape argument in `geom_point()`,
   - the function `color()`
   - shape numbers with `?pch`
   - subplots with `facet_wrap()`
 
-### In-class Activity (5 min)
-
-- Add some interpretations to your plots
-- render to PDF
+### Rescaling axes (5 min)
+- We can transform the scale of the axes in many ways
+- This does not change the data itself, just the presentation of it
+- to do a log 10 rescale of our axis, we use the functions `scale_x_log10()` and `scale_y_log10()`
+```
+ggplot(data = acacia, mapping = aes(x = CIRC, y = HEIGHT)) +
+  geom_point(size = 3, color = "blue", alpha = 0.5) +
+  scale_y_log10() +
+  scale_x_log10()
+```
 
 ### Fitting linear models (10 min)
 
@@ -303,6 +296,6 @@ ggsave("acacia_by_treatment.jpg")
 ggsave("acacia_by_treatment.pdf", height = 5, width = 5)
 ```
 
-### In-class Activit (20 min) and home exercises (20 min)
+### In-class Activity (20 min) and home exercises (20 min)
 
 - [Acacia and ants]({{ site.baseurl }}/assignments/Week7_assignment)
