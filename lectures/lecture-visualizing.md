@@ -298,6 +298,14 @@ ggsave("acacia_by_treatment.jpg")
 ggsave("acacia_by_treatment.pdf", height = 5, width = 5)
 ```
 
-### In-class Activity (20 min) and home exercises (20 min)
+### In-class Activity (20 min)
 
-- [Acacia and ants]({{ site.baseurl }}/assignments/homework_visualizing)
+- [Acacia and ants]({{ site.baseurl }}/lectures/in-class-visualizing-uhuru/)
+
+**A minute feedback for class 13**
+
+- Please provide some quick feedback for this session [here]({{ site.feedback.class13 }})
+
+### Home exercises (20 min)
+
+- [Acacia Vs trees]({{ site.baseurl }}/exercises/homework_visualizing/)

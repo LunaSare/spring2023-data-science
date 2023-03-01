@@ -8,7 +8,7 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 ---
 
 
-### Home exercises (20 min): Acacia vs trees
+### Home exercises (20 min): Acacia Vs Trees
 
 **Exercise 3**.
 <!-- https://raw.githubusercontent.com/datacarpentry/semester-biology/main/exercises/Graphing-acacia-ants-data-manip-R.md -->
