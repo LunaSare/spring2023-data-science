@@ -49,7 +49,7 @@ Portal data-->
   - [plots.csv](https://ndownloader.figshare.com/files/3299474) - information on the experimental manipulations at the site
 * Save the three CSV files into your "data-raw" folder.
   * Don't know where the CSV files are? Right click -> `Save link as`.
-- Create a new Rmd file and save it in the "documents" folder with the name "small-mammals.Rmd".
+- Create a new Rmd file and save it in the "docfsmall-uments" folder with the name "wrangling-portal.Rmd".
 - Use markdown syntax to create a description of this dataset.
 
 
