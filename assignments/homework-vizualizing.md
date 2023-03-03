@@ -10,7 +10,7 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 
 ### Home exercises (20 min): Acacia Vs Trees
 
-**Exercise 3**.
+**Exercise 3: Removing outliers**.
 <!-- https://raw.githubusercontent.com/datacarpentry/semester-biology/main/exercises/Graphing-acacia-ants-data-manip-R.md -->
 
 1. Download the file [TREE_SURVEYS.txt](https://figshare.com/ndownloader/files/5629536) and save it to your "data-raw" folder
@@ -25,7 +25,7 @@ trees <- read_tsv("TREE_SURVEYS.txt",
    times the value in the `AXIS_2` column.
 4. Create a subset the `trees` data frame with just the `SURVEY`, `YEAR`, `SITE`, and `canopy_area` columns.
 5. Make a scatter plot with `canopy_area` on the x axis and `HEIGHT` on the y
-   axis. Color the points by `TREATMENT` and create a subplot per species uding the function `facet_wrap()`. This will plot the points for each variable in
+   axis. Color the points by `TREATMENT` and create a subplot per species using the function `facet_wrap()`. This will plot the points for each variable in
    the `SPECIES` column in a separate subplot. Label the x axis "Canopy Area
    (m)" and the y axis "Height (m)". Make the point size 2.
 6. That's a big outlier in the plot from (2). 50 by 50 meters is a little too
@@ -33,7 +33,7 @@ trees <- read_tsv("TREE_SURVEYS.txt",
    and `AXIS_2` that are over 20 and update the data frame. Then, remake the graph.
 7. DON'T DO: For this question you will use the package `dplyr` and the pipe operator `%>%`. To learn more about the pipe operator and how to use it, [watch this introductory video](https://www.youtube.com/watch?v=ui3VZeuN8QY). <!-- Another good introductory video on pipes: https://www.youtube.com/watch?v=3PMBr1RhdqM -->
    Using the data without the outlier -- i.e., the data generated in (6),
-   create a data fram called `abundance` that shows how the abundance of each species
+   create a data frame called `abundance` that shows how the abundance of each species
    has been changing through time.
    To do this, use the functions `group_by()`, `summarize()`, and `n()` to make a data frame with `YEAR`,
    `SPECIES`, and a `species_abundance` column that has the number of individuals
@@ -45,7 +45,7 @@ trees <- read_tsv("TREE_SURVEYS.txt",
    one subplot per species. To let you see each trend clearly, let the scale for
    the y axis vary among plots by adding `scales = "free_y"` as an optional argument to `facet_wrap()`.
 
-**Exercise 4**.
+**Exercise 4: Fitting linear models**.
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Graphing-data-from-multiple-tables-R.md -->
 
 We want to compare the circumference to height relationship in acacia to the same relationship for all trees in the region. These data are stored in two different tables. Make a graph with the relationship between `CIRC` and `HEIGHT` for all trees as gray circles in the background and the same relationship for acacia as red circles plotted on top of the gray circles. Scale both axes logarithmically. Include a linear model fitting for both sets of data, trying different linear models specified using the argument `method =`. Provide clear labels for the axes.
