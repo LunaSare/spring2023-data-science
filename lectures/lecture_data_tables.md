@@ -49,7 +49,7 @@ Portal data-->
   - [plots.csv](https://ndownloader.figshare.com/files/3299474) - information on the experimental manipulations at the site
 * Save the three CSV files into your "data-raw" folder.
   * Don't know where the CSV files are? Right click -> `Save link as`.
-- Create a new Rmd file and save it in the "docfsmall-uments" folder with the name "wrangling-portal.Rmd".
+- Create a new Rmd file and save it in the "documents" folder with the name "wrangling-portal.Rmd".
 - Use markdown syntax to create a description of this dataset.
 
 
@@ -326,6 +326,11 @@ filter(surveys, species_id == "DS", !is.na(weight))
 ## Day 2: Pipes
 <!-- Lecture modified from https://github.com/datacarpentry/semester-biology/blob/main/materials/combining-data-manip.md -->
 
+#### Setup your RStudio project
+
+- Create a new Rmd file and save it in the "documents" folder with the name "wrangling-pipes.Rmd".
+
+
 ### The usual analysis workflow: intermediate variables and nesting functions
 
 * We usually use intermediate variables when writing code
@@ -385,7 +390,7 @@ c(1, 2, 3, NA) |>
   sqrt()
 ```
 
-### Joint In-class exercise 3
+### Joint In-class exercise
 
 <!-- > Do [Portal Data Manipulation Pipes 1]({{ site.baseurl }}/exercises/Portal-data-manip-pipes-R). -->
 <!-- https://github.com/datacarpentry/semester-biology/blob/f72ab33a6876b904c26ac566d13885096d4a0246/exercises/Portal-data-manip-pipes-R.md
@@ -394,20 +399,33 @@ Students will work alone to write the code in sequential form (using intermediat
 Then, instructor will ask students help to transform the sequential code to a pipeline and demo it to the whole class.
 Instructor will demo the use of three functions to verify that the code is producing the expected outputs:
   - `colnames()` to display the column names of a data frame
-  - `any()` to find myssing values in a vector
+  - `any()` to find missing values in a vector
   - `nrow()` to get the numer of rows of a data frame
 
 -->
-1. Write the necessary code using intermediate variables to manipulate the data as follows:
-  - (a) Use `mutate()`, `select()`, and `filter()` with `is.na()` to create a new data frame with the `year`, `species_id`, and weight **in kilograms** of each individual, with no null weights. Create a new data object called `surveys1`. Remember: The weight in the table is given in grams so you will need to create a new column called "weight_kg" for weight in kilograms by dividing the weight column by 1000.
+**Exercise 2: Data manipulation with pipes**
+
+This is a follow up for Exercise 1.
+Basically, you have to redo Exercise 1 but using pipes (either `|>` or `%>%`) instead of nested or sequential code with intermediate variable assignation.
+
+1. Load `surveys.csv` into R using `read.csv()`.
+2. Use `select()` to create a new data frame object called `surveys1` with just the `year`, `month`,
+   `day`, and `species_id` columns in that order.
+3. Create a new data frame called `surveys2` with the `year`, `species_id`, and _weight **in kilograms**_ of each individual, with no null weights. Use `mutate()`, `select()`, and `filter()` with `!is.na()`. The weight in the table is given in grams so you will need to create a new column called `weight_kg` that stored the weight in kilograms by dividing the weight column by 1000.
+4. Use the `filter()` function to get all of the rows in the data frame `surveys2` for the species ID `"SH"`.
+
+
+<!--
   - (b) Use `filter()` with `is.na()` and `select()` to get the `year`, `month`, `day`, and `species_id` columns for all of the rows in the data frame where `species_id` is `SH` and with no null weights. Create a new data object called `surveys2`.
-2. Write the same code but using pipes (either `|>` or `%>%`).
+-->
 
 ---
 
-### Solo In-class exercise 4
+### Solo In-class exercise
 
-The following code is written using intermediate variables. It obtains the data for "DS" in the "species_id" column, sorted by year, with only the year and weight columns. Write the same code to get the same output but using pipes instead.
+**Exercise 3: Pipe practice**
+
+The following code is written using intermediate variables. It obtains the data for `"DS"` in the `"species_id"` column, sorted by `year`, with only the `year` and `weight` columns. Write the same code to get the same output but using pipes instead.
 
 ```r
 ds_data <- filter(surveys, species_id == "DS", !is.na(weight))
@@ -432,7 +450,7 @@ ds_weight_by_year <- surveys %>%
 
 ### What if I want to pipe to an argument other than the first argument?
 
-* To indicate the position of the piped argument we use the _underscore_ symbol `_` for the `|>` pipe and the _dot_ symbol `.` for the `%>%` magrittr pipe.
+* To indicate the position of the piped argument we use the _underscore_ symbol `_` for the `|>` pipe and the _dot_ symbol `.` for the `magrittr` pipe (`%>%`).
 * This is used when the output goes to an argument other than the first argument of the function.
 * For example, the function `lm()` fits a linear model relationship between two variables.
 * This function takes the `formula =` as the first argument and the `data =` containing our two variables as the second argument.
@@ -456,9 +474,11 @@ summary(lm(weight ~ year, data = surveys))
 ```
 
 
-### Solo In-class exercise 5
+### Solo In-class exercise
 
-Use pipes to evaluate and summarize the relationship between weight and year for the species "DS". Make sure that you filter for missing values in weight.
+**Exercise 4: Piping placeholders**
+
+Use pipes to evaluate and summarize the relationship between `weight` and `year` for the species `"DS"`. Make sure that you filter for missing values in `weight`.
 The code in sequential form would look like the following:
 ```r
 surveys_DS <- filter(surveys, species_id == "DS", !is.na(weight))
@@ -477,7 +497,7 @@ surveys |>
 
 ---
 
-### Data grouping (also called data agreggation)
+### Data grouping (also called data aggregation)
 
 <!-- https://datacarpentry.org/semester-biology/materials/dplyr-aggregation/ -->
 ### Basic grouping
@@ -501,19 +521,21 @@ group_by(surveys, plot_id, year)
 
 ### Summarizing data from groupings
 
-* After grouping a data frame we can use the function `summarize()` to analyze each group.
+* After grouping a data frame we can summarize information for each group. To do this, we use the function `summarize()`:
+  * The `summarize()` function takes as first argument a grouped table, an output of `group_by()`
+  * Then, it takes one additional argument for each new column with summarized data you want to add.
+  * The format of this arguments is `New column name`, followed by the equal sign `=`, finished by the calculation that we want to perform for each group.
+  * We can perform many calculations (mean, median, min, max, sum), but a very common one is `n()`
+
 * The function `n()` counts the number of rows for each grouping. It is a special function that only works within `dplyr` functions.
-* The `summarize()` function takes as first argument a grouped table, an output of `group_by()`
-* Then, it takes one additional argument for each new column with summarized data you want to add.
-* The format of this arguments is `New column name`, followed by the equal sign `=`, finished by the calculation that we want to perform for each group
-* For example, to get the abundance of individual pers year, we will use the function `n()`
+* For example, to get the abundance of individuals per year, we will use the function `n()` as follows:
 
 ```r
 surveys_by_year <- group_by(surveys, year)
 year_counts <- summarize(surveys_by_year, abundance = n())
 ```
 
-* Count the number of individuals in each plot in each year
+* We can als count the number of individuals in each plot per year:
 
 ```r
 surveys_by_plot_year <- group_by(surveys, plot_id, year)
@@ -544,7 +566,7 @@ surveys |>
 mean(surveys$weight, na.rm = TRUE)
 ```
 
-* Now, applied to the pipe:
+* Now, in piped form:
 ```r
 surveys |>
   group_by(plot_id, year) |>
@@ -552,7 +574,7 @@ surveys |>
             avg_weight = mean(weight, na.rm = TRUE))
 ```
 
-* We still get missing valies (in the form of `NaN`) because there are species that have never been weighed!
+* We still get missing values (in the form of `NaN`) because there are species that have never been weighed!
 * We can `filter()` this using `!is.na()`
 
 ```r
@@ -567,9 +589,9 @@ surveys |>
 <!-- > Do [Portal Data Aggregation 1-2]({{ site.baseurl }}/exercises/Portal-data-aggregation-R/). -->
 <!-- > Do [Portal Data Aggregation 3]({{ site.baseurl }}/exercises/Portal-data-aggregation-R/). -->
 
-### Solo In-class Exercise 6
+### Solo In-class Exercise
 
-**Exercise 3: Data agreggation**
+**Exercise 5: Data agreggation**
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-aggregation-R.md -->
 1. Use the `group_by()` and `summarize()` functions to get a count of the number
    of individuals in each species ID.
