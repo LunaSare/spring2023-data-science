@@ -1,26 +1,32 @@
 ---
-title: "Portal data set"
+title: "Data Wrangling - Exercise 1: Data manipulation \\\n Solution"
 author: "Luna L Sanchez Reyes"
-date: "2023-02-02"
-output: html_document
+date: "2023-03-02"
+output: 
+  html_document: 
+    toc: true
+    toc_float: true
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+options(tinytex.clean = TRUE) # removes aux and log files after endering to html
 # install.packages("dplyr")
 library(dplyr)
 ```
 
-## In-class Exercise 1: Data manipulation
 
-1. Load the data set from the file `surveys.csv` into R using the function `read.csv()`.
+### 1. Load the data set from the file `surveys.csv` into R using the function `read.csv()`.
 
 ```{r}
 surveys <- read.csv(file = "../data-raw/surveys.csv")
 str(surveys)
 ```
 
-2. Use `select()` to create a new data frame object called `surveys1` with just the `year`, `month`,
+---
+
+### 2. Use `select()` to create a new data frame object called `surveys1` with just the `year`, `month`,
    `day`, and `species_id` columns in that order.
 
 - `select()` is from package `dplyr`, so we need to load the package, preferably in the "setup" R chunk, but can also be done here and commented out for knitting.
@@ -31,7 +37,11 @@ surveys1 <- select(surveys, year, month, day, species_id)
 str(surveys1)
 ```
 
-3. Create a new data frame called `surveys2` with the `year`, `species_id`, and weight **in kilograms** of each individual, with no null weights. Use `mutate()`, `select()`, and `filter()` with `!is.na()`. The weight in the table is given in grams so you will need to create a new column called "weight_kg" for weight in kilograms by dividing the weight column by 1000.
+---
+
+### 3. Create a new data frame called `surveys2` with the `year`, `species_id`, and weight **in kilograms** of each individual, with no null weights. 
+
+Use `mutate()`, `select()`, and `filter()` with `!is.na()`. The weight in the table is given in grams so you will need to create a new column called "weight_kg" for weight in kilograms by dividing the weight column by 1000.
 
 - The goal of this question is to make them realize that they have to create intermediate data frames.
 
@@ -55,8 +65,9 @@ Finally, select the columns that you want for the new `data frame`:
 surveys2 <- select(surveys_tmp, year, species_id, weight_kg)
 str(surveys2)
 ```
+---
 
-4. Use the `filter()` function to get all of the rows in the data frame `surveys2` for the species ID "SH".
+### 4. Use the `filter()` function to get all of the rows in the data frame `surveys2` for the species ID "SH".
 
 The goal of this point is to make them practice the function `filter()` and logical statements.
 

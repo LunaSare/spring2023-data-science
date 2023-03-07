@@ -1,0 +1,66 @@
+---
+title: "Data Visualization - Exercise 4: Plotting Multiple Data Sets and Fitting Linear Models\\\n Solution"
+author: "Luna L Sanchez Reyes"
+date: "2023-03-06"
+output: 
+  pdf_document: default
+  html_document: 
+    toc: true
+    toc_float: true
+    keep_log: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(tinytex.clean = TRUE) # removes aux files after rendering to html
+library(ggplot2)
+library(readr)
+```
+
+There are 3 mains steps to solve this exercise.
+
+### 1) Read the data in with quality control
+
+```{r}
+trees <- read_tsv("../data-raw/TREE_SURVEYS.txt",
+               col_types = list(HEIGHT = col_double(),
+                                AXIS_2 = col_double()))
+acacia <- read.csv(file = "../data-raw/ACACIA_DREPANOLOBIUM_SURVEY.txt",
+         sep = "\t",
+         na.strings = "dead")
+```
+
+### 2) Quality Assurance
+
+Visualize the data to assure it is good:
+
+```{r}
+str(trees)
+```
+
+
+```{r}
+str(acacia)
+```
+
+### 3) Plot the two data sets on the same plot and fit linear models.
+
+The trick to do this is to call the `ggplot()` function with no data set.
+This allows us to provide a different data set for any and each function we call after.
+In this way we can plot data from different data set unto the same plot.
+The downside is that we have to specify the data set for **EVERY** layer that we want to add.
+This is different from what happens when we specify the data within the base layer `ggplot()`.
+
+
+
+```{r}
+ggplot() +
+  geom_point(data = trees, mapping = aes(x = CIRC, y = HEIGHT), color = "gray", alpha = 0.5) +
+  scale_x_log10() +
+  scale_y_log10() +
+  geom_smooth(data = trees, mapping = aes(x = CIRC, y = HEIGHT), method = "lm", color = "black") +
+  geom_point(data = acacia, mapping = aes(x = CIRC, y = HEIGHT), color = "red", alpha = 0.8) +
+  geom_smooth(data = acacia, mapping = aes(x = CIRC, y = HEIGHT), method = "lm", color = "red") +
+  labs(x = "Tree circumference", y = "Tree height")
+```
+
