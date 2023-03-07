@@ -613,10 +613,10 @@ https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-dat
 <!-- > Do [Shrub Volume Data Basics 8]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R).
 We are doing all the shrub volume exercises as homework-->
 
-*A minute feedback for class 15**
+**A minute feedback for class 15**
 
-- Please provide some quick feedback for this session [here]({{ site.feedback.class15 }})
+- Please provide some quick feedback for this session [here]({{ site.feedback.class15 }}).
 
 ### Home exercises
 
-- Do at least one of the [Shrub Volume Data Set]({{ site.baseurl }}/exercises/homework_data_tables/) exercises.
+- Do at least one of the [Shrub Volume Data Set]({{ site.baseurl }}/assignments/homework_data_tables/) exercises.
