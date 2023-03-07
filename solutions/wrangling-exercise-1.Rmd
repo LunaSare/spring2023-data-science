@@ -1,0 +1,74 @@
+---
+title: "Portal data set"
+author: "Luna L Sanchez Reyes"
+date: "2023-02-02"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# install.packages("dplyr")
+library(dplyr)
+```
+
+## In-class Exercise 1: Data manipulation
+
+1. Load the data set from the file `surveys.csv` into R using the function `read.csv()`.
+
+```{r}
+surveys <- read.csv(file = "../data-raw/surveys.csv")
+str(surveys)
+```
+
+2. Use `select()` to create a new data frame object called `surveys1` with just the `year`, `month`,
+   `day`, and `species_id` columns in that order.
+
+- `select()` is from package `dplyr`, so we need to load the package, preferably in the "setup" R chunk, but can also be done here and commented out for knitting.
+
+```{r}
+# library(dplyr)
+surveys1 <- select(surveys, year, month, day, species_id)
+str(surveys1)
+```
+
+3. Create a new data frame called `surveys2` with the `year`, `species_id`, and weight **in kilograms** of each individual, with no null weights. Use `mutate()`, `select()`, and `filter()` with `!is.na()`. The weight in the table is given in grams so you will need to create a new column called "weight_kg" for weight in kilograms by dividing the weight column by 1000.
+
+- The goal of this question is to make them realize that they have to create intermediate data frames.
+
+First, filter Na values in weight:
+
+```{r}
+surveys_tmp <- filter(surveys, !is.na(weight))
+str(surveys_tmp)
+```
+
+Second, create the new column with weight in Kg.
+Overwrite the object.
+
+```{r}
+surveys_tmp <- mutate(surveys_tmp, weight_kg = weight/1000)
+str(surveys_tmp)
+```
+Finally, select the columns that you want for the new `data frame`:
+
+```{r}
+surveys2 <- select(surveys_tmp, year, species_id, weight_kg)
+str(surveys2)
+```
+
+4. Use the `filter()` function to get all of the rows in the data frame `surveys2` for the species ID "SH".
+
+The goal of this point is to make them practice the function `filter()` and logical statements.
+
+For next iterations of the course:
+
+  - Tell them no to print the whole table in the knitted document. For this, there are a couple options:
+    - You have to create a data frame object
+    - You have to use r chunk options `results = 'hide`
+  - Ask how many rows does the filtered table have?
+  - Make them filter surveys1 instead, so you know that they did not overwrite it during question 2 and 3.
+
+```{r}
+surveys_filtered <- filter(surveys2, species_id == "SH")
+str(surveys_filtered)
+```
