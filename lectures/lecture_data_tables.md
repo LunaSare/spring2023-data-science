@@ -499,8 +499,13 @@ surveys |>
 
 ### Data grouping (also called data aggregation)
 
+In data analysis, it is common to want for summary statistics of variables based on belonging to a certain group.
+"Is the average height of one species the same as for a different species?"
+
+A major strength of `dplyr` is the ability to group the data by a variable or variables and then operate on the data "by group". In this way, data manipulations can be done on groups defined by variables.
+
 <!-- https://datacarpentry.org/semester-biology/materials/dplyr-aggregation/ -->
-### Basic grouping
+#### Basic grouping
 
 * The function `group_by()` combines rows into groups based on ONE or MORE columns.
 * `group_by()` function has two arguments: 1) data to work on; 2) name of column (or columns) to group by
@@ -519,7 +524,7 @@ group_by(surveys, year)
 group_by(surveys, plot_id, year)
 ```
 
-### Summarizing data from groupings
+#### Summarizing data from groupings
 
 * After grouping a data frame we can summarize information for each group. To do this, we use the function `summarize()`:
   * The `summarize()` function takes as first argument a grouped table, an output of `group_by()`
@@ -591,7 +596,7 @@ surveys |>
 
 ### Solo In-class Exercise
 
-**Exercise 5: Data agreggation**
+**Exercise 5: Data aggregation**
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-aggregation-R.md -->
 1. Use the `group_by()` and `summarize()` functions to get a count of the number
    of individuals in each species ID.
@@ -606,4 +611,12 @@ https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-dat
 https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-challenge-R.md
  -->
 <!-- > Do [Shrub Volume Data Basics 8]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R).
-We are doing all teh shrub volume exercises as homework-->
+We are doing all the shrub volume exercises as homework-->
+
+*A minute feedback for class 15**
+
+- Please provide some quick feedback for this session [here]({{ site.feedback.class15 }})
+
+### Home exercises
+
+- Do at least one of the [Shrub Volume Data Set]({{ site.baseurl }}/exercises/homework_data_tables/) exercises.

@@ -7,9 +7,9 @@ pagetype: homework
 symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 ---
 
-## Homework Day 2: Shrub volume data set
+## Home exercises: Shrub volume data set
 
-### Exercise 1: Data wrangling basics
+### Exercise 6: Data wrangling basics
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Dplyr-shrub-volume-data-basics-R.md -->
 Dr. Granger is interested in studying the factors controlling the size and
 carbon storage of shrubs. She has conducted an experiment looking at the effect
@@ -29,7 +29,7 @@ has placed the data file on the web for you to download:
 11. Filter the data to remove rows with null values in the `height` column (using `!is.na`)
 12. Create a new data frame called `shrub_volumes` that includes all of the original data, plus a new column containing the volumes (length * width * height), and display it.
 
-### Exercise 2: Data agreggation
+### Exercise 7: Data aggregation
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Dplyr-shrub-volume-aggregation-R.md -->
 Dr. Granger wants some summary data of the plants at her sites and for her experiments.
 If the file [shrub-volume-data.csv]({{ site.baseurl }}/data/shrub-volume-data.csv) is not already in your work space download it.
@@ -46,7 +46,7 @@ avg_height <- summarize(by_site, avg_height = mean(height))
 2. Use `max()` to determine the maximum height of a plant at each site.
 3. Use the code you wrote to solve question (2) but as a pipeline (using the pipe `|>` or `%>%`). Make sure you get the same result.
 
-### Exercise 3: Fix the code
+### Exercise 8: Fix the code
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Dplyr-fix-the-code-R.md -->
 <!-- This is a follow-up to [Shrub Volume Aggregation]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-aggregation-R). -->
 <!-- If you don't already have the [shrub volume data]({{ site.baseurl }}/data/shrub-volume-data.csv) in your working directory download it. -->
