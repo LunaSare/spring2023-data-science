@@ -17,6 +17,9 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 > - Explain what metadata is
 
 ---
+
+[Visualising Data guide]({{ site.baseurl }}/materials/05_Data_visualization/05_Data_visualization.html)
+
 ## Day 1
 
 ### Class set up (5 min)

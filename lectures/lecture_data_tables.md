@@ -421,7 +421,11 @@ Basically, you have to redo Exercise 1 but using pipes (either `|>` or `%>%`) in
 
 ---
 
-### Solo In-class exercise
+**A minute feedback for class 15**
+
+- Please provide some quick feedback for this session [here]({{ site.feedback.class15 }}).
+
+### Homework exercise
 
 **Exercise 3: Pipe practice**
 
@@ -447,6 +451,13 @@ ds_weight_by_year <- surveys %>%
  -->
 
 ---
+---
+
+## Day 3: Pipes-continued
+
+### Review Visualization Homework Exercise 4 (15 min)
+
+- Review of [Fitting models with multiple data sets]({{ site.baseurl/assignments/visualizing-exercise-multiple-data-sets/ }})
 
 ### What if I want to pipe to an argument other than the first argument?
 
@@ -613,9 +624,10 @@ https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-dat
 <!-- > Do [Shrub Volume Data Basics 8]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R).
 We are doing all the shrub volume exercises as homework-->
 
-**A minute feedback for class 15**
+**A minute feedback for class 16**
 
-- Please provide some quick feedback for this session [here]({{ site.feedback.class15 }}).
+- Please provide some quick feedback for this session [here]({{ site.feedback.class16 }}).
+
 
 ### Home exercises
 
