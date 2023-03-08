@@ -457,11 +457,11 @@ ds_weight_by_year <- surveys %>%
 
 ### Review Visualization Homework Exercise 4 (15 min)
 
-- Review of [Fitting models with multiple data sets]({{ site.baseurl/assignments/visualizing-exercise-multiple-data-sets/ }})
+- Review of [Fitting models with multiple data sets]({{ site.baseurl }}/assignments/visualizing-exercise-multiple-data-sets/ }})
 
 ### What if I want to pipe to an argument other than the first argument?
 
-* To indicate the position of the piped argument we use the _underscore_ symbol `_` for the `|>` pipe and the _dot_ symbol `.` for the `magrittr` pipe (`%>%`).
+* To indicate the position of the _piped_ argument we use the _underscore_ symbol `_` for the `|>` pipe and the _dot_ symbol `.` for the `magrittr` pipe (`%>%`).
 * This is used when the output goes to an argument other than the first argument of the function.
 * For example, the function `lm()` fits a linear model relationship between two variables.
 * This function takes the `formula =` as the first argument and the `data =` containing our two variables as the second argument.
@@ -551,7 +551,7 @@ surveys_by_year <- group_by(surveys, year)
 year_counts <- summarize(surveys_by_year, abundance = n())
 ```
 
-* We can als count the number of individuals in each plot per year:
+* We can also count the number of individuals in each plot per year:
 
 ```r
 surveys_by_plot_year <- group_by(surveys, plot_id, year)
