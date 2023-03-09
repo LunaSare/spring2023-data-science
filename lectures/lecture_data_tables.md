@@ -405,7 +405,7 @@ my_result <- c(1, 2, 3, NA) |>
 &#10145;&#65039; At the end of the operation, the assignment goes from left to right:
 
 ```r
-result <- c(1, 2, 3, NA) |>
+c(1, 2, 3, NA) |>
   mean(na.rm = TRUE) |>
   sqrt() -> my_result
 ```
@@ -454,9 +454,13 @@ Basically, you have to redo Exercise 1 but using pipes (either `|>` or `%>%`) in
 The following code is written using intermediate variables. It obtains the data for `"DS"` in the `"species_id"` column, sorted by `year`, with only the `year` and `weight` columns. Write the same code to get the same output but using pipes instead.
 
 ```r
-ds_data <- filter(surveys, species_id == "DS", !is.na(weight))
+ds_data <- filter(surveys,
+                  species_id == "DS",
+                  !is.na(weight))
 ds_data_by_year <- arrange(ds_data, year)
-ds_weight_by_year <- select(ds_data_by_year, year, weight)
+ds_weight_by_year <- select(ds_data_by_year,
+                            year,
+                            weight)
 ```
 <!--
 <details>
@@ -489,6 +493,7 @@ ds_weight_by_year <- surveys %>%
 
 * Shortcut to get the pipe: `Ctrl-shift-m`.
 
+---
 
 ### What if I want to pipe to an argument other than the first argument?
 
@@ -503,17 +508,18 @@ lm(weight ~ year, data = surveys)
 * And using pipes and the placeholder:
 ```r
 surveys |>
- lm(weight ~ year, data =_)
+ lm(weight ~ year, data = _)
 ```
 
 ```r
 surveys %>%
- lm(weight ~ year, data =.)
+ lm(weight ~ year, data = .)
 ```
 * We can get the summary of the fitted model with the function `summary()`; in nested form:
 ```r
 summary(lm(weight ~ year, data = surveys))
 ```
+
 
 
 ### Solo In-class exercise
@@ -523,8 +529,11 @@ summary(lm(weight ~ year, data = surveys))
 Use pipes to evaluate and summarize the relationship between `weight` and `year` for the species `"DS"`. Make sure that you filter for missing values in `weight`.
 The code in sequential form would look like the following:
 ```r
-surveys_DS <- filter(surveys, species_id == "DS", !is.na(weight))
-surveys_DS_lm <- lm(weight ~ year, data = surveys_DS)
+surveys_DS <- filter(surveys,
+                     species_id == "DS",
+                     !is.na(weight))
+surveys_DS_lm <- lm(weight ~ year,
+                    data = surveys_DS)
 summary(surveys_DS_lm)
 ```
 <!--
@@ -568,11 +577,11 @@ group_by(surveys, plot_id, year)
 
 #### Summarizing data from groupings
 
-* After grouping a data frame we can summarize information for each group. To do this, we use the function `summarize()`:
+* After grouping a data frame we can create a new table that summarizes information for each group. To do this, we use the function `summarize()`:
   * The `summarize()` function takes as first argument a grouped table, an output of `group_by()`
   * Then, it takes one additional argument for each new column with summarized data you want to add.
-  * The format of this arguments is `New column name`, followed by the equal sign `=`, finished by the calculation that we want to perform for each group.
-  * We can perform many calculations (mean, median, min, max, sum), but a very common one is `n()`
+  * The format of this arguments is `New column name`, followed by the equal sign `=`, finished by the function that will calculate a summary statistic that we want to obtain for each group.
+  * We can apply all the usual summary statistics functions (mean, median, min, max, sum), but a very useful one that is unique to the package `dplyr` is `n()`
 
 * The function `n()` counts the number of rows for each grouping. It is a special function that only works within `dplyr` functions.
 * For example, to get the abundance of individuals per year, we will use the function `n()` as follows:
@@ -589,7 +598,7 @@ surveys_by_plot_year <- group_by(surveys, plot_id, year)
 plot_year_counts <- summarize(surveys_by_plot_year, abundance = n())
 ```
 
-* Just like with other `dplyr` functions we could write this using pipes instead
+* Just like with other `dplyr` functions, we could write this using pipes instead
 
 ```r
 plot_year_counts <- surveys |>
@@ -597,8 +606,8 @@ plot_year_counts <- surveys |>
   summarize(abundance = n())
 ```
 
-* We can use any function that returns a single value from a vector; e.g., `mean()`, `max()`, `min()`, `sum()`
-* For example, we can calculate the number of individuals in each plot-year group and their average weight
+* Let's use other summary statistic functions that returns a single value from a vector; e.g., `mean()`, `max()`, `min()`, `sum()`.
+* For example, we can calculate the number of individuals in each plot-year group and their average weight:
 
 ```r
 surveys |>
@@ -607,7 +616,7 @@ surveys |>
 ```
 
 * We get all `NA` in the "avg_weight" column :/
-* Remember: `mean()` (and max, min and sum) returns `NA` when the input vector  has missing values (`NA`s)
+* Remember: `mean()` (and max, min and sum) returns `NA` when the input vector has missing values (`NA`s)
 * To fix this we use the argument `na.rm = TRUE`:
 ```r
 mean(surveys$weight, na.rm = TRUE)
@@ -621,7 +630,7 @@ surveys |>
             avg_weight = mean(weight, na.rm = TRUE))
 ```
 
-* We still get missing values (in the form of `NaN`) because there are species that have never been weighed!
+* We still get missing values (in the form of `NaN`) because there are species that have not been weighed, not even once! So `summary()` introduces new `NA` values.
 * We can `filter()` this using `!is.na()`
 
 ```r
@@ -654,6 +663,8 @@ https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-dat
  -->
 <!-- > Do [Shrub Volume Data Basics 8]({{ site.baseurl }}/exercises/Dplyr-shrub-volume-data-basics-R).
 We are doing all the shrub volume exercises as homework-->
+
+---
 
 **A minute feedback for class 16**
 
