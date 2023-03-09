@@ -362,10 +362,9 @@ sqrt(mean(x = c(1,2,3)))
  next command.
 * The `|>` pipe will work everywhere as long as you have a new enough version of R and RStudio
 * `%>%` is the original pipe in R. It is called the "magrittr" pipe, and you have to load the `magrittr` package to use it (this gets loaded automatically by `dplyr`)
-* `magrittr` has some fancier functionality that may be useful in some cases
+* `magrittr` has some fancier functionality that may be useful in some cases.
 * You can use any pipe you like.
-* Shortcut to get the pipe: `Ctrl-shift-m`.
-  * You can change this to give the base R pipe: Tools -> Global Options -> Code -> Use native pipe operator
+* You can change the native behaviour to give the base R pipe with: Tools -> Global Options -> Code -> Use native pipe operator
 * To calculate the mean of a numeric vector, we can directly pipe the vector into the function `mean()`, no need to create an object:
 ```r
 c(1, 2, 3) %>% mean()
@@ -389,6 +388,29 @@ c(1, 2, 3, NA) |>
   mean(na.rm = TRUE) |>
   sqrt()
 ```
+
+### Assigning the output of a pipe
+
+There are two options to assign the output of a pipe to an object/variable name.
+We can do the assignment at the beginning of the pipe or at the end of it.
+
+At the beginning of the operation, the assignment goes from right to left:
+
+```r
+my_result <- c(1, 2, 3, NA) |>
+  mean(na.rm = TRUE) |>
+  sqrt()
+```
+
+At the end of the operation, the assignment goes from right to left:
+
+```r
+result <- c(1, 2, 3, NA) |>
+  mean(na.rm = TRUE) |>
+  sqrt() -> my_result
+```
+
+
 
 ### Joint In-class exercise
 
@@ -457,7 +479,12 @@ ds_weight_by_year <- surveys %>%
 
 ### Review Visualization Homework Exercise 4 (15 min)
 
-- Review of [Fitting models with multiple data sets]({{ site.baseurl }}/assignments/visualizing-exercise-multiple-data-sets/ }})
+- Review of [Fitting models with multiple data sets]({{ site.baseurl }}/assignments/visualizing-exercise-multiple-data-sets/)
+
+### Challenge of the day: Using the pipe shortcut
+
+* Shortcut to get the pipe: `Ctrl-shift-m`.
+
 
 ### What if I want to pipe to an argument other than the first argument?
 
