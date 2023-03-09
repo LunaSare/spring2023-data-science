@@ -394,7 +394,7 @@ c(1, 2, 3, NA) |>
 There are two options to assign the output of a pipe to an object/variable name.
 We can do the assignment at the beginning of the pipe or at the end of it.
 
-At the beginning of the operation, the assignment goes from right to left:
+&#11013;&#65039; At the beginning of the operation, the assignment goes from right to left:
 
 ```r
 my_result <- c(1, 2, 3, NA) |>
@@ -402,7 +402,7 @@ my_result <- c(1, 2, 3, NA) |>
   sqrt()
 ```
 
-At the end of the operation, the assignment goes from right to left:
+&#10145;&#65039; At the end of the operation, the assignment goes from left to right:
 
 ```r
 result <- c(1, 2, 3, NA) |>
@@ -480,6 +480,10 @@ ds_weight_by_year <- surveys %>%
 ### Review Visualization Homework Exercise 4 (15 min)
 
 - Review of [Fitting models with multiple data sets]({{ site.baseurl }}/assignments/visualizing-exercise-multiple-data-sets/)
+
+### Review Data Wrangling Homework Exercise 3 (15 min)
+
+- Review of [Pipe practice]({{ site.baseurl }}/assignments/wrangling-exercise-3/)
 
 ### Challenge of the day: Using the pipe shortcut
 
