@@ -14,8 +14,8 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 
 ## Day 1: Joining data tables
 
-> **Learning Objectives**
->
+<details> <summary><strong>Learning )bjectives</strong></summary>
+
 > This week, students will learn to:
 >
 > - Explain the importance of joining multiple data tables.
@@ -37,70 +37,32 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 > - `which()`
 > - `match()`
 
-### Homework and class review (15 min)
+</details>
 
-- review of homework
-  - `select()`, `mutate()`, `filter()`, `arrange()` do not change the original data!
-  - We use relational/logical statements as filtering criteria in the function `filter()`
-  - Some examples of simple relational statements are:
-  ```r
-  1 == 1
-  1 == 2
-  1 != 2
-  1 > 2
-  1 > 1
-  1 >= 1
-  1 < 2
-  1 <= 2
-  "A" == "A"
-  "A" == "a"
-  "A" != "a"
-  ```
-  - We use two general types of logical statements: _AND_, and _OR_
-  - Some examples of logical statements:
-  ```r
-  1 == 1 & 1 == 2
-  1 == 1 | 1 == 2
-  ```
-  - relational operations with `NA`
-  ```r
-  NA > 3  # is obviously NA because we don't know if the missing value is larger than 3 or not
-  NA == NA  # the same with this, we have two missing values but the true values could be quite different, so the correct answer is "I don't know."
-  surveys$weight == NA
-  ```
-  - That's why we have `is.na()`, a special function to detect `NA` values.
-  - Also, the argument `rm.na = TRUE` detects and removes missing values in functions `mean()`, `max()`, `sum()`, `min()`.
-  - The classic coding workflow: intermediate variables and nesting functions
-  - The new (in R), cleaner alternative: the coding pipeline
-  - pipes work by taking the output from a function and giving it to a second function without creating intermediate objects or variables
-  - by default, they feed the output to the first argument!
 
-<!--
-  - the pipe argument placeholder `_` or `.`
-  ```r
-  lm(weight ~ year, data = surveys)
-  surveys |>
-   lm(weight ~ year, data =_)
-  surveys %>%
-    lm(weight ~ year, data =.)
-  ```
- -->
+
+### Quizz (10 min)
+
+Answer the following questions on the [etherpad]({{ site.etherpad }}):
+
+1. What type of output does the `summarize()` function from `dplyr` give, a table or a vector?
+2. When using the `summarize()` function, does the output table has the same columns as the input data table or  different?
+3. Mention 3 functions from the `dplyr` package that return tables with (at least) the same columns from the input table?
 
 ### Setup your RStudio project (15 min)
 
 * Remember! Working in projects is considered a best practice in data science.
-* Go ahead and open your RStudio project for the class. I called mine **fall-2022**.
-* We will keep on working on:
-  - the rmarkdown file `"small-mammals.Rmd"`, and
+* Go ahead and open your RStudio project for the class. I called mine **sprng2023**.
+* We will keep on working on the data set from
   - the [Portal Project Teaching Database](https://www.weecology.org/data-projects/portal-teaching-db/).
 - If you have not downloaded the following CSV files, do so by clicking on their names:
   - [surveys.csv](https://ndownloader.figshare.com/files/2292172) - main table, one row for each rodent captured, date on date,
     location, species ID, sex, and weight in grams and hindfoot length in millimeters.
   - [species.csv](https://ndownloader.figshare.com/files/3299483) - latin species names for each species ID + general taxon
   - [plots.csv](https://ndownloader.figshare.com/files/3299474) - information on the experimental manipulations at the site
-- Make sure that the three CSV files are:
-  - saved into your **data-raw** folder.
-  - loaded into `R` using the function `read.csv()` from the package `utils`.
+- Make sure that the three CSV files are saved into your **data-raw** folder.
+- Create a new Rmd file named `"joining-tables.Rmd"` and save it in your `Documents` folder.
+- Load the 3 tables into `R` using the function `read.csv()` from the package `utils`.
     - Remember to use relative paths!
 ```r
 surveys <- read.csv("surveys.csv")
@@ -187,7 +149,7 @@ nrow(surveys) == nrow(combined)
   intersect(colnames(surveys), colnames(species))
   ```
 
-### Exercise 1 (10 min)
+### Exercise 2 (10 min)
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-joins-R.md -->
 1. Find the column name that is shared between the `plots` table and the `surveys` table. Use that column name for the next question.
 2. Do the following using a single pipe of code (no nested code nor intermediate variables):
@@ -212,7 +174,7 @@ combined <- surveys |>
   inner_join(plots, by = "plot_id")
 ```
 
-### Exercise 2 (15 min)
+### Exercise 3 (15 min)
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-dplyr-review-R.md -->
 We want to do an analysis comparing the size of individuals on the `"Control"` plots to the `"Long-term Krat Exclosures"`.
  - Create a data frame with the `"year"`, `"genus"`, `"species"`, `"weight"` and `"plot_type"` for all cases where the
@@ -222,7 +184,7 @@ We want to do an analysis comparing the size of individuals on the `"Control"` p
 
 ### Start with the Homework
 
-Exercises 3 and 4 of [Joining data tables practice]({{ site.baseurl }}/assignments/assignment_data_tables_2/).
+Exercises 4 and 5 of [Joining data tables practice]({{ site.baseurl }}/assignments/assignment_data_tables_2/).
 
 ---
 ---
@@ -253,11 +215,10 @@ Exercises 3 and 4 of [Joining data tables practice]({{ site.baseurl }}/assignmen
 ### Setup Your RStudio Project
 
 * Remember! Working in projects is considered a best practice in data science.
-* Go ahead and open your RStudio project for the class. I called mine **fall-2022**.
-* We will keep on working on:
-  - the rmarkdown file `"small-mammals.Rmd"`, and
+* Go ahead and open your RStudio project for the class. I called mine **spring2023**.
+* Create a new Rmd file and name it `"joining-vectors.Rmd"`, and
   - the [Portal Project Teaching Database](https://www.weecology.org/data-projects/portal-teaching-db/).
-- If you have not downloaded the following CSV files, do so by clicking on their names:
+- If you have not downloaded the following CSV file, do so by clicking on its name:
   - [surveys.csv](https://ndownloader.figshare.com/files/2292172) - main table, one row for each rodent captured, date on date,
     location, species ID, sex, and weight in grams and hindfoot length in millimeters.
 
@@ -358,7 +319,7 @@ density_data_year <- data.frame(year = 2000, sites = sites, density = density)
 * And 2000 is that value that will occur on every row of that column
 * If we run this and look at the `density_data_year` data frame we'll see that it includes the year column with the value `2000` in every row
 
-### Joint in-class exercise
+### Exercise 6
 
 <!-- > Do [Building data frames from vectors]({{ site.baseurl }}/exercises/building-data-frames-from-vectors-R/). -->
 You have data on the length, width, and height of 10 individuals of the yew *Taxus baccata* stored in the following vectors:
@@ -413,7 +374,7 @@ surveys[["species_id"]]
 surveys$species_id
 ```
 
-### Exercise
+### Exercise 7
 
 <!-- > Do [Extracting vectors from data frames]({{ site.baseurl }}/exercises/extracting-vectors-from-data-frames-R/). -->
 Using the Portal data `surveys` table ([download a copy](https://ndownloader.figshare.com/files/2292172) if it's not in your working directory):

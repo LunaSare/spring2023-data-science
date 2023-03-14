@@ -9,7 +9,7 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
 
 ## Homework Day 1: Joining data tables practice
 
-### Exercise 3: From join to plot
+### Exercise 4: From join to plot
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-review-R.md -->
  1. Create a data frame with only data for the "species_id" "DO", with the columns `"year"`, `"month"`, `"day"`, `"species_id"`, and `"weight"`.
  2. Create a data frame with only data for species IDs `"PP"` and `"PB"` and for years starting in 1995, with the columns `"year"`, `"species_id"`, and `"hindfoot_length"`, with no missing values for `"hindfoot_length"`.
@@ -19,7 +19,7 @@ symbol: <i class="fa fa-keyboard-o fa-lg"></i>
  6. Make a histogram of weights with a separate subplot for each `"species_id"`. Do not include species with no weights. Set the `"scales"` argument to `"free_y"` so that the y-axes can vary. Include good axis labels.
  7. **Optional challenge**: Make a plot with histograms of the weights of three species, `"PP"`, `"PB"`, and `"DM"`, colored by `"species_id"`, with a different facet (i.e., subplot) for each of three `"plot_type"`'s `"Control"`, `"Long-term Krat Exclosure"`, and `"Short-term Krat Exclosure"`. Include good axis labels and a title for the plot. Export the plot to a PNG file.
 
-### Exercise 4: Challenge
+### Exercise 5: Challenge
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-challenge-R.md -->
 
 Develop a data manipulation pipeline for the Portal surveys table that produces a table of data for only the three _Dipodomys_ species (`"DM"`, `"DO"`, `"DS"`).
@@ -43,7 +43,7 @@ Develop a data manipulation pipeline for the Portal surveys table that produces 
 
 ## Homework Day 2: Shrub volume data set - part 2
 
-### Exercise 4: Joining data tables
+### Exercise 8: Joining data tables
 
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Dplyr-shrub-volume-join-R.md -->
 
@@ -54,7 +54,7 @@ The second provides information about the different sites, and it is called [shr
 1. Import the [experiments data]({{ site.baseurl }}/data/shrub-volume-experiments.csv) into your R environment, and then use `inner_join()` to combine it with the [shrub volume data]({{ site.baseurl }}/data/shrub-volume-data.csv) to add a `"manipulation"` column to the shrub data.
 2. Import the [shrub volume sites data]({{ site.baseurl }}/data/shrub-volume-sites.csv) and then combine it with both the data on [shrub volume data]({{ site.baseurl }}/data/shrub-volume-data.csv) and the [experiments data]({{ site.baseurl }}/data/shrub-volume-experiments.csv) to produce a single data frame that contains all of the data.
 
-### Exercise 5: Vectors
+### Exercise 9: Vectors
 <!-- This exercise is a combination of the two following exercises: -->
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Vectors-shrub-volume-vectors-R.md -->
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Vectors-nulls-in-vectors-R.md -->
@@ -87,7 +87,7 @@ Copy these vectors into your Rmd file, and use them to get the correct answers.
 11. A vector of the volumes of the last 5 shrubs with the code written so that it will return the last 5 values regardless of the length of the vector (i.e., it will give the last 5 values if there are 10, 20, or 50 individuals).
 
 
-### Exercise 6: Data frames
+### Exercise 10: Data frames
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Data-frames-shrub-volume-data-frame-R.md -->
 One of your collaborators has posted [a comma-delimited text file]({{
 site.baseurl }}/data/shrub-dimensions-labeled.csv) online for you to analyze.
