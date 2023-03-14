@@ -14,28 +14,22 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 
 ## Day 1: Joining data tables
 
-<details> <summary><strong>Learning )bjectives</strong></summary>
+<details> <summary><strong>Learning Objectives</strong></summary>
 
-> This week, students will learn to:
->
-> - Explain the importance of joining multiple data tables.
-> - Use the `dplyr` functions that join data tables.
-> - Understand why data is dropped when joining tables
-> - Use pipes to join more than two data tables
-> - Use the ``%in%`` operator to find matching column names in two data tables
->
-> **Practice Objectives**
->
-> This week, students will practice:
->
-> - Use of relational and logical statements to filter data tables
-> - Handling missing values with `is.na()` and `na.rm =`
-> - pipeline placeholders
->
-> **Non Objectives**
->
-> - `which()`
-> - `match()`
+This week, students will learn to:
+- Explain the importance of joining multiple data tables.
+- Use the `dplyr` functions that join data tables.
+- Understand why data is dropped when joining tables
+- Use pipes to join more than two data tables
+- Use the ``%in%`` operator to find matching column names in two data tables
+**Practice Objectives**
+This week, students will practice:
+- Use of relational and logical statements to filter data tables
+- Handling missing values with `is.na()` and `na.rm =`
+- pipeline placeholders
+**Non Objectives**
+- `which()`
+- `match()`
 
 </details>
 
@@ -182,35 +176,18 @@ We want to do an analysis comparing the size of individuals on the `"Control"` p
  - Only include cases where the column `"taxa"` is `"Rodent"`.
  - Remove any records where the `"weight"` is missing.
 
-### Start with the Homework
+**A minute feedback for class 17**
 
-Exercises 4 and 5 of [Joining data tables practice]({{ site.baseurl }}/assignments/assignment_data_tables_2/).
+- Please provide some quick feedback for this session [here]({{ site.feedback.class17 }}).
+
+### Homework
+
+- Do at least one exercise from [Joining data tables practice]({{ site.baseurl }}/assignments/assignment_data_tables_2/).
 
 ---
 ---
 
 ## Day 2: Joining data vectors
-
-> **Learning Objectives**
->
-> This week, students will learn to:
->
-> -
-> -
-> -
-> -
-> -
->
-> **Practice Objectives**
->
-> This week, students will practice:
->
-> -
-> -
->
-> **Non Objectives**
->
-> -
 
 ### Setup Your RStudio Project
 
@@ -401,3 +378,11 @@ letters[-1:5]
 * A data frame is a set of equal length vectors
 * We can extract a column of a data frame into a vector using either `$` or two sets of square brackets `[[]]`
 * We can combine vectors into data frames using the `data.frame()` function, which takes a series of arguments, one vector for each column we want to create in the data frame.
+
+**A minute feedback for class 18**
+
+- Please provide some quick feedback for this session [here]({{ site.feedback.class18 }}).
+
+### Homework
+
+- Do at least one exercise from [Shrub volume data set - part 2]({{ site.baseurl }}/assignments/assignment_data_tables_2/).
