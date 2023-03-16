@@ -87,7 +87,7 @@ Copy these vectors into your Rmd file, and use them to get the correct answers.
 11. A vector of the volumes of the last 5 shrubs with the code written so that it will return the last 5 values regardless of the length of the vector (i.e., it will give the last 5 values if there are 10, 20, or 50 individuals).
 
 
-### Exercise 10: Data frames
+### Exercise 10: Data Frames Challenge
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Data-frames-shrub-volume-data-frame-R.md -->
 One of your collaborators has posted [a comma-delimited text file]({{
 site.baseurl }}/data/shrub-dimensions-labeled.csv) online for you to analyze.

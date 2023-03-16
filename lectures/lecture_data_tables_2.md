@@ -17,6 +17,7 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 <details> <summary><strong>Learning Objectives</strong></summary>
 
 This week, students will learn to:
+
 - Explain the importance of joining multiple data tables.
 - Use the `dplyr` functions that join data tables.
 - Understand why data is dropped when joining tables
@@ -104,7 +105,7 @@ plots <- read.csv("plots.csv")
     inner_join(species, by = "species_id")
   ```
 
-### Exercise 1 (10 min)
+### Exercise 1 (5 min)
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-joins-R.md -->
 Do the following calculations using a single pipe of code (no nested nor intermediate variables):
 - Use `inner_join()` and `filter()` to get a data frame with the information from the `surveys` and `plots` tables where the `"plot_type"` is `"Control"`.
@@ -143,11 +144,11 @@ nrow(surveys) == nrow(combined)
   intersect(colnames(surveys), colnames(species))
   ```
 
-### Exercise 2 (10 min)
+### Exercise 2 (5 min)
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-joins-R.md -->
-1. Find the column name that is shared between the `plots` table and the `surveys` table. Use that column name for the next question.
+1. Use `intersect()` to display the column name that is shared between the `plots` table and the `surveys` table. Use that column name for the next question.
 2. Do the following using a single pipe of code (no nested code nor intermediate variables):
-  - Use function `inner_join()` and `filter()` to get a data frame with the information from the `surveys` and `plots` tables where the `"plot_type"` is `"Control"`.
+  - Use function `left_join()` and `filter()` to get a data frame with the information from the `surveys` and `plots` tables where the `"plot_type"` is `"Rodent Exclosure"`.
 
 
 ### Joining two or more data Tables (5 min)
@@ -168,7 +169,7 @@ combined <- surveys |>
   inner_join(plots, by = "plot_id")
 ```
 
-### Exercise 3 (15 min)
+### Exercise 3 (10 min)
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Portal-data-dplyr-review-R.md -->
 We want to do an analysis comparing the size of individuals on the `"Control"` plots to the `"Long-term Krat Exclosures"`.
  - Create a data frame with the `"year"`, `"genus"`, `"species"`, `"weight"` and `"plot_type"` for all cases where the
@@ -214,7 +215,9 @@ We want to do an analysis comparing the size of individuals on the `"Control"` p
 * So, we can extract vectors from data frames and we can also make data frames from vectors
 
 ### Creating vectors
-<!--
+
+<details><summary><strong>Review</strong></summary>
+
 - Examples of numeric vectors:
   - with a single number
   ```r
@@ -258,10 +261,7 @@ We want to do an analysis comparing the size of individuals on the `"Control"` p
     seq(-100, 50, 2)
     ```
 
-2. Examples of logical vectors
-  ```r
-  abc
-  ``` -->
+<details>
 
 ### Creating data frames from Vectors
 
@@ -385,4 +385,4 @@ letters[-1:5]
 
 ### Homework
 
-- Do at least one exercise from [Shrub volume data set - part 2]({{ site.baseurl }}/assignments/assignment_data_tables_2/).
+- Do 2 exercises from [Shrub volume data set - part 2]({{ site.baseurl }}/assignments/assignment_data_tables_2/).
