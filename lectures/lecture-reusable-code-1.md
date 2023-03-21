@@ -27,35 +27,8 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 ### Setup your RStudio project (5 min)
 
 - 🎗️ Structuring your files into a _project_ is a best practice for good data science!
-- Open your _RStudio project_ for the class; I called mine "**fall-2022**".
+- Open your _RStudio project_ for the class; I called mine "**spring2023**".
 - Open a new file, name it "**functions.Rmd**", and save it to your "**documents**" folder.
-
-### Why do we use functions in programming? (15 min)
-
-#### Discussion in small groups (5 min)
-
-- Discuss in small groups: Based on your experience with coding so far and after watching the [introductory videos]({{ site.baseurl }}/readings/before-reusable-code-1), **how does creating your own functions would improve your coding workflow?**
-
-- Individually, work on your Rmd file:
-  - Write a second level subtitle for the introductory section.
-  - List and justify three reasons why using functions is useful in data science.
-
-#### Discussion in full (10 min)
-
-- How does creating your own functions will improve your code?
-
-- Makes code more understandable:
-  - Code is shorter, easier to remember
-  - Code is more organized for you and others, so it is easier to read
-  - Code is grouped conceptually, easier to understand
-  - Code is more manageable, invites you to be intentional on the code that you are writing
-  - Allows to be more in control of the outputs
-- Makes code reusable:
-  - It allows reusing code for other parts of a project or a future project
-  - It is less error prone than copy-pasting code
-    - If it occurs in more than one place, it will eventually be wrong somewhere.
-  - It is more efficient than copy-pasting code
-    - Functions are written to be reusable.
 
 
 ### Writing functions (10 min)
@@ -119,7 +92,36 @@ dinosaurs in kg, based on its length in meters and the set of parameter values `
 
 ---
 
-### Defining argument values in a Function (20 min)
+### Why do we use functions in programming? (15 min)
+
+#### Discussion in small groups (5 min)
+
+- Discuss in small groups: Based on your experience with coding so far and after watching the [introductory videos]({{ site.baseurl }}/readings/before-reusable-code-1), **how does creating your own functions would improve your coding workflow?**
+
+- Individually, work on your Rmd file:
+  - Write a second level subtitle for the introductory section.
+  - List and justify three reasons why using functions is useful in data science.
+
+#### Discussion in full (10 min)
+
+- How does creating your own functions will improve your code?
+
+- Makes code more understandable:
+  - Code is shorter, easier to remember
+  - Code is more organized for you and others, so it is easier to read
+  - Code is grouped conceptually, easier to understand
+  - Code is more manageable, invites you to be intentional on the code that you are writing
+  - Allows to be more in control of the outputs
+- Makes code reusable:
+  - It allows reusing code for other parts of a project or a future project
+  - It is less error prone than copy-pasting code
+    - If it occurs in more than one place, it will eventually be wrong somewhere.
+  - It is more efficient than copy-pasting code
+    - Functions are written to be reusable.
+
+---
+
+### Defining argument values in a function (20 min)
 
 - In the previous exercise, you created the function `get_mass_from_length()` which is a more flexible form of `get_mass_from_length_theropoda()`, by allowing `a` and `b` to be passed as arguments.
 - Still, for some organisms we don't have specific values of `a` and `b`. In this case, we have to use values of `a` and `b` that can be applied generally.
@@ -152,7 +154,7 @@ dinosaurs in kg, based on its length in meters and the set of parameter values `
 > - Git add, commit and push the new files (PDF and Rmd) to your remote repository.
 >
 
-#### Exercise 1: [Creating a function for the Portal data set]({{ site.baseurl}}/exercises/Functions-portal-species-time-series-R)
+#### Exercise 5: [Creating a function for the Portal data set]({{ site.baseurl}}/exercises/Functions-portal-species-time-series-R)
 
 <!-- Task 1 and 2 from https://github.com/datacarpentry/semester-biology/blob/main/exercises/Functions-portal-species-time-series-R.md -->
 
@@ -184,7 +186,7 @@ dinosaurs in kg, based on its length in meters and the set of parameter values `
   - logical functions
 
 
-#### Exercise 1: [Practice logical and conditional statements]({{ site.baseurl }}/exercises/Making-choices-choice-operators-R)
+#### Exercise 6: [Practice logical and conditional statements]({{ site.baseurl }}/exercises/Making-choices-choice-operators-R)
 
 <!-- https://datacarpentry.org/semester-biology/exercises/Making-choices-choice-operators-R -->
 
@@ -194,7 +196,7 @@ dinosaurs in kg, based on its length in meters and the set of parameter values `
 
 - A simple `if` statement allows us to choose between a single option and its alternative.
 
-#### Exercise 2: [Handling one choice]({{ site.baseurl }}/exercises/Making-choices-if-statements-R-1)
+#### Exercise 7: [Handling one choice]({{ site.baseurl }}/exercises/Making-choices-if-statements-R-1)
 
 <!-- https://datacarpentry.org/semester-biology/exercises/Making-choices-basic-if-statements-R -->
 
@@ -204,7 +206,7 @@ dinosaurs in kg, based on its length in meters and the set of parameter values `
 
 - An `else` statement allows us to choose between two options and its alternative.
 
-#### Exercise 3: [Handling 2 choices]({{ site.baseurl }}/exercises/Making-choices-if-statements-R-2)
+#### Exercise 8: [Handling 2 choices]({{ site.baseurl }}/exercises/Making-choices-if-statements-R-2)
 
 <!-- https://datacarpentry.org/semester-biology/exercises/Making-choices-basic-if-statements-R -->
 
@@ -214,7 +216,7 @@ dinosaurs in kg, based on its length in meters and the set of parameter values `
 
 - An `else if` statement allows us to choose between three or more options and an alternative.
 
-#### Exercise 4: [Handling 3 choices or more]({{ site.baseurl }}/exercises/Making-choices-if-statements-R-3)
+#### Exercise 9: [Handling 3 choices or more]({{ site.baseurl }}/exercises/Making-choices-if-statements-R-3)
 
 ---
 
@@ -224,12 +226,12 @@ dinosaurs in kg, based on its length in meters and the set of parameter values `
 - Conditions alter the behavior of a functions
 - Conditions give us more control on the behavior of a function
 
-#### Exercise 5: [Value of `y` by age class]({{ site.baseurl }}/exercises/Making-choices-if-statements-R-4) (10 min)
+#### Exercise 10: [Value of `y` by age class]({{ site.baseurl }}/exercises/Making-choices-if-statements-R-4) (10 min)
 
 - Conditions allow us to be even more efficient in reusing code
   - For example, we can consolidate all the functions we created to get the mass of a dinosaur into a single one.
 
-#### Exercise 6: [Mass estimates by biological group]({{ site.baseurl }}/exercises/Making-choices-size-estimates-by-name-R) (20 min)
+#### Exercise 11: [Mass estimates by biological group]({{ site.baseurl }}/exercises/Making-choices-size-estimates-by-name-R) (20 min)
 
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Making-choices-size-estimates-by-name-R.md -->
 
@@ -248,15 +250,15 @@ dinosaurs in kg, based on its length in meters and the set of parameter values `
 > - Git add, commit and push the new files (PDF and Rmd) to your remote repository.
 >
 
-#### Exercise 1: [Load or download a file?]({{ site.baseurl }}/exercises/Making-choices-load-or-download-file-R)
+#### Exercise 12: [Load or download a file?]({{ site.baseurl }}/exercises/Making-choices-load-or-download-file-R)
 
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Making-choices-load-or-download-file-R.md -->
 
-#### Exercise 2: [A function for the UHURU data set]({{ site.baseurl }}/exercises/Making-choices-choices-with-functions-R)
+#### Exercise 13: [A function for the UHURU data set]({{ site.baseurl }}/exercises/Making-choices-choices-with-functions-R)
 
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Making-choices-choices-with-functions-R.md -->
 
 
-#### Exercise 3: [Energy conversion challenge]({{ site.baseurl }}/exercises/Making-choices-unit-conversion-challenge-R)
+#### Exercise 14: [Energy conversion challenge]({{ site.baseurl }}/exercises/Making-choices-unit-conversion-challenge-R)
 
 <!-- https://github.com/datacarpentry/semester-biology/blob/main/exercises/Making-choices-unit-conversion-challenge-R.md -->
