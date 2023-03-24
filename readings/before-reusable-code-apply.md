@@ -5,7 +5,7 @@ title: 'Reusing code - Apply functions'
 language: R
 pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
-week: "Mar 23"
+week: "Apr 4"
 ---
 
 ## A) Prepare for in-class exercises
