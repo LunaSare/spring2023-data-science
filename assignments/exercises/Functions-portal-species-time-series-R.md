@@ -1,5 +1,5 @@
 
-### Exercise 1: A function for the Portal data set
+### A function for the Portal data set
 
 1. If [surveys.csv](https://ndownloader.figshare.com/files/2292172), [species.csv](https://ndownloader.figshare.com/files/3299483), and [plots.csv](https://ndownloader.figshare.com/files/3299474) are not available in your workspace download them, and load them into R using `read.csv()`.
 2. Combine the `surveys` and `species` tables into a single data frame.
