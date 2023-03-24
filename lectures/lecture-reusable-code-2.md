@@ -23,6 +23,15 @@ symbol: <i class="fa fa-comment fa-lg"></i>
 > -
 > -->
 
+### Review
+
+- Question from last class: To get all the functions within a family, we can use the function `methods()`
+
+```
+methods(is)
+methods(summary)
+methods(summarize)
+```
 
 ### Setup your RStudio project (5 min)
 
