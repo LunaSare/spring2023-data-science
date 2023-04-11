@@ -122,7 +122,7 @@ my_results
 
 ### Looping using functions
 
-#### Exercise 2: [Mass of dinosaurs with loops]({{ site.baseurl }}/exercises/Loops-size-estimates-by-name-loop-R) (30 min)
+#### Exercise 6: [Mass of dinosaurs with loops]({{ site.baseurl }}/exercises/Loops-size-estimates-by-name-loop-R) (30 min)
 
 <!-- https://datacarpentry.org/semester-biology/exercises/Loops-size-estimates-by-name-loop-R/ -->
 
@@ -130,7 +130,7 @@ my_results
 
 Practical uses of `for` loops
 
-#### Exercise 3: [Automatic analysis of muliple files]({{ site.baseurl }}/exercises/Loops-multi-file-analysis-R) (30 min)
+#### Exercise 7: [Automatic analysis of muliple files]({{ site.baseurl }}/exercises/Loops-multi-file-analysis-R) (30 min)
 
 <!-- https://datacarpentry.org/semester-biology/exercises/Loops-multi-file-analysis-R/ -->
 

@@ -5,7 +5,7 @@ title: 'Reusing code - Loops'
 language: R
 pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
-week: "Apr 6"
+week: "Apr 6, 11"
 ---
 
 ## A) Prepare for in-class exercises
