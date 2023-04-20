@@ -12,7 +12,7 @@ assignments: ['The Data Life Cycle', # the importance of programming for data sc
 'Reusing code - Creating functions',
 'Reusing code - Apply functions',
 'Reusing code - Loops',
-'Visualizing trees',
+'Visualizing trees', # module 24, done by students without instructor supervisor in class
 'Getting phylogenetic trees',
 'Joining trees and tables',
 'Tree thinking',
