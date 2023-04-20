@@ -8,10 +8,6 @@ symbol: <i class="fa fa-book fa-lg"></i>
 week: "May 2, 4"
 ---
 
-## Day 1:
-
-
-## Day 2: Wrap-up
 
 ### Communicating data science
 

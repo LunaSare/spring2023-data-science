@@ -5,7 +5,7 @@ title: 'Getting phylogenetic trees'
 language: R
 pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
-week: "Apr 18"
+week: "Apr 20"
 ---
 
 - Follow the tutorial [Module 24: An Intro to Phylogenetic Tree Construction in R](https://fuzzyatelin.github.io/bioanth-stats/module-24/module-24.html).

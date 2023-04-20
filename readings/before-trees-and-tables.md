@@ -5,7 +5,7 @@ title: 'Joining trees and tables'
 language: R
 pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
-week: "Apr 20"
+week: "Apr 25"
 ---
 
 Complete the following readings:
