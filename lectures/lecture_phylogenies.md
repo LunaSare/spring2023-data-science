@@ -73,7 +73,7 @@ language: R
   - Read into R the newick tree in the file **"portal-tree.tre"**
   - create an object named `portal_tree`:
   ```
-  portal_tree <- read.tree(file = "../data-raw.portal-tree.tre")
+  portal_tree <- read.tree(file = "../data-raw/portal-tree.tre")
   ```
   - Read into R the newick tree from URL **"http://ape-package.ird.fr/APER/APER2/primfive.tre"**,
   - To copy the URL, go to `ape`'s [book website](http://ape-package.ird.fr/APER.html) and copy the link to **primfive.tre**

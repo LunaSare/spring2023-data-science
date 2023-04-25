@@ -61,8 +61,10 @@ Caption from original Figure 20.1𝐴.1 of [LibreTexts](https://bio.libretexts.o
 
 - Discussion: How do we construct phylogenetic trees?
 - How long does it take?
+  - Etherpad quiz: How hard it is to get a phylogenetic tree? How much time do you need to get a "good" phylogenetic tree?
 
-### The Open Tree of Life platform
+
+### The Open Tree of Life platform (10 min)
 
 - Overview of the [OpenTree website](https://tree.opentreeoflife.org/opentree/argus/opentree13.4@ott93302) (5 min)
 - OpenTree's Web interface
@@ -70,7 +72,7 @@ Caption from original Figure 20.1𝐴.1 of [LibreTexts](https://bio.libretexts.o
   - Curation
   - Downloading trees in newick format
 
-## Rading trees into R with `read.tree()`(10 min)
+## Reading trees into R with `read.tree()`(10 min)
 - `read.tree()` function from the package `ape`
 - Usage to read a phylogeny from a newick file in your computer:
   - provide the path and file name
@@ -96,26 +98,16 @@ Caption from original Figure 20.1𝐴.1 of [LibreTexts](https://bio.libretexts.o
     small_tree <- read.tree(file = "http://ape-package.ird.fr/APER/APER2/primfive.tre")
     ```
 
-### The `phylo` class structure (10 min)
-- Type the name of the objects you just created and look at the output
-- What information is printed to screen?
-- Use functions to explore the structure of the objects you just created:
-  - `class(opentree_tree)`, `opentree_tree` is an object of class `"phylo"`
-  - `length(tree)`, it has length 4
-  - `names(tree)`, and it has names
-  - Just as with data frames, we can access the named elements of a `"phylo"` object using the _dollar sign_ `$`
-    - `portal_tree$edge`, `class(portal_tree$edge)`
-    - `portal_tree$Nnode`,
-    - `portal_tree$tip.label`
-    - `portal_tree$node.label`
-  - `str(tree)`, shows a summary of the elements of the `"phylo"` object
-  - `typeof(tree)`, the `"phylo"` class is an object of type `"list"`
-<!-- - Click on the name of the object on _RStudio's Environment pane_. -->
-- 🎗️ classes and types are data structures that R uses to store/extract information
-- a `"list"` is a data type (or object type), that can hold one or more objects of different types.
-- the class `"phylo"` is a list that combines a matrix, a numeric vector of length one and two character vectors.
-<!-- http://www.phytools.org/Cordoba2017/ex/2/Intro-to-phylogenies.html#:~:text=The%20%22phylo%22%20object%20in%20R&text=The%20object%20created%20in%20memory,different%20objects%20of%20different%20types. -->
-- the `"phylo"` class provides R with all the information it needs to represent a phylogenetic tree
+## Plot a phylogeny with the package `ape` (5 min)
+
+- `plot.phylo()` function from the package [`ape`](http://ape-package.ird.fr/#:~:text=ape%20is%20a%20package%20written,development%20of%20new%20analytical%20methods.):
+```
+plot.phylo(opentree_tree)
+plot.phylo(small_tree)
+```
+- plotting phylogenies with `ape` requires [a lot of customization](http://ape-package.ird.fr/misc/DrawingPhylogenies.pdf).
+- we will not cover that in this course,
+
 
 ### Getting trees with specific taxa from OpenTree
 - Difference between phylogeny and taxonomy (5 min)
@@ -129,18 +121,15 @@ Caption from original Figure 20.1𝐴.1 of [LibreTexts](https://bio.libretexts.o
   Text from [Taxonomy management 101](https://www.poolparty.biz/learning-hub/taxonomy-management-101).
 
 - Finding your taxa in the Open Tree of Life Taxonomy
+- Go to  https://tree.opentreeoflife.org/opentree/argus/opentree13.4@ott93302 and look for a group that your are interested in or that is in your data set that you are going to analyze for the final project
+
 - Getting OTT ids for a taxon with the function `tnrs_match_names()`
 - Exploring the `match_names` object
 - Extracting data from a `match_names` object
 - Getting a piece of the Synthetic Open Tree of Life
+  - The synthetic Open Tree of Life (synthetic OpenTree from now on) summarizes information from 1239 trees from 1184 peer-reviewed and published studies, that have been uploaded to the OpenTree database (the Phylesystem) through a curator system.
   - `tol_about()`
-  - `tol_induced_subtree()`
 
-- Exercise: get an induced subtree for a set of taxa and plot it.
 
-- Extra: Getting a subtree of one taxon with `tol_subtree()`
-  - Example: a subtree of all amphibians
-  - Example: a subtree of the genus _Canis_
-  - Finding "broken" and "invalid" taxa with `is_in_tree()`
-  - Getting the MRCA of a taxon with `tol_node_info()`
-  - Getting a subtree using a node id instead of the taxon OTT id with `tol_subtree(node_id = MY NODE ID)`
+- Getting a subtree of one taxon with `tol_subtree()`
+- Example: Get a subtree of all amphibians
