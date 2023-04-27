@@ -20,6 +20,8 @@ ggtree(portal_tree) +
   - they are common when we do not have a full sample of lineages
   - they represent the existence of an ancestor shared with a lineage that was not sampled
 
+
+
 ### Remove singleton nodes
 
 - function `ape::has.singles()` and `ape::collapse.singles()`
@@ -153,7 +155,7 @@ As a reference I will use the following paper by Münkemüller et al. (try to re
 http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2012.00196.x/abstract
 
 
-The four measures are: Moran's I, Abouheif's Cmean, Pagel's λ and Blomberg's K.
+The four measures are: Moran's I, Abouheif's C mean, Pagel's λ and Blomberg's K.
 
 # Before we proceed: trait evolution under a pure brownian motion model defines the phylogenetic relationship as the only predictor of trait similarity among species.
 
