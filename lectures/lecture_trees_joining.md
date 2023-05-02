@@ -188,7 +188,7 @@ use_readme_md(open = FALSE)
 - They use a special markdown that allows creating the documentation pages
 - As with the `Description` file, the first line is the title of the object, as a short description
 - The second line is a longer description:
-```
+````
 #' Portal Data Set and Analysis
 #'
 #' This package contains data sets from the Portal Project
@@ -207,7 +207,7 @@ NULL
 #' @source \url{https://lunasare.github.io/spring2023-data-science/data/portal-species-taxonomy.csv}
 #' @format A data frame with X number of columns and Y number of rows
 "taxonomy"
-```
+````
 - To interpret the documentation file we will use a function from the package `roxygen2` (or `devtools`)
 ```
 install.packages("roxygen2")
