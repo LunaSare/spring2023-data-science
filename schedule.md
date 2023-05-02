@@ -13,11 +13,11 @@ assignments: ['The Data Life Cycle', # the importance of programming for data sc
 'Reusing code - Apply functions',
 'Reusing code - Loops',
 'Visualizing trees', # module 24, done by students without instructor supervisor in class
-'Getting phylogenetic trees',
+'Getting phylogenetic trees 1',
+'Getting phylogenetic trees 2',
 'Joining trees and tables',
 'Tree thinking',
 # 'Public Data Stores',
-'Review Week',
 # 'Getting phylogenetic trees',
 # 'Human contexts and ethics',
 'Projects week']

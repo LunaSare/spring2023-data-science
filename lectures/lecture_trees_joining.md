@@ -56,7 +56,7 @@ ggtree(portal_tree)
 ## Connecting a phylogeny with data from a table
 
 - Preparation:
-  1. Download a data table of the species from the Portal Data base that inlcudes [taxonomy]({{ site.baseurl }}/data/portal-species-taxnomy.csv)
+  1. Download a data table of the species from the Portal Data base that inlcudes [taxonomy]({{ site.baseurl }}/data/portal-species-taxonomy.csv)
   2. Save it in your **data-raw** folder.
   3. Read it into R with `read.csv()`, and assign it to an object called `taxonomy`.
 - To join a tree and a data table, we will use the `_join()` functions that we used previously to join tables
@@ -115,9 +115,9 @@ Tip: use the function `c()` to create the vectors that will be columns `"taxa"` 
 
 ## Creating an R package for your final project (locally)
 <!-- Based on https://www.erikhoward.net/blog/how-to-create-an-r-data-package/ -->
-- Creating a new R package in RStudio:
+### 1. Creating a new R package in RStudio:
   1. File -> New Project -> New Directory -> R Package
-  1. Enter a [good name](https://stackoverflow.com/questions/24201568/what-constitutes-a-good-package-name-according-to-cran) and folder for your package. I'll call mine `portalDataR`
+  1. Enter a [good name](https://stackoverflow.com/questions/24201568/what-constitutes-a-good-package-name-according-to-cran) and folder for your package. I'll call mine `portaldata`
   1. Click “Create git repository”
   1. Click “Create Project” button to create your new project
 
@@ -126,22 +126,144 @@ Tip: use the function `c()` to create the vectors that will be columns `"taxa"` 
   - An R/ folder that contains R code
   - Packages can also contain data. If there’s a data/ subdirectory in the package directory, R will make any data files there available under the package namespace.
 
-- Edit the DESCRIPTION file
+### 2. Customize the DESCRIPTION file
   - Give your package a good `Title` and `Description`
-  - Make sure you have the format for `Authors` and `Maintainer` correct. R is picky about that
-  - Include which version of R your package depends on
-  - If you have any entry that spans multiple lines, make sure to indent it
-  - You may have to add more dependencies but since this is only a data package, R is our only dependency.
+  ```
+  Title: Short description of your package
+  Description: Longer description of your package. You can add references and other citations here.
+  ```
+  - If your `Description` or any other entry spans multiple lines, make sure to indent each line
+  - Make sure you have the format for `Authors` and `Maintainer` correct; R is picky about that. For example:
+  ```
+  Maintainer: Luna L. Sanchez Reyes <sanchez.reyes.luna@gmail.com>
+  Authors@R: person("Luna L.", "Sanchez Reyes", email = "sanchez.reyes.luna@gmail.com", role=c("aut", "cre"))
+  ```
+  - Include which version of R your package depends on, usually the one that we are using now is the best (only exception is if you use functions from another package that requires an older R version):
+  ```
+  Depends:
+    R (>= 4.2.2)
+  ```
+  - You may have to add more dependencies but since this is only a data package, R is our only dependency for now.
+  - License:
+  ```
+  License: GPL (>=2)
+  ```
 
-- Adding data to a package
-  - The function `use_data_raw()` from the package `devtools` creates a folder where we can register the creation of our datasets
+### 3. Adding a README
+- This is a simple markdown file (extension `.md`).
+- We can create a template one with function `use_readme_md()` from package `usethis`
+```
+install.packages("usethis")
+library(usethis)
+use_readme_md(open = FALSE)
+```
+- Customize it!
+
+### 4. Adding data to the package
+  - We are going to be using the package `devtools` a lot here:
+  ```
+  install.packages("devtools")
+  ```
+  - The function `use_data_raw()` from the package `devtools` creates a folder where we can
+    1. Document the creation of our datasets
+    1. Store the raw data in traditional computer redable formats, such as CSV.
+  - Save the file `portal-species-taxonomy.csv` in the `data_raw/` folder. If you do not have it, you can download it from  [here]({{ site.baseurl }}/data/portal-species-taxonomy.csv)
+  - This file contains a taxonomy table of the species from the Portal Data base
   - Create a new R script file called `data-prep.R`
-  - Write down all the code to read the data into R
-  - Save the data in R format using `devtools::use_data(YOUR_DATA_OBJECT_NAME, overwrite = TRUE)`
-  - This function creates `RData` files in the `data/` folder and overwrites any pre-existing files.
+  - Save it in the `data_raw/` folder
+  - Write down code to read `portal-species-taxonomy.csv` into R:
+    - `read.csv()`
+  - SIn teh same script, use the function `use_data()` to save the data in R format:
+  ```
+  use_data(YOUR_DATA_OBJECT_NAME, overwrite = TRUE)
+  ```
+  - This function creates `RData` files in the `data/` folder
+  - This allows to load the data from within R
+  - Note that `use_data()` overwrites any pre-existing files with the same name.
 
-- Documenting the data
-- Adding a vignette
+### 5. Documenting the data
+- Create a new R script file clled `data.R`
+- Save it in the folder `R/`
+- The following lines document the R package and the `taxonomy` data frame
+- They use a special markdown that allows creating the documentation pages
+- As with the `Description` file, the first line is the title of the object, as a short description
+- The second line is a longer description:
+```
+#' Portal Data Set and Analysis
+#'
+#' This package contains data sets from the Portal Project
+#' for easy reuse and reanalysis.
+#'
+#' @docType package
+#' @name portaldata
+#' @aliases portaldata portaldata-package
+NULL
+
+#' Taxonomy of species sampled
+#'
+#' A data set containing the taxonomy of species sampled for the Portal Project Data.
+#' We followed the taxonomy from the Open Tree of Life .
+#'
+#' @source \url{https://lunasare.github.io/spring2023-data-science/data/portal-species-taxonomy.csv}
+#' @format A data frame with X number of columns and Y number of rows
+"taxonomy"
+```
+- To interpret the documentation file we will use a function from the package `roxygen2` (or `devtools`)
+```
+install.packages("roxygen2")
+library(roxygen2)
+roxygenise()
+# Alternatively:
+devtools::document()
+```
+- This will create files of type `.Rd` in the folder `man/`, which can be rendered as documentation when a package is installed and loaded.
+
+
+### 6. Version control and remote repository
+- `git init` locally
+- `git add` and `git commit`
+```
+git init
+git add --all
+git commit -m "initial commit"
+```
+- Create remote repo with same name `portaldata`
+- Conect following instructions from Github
+```
+git remote add origin https://github.com/LunaSare/portaldata.git
+git push origin main
+```
+- `git push` all your work
+- Try installing the package from another RStudio session/project:
+```
+library(devtools)
+install_github("LunaSare/portaldata")
+library(portaldata)
+```
+
+### 7. Creating a website for your R package
+<!-- https://sahirbhatnagar.com/blog/2020/03/03/creating-a-website-for-your-r-package/ -->
+- We will use the package `pkgdown`
+```
+install.packages("pkgdown")
+library(pkgdown)
+```
+- The function `build_site()` does ALL the work for us, it's beautiful
+```
+build_site()
+```
+- `git add`, `git commit`, `git push` all the files that have been generated
+- If `git push` was succesful, go to the Settings of the GitHub page of your repo -> Pages section
+- Select the following:
+![Activating Github Pages on a Repository]({{ site.baseurl}}/public/github-pages.png)
+
+### 8. Adding a vignette
+- Function from package `usethis`:
+```
+use_vignette("package_intro")
+```
+- Customize the `.Rmd` file
+
 <!--
 Creating a website using blogdown
 https://www.shilaan.com/post/building-your-website-using-r-blogdown/

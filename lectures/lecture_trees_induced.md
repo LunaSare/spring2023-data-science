@@ -1,7 +1,7 @@
 ---
 layout: page
 element: lecture
-title: 'Joining trees and tables'
+title: 'Getting phylogenetic trees 2'
 language: R
 ---
 
