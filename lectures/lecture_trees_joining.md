@@ -189,26 +189,26 @@ use_readme_md(open = FALSE)
 - As with the `Description` file, the first line is the title of the object, as a short description
 - The second line is a longer description:
 
-`
-#' Portal Data Set and Analysis
-#'
-#' This package contains data sets from the Portal Project
-#' for easy reuse and reanalysis.
-#'
-#' @docType package
-#' @name portaldata
-#' @aliases portaldata portaldata-package
-NULL
+`````
+    #' Portal Data Set and Analysis
+    #'
+    #' This package contains data sets from the Portal Project
+    #' for easy reuse and reanalysis.
+    #'
+    #' @docType package
+    #' @name portaldata
+    #' @aliases portaldata portaldata-package
+    NULL
 
-#' Taxonomy of species sampled
-#'
-#' A data set containing the taxonomy of species sampled for the Portal Project Data.
-#' We followed the taxonomy from the Open Tree of Life .
-#'
-#' @source \url{https://lunasare.github.io/spring2023-data-science/data/portal-species-taxonomy.csv}
-#' @format A data frame with X number of columns and Y number of rows
-"taxonomy"
-`
+    #' Taxonomy of species sampled
+    #'
+    #' A data set containing the taxonomy of species sampled for the Portal Project Data.
+    #' We followed the taxonomy from the Open Tree of Life .
+    #'
+    #' @source \url{https://lunasare.github.io/spring2023-data-science/data/portal-species-taxonomy.csv}
+    #' @format A data frame with X number of columns and Y number of rows
+    "taxonomy"
+`````
 
 - To interpret the documentation file we will use a function from the package `roxygen2` (or `devtools`)
 ```
@@ -249,15 +249,38 @@ library(portaldata)
 ```
 install.packages("pkgdown")
 library(pkgdown)
+use_pkgdown() # this creates necessary files
 ```
-- The function `build_site()` does ALL the work for us, it's beautiful
+- The function `build_site()` does ALL the work of creating the website for us, it's beautiful
 ```
 build_site()
 ```
 - `git add`, `git commit`, `git push` all the files that have been generated
 - If `git push` was succesful, go to the Settings of the GitHub page of your repo -> Pages section
 - Select the following:
+
 ![Activating Github Pages on a Repository]({{ site.baseurl}}/public/github-pages.png)
+
+### 8. Customize the website
+- We are doing a quick customize, but feel free to try any of the suggestions [on this tutorial](https://pkgdown.r-lib.org/articles/customise.html).
+- Open the file `_pkgdown.yml` you will see the lines
+```
+url: ~
+template:
+  bootstrap: 5
+```
+- Run `buid_site()` again
+- Explore [different themes](https://bootswatch.com/) and choose one that you like.
+- To add a color theme, for example "materia", add the following line to `_pkgdown.yml`:
+```
+url: ~
+template:
+  bootstrap: 5
+  bootswatch: materia
+```
+- Run `buid_site()` every time you change themes to see how it looks like.
+
+
 
 ### 8. Adding a vignette
 - Function from package `usethis`:
