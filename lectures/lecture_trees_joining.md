@@ -199,6 +199,7 @@ use_readme_md(open = FALSE)
 #' @name portaldata
 #' @aliases portaldata portaldata-package
 NULL
+
 #' Taxonomy of species sampled
 #'
 #' A data set containing the taxonomy of species sampled for the Portal Project Data.
@@ -208,17 +209,21 @@ NULL
 #' @format A data frame with X number of columns and Y number of rows
 "taxonomy"
 `````
+- One thing to pay attention in here is the name of the data object. I used "taxonomy", but if you named it something else, you have to _change that accordingly_.
+- To interpret the documentation file, we will use a function from the package `devtools`:
+```
+devtools::document()
+```
+- This will create files of type `.Rd` in the folder `man/`, which can be rendered as documentation when a package is installed and loaded.
 
-- To interpret the documentation file, we will use a function from the package `roxygen2` (or `devtools`)
+<!--
 ```
 install.packages("roxygen2")
 library(roxygen2)
 roxygenise()
 # Alternatively:
-devtools::document()
 ```
-- This will create files of type `.Rd` in the folder `man/`, which can be rendered as documentation when a package is installed and loaded.
-
+-->
 
 ### 6. Version control and remote repository
 - `git init` locally
@@ -286,7 +291,7 @@ template:
 ```
 use_vignette("package_intro")
 ```
-- Customize the `.Rmd` file
+- Customize the `.Rmd` file, and data-science your data!
 
 <!--
 Creating a website using blogdown
