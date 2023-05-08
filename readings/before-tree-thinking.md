@@ -5,7 +5,7 @@ title: 'Tree thinking'
 language: R
 pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
-week: "Apr 27"
+week: ""
 ---
 
 ## Models and phylogenetic correlation

@@ -16,12 +16,11 @@ assignments: ['The Data Life Cycle', # the importance of programming for data sc
 'Getting phylogenetic trees 1',
 'Getting phylogenetic trees 2',
 'Joining trees and tables',
-'Tree thinking',
+'Creating a data package and its website',
+# 'Tree thinking',
 # 'Public Data Stores',
-# 'Getting phylogenetic trees',
 # 'Human contexts and ethics',
 'Projects week']
-# 'Projects week - Optional',
 # 'Data cleaning']
 ---
 

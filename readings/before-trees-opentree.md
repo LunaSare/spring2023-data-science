@@ -1,7 +1,7 @@
 ---
 layout: page
 element: reading
-title: 'Getting phylogenetic trees'
+title: 'Getting phylogenetic trees 1'
 language: R
 pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>

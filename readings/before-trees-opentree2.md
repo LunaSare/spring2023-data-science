@@ -1,11 +1,11 @@
 ---
 layout: page
 element: reading
-title: 'Joining trees and tables'
+title: 'Getting phylogenetic trees 2'
 language: R
 pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
-week: "Apr 27"
+week: "Apr 25"
 ---
 
 Complete the following readings:

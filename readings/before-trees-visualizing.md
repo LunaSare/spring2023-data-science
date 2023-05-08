@@ -5,7 +5,7 @@ title: 'Visualizing trees'
 language: R
 pagetype: 'before class'
 symbol: <i class="fa fa-book fa-lg"></i>
-week: "Apr 13"
+week: "Apr 13, 18"
 ---
 
 ## Reading and plotting phylogenies in base R
